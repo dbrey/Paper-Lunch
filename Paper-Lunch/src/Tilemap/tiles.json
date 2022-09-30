@@ -1,0 +1,22 @@
+{ "columns":22,
+ "editorsettings":
+    {
+     "export":
+        {
+         "format":"",
+         "target":"."
+        }
+    },
+ "image":"..\/textures\/map\/tiles.png",
+ "imageheight":1152,
+ "imagewidth":704,
+ "margin":0,
+ "name":"tiles",
+ "spacing":0,
+ "tilecount":792,
+ "tiledversion":"1.4.3",
+ "tileheight":32,
+ "tilewidth":32,
+ "type":"tileset",
+ "version":1.4
+}

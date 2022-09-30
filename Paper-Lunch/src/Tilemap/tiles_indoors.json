@@ -1,0 +1,22 @@
+{ "columns":14,
+ "editorsettings":
+    {
+     "export":
+        {
+         "format":"",
+         "target":"."
+        }
+    },
+ "image":"..\/textures\/map\/tiles_indoors.png",
+ "imageheight":1952,
+ "imagewidth":448,
+ "margin":0,
+ "name":"tiles_indoors",
+ "spacing":0,
+ "tilecount":854,
+ "tiledversion":"1.4.3",
+ "tileheight":32,
+ "tilewidth":32,
+ "type":"tileset",
+ "version":1.4
+}
