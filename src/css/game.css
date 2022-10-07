@@ -1,3 +1,83 @@
-h1 {
+h1{
   text-align: center;
+  font-family: Arial, Helvetica, sans-serif, Geneva, Tahoma, sans-serif;
 }
+h2{
+  font-size: 24pt;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif, Geneva, Tahoma, sans-serif;
+}
+p{
+  text-align: center;
+
+  font-size: 14pt;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+table{
+  color: rgb(0, 0, 0); 
+  padding: 1rem;
+  font-size: 20pt;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body{
+  background-size: cover;
+  margin: 0px;
+}
+
+header{
+  /*Fijamos la barra*/
+    position:fixed;
+  
+    overflow: hidden;
+    margin:auto;
+    width:100%;
+    /*Anchura*/
+    height:40px; 
+  
+    /*Color de fondo*/
+    background: #bd9101d0; 
+    /*Linea de abajo*/
+    border-bottom: 5px solid #9b7700; 
+    
+  }
+  
+  nav{
+    /*Ajustamos el margen para que este centrado*/
+    margin:0 auto;
+    /*Ancho del menú dentro de la barra*/
+    width:1000px; 
+  }
+
+  nav li{  
+    display: inline-block;
+    margin-left: 80px;
+    padding-top: 7px;
+  
+  }  
+
+/*Para cambiar la letra dentro del header*/
+nav a{
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  /*Eliminamos el subrayado que te pone por defecto*/
+  text-decoration:none;
+  color:#000000;
+  font-size: 150%;                              
+}
+
+/*Para cambiar el color cuando pones el raton encima*/
+  nav a:hover{  
+    color:#5e2e01;
+  }
+
+  nav ul{
+    /*Quitamos el margen para que se puedan ver las letras*/
+    margin:0;
+    padding: 0;
+    list-style: none ;
+  }
+
+/*Para modificar los links
+#links{
+
+}*/
