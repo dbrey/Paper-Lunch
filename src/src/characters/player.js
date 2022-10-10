@@ -4,10 +4,9 @@ export default class Player extends Phaser.GameObjects.Sprite {
   constructor(scene, x, y) {
     super(scene, x, y, 'player');
 
+    // Añadirlo a la escena
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
-
-    this.speed = 300;
 
     //Input para el movimiento
     const { LEFT, RIGHT, UP, DOWN, W, A, S, D } = Phaser.Input.Keyboard.KeyCodes;
@@ -17,8 +16,13 @@ export default class Player extends Phaser.GameObjects.Sprite {
       up: W,
       down: S
     })
-    this.action = scene.input.keyboard.addKey('E');
 
+    // Variables
+    this.speed = 300;
+    this.dinero = 0;
+    this.confianza = 0;
+
+    this.action = scene.input.keyboard.addKey('E');
     this.anteriorMovimiento = {x : 0, y:0};
 
     //ANIMACIONES    
@@ -71,7 +75,10 @@ export default class Player extends Phaser.GameObjects.Sprite {
     });
   }
 
-
+  /*
+    Dependiendo del input que reciba, se movera a la direccion especificada. Si no recibe ningun input, no pasa nada
+    Guardamos el movimiento anterior antes de actualizarlo, para las animaciones
+  */
   calculateVelocity() {
 
     let dirY = 0;
@@ -102,10 +109,9 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
     this.body.setVelocityX(object.x * this.speed);
     this.body.setVelocityY(object.y * this.speed);
-
-
   }
 
+  //Metodos para obligar a parar al jugador
   stopX() {
     this.body.setVelocityX(0);
   }
@@ -114,6 +120,25 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.body.setVelocityY(0);
   }
 
+  // Metodos para conseguir y cambiar el dinero y confianza del jugador
+  getDinero() {
+    return this.dinero;
+  }
+
+  getConfianza() {
+    return this.confianza;
+  }
+
+  changeDinero(amount) {
+    this.dinero += amount;
+  }
+
+  changeConfianza(amount){
+    this.confianza += amount;
+  }
+
+  // Chequeamos la velocidad del juegador y cambiamos su animacion
+  // En caso de que no se mueva, comprobamos su movimiento anterior y mantenemos su animacion (Para que no haya una animacion por defecto)
   checkAnims() {
 
     if (this.body.newVelocity.x === 0) {

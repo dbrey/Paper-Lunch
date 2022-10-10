@@ -27,7 +27,7 @@ export default class Tp extends Phaser.GameObjects.Sprite {
         })
     }
 
-
+    // Hacemos Tp al jugador
     tp(scene) {
         if ('pair' in this) this.pair = this.searchPair(scene)
         this.playerRef.x = this.pair.x
@@ -44,6 +44,7 @@ export default class Tp extends Phaser.GameObjects.Sprite {
         this.pair.canTp = false;
     }
 
+    // Busca el otro enlace del tp
     searchPair(scene) {
         for (const tp of scene.tpList) {
             if (tp.id === this.linkId) return tp;

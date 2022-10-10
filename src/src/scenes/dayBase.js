@@ -31,6 +31,7 @@ export default class Scene extends Phaser.Scene {
             tileWidth: 16,
             tileHeight: 16
         });
+
         //Mapa - Capas Normales 1 - Parte 1
         let tileSet = this.map.addTilesetImage('tiles', 'mapTiles');
         this.mapGround = this.map.createStaticLayer('Ground', tileSet);
@@ -39,17 +40,19 @@ export default class Scene extends Phaser.Scene {
         this.mapFences = this.map.createStaticLayer('Fences', tileSet);
         this.mapFoundations = this.map.createStaticLayer('Foundations', tileSet);
         this.mapDecorations = this.map.createStaticLayer('Decorations', tileSet);
+
         //Mapa - Capas Normales 2 - Parte 1
         let tileSetIndoors = this.map.addTilesetImage('tiles_indoors', 'mapTilesIndoors');
         this.bar1 = this.map.createStaticLayer('bar1', tileSetIndoors);
         this.bar2 = this.map.createStaticLayer('bar2', tileSetIndoors);
         this.bar3 = this.map.createStaticLayer('bar3', tileSetIndoors);
         this.mapCarnivalFoundations = this.map.createStaticLayer('Carnival Foundations', tileSetIndoors);
+
         //Mapa - Capas Normales 3  - Parte 1
         let tileSetCastle = this.map.addTilesetImage('tiles_castle', 'mapTilesCastle');
         this.mapCastleFoundations = this.map.createStaticLayer('Castle Foundations', tileSetCastle);
-        //Mapa - Capa De Objetos
 
+        //Mapa - Capa De Objetos
         let mapObjects = this.map.getObjectLayer(this.objectLayerName).objects;
         this.tpList = [];
         for (const objeto of mapObjects) {
@@ -132,16 +135,12 @@ export default class Scene extends Phaser.Scene {
 
     }
 
+
+    // Metodos para manejar cambios de las escenas
     changeScene(sceneName = this.nextLevel) {
         this.fadeIn()
         this.currentPlaying.stop()
         this.loadScene(sceneName)
-    }
-
-    update() {
-        if (Phaser.Input.Keyboard.JustDown(this.fullScreen)) {
-            this.scale.toggleFullscreen()
-        }
     }
 
     loadScene(sceneName, delay = CT.fadeInTime) {
@@ -178,4 +177,12 @@ export default class Scene extends Phaser.Scene {
             ease: 'Circ',
         })
     }
+
+    update() {
+        if (Phaser.Input.Keyboard.JustDown(this.fullScreen)) {
+            this.scale.toggleFullscreen()
+        }
+    }
+
+    
 }
