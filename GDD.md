@@ -41,7 +41,7 @@ Solo habrá un modo de juego, en el que solo podrá jugar un jugador. Habra los 
 - Menú de pausa / Ver el mapa
 - Menú de opciones
 
-![](https://github.com/dbrey/Paper-Lunch/assets/GDDImages/DiagramaEstados.jpeg)
+![](https://github.com/dbrey/Paper-Lunch/blob/main/assets/GDDImages/DiagramaEstados.jpeg)
 
 1. **Configuración**
 
@@ -53,25 +53,25 @@ sonido. El jugador podrá aumentar o disminuir el volumen de estos desde el men�
 
 **Menú principal**
 
-![](https://github.com/dbrey/Paper-Lunch/assets/GDDImages/MenuPrinc.jpeg)
+![](https://github.com/dbrey/Paper-Lunch/blob/main/assets/GDDImages/MenuPrinc.jpeg)
 
 En este menú, siendo el principal del juego y el primero que ve el jugador, presentamos el nombre del juego, el nombre de nuestra “compañía” y un botón para empezar la partida. El fondo se trata de un gif en el que observamos la ciudad del juego.
 
 **Menú de pausa**
 
-![](https://github.com/dbrey/Paper-Lunch/assets/GDDImages/MenuPausa.jpeg)
+![](https://github.com/dbrey/Paper-Lunch/blob/main/assets/GDDImages/MenuPausa.jpeg)
 
 En el menú de pausa el jugador podrá modificar la intensidad del volumen del juego (o directamente quitarlo) así como ver los controles y un minimapa para que le sea más fácil moverse por la ciudad. También cuenta con dos botones: uno para volver al juego y otro para ir al menú principal.
 
 **Juego principal (cuando esta el jugador en la ciudad)**
 
-![](https://github.com/dbrey/Paper-Lunch/assets/GDDImages/HUD.jpeg)
+![](https://github.com/dbrey/Paper-Lunch/blob/main/assets/GDDImages/HUD.jpeg)
 
 En el HUD del juego habrán 4 estadísticas que el jugador debe conocer en todo momento. Dos de ellas serán barras verticales (que representan la hambruna del jugador y el nivel de fama en contraposición a la confianza de tu periódico) y otras dos serán elementos numéricos (que informarán del dinero y del número de periódicos que posee el jugador en cada momento). Todos ellos contarán con un símbolo que facilite su interpretación por los jugadores. En la parte superior encontramos un reloj/contador que nos informa del tiempo que queda para que se complete el día de juego (este reloj no se modificará mientras el jugador esté en otros menús).
 
 **Juego principal (cuando se esta preparando el periodico)**
 
-![](https://github.com/dbrey/Paper-Lunch/assets/GDDImages/Prep.jpeg)
+![](https://github.com/dbrey/Paper-Lunch/blob/main/assets/GDDImages/Prep.jpeg)
 
 El jugador deberá escoger un titular de entre las cuatro opciones (se selecciona haciendo clic sobre él, y aunque ya tengas seleccionado uno se actualizará la elección si se hace clic sobre otro) viendo cómo afectará cada uno a su reputación en los distintos distritos. A continuación, sabiendo el número de monedas que tiene, introducirá el número de periódicos que desea producir ese día (seleccionando la casilla e introduciendo el número con el teclado).
 
@@ -79,7 +79,7 @@ En la parte inferior se encontrará el botón para seguir con el juego y pasar a
 
 **Menú de opciones**
 
-![](https://github.com/dbrey/Paper-Lunch/assets/GDDImages/Opciones.jpeg)
+![](https://github.com/dbrey/Paper-Lunch/blob/main/assets/GDDImages/Opciones.jpeg)
 
 En este menú el jugador podrá ver los controles del juego y ajustar el volumen del mismo a su gusto (como si decide eliminarlo por completo). Será accesible desde el menú principal y desde el menú de pausa (como se observa en el diagrama de flujo de la página 2). El botón volver devolverá al jugador al menú en el que estaba anteriormente siendo cualquiera de los dos ya nombrados.
 
@@ -205,11 +205,11 @@ Las paradas de metro permiten transportarse rápidamente entre distritos compran
 
 En los lugares para comer se puede reponer el medidor de hambre a cambio de un precio. (Si da tiempo a desarrollar la funcionalidad el jugador obtendrá una bonificación distinta dependiendo del distrito en el que coma)![](https://github.com/dbrey/Paper-Lunch/assets/GDDImages/Mapa.jpeg)
 
-**División por distritos:![](https://github.com/dbrey/Paper-Lunch/assets/GDDImages/DivisionDistritos.jpeg)**
+**División por distritos:![](https://github.com/dbrey/Paper-Lunch/blob/main/assets/GDDImages/DivisionDistritos.jpeg)**
 
 **Escala:**
 
-![](https://github.com/dbrey/Paper-Lunch/assets/GDDImages/Escala.png)
+![](https://github.com/dbrey/Paper-Lunch/blob/main/assets/GDDImages/Escala.png)
 
 3. **Personajes**
 - *Amelia*: Personaje principal del juego que el jugador controla. Es la nieta de Leoncia,
