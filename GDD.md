@@ -205,9 +205,9 @@ Las paradas de metro permiten transportarse rápidamente entre distritos compran
 
 En los lugares para comer se puede reponer el medidor de hambre a cambio de un precio. (Si da tiempo a desarrollar la funcionalidad el jugador obtendrá una bonificación distinta dependiendo del distrito en el que coma)![](https://github.com/dbrey/Paper-Lunch/assets/GDDImages/Mapa.jpeg)
 
-**División por distritos:  
+**División por distritos:**  
 
-![](https://github.com/dbrey/Paper-Lunch/blob/main/assets/GDDImages/DivisionDistritos.jpeg)**
+![](https://github.com/dbrey/Paper-Lunch/blob/main/assets/GDDImages/DivisionDistritos.jpeg)
 
 **Escala:**
 
