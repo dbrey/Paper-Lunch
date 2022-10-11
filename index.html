@@ -1,1 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
 
+    <head>
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" href="./assets/map/tiles.png" type="image/jpg" />
+        <meta name="viewport" content="width=device-width, initial-scale=2.0">
+        <link rel="stylesheet" href="./src/css/game.css">
+        <script src="./src/lib/phaser.min.js"></script>
+        <script src="src/src/libraries/extensionMethods.js"></script>
+    
+        <title> Mango Games</title>
+    </head>
+
+<body>
+
+
+    <section id="Equipo">
+        <br>
+        <br>
+
+        <hr />
+
+
+        <center>
+            <table width="80%">
+                <tr>
+                    <td>
+                        <div align="center">
+                            <h1>Sobre nosotros</h1>
+                        </div>
+                        <div align="center">
+                            Somos los mejores
+                        </div>
+
+                    </td>
+
+                </tr>
+            </table>
+        </center>
+    </section>
+
+    <section id="Play">
+        <br>
+        <br>
+
+        <br>
+
+        <br>
+
+        <script type="module">
+            import Boot from './src/src/scenes/boot.js'
+            import Day0 from './src/src/scenes/day0.js'
+            import CT from './src/src/libraries/constants.js'
+
+            var config = {
+                type: Phaser.AUTO,
+
+                width: CT.gameWidth,
+                height: CT.gameHeight,
+                scale: {
+                    mode: Phaser.Scale.FIT,
+                    autoCenter: Phaser.Scale.CENTER_HORIZONTALLY
+                },
+                pixelArt: true,
+                scene: [Boot, Day0],
+                physics: { default: 'arcade', arcade: { debug: true } }
+            };
+
+            new Phaser.Game(config);
+
+        </script>
+    </section>
+
+</body>
+
+</html>
