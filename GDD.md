@@ -19,7 +19,7 @@ Eres una vendedora de periódicos ambulante con un gran sueño: ¡Tener tu propi
 
 |**Logotipo y portada del juego**|
 | - |
-||
+|![](https://github.com/dbrey/Paper-Lunch/blob/main/assets/GDDImages/logotipo.jfif)|
 **Tabla de contenidos**
 
 1. **Aspectos generales**
