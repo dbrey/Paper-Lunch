@@ -75,6 +75,10 @@ export default class Player extends Phaser.GameObjects.Sprite {
     });
   }
 
+  getInteract() {
+    return this.action.DOWN;
+  }
+
   /*
     Dependiendo del input que reciba, se movera a la direccion especificada. Si no recibe ningun input, no pasa nada
     Guardamos el movimiento anterior antes de actualizarlo, para las animaciones
