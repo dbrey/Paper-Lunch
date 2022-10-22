@@ -1,4 +1,3 @@
-import { normalizeVector } from "../libraries/mathFunc.js";
 
 export default class Player extends Phaser.GameObjects.Sprite {
   constructor(scene, x, y) {
@@ -104,8 +103,6 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
     if(object.x!=0 || object.y!=0)
       this.anteriorMovimiento = object;
-
-    normalizeVector(object);
 
     this.body.setVelocityX(object.x * this.speed);
     this.body.setVelocityY(object.y * this.speed);
