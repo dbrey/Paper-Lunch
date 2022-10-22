@@ -123,6 +123,14 @@ export default class Boot extends Phaser.Scene {
     this.load.spritesheet('npc9', 'assets/sprites/NPCs/npc9.png', { frameWidth: 32, frameHeight: 32 });
     this.load.image('crowd', 'assets/sprites/NPCs/crowd.png');
 
+    // UI
+    this.load.image('playButton', 'assets/sprites/UI/play_button.png');
+    this.load.image('optionsButton', 'assets/sprites/UI/options_button.png');
+    this.load.image('goBackButton', 'assets/sprites/UI/go_back_button.png');
+    
+    this.load.image('playButtonMouseOn', 'assets/sprites/UI/play_button_mouse_on.png');
+    this.load.image('optionsButtonMouseOn', 'assets/sprites/UI/options_button_mouse_on.png');
+    this.load.image('goBackButtonMouseOn', 'assets/sprites/UI/go_back_button_mouse_on.png');
 
     //Mapa
     this.load.tilemapTiledJSON('tileMap', 'assets/tilemap/map.json');
@@ -133,8 +141,10 @@ export default class Boot extends Phaser.Scene {
     //Fuente
     this.load.bitmapFont('font', 'assets/fonts/mainFont.png', 'assets/fonts/mainFont.fnt');
 
-
+    // Logo
+    this.load.image('logo', 'assets/sprites/MangoGamesLogo.png');
+    
   }
 
-  create() { this.scene.start('day0'); }
+  create() { this.scene.start('menu'); }
 }
