@@ -1,0 +1,39 @@
+{
+    "activeFile": "map.json",
+    "expandedProjectPaths": [
+        "."
+    ],
+    "file.lastUsedOpenFilter": "Todos los archivos (*)",
+    "fileStates": {
+        "map.json": {
+            "scale": 0.06884765625,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 5236.198581560284,
+                "y": 5061.900709219858
+            }
+        },
+        "map.json#tiles": {
+            "scaleInDock": 1
+        },
+        "map.json#tiles_castle": {
+            "scaleInDock": 1
+        },
+        "map.json#tiles_indoors": {
+            "scaleInDock": 1
+        },
+        "tiles_castle.json": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        }
+    },
+    "openFiles": [
+        "tiles_castle.json",
+        "map.json"
+    ],
+    "project": "mapa.tiled-project",
+    "recentFiles": [
+        "tiles_castle.json",
+        "map.json"
+    ]
+}
