@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Añadimos los scripts-->
-    <script src="./src/lib/phaser.min.js"></script>
-    <script src="src/src/libraries/extensionMethods.js"></script>
+    <script type="module" src="index.js"></script>
+    <script src="src/lib/phaser.js"></script>
     <!--Enlace al css correspondiente-->
     <link rel="stylesheet" href="src/css/estilos.css">
     <!--Titulo de la pagina-->
@@ -41,7 +41,9 @@
         <header>
         <h1 class="game-name">Paper Lunch!</h1>
         </header>
-        <!--Este es el canvas del juego-->
+
+        <canvas id="game" ></canvas>
+        <!--Este es el canvas del juego
             <section id="play">
                 <canvas id="canvas">
                     <script type="module">
@@ -67,7 +69,7 @@
 
                     </script>
                 </canvas>
-            </section>
+            </section>-->
     </div>
     <!--Parrafo de los controles-->
     <div>
