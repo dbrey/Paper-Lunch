@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
 }
-
+/*Añadimos nuestra fuente personalizada*/
 @font-face {
     font-family: 'myFont';
     src: url(/assets/fonts/Inkbit.ttf);
@@ -25,6 +25,8 @@ body{
 /*Dimensiones del logo*/
 .img-logo{
     width: 200px;
+    margin-top: 20px;
+    margin-right: 20px;
 }
 /*Ajustamos los elementos de la lista al lado del logo, y no debajo*/
 .nav-main{
@@ -78,6 +80,7 @@ body{
     font-size: 40px;
     padding: 20px 0;
 }
+
 /*Edicion texto descripción*/
 .text{
     width: 90%;
