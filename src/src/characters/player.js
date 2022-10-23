@@ -1,4 +1,3 @@
-import { normalizeVector } from "../libraries/mathFunc.js";
 
 export default class Player extends Phaser.GameObjects.Sprite {
   constructor(scene, x, y) {
@@ -21,8 +20,6 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.speed = 300;
     this.dinero = 0;
     this.confianza = 0;
-
-    this.action = scene.input.keyboard.addKey('E');
     this.anteriorMovimiento = {x : 0, y:0};
 
     //ANIMACIONES    
@@ -109,7 +106,6 @@ export default class Player extends Phaser.GameObjects.Sprite {
     if(object.x!=0 || object.y!=0)
       this.anteriorMovimiento = object;
 
-    normalizeVector(object);
 
     this.body.setVelocityX(object.x * this.speed);
     this.body.setVelocityY(object.y * this.speed);

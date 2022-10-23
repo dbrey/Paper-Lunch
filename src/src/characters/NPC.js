@@ -1,8 +1,6 @@
-//Sprite de los NPCs
-import Trigger from '../libraries/trigger.js'
 
 export default class NPCImage extends Phaser.GameObjects.Sprite {
-  constructor(scene, x, y, imageName,xSize,ySize) {
+  constructor(scene, x, y, imageName) {
     super(scene, x, y, imageName);
 
     //Fisicas
@@ -10,18 +8,7 @@ export default class NPCImage extends Phaser.GameObjects.Sprite {
     this.scene.physics.add.existing(this);
     this.scene.physics.add.collider(this,scene.player);
     this.body.setImmovable();
-    
-
-    this.trigger = new Trigger({
-      x: x,
-      y: y,
-      scene: scene,
-      xSize: (typeof xSize !== 'undefined') ? xSize : 100,
-      ySize: (typeof ySize !== 'undefined') ? ySize : 100,
-      enter: () => {if(scene.player.getInteract()) console.log("Sarandonga pichibiri pichibiri")/*scene.player.changeDinero(1)*/}, // Acceder a input 'E' del jugador
-      stay: () => { },
-      exit: () => { },
-  })
+  
 
     //ANIMACIONES    
     scene.anims.create({
