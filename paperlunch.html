@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paper Lunch!</title>
+    <!--Añadimos los scripts-->
+    <script src="./src/lib/phaser.min.js"></script>
+    <script src="src/src/libraries/extensionMethods.js"></script>
     <!--Enlace al css correspondiente-->
     <link rel="stylesheet" href="src/css/estilos.css">
-    <!--Fuente-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&display=swap" rel="stylesheet">
+    <!--Titulo de la pagina-->
+    <title>Paper Lunch!</title>
 </head>
 <body>
     
@@ -30,17 +30,45 @@
                     
             </nav>
     </div>
+
+    <hr style="height:5px;border-width:0;color:black;background-color:black">
+
     <!--Parrafo principal: titulo y canvas de juego-->
     <div>
         <header>
-        <h1  class="game-name">Paper Lunch! by Mango Games</h1>
-        <p class="text">*Aqui iria el juego*</p>
+        <h1  class="game-name">Paper Lunch!</h1>
+        <!--Este es el canvas del juego-->
+        <section id="play">
+            <script type="module">
+                import Boot from './src/src/scenes/boot.js'
+                import Day0 from './src/src/scenes/day0.js'
+                import CT from './src/src/libraries/constants.js'
+
+                var config = {
+                    type: Phaser.AUTO,
+
+                    width: CT.gameWidth,
+                    height: CT.gameHeight,
+                    scale: {
+                        mode: Phaser.Scale.FIT,
+                        autoCenter: Phaser.Scale.CENTER_HORIZONTALLY
+                    },
+                    pixelArt: true,
+                    scene: [Boot, Day0],
+                    physics: { default: 'arcade', arcade: { debug: true } }
+                };
+
+                new Phaser.Game(config);
+
+            </script>
+        </section>
+
         </header>
     </div>
     <!--Parrafo de los controles-->
     <div>
         <h3 class="header">Instrucciones y controles</h3>
-        <p class="text">*Aqui iria una imagen de los controles*</p>
+        <p class="text">*Aqui iría una imagen de los controles*</p>
     </div>
     <!--Parrafo de información sobre el juego-->
     <div>
@@ -59,7 +87,7 @@
                 <a>JAVIER MURILLO GONZÁLEZ</a>
             </li>
             <li>
-                <a>RAFAEL ARGANDOÑA BLACIDO</a>
+                <a>RAFAEL ARGANDOÑA BLÁCIDO</a>
             </li>
             <li>
                 <a>DIEGO LÓPEZ BALBOA</a>
