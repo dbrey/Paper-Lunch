@@ -30,7 +30,7 @@ export default class mainMenu extends Phaser.Scene
     
         // Al hacer click en el boton
         this.playbutton.on("pointerdown", () => {
-          this.scene.start('day0');
+          this.scene.start('Dia0');
         });
 
         // BOTON OPCIONES

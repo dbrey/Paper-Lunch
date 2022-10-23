@@ -1,5 +1,5 @@
 
-export default class NPCImage extends Phaser.GameObjects.Sprite {
+export default class NPC extends Phaser.GameObjects.Sprite {
   constructor(scene, x, y, imageName) {
     super(scene, x, y, imageName);
 

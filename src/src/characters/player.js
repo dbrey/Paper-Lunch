@@ -7,6 +7,8 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
 
+    this.scale = (0.45,0.45);
+
     //Input para el movimiento
     const { LEFT, RIGHT, UP, DOWN, W, A, S, D } = Phaser.Input.Keyboard.KeyCodes;
     this.cursors = scene.input.keyboard.addKeys({
@@ -17,7 +19,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
     })
 
     // Variables
-    this.speed = 300;
+    this.speed = 125;
     this.dinero = 0;
     this.confianza = 0;
     this.anteriorMovimiento = {x : 0, y:0};
