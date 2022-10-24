@@ -1,3 +1,4 @@
+import NPC from '../characters/NPC.js';
 import Player from '../characters/player.js';
 import CT from '../libraries/constants.js';
 
@@ -24,8 +25,28 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.mapGround = this.map.createStaticLayer('Ground', tileSet);
         this.mapBajos = this.map.createStaticLayer('BajosE', tileSet);
         this.player = new Player(this, 100, 100);
-        this.mapTechos = this.map.createStaticLayer('Techos', tileSet);
                 
+        let mapObjects = this.map.getObjectLayer(this.objectLayerName).objects;
+
+        for (const objeto of mapObjects) {
+            const props = {};
+            if (objeto.properties) { for (const { name, value } of objeto.properties) { props[name] = value; } }
+            //Con esto ponemos bien el punto de origen
+            objeto.x += objeto.width / 2;
+            objeto.y += objeto.height / 2;
+
+            switch (objeto.name) {
+                case 'PLAYER': //Personaje
+                this.player = new Player(this, objeto.x, objeto.y);
+                    break;
+                case 'NPC': //NPC
+                this[props.nombre] = new NPC(this,objeto.x,objeto.y,props.nombre)
+                    break;
+            }
+        }
+
+
+        this.mapTechos = this.map.createStaticLayer('Techos', tileSet);
         this.mapCollisions = this.map.createStaticLayer('Collisions', tileSet);
         this.mapCollisions.setCollisionBetween(10000, 10053);
         this.physics.add.collider(this.player, this.mapCollisions);

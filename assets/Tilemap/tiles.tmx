@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="200" height="200" tilewidth="16" tileheight="16" infinite="0" nextlayerid="13" nextobjectid="1">
+<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="200" height="200" tilewidth="16" tileheight="16" infinite="0" nextlayerid="15" nextobjectid="7">
  <tileset firstgid="1" name="Modern_Exteriors_Complete_Tileset" tilewidth="16" tileheight="16" tilecount="29744" columns="176">
   <image source="../sprites/tileset/Modern_Exteriors_16x16/Modern_Exteriors_Complete_Tileset.png" width="2816" height="2704"/>
  </tileset>
@@ -1023,4 +1023,18 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
+ <objectgroup id="13" name="PrimerDia">
+  <object id="4" name="NPC" x="3011" y="1823">
+   <properties>
+    <property name="npcDefault" value="npc"/>
+    <property name="type" value="NPC"/>
+   </properties>
+  </object>
+  <object id="5" name="PLAYER" x="1358" y="2226">
+   <properties>
+    <property name="type" value="PLAYER"/>
+   </properties>
+   <point/>
+  </object>
+ </objectgroup>
 </map>

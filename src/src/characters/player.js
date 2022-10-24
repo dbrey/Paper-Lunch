@@ -1,22 +1,25 @@
 
 export default class Player extends Phaser.GameObjects.Sprite {
   constructor(scene, x, y) {
-    super(scene, x, y, 'player');
+    super(scene, x, y);
 
     // Añadirlo a la escena
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
 
-    this.scale = (0.45,0.45);
+    this.scale = (0.5,0.5);
 
     //Input para el movimiento
-    const { LEFT, RIGHT, UP, DOWN, W, A, S, D } = Phaser.Input.Keyboard.KeyCodes;
+    const { LEFT, RIGHT, UP, DOWN, W, A, S, D ,SHIFT} = Phaser.Input.Keyboard.KeyCodes;
     this.cursors = scene.input.keyboard.addKeys({
       left: A,
       right: D,
       up: W,
-      down: S
+      down: S,
+      shift : SHIFT
     })
+
+    this.action = scene.input.keyboard.addKey('E');
 
     // Variables
     this.speed = 125;
@@ -27,49 +30,49 @@ export default class Player extends Phaser.GameObjects.Sprite {
     //ANIMACIONES    
     scene.anims.create({
       key: 'left',
-      frames: scene.anims.generateFrameNumbers('player', { start: 3, end: 5 }),
+      frames: scene.anims.generateFrameNumbers('Player', { start: 3, end: 5 }),
       frameRate: 7,
       repeat: -1
     });
     scene.anims.create({
       key: 'idleLeft',
-      frames: scene.anims.generateFrameNumbers('player', { start: 3, end: 3 }),
+      frames: scene.anims.generateFrameNumbers('Player', { start: 3, end: 3 }),
       repeat: 0
     });
 
     scene.anims.create({
       key: 'up',
-      frames: scene.anims.generateFrameNumbers('player', { start: 9, end: 11 }),
+      frames: scene.anims.generateFrameNumbers('Player', { start: 9, end: 11 }),
       frameRate: 7,
       repeat: -1
     });
     scene.anims.create({
       key: 'idleUp',
-      frames: scene.anims.generateFrameNumbers('player', { start: 10, end: 10 }),
+      frames: scene.anims.generateFrameNumbers('Player', { start: 10, end: 10 }),
       repeat: 0
     });
     scene.anims.create({
       key: 'idle',
-      frames: scene.anims.generateFrameNumbers('player', { start: 1, end: 1 }),
+      frames: scene.anims.generateFrameNumbers('Player', { start: 1, end: 1 }),
       frameRate: 7,
       repeat: -1
     });
 
     scene.anims.create({
       key: 'down',
-      frames: scene.anims.generateFrameNumbers('player', { start: 0, end: 2 }),
+      frames: scene.anims.generateFrameNumbers('Player', { start: 0, end: 2 }),
       frameRate: 7,
       repeat: -1
     });
     scene.anims.create({
       key: 'right',
-      frames: scene.anims.generateFrameNumbers('player', { start: 6, end: 8 }),
+      frames: scene.anims.generateFrameNumbers('Player', { start: 6, end: 8 }),
       frameRate: 7,
       repeat: -1
     });
     scene.anims.create({
       key: 'idleRight',
-      frames: scene.anims.generateFrameNumbers('player', { start: 6, end: 6 }),
+      frames: scene.anims.generateFrameNumbers('Player', { start: 6, end: 6 }),
       repeat: 0
     });
   }
@@ -87,30 +90,39 @@ export default class Player extends Phaser.GameObjects.Sprite {
     let dirY = 0;
     let dirX = 0;
     //Arriba
-    if (this.cursors.up.isDown) {
+    if (this.cursors.up.isDown) 
       dirY = -1;
-    }
     //Abajo
-    if (this.cursors.down.isDown) {
+    if (this.cursors.down.isDown)
       dirY = 1;
-    }
     //Izquierda
-    if (this.cursors.left.isDown) {
+    if (this.cursors.left.isDown)
       dirX = -1;
-    }
     //Derecha
-    if (this.cursors.right.isDown) {
+    if (this.cursors.right.isDown)
       dirX = 1;
-    }
+
+
+    this.auxSpeed = this.speed;  
+    if(this.cursors.shift.isDown)
+      this.auxSpeed*=1.75;
 
     let object = { x: dirX, y: dirY }
+
+
+    //Normalizamos el vector por si nos vamos a mover en diagonal
+    if (!(object.x === 0 && object.y === 0)){
+      let x = Math.sqrt(object.x * object.x + object.y * object.y);
+  
+      object.x /= x;
+      object.y /= x;
+    }
 
     if(object.x!=0 || object.y!=0)
       this.anteriorMovimiento = object;
 
-
-    this.body.setVelocityX(object.x * this.speed);
-    this.body.setVelocityY(object.y * this.speed);
+    this.body.setVelocityX(object.x * this.auxSpeed);
+    this.body.setVelocityY(object.y * this.auxSpeed);
   }
 
   //Metodos para obligar a parar al jugador

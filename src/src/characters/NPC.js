@@ -1,7 +1,7 @@
 
 export default class NPC extends Phaser.GameObjects.Sprite {
-  constructor(scene, x, y, imageName) {
-    super(scene, x, y, imageName);
+  constructor(scene, x, y, npcName) {
+    super(scene, x, y, npcName);
 
     //Fisicas
     this.scene.add.existing(this);
@@ -10,53 +10,55 @@ export default class NPC extends Phaser.GameObjects.Sprite {
     this.body.setImmovable();
   
 
+    this.scale = (0.3,0.3);
+
     //ANIMACIONES    
     scene.anims.create({
-      key: 'leftNPC_' + imageName,
-      frames: scene.anims.generateFrameNumbers(imageName, { start: 3, end: 5 }),
+      key: 'leftNPC_' + npcName,
+      frames: scene.anims.generateFrameNumbers(npcName, { start: 3, end: 5 }),
       frameRate: 7,
       repeat: -1
     });
     scene.anims.create({
-      key: 'idleLeft_' + imageName,
-      frames: scene.anims.generateFrameNumbers(imageName, { start: 3, end: 3 }),
+      key: 'idleLeft_' + npcName,
+      frames: scene.anims.generateFrameNumbers(npcName, { start: 3, end: 3 }),
       repeat: 0
     });
 
     scene.anims.create({
-      key: 'upNPC_' + imageName,
-      frames: scene.anims.generateFrameNumbers(imageName, { start: 9, end: 11 }),
+      key: 'upNPC_' + npcName,
+      frames: scene.anims.generateFrameNumbers(npcName, { start: 9, end: 11 }),
       frameRate: 7,
       repeat: -1
     });
     scene.anims.create({
-      key: 'idleUp_'+imageName,
-      frames: scene.anims.generateFrameNumbers(imageName, { start: 10, end: 10 }),
+      key: 'idleUp_'+npcName,
+      frames: scene.anims.generateFrameNumbers(npcName, { start: 10, end: 10 }),
       repeat: 0
     });
 
     scene.anims.create({
-      key: 'idleNPC_' + imageName,
-      frames: scene.anims.generateFrameNumbers(imageName, { start: 1, end: 1 }),
+      key: 'idleNPC_' + npcName,
+      frames: scene.anims.generateFrameNumbers(npcName, { start: 1, end: 1 }),
       frameRate: 7,
       repeat: -1
     });
 
     scene.anims.create({
-      key: 'downNPC_' + imageName,
-      frames: scene.anims.generateFrameNumbers(imageName, { start: 0, end: 2 }),
+      key: 'downNPC_' + npcName,
+      frames: scene.anims.generateFrameNumbers(npcName, { start: 0, end: 2 }),
       frameRate: 7,
       repeat: -1
     });
     scene.anims.create({
-      key: 'rightNPC_' + imageName,
-      frames: scene.anims.generateFrameNumbers(imageName, { start: 6, end: 8 }),
+      key: 'rightNPC_' + npcName,
+      frames: scene.anims.generateFrameNumbers(npcName, { start: 6, end: 8 }),
       frameRate: 7,
       repeat: -1
     });
     scene.anims.create({
-      key: 'idleRight_'+imageName,
-      frames: scene.anims.generateFrameNumbers(imageName, { start: 6, end: 6 }),
+      key: 'idleRight_'+npcName,
+      frames: scene.anims.generateFrameNumbers(npcName, { start: 6, end: 6 }),
       repeat: 0
     });
   }
