@@ -74,6 +74,22 @@ body{
     padding: 60px 0;
 }
 
+/*Controles*/
+.controles-img{
+    display: flex;
+    text-align: center;
+    width: 300px;
+    margin: 0 80px;
+}
+
+.controles{
+    width: 95%;
+    margin: auto;
+    list-style: none;
+    text-decoration: none;
+    text-align: center;
+}
+
 /*Estilos del apartado descripción*/
 .header{
     text-align: center;
