@@ -16,6 +16,18 @@ body{
     font-family: 'myFont';
 }
 
+div.a {
+    position: absolute;
+    
+text-align: left;
+}
+
+div.b{
+    position:relative;
+    text-align:right ;
+    margin-top: -69px;
+}
+
 
 /*Ajustamos el ancho que ocupara la nevagacion y los damos margenes*/
 .container{
