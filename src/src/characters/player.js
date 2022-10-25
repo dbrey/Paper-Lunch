@@ -25,6 +25,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.speed = 125;
     this.dinero = 0;
     this.confianza = 0;
+    this.periodicos = 10;
     this.anteriorMovimiento = {x : 0, y:0};
 
     //ANIMACIONES    
@@ -52,7 +53,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
       repeat: 0
     });
     scene.anims.create({
-      key: 'idle',
+      key: 'idleDown',
       frames: scene.anims.generateFrameNumbers('Player', { start: 1, end: 1 }),
       frameRate: 7,
       repeat: -1
@@ -137,6 +138,16 @@ export default class Player extends Phaser.GameObjects.Sprite {
   // Metodos para conseguir y cambiar el dinero y confianza del jugador
   getDinero() {
     return this.dinero;
+  }
+
+
+  compraPeriodicos(nPeriodicos){
+    this.periodicos-=nPeriodicos;
+    console.log("Te queda " + this.periodicos + " periodicos");
+  }
+
+  numeroPeriodicos(){
+    return this.periodicos;
   }
 
   getConfianza() {

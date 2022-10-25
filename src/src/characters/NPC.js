@@ -15,10 +15,25 @@ export default class NPC extends Phaser.GameObjects.Sprite {
     this.zonaTrigger.body.setAllowGravity(false);
 
 
+    this.barrio; //BARRIO AL QUE PERTENECE
+    this.confianzaConPlayer=0.77; // VALOR ENTRE 0 Y 1
+
+
+    this.actionCoolDown = 150; //MILISEGUNDOS
+    this.actualCoolDown = 0;
+    this.canAct=true;
+
+    this.bought = false;
+
     this.scene.physics.add.existing(this);
     this.scene.physics.add.collider(this,scene.player);
     this.body.setImmovable();
 
+
+
+    this.probability = Math.random() * 1
+    //Booleano para controlar las veces que el player puede vender periodicos a un NPC
+    this.canBuy = true;
 
     this.enterZone = false;
 
@@ -81,27 +96,64 @@ export default class NPC extends Phaser.GameObjects.Sprite {
     //Llamamos al super para las animaciones
     super.preUpdate(t, d);
 
-    if(Phaser.Geom.Intersects.RectangleToRectangle(this.zonaTrigger.getBounds(),this.player.getBounds())){
-      if(!this.enterZone){
-        //AQUI PODEMOS HACER LO QUE QUERAMOS QUE OCURRA CUANDO EL PERSONAJE ENTRA EN LA ZONA
-        console.log("Acabo de entrar a la zona")
-        this.enterZone = true; // Utilizamos un booleano para diferenciar entre cuando acaba de entrar a la zona
-                               // y cuando ya estaba en ella
-      }
-      else {
-        //AQUI PODEMOS HACER LO QUE QUERAMOS QUE OCURRA MIENTRAS EL PERSONAJE SE MANTIENE EN LA ZONA
-        console.log("Estoy en la zona");
+    if(this.canBuy){ //SI TODAVÍA NO HAS INTENTADO VENDERLE PERIÓDICOS A ESTE NPC, PUEDES INTERACTUAR CON ÉL
 
-        //Si el personaje está en la zona y pulsa la tecla de accion, podemos hacer lo que queramos
-        if(this.player.action.isDown){
-            console.log("Actua");
+
+      //SI LA PROBABILIDAD DE QUE COMPRE ES MAYOR QUE LA CONFIANZA QUE TIENES, LE COMPRAS EL PERIÓDICO
+      if(Phaser.Geom.Intersects.RectangleToRectangle(this.zonaTrigger.getBounds(),this.player.getBounds())){
+        if(!this.enterZone){
+          //AQUI PODEMOS HACER LO QUE QUERAMOS QUE OCURRA CUANDO EL PERSONAJE ENTRA EN LA ZONA
+          console.log("Acabo de entrar a la zona")
+          this.enterZone = true; // Utilizamos un booleano para diferenciar entre cuando acaba de entrar a la zona
+                                  // y cuando ya estaba en ella
+        }
+        else {
+          //AQUI PODEMOS HACER LO QUE QUERAMOS QUE OCURRA MIENTRAS EL PERSONAJE SE MANTIENE EN LA ZONA
+          console.log("Estoy en la zona");
+  
+          //Si el personaje está en la zona y pulsa la tecla de accion, podemos hacer lo que queramos
+          if(this.player.action.isDown){
+              if(this.probability > this.confianzaConPlayer){
+                //TO DO : SE COMPRA EL PERIÓDICO
+                if(this.player.numeroPeriodicos()>0){
+                  console.log("Perfecto, te compro el periódico");
+                  this.player.compraPeriodicos(1); //SE PODRÍA HACER UN RANDOM DEL NUMERO DE PERIODICOS A COMPRAR, AUNQUE LO NORMAL ES UNO
+                  this.bought=true;
+                }
+
+              }
+              else console.log("Lo siento, no me interesa");
+              this.canBuy=false;
+              this.actualCoolDown = t;
+              this.canAct=false;
+
+          }
         }
       }
+      else if(this.enterZone){ // SI EL PLAYER NO SE ENCUENTRA EN LA ZONA, PERO ESTABA DENTRO EN EL FRAME ANTERIOR, SIGNIFICA QUE ACABA DE SALIR
+          //AQUÍ PODEMOS HACER LO QUE QUERAMOS QUE OCRURRA CUANDO EL PERSONAJE SALE DE LA ZONA
+          console.log("Acaba de salir de la zona");
+          this.enterZone=false;
+      }
+    
     }
-    else if(this.enterZone){ // SI EL PLAYER NO SE ENCUENTRA EN LA ZONA, PERO ESTABA DENTRO EN EL FRAME ANTERIOR, SIGNIFICA QUE ACABA DE SALIR
-        //AQUÍ PODEMOS HACER LO QUE QUERAMOS QUE OCRURRA CUANDO EL PERSONAJE SALE DE LA ZONA
-        console.log("Acaba de salir de la zona");
-        this.enterZone=false;
+    else if (Phaser.Geom.Intersects.RectangleToRectangle(this.zonaTrigger.getBounds(),this.player.getBounds()) && this.player.action.isDown && this.canAct){
+      //AQUÍ PODRÍAMOS HACER QUE TE DIGA UNA FRASE QUE PODEMOS COLOCAR POR TILED
+      if(this.bought)
+        console.log("No necesito más periódicos gracias");
+      else console.log("Te he dicho que no me interesea");
+
+      this.actualCoolDown = t;
+      this.canAct=false;
     }
+
+
+    //COMPROBAMOS SI PODEMOS INTERACTUAR
+    if(!this.canAct){
+
+      if(t-this.actualCoolDown > this.actionCoolDown)
+       this.canAct=true;
+    }
+
   }
 }
