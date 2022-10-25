@@ -24,9 +24,10 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         let tileSet = this.map.addTilesetImage('Modern_Exteriors_Complete_Tileset', 'mapTiles');
         this.mapGround = this.map.createStaticLayer('Ground', tileSet);
         this.mapBajos = this.map.createStaticLayer('BajosE', tileSet);
-        this.player = new Player(this, 100, 100);
+        this.player = new Player(this, 900, 1500);
                 
         let mapObjects = this.map.getObjectLayer(this.objectLayerName).objects;
+
 
         for (const objeto of mapObjects) {
             const props = {};
@@ -36,11 +37,8 @@ export default class DIA_DEFAULT extends Phaser.Scene {
             objeto.y += objeto.height / 2;
 
             switch (objeto.name) {
-                case 'PLAYER': //Personaje
-                this.player = new Player(this, objeto.x, objeto.y);
-                    break;
                 case 'NPC': //NPC
-                this[props.nombre] = new NPC(this,objeto.x,objeto.y,props.nombre)
+                this[props.nombre] = new NPC(this,objeto.x,objeto.y,props.nombre,this.player,35,35)
                     break;
             }
         }
