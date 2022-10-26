@@ -6,6 +6,17 @@ export default class mainMenu extends Phaser.Scene
 
     create()
     {
+        this.anims.create ({
+            key: 'menu',
+            frames: this.anims.generateFrameNumbers('mainmenu', { start: 0, end: 47}),
+            frameRate: 25,
+            repeat: -1
+          }); 
+        
+        this.fondo = this.add.sprite(525, 300, 'mainmenu');
+        this.fondo.anims.play('menu');
+        this.fondo.setScale(3.25);
+
         this.logo = this.add.image(650,200, 'logo');
         this.logo.setScale(0.2);
 

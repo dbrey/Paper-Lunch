@@ -29,6 +29,9 @@ export default class Boot extends Phaser.Scene {
     //Fuente
     this.load.bitmapFont('font', 'assets/fonts/mainFont.png', 'assets/fonts/mainFont.fnt');
 
+    // Fondos
+    this.load.spritesheet('mainmenu', 'assets/sprites/background.png', { frameWidth: 480, frameHeight: 254 });
+
     // Logo
     this.load.image('logo', 'assets/sprites/MangoGamesLogo.png');
     
