@@ -1,6 +1,7 @@
 import NPC from '../characters/NPC.js';
 import Player from '../characters/player.js';
 import CT from '../libraries/constants.js';
+import UI from '../UI/hud.js';
 
 export default class DIA_DEFAULT extends Phaser.Scene {
 
@@ -57,7 +58,8 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.cameras.main.zoom = CT.cameraZoom;
         this.cameras.main.setLerp(0.8, 0.8)
 
-
+        //HUD
+        this.UI = new UI(this, this.player);
     }
 
 
@@ -69,6 +71,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
 
 
     update() {
+        this.UI.preupdate()
     }
 
     
