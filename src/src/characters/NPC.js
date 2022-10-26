@@ -16,7 +16,7 @@ export default class NPC extends Phaser.GameObjects.Sprite {
 
 
     this.barrio; //BARRIO AL QUE PERTENECE
-    this.confianzaConPlayer=0.77; // VALOR ENTRE 0 Y 1
+    this.confianzaConPlayer=0.2; // VALOR ENTRE 0 Y 1
 
 
     this.actionCoolDown = 150; //MILISEGUNDOS
@@ -38,7 +38,7 @@ export default class NPC extends Phaser.GameObjects.Sprite {
     this.enterZone = false;
 
     this.player = player;
-    this.scale = (0.3,0.3);
+    this.scale = (0.4,0.4);
 
     //ANIMACIONES    
     scene.anims.create({
@@ -118,6 +118,7 @@ export default class NPC extends Phaser.GameObjects.Sprite {
                 if(this.player.numeroPeriodicos()>0){
                   console.log("Perfecto, te compro el periódico");
                   this.player.compraPeriodicos(1); //SE PODRÍA HACER UN RANDOM DEL NUMERO DE PERIODICOS A COMPRAR, AUNQUE LO NORMAL ES UNO
+                  this.scene.ui.updateNumPeriodicos(); 
                   this.bought=true;
                 }
 

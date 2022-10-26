@@ -7,7 +7,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
 
-    this.scale = (0.5,0.5);
+    this.body.setSize(20, 10, true);
 
     //Input para el movimiento
     const { LEFT, RIGHT, UP, DOWN, W, A, S, D ,SHIFT} = Phaser.Input.Keyboard.KeyCodes;
@@ -23,7 +23,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
     // Variables
     this.speed = 125;
-    this.dinero = 0;
+    this.dinero = 100;
     this.confianza = 0;
     this.periodicos = 10;
     this.anteriorMovimiento = {x : 0, y:0};
@@ -31,49 +31,49 @@ export default class Player extends Phaser.GameObjects.Sprite {
     //ANIMACIONES    
     scene.anims.create({
       key: 'left',
-      frames: scene.anims.generateFrameNumbers('Player', { start: 3, end: 5 }),
+      frames: scene.anims.generateFrameNumbers('Player', { start: 4, end: 7 }),
       frameRate: 7,
       repeat: -1
     });
     scene.anims.create({
       key: 'idleLeft',
-      frames: scene.anims.generateFrameNumbers('Player', { start: 3, end: 3 }),
+      frames: scene.anims.generateFrameNumbers('Player', { start: 4, end: 4 }),
       repeat: 0
     });
 
     scene.anims.create({
       key: 'up',
-      frames: scene.anims.generateFrameNumbers('Player', { start: 9, end: 11 }),
-      frameRate: 7,
+      frames: scene.anims.generateFrameNumbers('Player', { start: 16, end: 19 }),
+      frameRate: 10,
       repeat: -1
     });
     scene.anims.create({
       key: 'idleUp',
-      frames: scene.anims.generateFrameNumbers('Player', { start: 10, end: 10 }),
+      frames: scene.anims.generateFrameNumbers('Player', { start: 16, end: 16 }),
       repeat: 0
     });
     scene.anims.create({
       key: 'idleDown',
-      frames: scene.anims.generateFrameNumbers('Player', { start: 1, end: 1 }),
+      frames: scene.anims.generateFrameNumbers('Player', { start: 8, end: 8 }),
       frameRate: 7,
       repeat: -1
     });
 
     scene.anims.create({
       key: 'down',
-      frames: scene.anims.generateFrameNumbers('Player', { start: 0, end: 2 }),
-      frameRate: 7,
+      frames: scene.anims.generateFrameNumbers('Player', { start: 8, end: 11 }),
+      frameRate: 10,
       repeat: -1
     });
     scene.anims.create({
       key: 'right',
-      frames: scene.anims.generateFrameNumbers('Player', { start: 6, end: 8 }),
-      frameRate: 7,
+      frames: scene.anims.generateFrameNumbers('Player', { start: 0, end: 3 }),
+      frameRate: 10,
       repeat: -1
     });
     scene.anims.create({
       key: 'idleRight',
-      frames: scene.anims.generateFrameNumbers('Player', { start: 6, end: 6 }),
+      frames: scene.anims.generateFrameNumbers('Player', { start: 0, end: 0 }),
       repeat: 0
     });
   }
@@ -143,6 +143,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
   compraPeriodicos(nPeriodicos){
     this.periodicos-=nPeriodicos;
+    this.dinero += 5; // DEPENDERA DE CUANTO CUESTA CADA PERIODICO
     console.log("Te queda " + this.periodicos + " periodicos");
   }
 

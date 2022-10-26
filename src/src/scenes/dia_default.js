@@ -59,7 +59,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.cameras.main.setLerp(0.8, 0.8)
 
         //HUD
-        this.UI = new UI(this, this.player);
+        this.ui = new UI(this, this.player);
     }
 
 
@@ -71,7 +71,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
 
 
     update() {
-        this.UI.preupdate()
+
     }
 
     

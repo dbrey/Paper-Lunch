@@ -6,22 +6,30 @@ export default class HUD extends Phaser.GameObjects.Text{
         
         //Variables
         this.myPlayer = player;
-        this.newspaper = scene.add.image(CT.gameWidth - 100, CT.gameHeight - 50, 'newspaperImg').setScrollFactor(0);
-        this.newspaper.setScale(0.05);
-        this.coin =scene.add.image(CT.gameWidth - 230, CT.gameHeight - 45, 'coinImg').setScrollFactor(0);
-        this.coin.setScale(0.13);
-        this.numNewspaper = 0;
-        this.dinero = 0;
-        this.newstxt = '';
-        this.coinstxt = '';
+        this.newspaper = scene.add.image(CT.gameWidth - 385, CT.gameHeight - 220, 'newspaperImg').setScrollFactor(0);
+        this.newspaper.displayWidth = 50;
+        this.newspaper.displayHeight = 30;
+
+        this.coin =scene.add.image(CT.gameWidth - 498,CT.gameHeight - 220, 'coinImg').setScrollFactor(0);
+        this.coin.displayWidth = 30;
+        this.coin.displayHeight = 30;
+
+        this.newsPaperText = this.scene.add.text(CT.gameWidth - 360, CT.gameHeight - 232.5, ": " + this.myPlayer.periodicos).setScrollFactor(0);
+        this.newsPaperText.setAlign('center');
+        this.newsPaperText.setFont('Arial Black');
+        this.newsPaperText.setFontSize(26);
+        this.coinPaperText = this.scene.add.text(CT.gameWidth - 480, CT.gameHeight - 232.5, ": " + this.myPlayer.dinero + "$").setScrollFactor(0);
+        this.coinPaperText.setAlign('center');
+        this.coinPaperText.setFont('Arial Black');
+        this.coinPaperText.setFontSize(26);
 
     }
 
     //Metodos para mostrar actualizar los valores correspondientes
     updateNumPeriodicos()
     {
-        this.numNewspaper = this.myPlayer.numeroPeriodicos();
-        this.newstxt = ': ' + this.numNewspaper;
+        this.newsPaperText.setText(": " + this.myPlayer.periodicos)
+        this.coinPaperText.setText(": " + this.myPlayer.dinero + "$");
     }
 
     updateDinero()
@@ -30,15 +38,4 @@ export default class HUD extends Phaser.GameObjects.Text{
         this.coinstxt = ': ' + this.dinero;
     }
 
-    preupdate(t,d)
-    {
-        //super.update(t, d);
-        //Actualizamos los valores
-        this.updateNumPeriodicos(),
-        this.updateDinero();
-        //Escribimos el texto
-        
-        this.Text = this.scene.add.text(CT.gameWidth - 60, CT.gameHeight - 50, this.newstxt).setScrollFactor(0);
-        this.Text = this.scene.add.text(CT.gameWidth - 200, CT.gameHeight - 50, this.coinstxt).setScrollFactor(0);
-    }
 }
