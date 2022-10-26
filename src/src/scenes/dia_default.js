@@ -25,6 +25,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         let tileSet = this.map.addTilesetImage('Modern_Exteriors_Complete_Tileset', 'mapTiles');
         this.mapGround = this.map.createStaticLayer('Ground', tileSet);
         this.mapBajos = this.map.createStaticLayer('BajosE', tileSet);
+        this.mapAdornos = this.map.createStaticLayer('Adornos', tileSet);
         this.player = new Player(this, 900, 1500);
                 
         let mapObjects = this.map.getObjectLayer(this.objectLayerName).objects;

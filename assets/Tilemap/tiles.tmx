@@ -1024,10 +1024,9 @@
 </data>
  </layer>
  <objectgroup id="13" name="PrimerDia">
-  <object id="4" name="NPC" x="3011" y="1823">
+  <object id="4" name="NPC" x="953.424" y="1598.76">
    <properties>
-    <property name="npcDefault" value="npc"/>
-    <property name="type" value="NPC"/>
+    <property name="nombre" value="Rodolfo"/>
    </properties>
   </object>
   <object id="5" name="PLAYER" x="1358" y="2226">
