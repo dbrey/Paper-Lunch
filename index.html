@@ -13,6 +13,7 @@
     <title> Paper Lunch!</title>
     <link rel="icon" type="image/x-icon" href="assets/sprites/mangoLogo.png">
 </head>
+
 <body>
     
     <!--Banner de navegación-->
@@ -91,6 +92,40 @@
             </li>
         </ul>
     </div>
+
+    <section id="Play">
+        <br>
+        <br>
+
+        <br>
+
+        <br>
+
+        <script type="module">
+            import Boot from './src/src/scenes/boot.js'
+            import dia0 from './src/src/scenes/dia0.js'
+            import menu from './src/src/scenes/mainMenu.js'
+            import options from './src/src/scenes/options.js'
+            import CT from './src/src/libraries/constants.js'
+
+            var config = {
+                type: Phaser.AUTO,
+
+                width: CT.gameWidth,
+                height: CT.gameHeight,
+                scale: {
+                    mode: Phaser.Scale.FIT,
+                    autoCenter: Phaser.Scale.CENTER_HORIZONTALLY
+                },
+                pixelArt: true,
+                scene: [Boot, menu, dia0,options],
+                physics: { default: 'arcade', arcade: { debug: true } }
+            };
+
+            new Phaser.Game(config);
+
+        </script>
+    </section>
 
 </body>
 </html>
