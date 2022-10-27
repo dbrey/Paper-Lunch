@@ -16,18 +16,16 @@ body{
     font-family: 'myFont';
 }
 
-div.a {
-    position: absolute;
-    
-text-align: left;
+/*alineacion de texto con imagenes*/
+.img-with-text {
+text-align: center;
+width:fit-content;
 }
 
-div.b{
-    position:relative;
-    text-align:right ;
-    margin-top: -69px;
+.img-with-text img{
+    display: block;
+    margin: 0 auto;
 }
-
 
 /*Ajustamos el ancho que ocupara la nevagacion y los damos margenes*/
 .container{
@@ -130,5 +128,3 @@ div.b{
 hr{
     margin: 10px 0;
 }
-
-
