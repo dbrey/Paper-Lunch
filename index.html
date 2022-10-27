@@ -14,6 +14,36 @@
     <link rel="icon" type="image/x-icon" href="assets/sprites/mangoLogo.png">
 </head>
 
+<!-- Juego --> 
+<section id="Play">
+
+    <script type="module">
+        import Boot from './src/src/scenes/boot.js'
+        import dia0 from './src/src/scenes/dia0.js'
+        import menu from './src/src/scenes/mainMenu.js'
+        import options from './src/src/scenes/options.js'
+        import CT from './src/src/libraries/constants.js'
+
+        var config = {
+            type: Phaser.AUTO,
+
+            width: CT.gameWidth,
+            height: CT.gameHeight,
+            scale: {
+                mode: Phaser.Scale.FIT,
+                autoCenter: Phaser.Scale.CENTER_HORIZONTALLY
+            },
+            pixelArt: true,
+            scene: [Boot, menu, dia0,options],
+            physics: { default: 'arcade', arcade: { debug: true } }
+        };
+
+        new Phaser.Game(config);
+
+    </script>
+</section>
+<!-------------------------------------------------------------------------->
+
 <body>
     
     <!--Banner de navegación-->
@@ -37,13 +67,17 @@
 
     <hr style="height:5px;border-width:0;color:black;background-color:black">
 
+   
     <!--Parrafo principal: titulo y canvas de juego-->
     <div>
         <header>
         <h1 class="game-name">Paper Lunch!</h1>
+        
+    
         </header>
         <!--Este es el canvas del juego-->
         <canvas id="game" ></canvas>
+        
     </div>
     <!--Parrafo de los controles-->
     <div>
@@ -93,39 +127,7 @@
         </ul>
     </div>
 
-    <section id="Play">
-        <br>
-        <br>
-
-        <br>
-
-        <br>
-
-        <script type="module">
-            import Boot from './src/src/scenes/boot.js'
-            import dia0 from './src/src/scenes/dia0.js'
-            import menu from './src/src/scenes/mainMenu.js'
-            import options from './src/src/scenes/options.js'
-            import CT from './src/src/libraries/constants.js'
-
-            var config = {
-                type: Phaser.AUTO,
-
-                width: CT.gameWidth,
-                height: CT.gameHeight,
-                scale: {
-                    mode: Phaser.Scale.FIT,
-                    autoCenter: Phaser.Scale.CENTER_HORIZONTALLY
-                },
-                pixelArt: true,
-                scene: [Boot, menu, dia0,options],
-                physics: { default: 'arcade', arcade: { debug: true } }
-            };
-
-            new Phaser.Game(config);
-
-        </script>
-    </section>
+   
 
 </body>
 </html>
