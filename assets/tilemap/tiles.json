@@ -1078,24 +1078,6 @@
                  "width":0,
                  "x":953.424,
                  "y":1598.76
-                }, 
-                {
-                 "class":"",
-                 "height":0,
-                 "id":5,
-                 "name":"PLAYER",
-                 "point":true,
-                 "properties":[
-                        {
-                         "name":"type",
-                         "type":"string",
-                         "value":"PLAYER"
-                        }],
-                 "rotation":0,
-                 "visible":true,
-                 "width":0,
-                 "x":1358,
-                 "y":2226
                 }],
          "opacity":1,
          "type":"objectgroup",

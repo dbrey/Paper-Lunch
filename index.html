@@ -19,7 +19,7 @@
 
     <script type="module">
         import Boot from './src/src/scenes/boot.js'
-        import dia0 from './src/src/scenes/dia0.js'
+        import Dia1 from './src/src/scenes/dia_default.js'
         import menu from './src/src/scenes/mainMenu.js'
         import options from './src/src/scenes/options.js'
         import CT from './src/src/libraries/constants.js'
@@ -34,7 +34,7 @@
                 autoCenter: Phaser.Scale.CENTER_HORIZONTALLY
             },
             pixelArt: true,
-            scene: [Boot, menu, dia0,options],
+            scene: [Boot, menu, Dia1,options],
             physics: { default: 'arcade', arcade: { debug: true } }
         };
 

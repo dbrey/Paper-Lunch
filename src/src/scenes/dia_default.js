@@ -6,9 +6,8 @@ import UI from '../UI/hud.js';
 export default class DIA_DEFAULT extends Phaser.Scene {
 
     constructor(config) {
-        super({ key: config.key });
-        this.objectLayerName = config.objectLayerName;
-        this.nextLevel = config.nextLevel;
+        super({ key: 'Dia1' });
+        this.objectLayerName = 'PrimerDia';
 
     }
     //Aqui te crea todo lo que necesites al inicio para todo el juego

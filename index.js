@@ -1,5 +1,5 @@
 import Boot from './src/src/scenes/boot.js'
-import Day0 from './src/src/scenes/day0.js'
+import Dia1 from './src/src/scenes/dia_default.js'
 import CT from './src/src/libraries/constants.js'
 
 let config = {
@@ -16,7 +16,7 @@ let config = {
         },
     },
     pixelArt: true,
-    scene: [Boot, Day0],
+    scene: [Boot, Dia1],
     physics: { default: 'arcade', arcade: { debug: true } }
     };
 

@@ -1029,11 +1029,5 @@
     <property name="nombre" value="Rodolfo"/>
    </properties>
   </object>
-  <object id="5" name="PLAYER" x="1358" y="2226">
-   <properties>
-    <property name="type" value="PLAYER"/>
-   </properties>
-   <point/>
-  </object>
  </objectgroup>
 </map>
