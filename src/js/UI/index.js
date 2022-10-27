@@ -1,8 +1,8 @@
-import Boot from './src/src/scenes/boot.js'
-import Dia1 from './src/src/scenes/dia_default.js'
-import menu from './src/src/scenes/mainMenu.js'
-import options from './src/src/scenes/options.js'
-import CT from './src/src/libraries/constants.js'
+import Boot from '../scenes/boot.js'
+import Dia1 from '../scenes/dia_default.js'
+import menu from '../scenes/mainMenu.js'
+import options from '../scenes/options.js'
+import CT from '../libraries/constants.js'
 
 let config = {
     type: Phaser.canvas,
