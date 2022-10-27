@@ -6,7 +6,7 @@
 /*Añadimos nuestra fuente personalizada*/
 @font-face {
     font-family: 'myFont';
-    src: url(/assets/fonts/Inkbit.ttf);
+    src: url(/assets/GDDImages/Inkbit.ttf);
 }
 
 body{
