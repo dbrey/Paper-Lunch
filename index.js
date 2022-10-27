@@ -1,5 +1,7 @@
 import Boot from './src/src/scenes/boot.js'
 import Dia1 from './src/src/scenes/dia_default.js'
+import menu from './src/src/scenes/mainMenu.js'
+import options from './src/src/scenes/options.js'
 import CT from './src/src/libraries/constants.js'
 
 let config = {
@@ -16,7 +18,7 @@ let config = {
         },
     },
     pixelArt: true,
-    scene: [Boot, Dia1],
+    scene: [Boot, menu, Dia1,options],
     physics: { default: 'arcade', arcade: { debug: true } }
     };
 
