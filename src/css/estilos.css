@@ -6,7 +6,8 @@
 /*Añadimos nuestra fuente personalizada*/
 @font-face {
     font-family: 'myFont';
-    src: url('https://github.com/dbrey/Paper-Lunch/assets/fonts/Inkbit.ttf');
+    src: url(https://github.com/dbrey/Paper-Lunch/assets/fonts/Inkbit.ttf) format("truetype");
+    
 }
 
 body{
