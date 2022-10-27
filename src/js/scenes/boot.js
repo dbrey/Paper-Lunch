@@ -7,7 +7,7 @@ export default class Boot extends Phaser.Scene {
 
   preload() {
     //Jugador
-    this.load.spritesheet('Player', 'assets/sprites/Player.png', { frameWidth: 32, frameHeight: 32 });
+    this.load.spritesheet('Player', 'assets/sprites/player.png', { frameWidth: 32, frameHeight: 32 });
     this.load.spritesheet('Rodolfo', 'assets/sprites/NPC.png', { frameWidth: 64, frameHeight: 66 });
 
     // UI
@@ -23,7 +23,7 @@ export default class Boot extends Phaser.Scene {
     this.load.image('coinImg', 'assets/sprites/UI/monedaUI.png');
 
     //Mapa
-    this.load.tilemapTiledJSON('tileMap', 'assets/Tilemap/tiles.json');
+    this.load.tilemapTiledJSON('tileMap', 'assets/tilemap/tiles.json');
     this.load.image('mapTiles', 'assets/sprites/tileset/Modern_Exteriors_16x16/Modern_Exteriors_Complete_Tileset.png');
 
     //Fuente
