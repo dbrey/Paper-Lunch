@@ -60,6 +60,9 @@ export default class DIA_DEFAULT extends Phaser.Scene {
 
         //HUD
         this.ui = new UI(this, this.player);
+        this.pauseButton = this.input.keyboard.addKey('ESC');
+        this.pauseButton.on('down', () => { 
+        });
     }
 
 
@@ -71,7 +74,10 @@ export default class DIA_DEFAULT extends Phaser.Scene {
 
 
     update() {
-
+        if (Phaser.Input.Keyboard.JustDown(this.pauseButton)) { 
+            this.scene.pause();
+            //this.scene.launch("pauseMenu", this);
+          } 
     }
 
     
