@@ -76,7 +76,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
     update() {
         if (Phaser.Input.Keyboard.JustDown(this.pauseButton)) { 
             this.scene.pause();
-            //this.scene.launch("pauseMenu", this);
+            this.scene.launch("pauseMenu", this);
           } 
     }
 
