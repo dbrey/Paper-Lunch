@@ -2,6 +2,7 @@ import NPC from '../characters/NPC.js';
 import Player from '../characters/player.js';
 import CT from '../libraries/constants.js';
 import UI from '../UI/hud.js';
+import Temporizador from '../temporizador/temporizador.js';
 
 export default class DIA_DEFAULT extends Phaser.Scene {
 
@@ -61,6 +62,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
 
         //HUD
         this.ui = new UI(this, this.player);
+        this.temporizador = new Temporizador(this);
     }
 
 
