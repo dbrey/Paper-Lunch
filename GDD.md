@@ -147,7 +147,7 @@ La venta de periódicos, sus titulares, los anuncios entre otros, son dependient
 - Gastronomía española: Representada por la paella, la tortilla, el cocido montañés, el pulpo gallego, el cachopo, el gazpacho, entre otros platos típicos. Cuidado con mencionar la cebolla cerca, ya que puede incitar a una pelea sobre si una tortilla de patata debe llevar cebolla o no.
 - Gastronomía italiana: Representado por la pasta, la pizza, la lasaña, el risotto, el carpaccio… Son capaces de ir a la guerra como un trozo de piña caiga cerca de la pizzería local de su distrito.
 - Gastronomía japonesa: Representada por el ramen, el sushi, el takoyaki, los onigiris, la sopa de miso, el gyudon. Ante cualquier problema, se crea una revuelta donde encienden antorchas recubiertas de wasabi.
-- Gastronomía americana: Aquí manda la comida rápida y el rebozado. Hamburguesas, perritos calientes, pizzas, pollo frito, aros de cebolla y patatas fritas. El problema no suele ser la comida en sí, sino qué salsa es la indicada para acompañar los platos, desde la típica salsa barbacoa hasta la especialidad de la casa, la salsa buffalo. Elige con cuidado tu acompañante la próxima vez que vayas a este distrito.
+- Gastronomía vegana: Aquí manda la verdura.
 
 El jugador jugará como el personaje Amelia, la nieta de Leoncia, a quien la representaron como una hermosa estatua de una repartidora de periódicos. Para cumplir el sueño de su abuela, quiere montar una editorial en su honor.
 
