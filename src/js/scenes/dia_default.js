@@ -10,6 +10,13 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.objectLayerName = 'PrimerDia';
 
     }
+
+   /* init(data)
+    {
+        this.objectLayerName = 'PrimerDia';
+ 
+    }*/
+
     //Aqui te crea todo lo que necesites al inicio para todo el juego
     create() {
 
@@ -75,9 +82,10 @@ export default class DIA_DEFAULT extends Phaser.Scene {
 
     update() {
         if (Phaser.Input.Keyboard.JustDown(this.pauseButton)) { 
+            this.player.stopX(); this.player.stopY();
             this.scene.pause();
-            this.scene.launch("pauseMenu", this);
-          } 
+            this.scene.launch("pauseMenu", {sceneName: "Dia1"});
+        } 
     }
 
     

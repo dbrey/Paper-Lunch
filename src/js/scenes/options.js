@@ -7,20 +7,20 @@ export default class mainMenu extends Phaser.Scene
     create()
     {
         // BOTON VOLVER AL MENU
-        this.menubutton = this.add.image(650,350, 'goBackButton').setInteractive();
+        this.menubutton = this.add.sprite(650,350, 'goBackButton').setInteractive();
         this.menubutton.setScale(6);
         
         // Si el raton esta encima del boton
         this.menubutton.on('pointerover', event => 
         {
-            this.menubutton = this.add.image(650,350, 'goBackButtonMouseOn');
+            this.menubutton.setTexture('goBackButtonMouseOn');
             this.menubutton.setScale(6);
         });
 
         // Si el raton sale fuera del boton
         this.menubutton.on('pointerout', event => 
         {
-            this.menubutton = this.add.image(650,350, 'goBackButton');
+            this.menubutton.setTexture('goBackButton');
             this.menubutton.setScale(6);
 
         });
