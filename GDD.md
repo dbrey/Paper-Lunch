@@ -90,7 +90,42 @@ Al iniciar la partida, el jugador tiene X días para reunir cierta cantidad de d
 Cada día, el jugador empieza preparando los periódicos, y tras personalizar sus noticias, empieza desde el centro del mapa. El jugador se moverá por el mapa, buscando personas a las que venderles sus periódicos y consiguiendo comida para pasar el día
 
 1. **Mecánicas**
-1. **Estadísticas**
+
+Podemos dividir las mecánicas del juego en 4 secciones distintas:
+
+-*Sistema*:
+
+-Energía: Se consume mientras el personaje camine o corra. Si el personaje se queda sin ella acabará el día.
+
+-Dinero: Sirve para producir periódicos. Se obtiene vendiéndolos. Si el jugador se queda sin el suficiente como para poder producir periódicos pierde la partida, por el contrario, si consigue ahorrar lo suficiente y llega al final del juego con la cantidad requerida ganará.
+
+-Reputación: Hay una estadística de reputación para cada distrito. Dependiendo de las elecciones realizadas al configurar el periódico aumentará o disminuirá. La reputación ayuda a vender periódicos, aumentando la posibilidad de venderlos a NPCs  y desbloqueando kioskos que comprarán tiradas.
+
+-Periódicos: Sirven para obtener dinero y reputación. Se configuran antes de empezar el día en el menú de creación de periódicos.
+
+-*Movimiento*:
+
+-Andar/Correr: Permite al jugador desplazarse por el mapa usando WASD, consumiendo la energía del jugador. Pulsando SHIFT la velocidad de movimiento aumenta, haciendo que el personaje corra, pero aumentando la tasa de consumo de energía.
+
+-Estaciones de metro: Son puntos de teletransporte que el jugador puede usar a cambio de dinero, sin consumir energía, pero sí una breve cantidad de tiempo.
+
+-*Creación de periódicos*:
+
+-Selección de periódicos: Al inicio de cada día el jugador tendrá que elegir entre cuatro titulares distintos que afectarán la reputación que mantiene con cada distrito de manera distinta y de forma positiva o negativa.
+
+-Selección de anuncios: Conforme pasen los días se irán desbloqueando los anuncios. Se puede elegir el número a introducir. Si se introducen aumentarán los ingresos generados por venta, pero se reducirán los beneficios en reputación.
+
+-Selección de tirada: El jugador tendrá que ajustar los periódicos que planea vender. Producirlos cuesta dinero, por lo que solo podrá producir como máximo lo que su dinero ahorrado le permita.
+
+-*Venta de periódicos*.:
+
+-Interacción con NPCs: Es posible interactuar con los NPCs que rondan los distritos para tratar de venderles un periódico. Dependiendo de la reputación que mantengas en el distrito la probabilidad de venta será mayor o menor.
+
+-Interacción con kioskos: Alcanzado cierto nivel de reputación en un distrito será posible vender grandes tiradas de periódicos a los kioskos de ese distrito.
+
+
+
+3. **Estadísticas**
 - Reputación
   - Si a los vecinos les gusta el tipo de periódicos que vende el jugador, tu reputación entre ellos aumentará. Si no les gusta, su confianza en tus periódicos caerá, así como tus ingresos.
   - En algunas ocasiones, si tienes suficiente reputación, los vecinos te pueden dar una propina al venderles.
@@ -102,7 +137,7 @@ Cada día, el jugador empieza preparando los periódicos, y tras personalizar su
   - Según pasa el día dentro del juego, el jugador puede tener hambre. Si baja demasiado esta estadística, se desmayará y perderá todo el dinero conseguido ese día junto con los periódicos que no haya vendido todavía. (El nivel de confianza no caerá si ocurre eso mismo)
 - Sed (Opcional)
 - Funciona igual que el hambre: debes beber para no acabar deshidratado y desmayarte. El beber te llevará X cantidad de tiempo, pero es gratis. El objetivo es tener fuentes en distintos puntos de la ciudad para que el jugador la sienta más dinámica y recorra más distancia, así como añadir un cierto punto de realismo al juego.
-2. **Preparación del periodico**
+4. **Preparación del periodico**
 
 Al inicio del dia, el jugador prepara el periodico en el que tiene en cuenta las siguientes características:
 
