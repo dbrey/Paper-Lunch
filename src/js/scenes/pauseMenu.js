@@ -14,7 +14,13 @@ export default class PauseMenu extends Phaser.Scene
     create()
     {
       // Crear background
-      //this.background = this.add.image(0,0,'');
+      this.backgroundPaper = this.add.image(650,350,'backgroundNewspaper');
+      this.backgroundPaper.setScale(1.75);
+      this.backgroundPaper.alpha = 0.5;
+
+      this.backMain = this.add.sprite(650,400, 'backgroundOptionsPause');
+      this.backMain.setScale(3.5,7);
+
 
         // Resume to level
       this.resumeButton = this.add.sprite(650,250, 'resumeButton').setInteractive();
@@ -43,8 +49,8 @@ export default class PauseMenu extends Phaser.Scene
 
       // ---------------------- PANEL DE OPCIONES ---------------------- 
       // Background
-      this.background = this.add.sprite(650,384, 'backgroundOptionsPause');
-      this.background.setScale(6);
+      this.backgroundOptions = this.add.sprite(650,384, 'backgroundOptionsPause');
+      this.backgroundOptions.setScale(6);
 
      
       // BOTON VOLVER AL MENU DE PAUSA
@@ -56,12 +62,14 @@ export default class PauseMenu extends Phaser.Scene
 
       // Pasamos todo a invisible
       this.goBack.setVisible(false);
-      this.background.setVisible(false);
+      this.backgroundOptions.setVisible(false);
 
     }
 
     resume()
     {
+        this.backgroundPaper.destroy();
+        this.backMain.destroy();
         this.resumeButton.destroy();
         this.optionsbutton.destroy();
         this.menuButton.destroy()
@@ -70,13 +78,13 @@ export default class PauseMenu extends Phaser.Scene
 
     optionsPanel()
     {
-      this.background.setVisible(true);
+      this.backgroundOptions.setVisible(true);
       this.goBack.setVisible(true);
     }
 
     goBackToPause()
     {
-       this.background.setVisible(false);
+       this.backgroundOptions.setVisible(false);
       this.goBack.setVisible(false);
     }
 }
