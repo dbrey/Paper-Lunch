@@ -48,6 +48,9 @@ export default class DIA_DEFAULT extends Phaser.Scene {
                 case 'NPC': //NPC
                 this[props.nombre] = new NPC(this,objeto.x,objeto.y,props.nombre,this.player,35,35)
                     break;
+                case 'TP':
+                    this[props.nombre] = new TP(this, objeto.x, objeto.y, props, this.player, 35, 35, true)
+                break;
             }
         }
 
