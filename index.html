@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Añadimos los scripts-->
+    <script type="module" src="src/js/UI/index.js"></script>
+    <script src="src/js/libraries/phaser.js"></script>
+    <!--Enlace al css correspondiente-->
+    <link rel="stylesheet" href="src/css/estilos.css">
+    <!--Titulo de la pagina-->
+    <title> Paper Lunch!</title>
+    <link rel="icon" type="image/x-icon" href="assets/sprites/Mangologo.png">
+</head>
+
+<!-------------------------------------------------------------------------->
+
+<body>
+    
+    <!--Banner de navegación-->
+    <div class="container">
+
+            <nav class="nav-main">
+                    <img src="assets/sprites/mangogamesLogo.png" alt="Mango Games - logo" class="img-logo">
+                    <ul class="nav-menu">
+                        <li>
+                            <a class="text">Grupo 7 PVLI 2022-23 - Mango Games</a>
+                            <a href="https://twitter.com/MangoGames_" class="button"> Twitter </a>
+                            <a href="https://github.com/dbrey/Paper-Lunch" class="button"> Github </a>
+                            <!--<a href="#" class="button"> Acerca del juego </a>
+                            <a href="#" class="button"> Integrantes </a>
+                            Botones de scroll-->
+                        </li>
+                    </ul>
+                    
+            </nav>
+    </div>
+
+    <hr style="height:5px;border-width:0;color:black;background-color:black">
+
+   
+    <!--Parrafo principal: titulo y canvas de juego-->
+    <div>
+        <header>
+        <h1 class="game-name">Paper Lunch!</h1>
+        
+    
+        </header>
+        <!--Este es el canvas del juego-->
+        <canvas id="game" ></canvas>
+        
+    </div>
+    <!--Parrafo de los controles-->
+    <div>
+        <h3 class="header">Instrucciones y controles</h3>
+        <!--Imágenes de controles-->
+        <li class="controles-img">
+            
+            
+            <div class="img-with-txt">
+                <a><img src="assets/sprites/controlesWASD.png" alt="" width="300" style="margin: 0px 200px;"></a>
+                <a class= "text">Movimiento</a>
+            </div>
+            <div class="img-with-txt">
+                <a><img src="assets/sprites/controlInt.png" alt="" width="160" height="158"style="margin:0px 180px;"></a>
+                <a class="text">Interacción</a>
+            </div>
+            <div class="img-with-txt">
+                <a class="controles-img"><img src="assets/sprites/cursor.png" alt="" width="80" height="130"style="margin: 20px 0px 20px 100px "></a>
+                <a class="text" >Elaboración del periódico</a>
+                
+            </div>
+            
+        </li>
+    </div>
+    <!--Parrafo de información sobre el juego-->
+    <div>
+        <h3 class="header">Breve descripción</h3>
+        <p class="text">“Paper Lunch!” es un juego de gestión de recursos narrativo en el que el jugador encarna a Amelia, que empieza a montar su propia editorial de periódicos. Encargándose de la edición y el reparto el jugador deberá tratar de conseguir suficiente dinero para poder comprar su propio edificio editorial y no quedarse en bancarrota</p>
+    </div>
+    <!--Parrafo sobre el grupo-->
+    <div>
+        <h3 class="header">Integrantes</h3>
+        <ul class="text-int">
+            <li>
+                <a>RODRIGO CABELLO HERNÁNDEZ</a>
+            </li>
+            <li>
+                <a>JAVIER MURILLO GONZÁLEZ</a>
+            </li>
+            <li>
+                <a>RAFAEL ARGANDOÑA BLÁCIDO</a>
+            </li>
+            <li>
+                <a>DIEGO LÓPEZ BALBOA</a>
+            </li>
+            <li>
+                <a>DAVID BREY PLAZA</a>
+            </li>
+        </ul>
+    </div>
+
+   
+
+</body>
+</html>
