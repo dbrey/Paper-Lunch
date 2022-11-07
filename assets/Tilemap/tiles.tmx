@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="200" height="200" tilewidth="16" tileheight="16" infinite="0" nextlayerid="15" nextobjectid="7">
+<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="200" height="200" tilewidth="16" tileheight="16" infinite="0" nextlayerid="15" nextobjectid="17">
  <tileset firstgid="1" name="Modern_Exteriors_Complete_Tileset" tilewidth="16" tileheight="16" tilecount="29744" columns="176">
   <image source="../sprites/tileset/Modern_Exteriors_16x16/Modern_Exteriors_Complete_Tileset.png" width="2816" height="2704"/>
  </tileset>
@@ -1034,6 +1034,34 @@
     <property name="type" value="PLAYER"/>
    </properties>
    <point/>
+  </object>
+  <object id="13" name="TP" x="484" y="476" width="140" height="108">
+   <properties>
+    <property name="tp1" type="object" value="16"/>
+    <property name="tp2" type="object" value="15"/>
+    <property name="tp3" type="object" value="14"/>
+   </properties>
+  </object>
+  <object id="14" name="TP" x="2148" y="508" width="104" height="100">
+   <properties>
+    <property name="tp1" type="object" value="15"/>
+    <property name="tp2" type="object" value="16"/>
+    <property name="tp3" type="object" value="13"/>
+   </properties>
+  </object>
+  <object id="15" name="TP" x="2196" y="1744" width="104" height="112">
+   <properties>
+    <property name="tp1" type="object" value="16"/>
+    <property name="tp2" type="object" value="13"/>
+    <property name="tp3" type="object" value="14"/>
+   </properties>
+  </object>
+  <object id="16" name="TP" x="664" y="1952" width="156" height="140">
+   <properties>
+    <property name="tp1" type="object" value="15"/>
+    <property name="tp2" type="object" value="14"/>
+    <property name="tp3" type="object" value="13"/>
+   </properties>
   </object>
  </objectgroup>
 </map>
