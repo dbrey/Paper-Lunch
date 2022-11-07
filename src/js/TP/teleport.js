@@ -5,8 +5,8 @@ export default class TP extends Phaser.GameObjects.Sprite{
         super(scene, x, y, tpID);
 
         this.scene.add.existing(this);
-        this.tpID = tpID;
         
+        this.tpID = tpID;
         //Crear zona de trigger del tp
         this.triggerZone = this.scene.add.zone(x, y);
         this.triggerZone.setSize(zoneX, zoneY);
@@ -30,12 +30,11 @@ export default class TP extends Phaser.GameObjects.Sprite{
 
     preUpdate(){
         if(Phaser.Geom.Intersects.RectangleToRectangle(this.triggerZone.getBounds(),this.player.getBounds())){
-            console.log("tp1 " + this.tpID);
-            console.log(this.player.x + " " + this.player.y);
-            if(this.canTP == true) this.teleport();
-            
+            console.log("Ubicacion: " + this.tpID.nombre);
+            if(this.player.action.isDown){
+                if(this.canTP == true) this.teleport();
+            }
         }
-
     }
 
 }

@@ -2,6 +2,7 @@ import NPC from '../characters/NPC.js';
 import Player from '../characters/player.js';
 import CT from '../libraries/constants.js';
 import UI from '../UI/hud.js';
+import TP from '../TP/teleport.js'
 
 export default class DIA_DEFAULT extends Phaser.Scene {
 
