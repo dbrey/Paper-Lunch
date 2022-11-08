@@ -3,6 +3,8 @@ import Dia1 from '../scenes/dia_default.js'
 import menu from '../scenes/mainMenu.js'
 import pause from '../scenes/pauseMenu.js'
 import options from '../scenes/options.js'
+import tpMenu from '../scenes/tpMenu.js'
+
 import CT from '../libraries/constants.js'
 
 let config = {
@@ -19,7 +21,7 @@ let config = {
         },
     },
     pixelArt: true,
-    scene: [Boot, menu, Dia1,options,pause],
+    scene: [Boot, menu, Dia1,options,pause, tpMenu],
     physics: { default: 'arcade', arcade: { debug: true } }
     };
 

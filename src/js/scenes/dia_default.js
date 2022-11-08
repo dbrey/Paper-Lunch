@@ -4,6 +4,7 @@ import CT from '../libraries/constants.js';
 import UI from '../UI/hud.js';
 import TP from '../TP/teleport.js'
 
+
 export default class DIA_DEFAULT extends Phaser.Scene {
 
     constructor(config) {
@@ -50,7 +51,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
                 this[props.nombre] = new NPC(this,objeto.x,objeto.y,props.nombre,this.player,35,35)
                     break;
                 case 'TP':
-                    this[props.nombre] = new TP(this, objeto.x, objeto.y, props, this.player, 35, 35, true)
+                    this[props.nombre] = new TP(this, objeto.x, objeto.y, props, this.player, 35, 35)
                 break;
             }
         }
@@ -74,6 +75,8 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.pauseButton = this.input.keyboard.addKey('ESC');
         this.pauseButton.on('down', () => { 
         });
+        this.TPbutton = this.input.keyboard.addKey('E');
+        this.TPbutton.on('down', () => {});
     }
 
 
@@ -90,7 +93,12 @@ export default class DIA_DEFAULT extends Phaser.Scene {
             this.scene.pause();
             this.scene.launch("pauseMenu", {sceneName: "Dia1"});
         } 
-    }
+        if(Phaser.Input.Keyboard.JustDown(this.TPbutton)){
+            this.player.stopX(); this.player.stopY();
 
-    
+            console.log('me han llamado');
+            this.scene.pause;
+            this.scene.launch("tpMenu", {sceneName: "Dia1"});
+        }
+    }
 }
