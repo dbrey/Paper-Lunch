@@ -41,7 +41,21 @@ export default class Boot extends Phaser.Scene {
 
     // Logo
     this.load.image('logo', 'assets/sprites/MangoGamesLogo.png');
-    
+
+    //Periodicos, anuncios, flechas
+    this.load.image('newspaper', 'assets/sprites/creatingNews/periodico.jpg');
+    this.load.image('news1','assets/sprites/creatingNews/periodico 1.png');
+    this.load.image('news2','assets/sprites/creatingNews/periodico 2.png');
+    this.load.image('news3','assets/sprites/creatingNews/periodico 3.png');
+    this.load.image('news4','assets/sprites/creatingNews/periodico 4.png');
+    this.load.image('adBlocked', 'assets/sprites/creatingNews/anuncio bloqueado.png');
+    this.load.image('arrowUp', 'assets/sprites/creatingNews/arrowUp.png');
+    this.load.image('arrowDown', 'assets/sprites/creatingNews/arrow Down.png');
+    this.load.image('continueButtonBlocked', 'assets/sprites/creatingNews/contButtonBlocked.png');
+    this.load.image('continueButton', 'assets/sprites/creatingNews/continueButton.png');
+    this.load.image('Recuadro','assets/sprites/creatingNews/Recuadro.png');
+    this.load.image('BackgroundP','assets/sprites/creatingNews/FondoMasMejor.png');
+    this.load.image('Total','assets/sprites/creatingNews/BarraTotal.png')
   }
 
   create() { this.scene.start('menu'); }

@@ -1,6 +1,6 @@
 
 export default class Player extends Phaser.GameObjects.Sprite {
-  constructor(scene, x, y) {
+  constructor(scene, x, y, _numN, _money) {
     super(scene, x, y);
 
     // Añadirlo a la escena
@@ -23,9 +23,10 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
     // Variables
     this.speed = 125;
-    this.dinero = 100;
+    
+    this.dinero = _money;
     this.confianza = 0;
-    this.periodicos = 10;
+    this.periodicos = _numN;
     this.anteriorMovimiento = {x : 0, y:0};
 
     //ANIMACIONES    
@@ -77,7 +78,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
       repeat: 0
     });
   }
-
+  
   getInteract() {
     return this.action.DOWN;
   }

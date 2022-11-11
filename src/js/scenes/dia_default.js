@@ -11,11 +11,12 @@ export default class DIA_DEFAULT extends Phaser.Scene {
 
     }
 
-   /* init(data)
+    init(data)
     {
-        this.objectLayerName = 'PrimerDia';
- 
-    }*/
+        this.numN = data._numN;
+        this.money = data._money;
+        //this.objectLayerName = 'PrimerDia';
+    }
 
     //Aqui te crea todo lo que necesites al inicio para todo el juego
     create() {
@@ -32,7 +33,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.mapGround = this.map.createStaticLayer('Ground', tileSet);
         this.mapBajos = this.map.createStaticLayer('BajosE', tileSet);
         this.mapAdornos = this.map.createStaticLayer('Adornos', tileSet);
-        this.player = new Player(this, 900, 1500);
+        this.player = new Player(this, 900, 1500, this.numN, this.money);
                 
         let mapObjects = this.map.getObjectLayer(this.objectLayerName).objects;
 
