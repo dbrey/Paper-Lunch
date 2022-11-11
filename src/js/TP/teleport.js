@@ -1,3 +1,4 @@
+
 import Player from "../characters/player.js"; 
 
 export default class TP extends Phaser.GameObjects.Sprite{
@@ -37,6 +38,7 @@ export default class TP extends Phaser.GameObjects.Sprite{
     preUpdate(){
         if(Phaser.Geom.Intersects.RectangleToRectangle(this.triggerZone.getBounds(),this.player.getBounds())){
             console.log("Ubicacion: " + this.tpID.nombre);
+            Phaser.scene.call(this, {sceneName: "Dia1"});
             
         }
     }
