@@ -67,7 +67,7 @@ En el menú de pausa el jugador podrá modificar la intensidad del volumen del j
 
 ![](https://github.com/dbrey/Paper-Lunch/blob/main/assets/GDDImages/HUD.jpeg)
 
-En el HUD del juego habrán 4 estadísticas que el jugador debe conocer en todo momento. Dos de ellas serán barras verticales (que representan la hambruna del jugador y el nivel de fama en contraposición a la confianza de tu periódico) y otras dos serán elementos numéricos (que informarán del dinero y del número de periódicos que posee el jugador en cada momento). Todos ellos contarán con un símbolo que facilite su interpretación por los jugadores. En la parte superior encontramos un reloj/contador que nos informa del tiempo que queda para que se complete el día de juego (este reloj no se modificará mientras el jugador esté en otros menús).
+En el HUD del juego habrán 4 estadísticas que el jugador debe conocer en todo momento. Dos de ellas serán barras verticales (que representan la hambruna del jugador y el nivel de reputación en el distrito determinado) y otras dos serán elementos numéricos (que informarán del dinero y del número de periódicos que posee el jugador en cada momento). Todos ellos contarán con un símbolo que facilite su interpretación por los jugadores. En la parte superior encontramos un reloj/contador que nos informa del tiempo que queda para que se complete el día de juego (este reloj no se modificará mientras el jugador esté en otros menús).
 
 **Juego principal (cuando se esta preparando el periodico)**
 
@@ -157,13 +157,9 @@ El jugador puede comprar un ticket en el metro para poder moverse de un punto a 
 
 2. **Dinámica**
 
-Tras pasar 7 días, si el jugador ha conseguido la cantidad de dinero necesaria, consigue montar una editorial y ganar el juego, si no llega a esa cantidad, pierde la partida y obtiene un
+Tras pasar 7 días, si el jugador ha conseguido la cantidad de dinero necesaria, consigue montar una editorial y ganar el juego, si no llega a esa cantidad, pierde la partida y obtiene un final negativo.
 
-final negativo.
-
-El jugador tendrá que balancear los periódicos que produce con el dinero que tiene y con el tiempo del que dispone. También será necesario balancear la reputación en los distritos y
-
-vigilar lla cantidad de anuncios introducidos. Conforme vaya avanzando en el juego y gane más reputación, la venta en kioskos permitirá vender mayores cantidades de una sola vez.
+El jugador tendrá que balancear los periódicos que produce con el dinero que tiene y con el tiempo del que dispone. También será necesario balancear la reputación en los distritos y vigilar la cantidad de anuncios introducidos. Conforme vaya avanzando en el juego y gane más reputación, la venta en kioskos permitirá vender mayores cantidades de una sola vez.
 
 3. **Estética**
 
