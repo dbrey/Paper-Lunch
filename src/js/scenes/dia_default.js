@@ -2,6 +2,7 @@ import NPC from '../characters/NPC.js';
 import Player from '../characters/player.js';
 import CT from '../libraries/constants.js';
 import UI from '../UI/hud.js';
+import Temporizador from '../temporizador/temporizador.js';
 
 export default class DIA_DEFAULT extends Phaser.Scene {
 
@@ -71,6 +72,8 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.pauseButton = this.input.keyboard.addKey('ESC');
         this.pauseButton.on('down', () => { 
         });
+        
+        this.temporizador = new Temporizador(this);
     }
 
 
@@ -89,5 +92,8 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         } 
     }
 
-    
+    finDia(){
+        this.scene.start('menu');
+    }
+
 }
