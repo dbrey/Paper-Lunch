@@ -1096,6 +1096,74 @@
                  "width":0,
                  "x":1358,
                  "y":2226
+                }, 
+                {
+                 "class":"",
+                 "height":1338,
+                 "id":12,
+                 "name":"BARRIO",
+                 "properties":[
+                        {
+                         "name":"ID",
+                         "type":"int",
+                         "value":1
+                        }],
+                 "rotation":0,
+                 "visible":true,
+                 "width":858,
+                 "x":132,
+                 "y":1206
+                }, 
+                {
+                 "class":"",
+                 "height":1224,
+                 "id":13,
+                 "name":"BARRIO",
+                 "properties":[
+                        {
+                         "name":"ID",
+                         "type":"int",
+                         "value":2
+                        }],
+                 "rotation":0,
+                 "visible":true,
+                 "width":1738,
+                 "x":1006,
+                 "y":1324
+                }, 
+                {
+                 "class":"",
+                 "height":1296,
+                 "id":14,
+                 "name":"BARRIO",
+                 "properties":[
+                        {
+                         "name":"ID",
+                         "type":"int",
+                         "value":3
+                        }],
+                 "rotation":0,
+                 "visible":true,
+                 "width":1530,
+                 "x":1208,
+                 "y":16
+                }, 
+                {
+                 "class":"",
+                 "height":988,
+                 "id":16,
+                 "name":"BARRIO",
+                 "properties":[
+                        {
+                         "name":"ID",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "visible":true,
+                 "width":1050,
+                 "x":144,
+                 "y":202
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -1104,10 +1172,10 @@
          "y":0
         }],
  "nextlayerid":15,
- "nextobjectid":7,
+ "nextobjectid":19,
  "orientation":"orthogonal",
  "renderorder":"right-down",
- "tiledversion":"1.9.2",
+ "tiledversion":"1.9.0",
  "tileheight":16,
  "tilesets":[
         {

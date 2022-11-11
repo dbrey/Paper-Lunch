@@ -3,6 +3,7 @@ import Player from '../characters/player.js';
 import CT from '../libraries/constants.js';
 import UI from '../UI/hud.js';
 import Temporizador from '../temporizador/temporizador.js';
+import Barrio from '../Barrio/barrio.js';
 
 export default class DIA_DEFAULT extends Phaser.Scene {
 
@@ -50,6 +51,9 @@ export default class DIA_DEFAULT extends Phaser.Scene {
                 case 'NPC': //NPC
                 this[props.nombre] = new NPC(this,objeto.x,objeto.y,props.nombre,this.player,35,35)
                     break;
+                case 'BARRIO' : {
+                this[props.nombre] = new Barrio(this,objeto.x,objeto.y,objeto.width,objeto.height,props.ID,this.player)
+                }
             }
         }
 

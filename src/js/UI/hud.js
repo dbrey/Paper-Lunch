@@ -23,6 +23,10 @@ export default class HUD extends Phaser.GameObjects.Text{
         this.coinPaperText.setFont('Arial Black');
         this.coinPaperText.setFontSize(26);
 
+
+        this.activeBarra =scene.add.sprite(CT.gameWidth -400 , 2000, 'BarraRoja').setScrollFactor(0);
+        this.activeBarra.setScale(0.3);
+
     }
 
     //Metodos para mostrar actualizar los valores correspondientes
@@ -36,6 +40,15 @@ export default class HUD extends Phaser.GameObjects.Text{
     {
         this.dinero = this.myPlayer.getDinero();
         this.coinstxt = ': ' + this.dinero;
+    }
+
+    actualizaBarra(barrio){
+        
+        if(barrio == 0)this.activeBarra.setTexture('BarraRoja')
+        else if(barrio == 1)this.activeBarra.setTexture('BarraAzul')
+        else if(barrio == 2)this.activeBarra.setTexture('BarraAmarilla')
+        else if(barrio == 3)this.activeBarra.setTexture('BarraAmarilla')
+
     }
 
 }
