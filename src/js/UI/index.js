@@ -4,6 +4,8 @@ import menu from '../scenes/mainMenu.js'
 import news from '../scenes/creatingNewspaper.js'
 import pause from '../scenes/pauseMenu.js'
 import options from '../scenes/options.js'
+import tpMenu from '../scenes/tpMenu.js'
+
 import CT from '../libraries/constants.js'
 
 let config = {
@@ -20,7 +22,9 @@ let config = {
         },
     },
     pixelArt: true,
-    scene: [Boot, menu,news, Dia1,options,pause],
+
+    scene: [Boot, menu,news, Dia1,options,pause,tpMenu],
+
     physics: { default: 'arcade', arcade: { debug: true } }
     };
 

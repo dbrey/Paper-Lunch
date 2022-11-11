@@ -8,7 +8,6 @@ export default class PauseMenu extends Phaser.Scene
     init(data)
     {
       this.lastScene = data.sceneName;
-
     }
 
     create()
