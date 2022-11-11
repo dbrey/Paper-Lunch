@@ -1104,60 +1104,15 @@
                  "name":"TP",
                  "properties":[
                         {
-                         "name":"nombre",
-                         "type":"string",
-                         "value":"Ayuntamiento"
-                        }, 
-                        {
-                         "name":"tp1",
-                         "type":"string",
-                         "value":"Zona comercial"
-                        }, 
-                        {
-                         "name":"tp1x",
+                         "name":"id",
                          "type":"int",
-                         "value":664
-                        }, 
-                        {
-                         "name":"tp1y",
-                         "type":"int",
-                         "value":1952
-                        }, 
-                        {
-                         "name":"tp2",
-                         "type":"string",
-                         "value":"Zona Residencial"
-                        }, 
-                        {
-                         "name":"tp2x",
-                         "type":"int",
-                         "value":2196
-                        }, 
-                        {
-                         "name":"tp2y",
-                         "type":"int",
-                         "value":1744
-                        }, 
-                        {
-                         "name":"tp3",
-                         "type":"string",
-                         "value":"Jardin"
-                        }, 
-                        {
-                         "name":"tp3x",
-                         "type":"string",
-                         "value":"2148"
-                        }, 
-                        {
-                         "name":"tp3y",
-                         "type":"string",
-                         "value":"508"
+                         "value":1
                         }],
                  "rotation":0,
                  "visible":true,
                  "width":140,
-                 "x":484,
-                 "y":476
+                 "x":184,
+                 "y":304
                 }, 
                 {
                  "class":"",
@@ -1166,60 +1121,15 @@
                  "name":"TP",
                  "properties":[
                         {
-                         "name":"nombre",
-                         "type":"string",
-                         "value":"jardin"
-                        }, 
-                        {
-                         "name":"tp1",
-                         "type":"string",
-                         "value":"Zona comercial"
-                        }, 
-                        {
-                         "name":"tp1x",
+                         "name":"id",
                          "type":"int",
-                         "value":664
-                        }, 
-                        {
-                         "name":"tp1y",
-                         "type":"int",
-                         "value":1952
-                        }, 
-                        {
-                         "name":"tp2",
-                         "type":"string",
-                         "value":"Zona Residencial"
-                        }, 
-                        {
-                         "name":"tp2x",
-                         "type":"int",
-                         "value":2196
-                        }, 
-                        {
-                         "name":"tp2y",
-                         "type":"int",
-                         "value":1744
-                        }, 
-                        {
-                         "name":"tp3",
-                         "type":"string",
-                         "value":"Ayuntamiento"
-                        }, 
-                        {
-                         "name":"tp3x",
-                         "type":"string",
-                         "value":"484"
-                        }, 
-                        {
-                         "name":"tp3y",
-                         "type":"string",
-                         "value":"476"
+                         "value":4
                         }],
                  "rotation":0,
                  "visible":true,
                  "width":104,
-                 "x":2148,
-                 "y":508
+                 "x":2596,
+                 "y":520
                 }, 
                 {
                  "class":"",
@@ -1228,60 +1138,15 @@
                  "name":"TP",
                  "properties":[
                         {
-                         "name":"nombre",
-                         "type":"string",
-                         "value":"Zona Residencial"
-                        }, 
-                        {
-                         "name":"tp1",
-                         "type":"string",
-                         "value":"Zona comercial"
-                        }, 
-                        {
-                         "name":"tp1x",
+                         "name":"id",
                          "type":"int",
-                         "value":664
-                        }, 
-                        {
-                         "name":"tp1y",
-                         "type":"int",
-                         "value":1952
-                        }, 
-                        {
-                         "name":"tp2",
-                         "type":"string",
-                         "value":"Jardin"
-                        }, 
-                        {
-                         "name":"tp2x",
-                         "type":"int",
-                         "value":2148
-                        }, 
-                        {
-                         "name":"tp2y",
-                         "type":"int",
-                         "value":508
-                        }, 
-                        {
-                         "name":"tp3",
-                         "type":"string",
-                         "value":"Ayuntamiento"
-                        }, 
-                        {
-                         "name":"tp3x",
-                         "type":"string",
-                         "value":"484"
-                        }, 
-                        {
-                         "name":"tp3y",
-                         "type":"string",
-                         "value":"476"
+                         "value":3
                         }],
                  "rotation":0,
                  "visible":true,
                  "width":104,
-                 "x":2196,
-                 "y":1744
+                 "x":2380,
+                 "y":2432
                 }, 
                 {
                  "class":"",
@@ -1290,60 +1155,15 @@
                  "name":"TP",
                  "properties":[
                         {
-                         "name":"nombre",
-                         "type":"string",
-                         "value":"Zona Comercial"
-                        }, 
-                        {
-                         "name":"tp1",
-                         "type":"string",
-                         "value":"Ayuntamiento"
-                        }, 
-                        {
-                         "name":"tp1x",
+                         "name":"id",
                          "type":"int",
-                         "value":484
-                        }, 
-                        {
-                         "name":"tp1y",
-                         "type":"int",
-                         "value":476
-                        }, 
-                        {
-                         "name":"tp2",
-                         "type":"string",
-                         "value":"Jardin"
-                        }, 
-                        {
-                         "name":"tp2x",
-                         "type":"int",
-                         "value":2148
-                        }, 
-                        {
-                         "name":"tp2y",
-                         "type":"int",
-                         "value":508
-                        }, 
-                        {
-                         "name":"tp3",
-                         "type":"string",
-                         "value":"Zona Residencial"
-                        }, 
-                        {
-                         "name":"tp3x",
-                         "type":"string",
-                         "value":"2196"
-                        }, 
-                        {
-                         "name":"tp3y",
-                         "type":"string",
-                         "value":"1744"
+                         "value":2
                         }],
                  "rotation":0,
                  "visible":true,
                  "width":156,
-                 "x":664,
-                 "y":1952
+                 "x":268,
+                 "y":2088
                 }],
          "opacity":1,
          "type":"objectgroup",

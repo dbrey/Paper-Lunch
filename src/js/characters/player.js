@@ -157,6 +157,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
   changeDinero(amount) {
     this.dinero += amount;
+    this.scene.ui.updateDinero();
   }
 
   changeConfianza(amount){

@@ -29,13 +29,12 @@ export default class HUD extends Phaser.GameObjects.Text{
     updateNumPeriodicos()
     {
         this.newsPaperText.setText(": " + this.myPlayer.periodicos)
-        this.coinPaperText.setText(": " + this.myPlayer.dinero + "$");
+        
     }
 
     updateDinero()
     {
-        this.dinero = this.myPlayer.getDinero();
-        this.coinstxt = ': ' + this.dinero;
+        this.coinPaperText.setText(": " + this.myPlayer.dinero + "$");
     }
 
 }

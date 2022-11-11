@@ -1035,34 +1035,24 @@
    </properties>
    <point/>
   </object>
-  <object id="13" name="TP" x="484" y="476" width="140" height="108">
+  <object id="13" name="TP" x="184" y="304" width="140" height="108">
    <properties>
-    <property name="tp1" type="object" value="16"/>
-    <property name="tp1x" type="int" value="664"/>
-    <property name="tp1y" type="int" value="1952"/>
-    <property name="tp2" type="object" value="15"/>
-    <property name="tp3" type="object" value="14"/>
+    <property name="id" type="int" value="1"/>
    </properties>
   </object>
-  <object id="14" name="TP" x="2148" y="508" width="104" height="100">
+  <object id="14" name="TP" x="2596" y="520" width="104" height="100">
    <properties>
-    <property name="tp1" type="object" value="15"/>
-    <property name="tp2" type="object" value="16"/>
-    <property name="tp3" type="object" value="13"/>
+    <property name="id" type="int" value="4"/>
    </properties>
   </object>
-  <object id="15" name="TP" x="2196" y="1744" width="104" height="112">
+  <object id="15" name="TP" x="2380" y="2432" width="104" height="112">
    <properties>
-    <property name="tp1" type="object" value="16"/>
-    <property name="tp2" type="object" value="13"/>
-    <property name="tp3" type="object" value="14"/>
+    <property name="id" type="int" value="3"/>
    </properties>
   </object>
-  <object id="16" name="TP" x="664" y="1952" width="156" height="140">
+  <object id="16" name="TP" x="268" y="2088" width="156" height="140">
    <properties>
-    <property name="tp1" type="object" value="15"/>
-    <property name="tp2" type="object" value="14"/>
-    <property name="tp3" type="object" value="13"/>
+    <property name="id" type="int" value="2"/>
    </properties>
   </object>
  </objectgroup>

@@ -1,6 +1,4 @@
 
-import Player from "../characters/player.js"; 
-
 export default class TP extends Phaser.GameObjects.Sprite{
     constructor(_scene, x, y, tpID,player, zoneX, zoneY){
         super(_scene, x, y, tpID);
@@ -22,23 +20,33 @@ export default class TP extends Phaser.GameObjects.Sprite{
     }
 
     teleport(tpx, tpy){
-        this.player.x = this.tpID.tpx + 20;
-        this.player.y = this.tpID.tpy + 20;
+        if(this.player.getDinero() >= 10){
+        console.log(this.player.x + " " + this.player.y);
+        this.player.x = tpx;
+        this.player.y = tpy;
+        console.log(this.player.x + " " + this.player.y);
+        this.player.changeDinero(-10);
+        
+        }
     }
 
-    preUpdate(){
+    preUpdate(t, d){
+        super.preUpdate(t, d);
         if(Phaser.Geom.Intersects.RectangleToRectangle(this.triggerZone.getBounds(),this.player.getBounds())){
-            console.log("Ubicacion: " + this.tpID.nombre);
+            console.log("Ubicacion: " + this.tpID);
             if(this.player.action.isDown && this.canTP){
-                //this.player.stopX(); this.player.stopY();
+                this.player.stopX(); this.player.stopY();
                 this._scene.scene.pause();
-                this._scene.scene.launch("tpMenu", {sceneName: "Dia1"});
+                this._scene.scene.launch("tpMenu", { TP: this, sceneName: "Dia1"});
+                
+                
                 
                 this.canTP = false;
             }
         }
         else{
             this.canTP = true;
+            
         }
     }
 }
