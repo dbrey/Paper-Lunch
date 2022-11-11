@@ -75,8 +75,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.pauseButton = this.input.keyboard.addKey('ESC');
         this.pauseButton.on('down', () => { 
         });
-        this.TPbutton = this.input.keyboard.addKey('E');
-        this.TPbutton.on('down', () => {});
+        
     }
 
 
@@ -93,12 +92,6 @@ export default class DIA_DEFAULT extends Phaser.Scene {
             this.scene.pause();
             this.scene.launch("pauseMenu", {sceneName: "Dia1"});
         } 
-        if(Phaser.Input.Keyboard.JustDown(this.TPbutton)){
-            this.player.stopX(); this.player.stopY();
-
-            console.log('me han llamado');
-            this.scene.pause();
-            this.scene.launch("tpMenu", {sceneName: "Dia1"});
-        }
+        
     }
 }
