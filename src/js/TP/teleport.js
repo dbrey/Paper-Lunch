@@ -20,20 +20,11 @@ export default class TP extends Phaser.GameObjects.Sprite{
         console.log(this);
     }
 
-    
-
-    teleport(){
+    teleport(tpx, tpy){
         
-        this.player.x = this.tpID.tp1x + 20;
-        this.player.y = this.tpID.tp1y + 20;
-        this.canTP = false;
-        
-        
+        this.player.x = this.tpID.tpx + 20;
+        this.player.y = this.tpID.tpy + 20;
     }
-
-    
-
-    
 
     preUpdate(){
         if(Phaser.Geom.Intersects.RectangleToRectangle(this.triggerZone.getBounds(),this.player.getBounds())){
