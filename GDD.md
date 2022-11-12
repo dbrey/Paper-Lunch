@@ -188,15 +188,15 @@ La historia de la ciudad se contará a través de los titulares de los periódic
 
 - ***Día 1 Introducción:***
 
-Se muestran las tensiones que hay entre los distritos con titulares crispados, además se anuncia que un crítico culinario visita la ciudad y elegirá qué distrito es el mejor.
+Se muestran las tensiones que hay entre los distritos con titulares crispados, recalcando la tensión entre distritos.
 
-- ***Día 2 Intoxicación:***
+- ***Día 2 Llegada:***
+
+El crítico culinario va a estar visitando los distritos.
+
+- ***Día 3 Intoxicación:***
 
 El crítico culinario sufrió una intoxicación tras terminar su visita, no sé sabe cuál de los restaurantes es el culpable y esto no hace más que aumentar las tensiones.
-
-- ***Día 3 Sospechas:***
-
-Llueven las acusaciones y sospechas entre los distritos.
 
 - ***Día 4 Culpable:***
 
@@ -212,9 +212,7 @@ Es el día del evento. Dependiendo de la reputación que el jugador haya manteni
 
 - ***Día 7 Consecuencias:***
 - Día 7 A: El evento ha sido un desastre, ha habido una gran pelea en el que la comida ha volado por todos lados y la ciudad no se podrá recuperar.
-- Día 7 B:
-
-El evento ha salido bien, la ciudad se ha recuperado de las tensiones y todo ha vuelto a la normalidad.
+- Día 7 B: El evento ha salido bien, la ciudad se ha recuperado de las tensiones y todo ha vuelto a la normalidad.
 
 En cualquiera de los desenlaces el jugador podrá “ganar” si ha conseguido el suficiente dinero para comprar su propio edificio editorial.
 
