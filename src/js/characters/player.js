@@ -1,6 +1,6 @@
 
 export default class Player extends Phaser.GameObjects.Sprite {
-  constructor(scene, x, y, _numN, _money) {
+  constructor(scene, x, y, _numN, _money, _myTrust) {
     super(scene, x, y);
 
     // Añadirlo a la escena
@@ -25,7 +25,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.speed = 125;
     
     this.dinero = _money;
-    this.confianza = 0;
+    this.confianza = _myTrust;
     this.periodicos = _numN;
     this.anteriorMovimiento = {x : 0, y:0};
 

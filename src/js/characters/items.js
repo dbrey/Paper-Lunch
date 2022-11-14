@@ -13,13 +13,21 @@ export class Newspaper{
 
         //Eventos del boton
         this.button.on('pointerdown', () => {
-            if (this.selected) this.selected = false;
-            else this.selected = true;
-            scene.checkContinueButton();
-            console.log(_imgId);
+            if (!this.selected){                        //Si no soy un periodico seleccionado
+                if (!scene.getTitleSelected()){         //Y no hay ningun periodico seleccionado 
+                    this.selected = true;               //Me selecciono
+                    scene.changeTitleSelected(true);    //Informo de que hay un periodico seleccionado
+                }
+            }
+            else {                                      //Si estoy seleccionado
+                if (scene.getTitleSelected()) {         //Y hay un periodico seleccionado (esto me indica que soy yo)
+                    this.selected = false;              //Ya no estoy seleccionado
+                    scene.changeTitleSelected(false);   //Informo de que ya no hay ningun periodico seleccionado
+                }
+            }
         })
-        this.button.on('pointerover', () => {if(!this.selected) this.button.setScale(0.3,0.25);});
-        this.button.on('pointerout', () => { if(!this.selected) this.button.setScale(0.25, 0.2);});
+        this.button.on('pointerover', () => {if(!this.selected && !scene.getTitleSelected()) this.button.setScale(0.3,0.25);});
+        this.button.on('pointerout', () => { if(!this.selected && !scene.getTitleSelected()) this.button.setScale(0.25, 0.2);});
     }
 
     getX() {return this.x}

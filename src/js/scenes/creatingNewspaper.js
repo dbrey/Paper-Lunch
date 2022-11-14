@@ -24,23 +24,22 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.nums[2] = 0; this.nums[1] = 0; this.nums[0] = 0;
 
         //Variables
-        this.money=200;               //Dinero con el que empieza
-        this.moneyLeft = 0;         //Dinero resultate tras crear los periodicos
-        this.moneySpent=this.money-this.moneyLeft; //Dinero gastado en la creación de periódicos
-        this.pricePerPaper=1;       //Dinero que cuesta cada periódico
-        this.trust = [];            //Array de confianza (una por distrito)
-        this.numNewspapers = 0;     //Numero de periodicos generados
-        this.titleSelected = false; //Booleanos de control para saber si se puede pasar a la siguiente escena
+        this.money=200;                             //Dinero con el que empieza
+        this.moneyLeft = 0;                         //Dinero resultate tras crear los periodicos
+        this.moneySpent=this.money-this.moneyLeft;  //Dinero gastado en la creación de periódicos
+        this.pricePerPaper=1;                       //Dinero que cuesta cada periódico
+        this.trust = [0, 0, 0, 0];                  //Array de confianza (una por distrito)
+        this.numNewspapers = 0;                     //Numero de periodicos generados
+        this.titleSelected = false;                 //Booleanos de control para saber si se puede pasar a la siguiente escena
         this.numNSelected = false;
 
+        //textos para informar al jugador de todo
         this.numText='';
         this.moneyText='';
         this.moneyLeftText='';
         this.moneySpentText='';
 
-
-        this.numText = this.add.text(878, 125, this.nums[0]+' '+this.nums[1]+' '+this.nums[2], { fontSize: '64px', fill: '#000' });
-        
+        this.numText = this.add.text(878, 125, this.nums[0]+' '+this.nums[1]+' '+this.nums[2], { fontSize: '64px', fill: '#000' });        
         this.moneyText=this.add.text(950,300,this.money,{fontSize: '72px', fill: '#000'});
         this.moneySpentText=this.add.text(907,350,'-'+this.moneySpent,{fontSize: '72px', fill: '#9e0d0d'});
         this.moneyLeftText=this.add.text(950,425,this.moneyLeft,{fontSize: '72px', fill: '#000'});
@@ -85,6 +84,16 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         
     }
 
+    //Metodo para saber si ya se ha seleccionado un titulo
+    getTitleSelected(){
+        return this.titleSelected;
+    }
+
+    changeTitleSelected(value){
+        this.titleSelected = value;
+        this.checkContinueButton();
+    }
+
     //Cambia el valor del array de numeros que controla el numero de periodicos
     changeNumbers(params) {
         if (params < 3) 
@@ -122,27 +131,14 @@ export default class DIA_DEFAULT extends Phaser.Scene {
     //Actualizamos el boton de continuar en cuestion de si hay un titulo seleccionado y el num de periodicos no es 0
     checkContinueButton()
     {
-        if (this.numNSelected&&this.moneyLeft>=0)
-        {
-            let i = 0;
-            let found = false;
-            //Recorremos los periodicos viendo si alguno ha sido seleccionado
-            while (i < CT.numNewspapers && found == false)
-            {
-                this.titleSelected = this.newspapers[i].getSelected();
-                found = this.newspapers[i].getSelected();
-                i++;
-            }
-            //Si se cumplen las dos condiciones, el boton se activa
-            if (this.titleSelected)
-            {
-                this.continueButton = this.add.image(1000, 600, 'continueButton').setInteractive();
+       if (this.titleSelected && this.numNSelected&&this.moneyLeft>=0)
+       {
+        this.continueButton = this.add.image(1000, 600, 'continueButton').setInteractive();
                 this.continueButton.setScale(0.3);
                 this.continueButton.on('pointerover', () => {this.continueButton.setScale(0.4);})
                 this.continueButton.on('pointerout', () => {this.continueButton.setScale(0.3);})
-                this.continueButton.on('pointerdown', () => {this.scene.start('Dia1', {_numN: this.numNewspapers, _money: this.moneyLeft});})
-            }
-        }
+                this.continueButton.on('pointerdown', () => {this.scene.start('Dia1', {_numN: this.numNewspapers, _money: this.moneyLeft, _urTrust: this.trust});})
+       }
         //Si no se cumple ninguna condicion, el boton se desactiva
         else
         {
