@@ -71,9 +71,11 @@ export default class DIA_DEFAULT extends Phaser.Scene {
 
         //Array de anuncios
         this.ads = [];
+        var num = 1;
         for (let i = 0; i < CT.numAds; i++)
         {
-            this.ads[i] = new Ad(this, 180 + i*150, 600, 'adBlocked');
+            this.ads[i] = new Ad(this, 180 + i*150, 600, num);
+            num++;
         }
 
         
