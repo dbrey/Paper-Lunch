@@ -80,7 +80,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         
              
         //Boton de pasar a la siguiente escena, con su evento
-        this.continueButton = this.add.image(1000, 600, 'continueButtonBlocked').setInteractive();
+        this.continueButton = this.add.sprite(1000, 600, 'continueButtonBlocked').setInteractive();
         this.continueButton.setScale(0.3);
         
     }
@@ -99,7 +99,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         }
         this.numText.setText(this.nums[2]+' '+this.nums[1]+' '+this.nums[0]);
         this.calculateNumNewspapers();
-        console.log(this.numNewspapers);
+        //console.log(this.numNewspapers);
     }
     
     //Calcula el numero de periodicos, y si no es 0 cambia el booleano de control
@@ -133,11 +133,14 @@ export default class DIA_DEFAULT extends Phaser.Scene {
                 found = this.newspapers[i].getSelected();
                 i++;
             }
+
+            console.log(this.titleSelected);
+
             //Si se cumplen las dos condiciones, el boton se activa
             if (this.titleSelected)
             {
-                this.continueButton = this.add.image(1000, 600, 'continueButton').setInteractive();
-                this.continueButton.setScale(0.3);
+                this.continueButton.setTexture('continueButton');
+                //this.continueButton.setScale(0.3);
                 this.continueButton.on('pointerover', () => {this.continueButton.setScale(0.4);})
                 this.continueButton.on('pointerout', () => {this.continueButton.setScale(0.3);})
                 this.continueButton.on('pointerdown', () => {this.scene.start('Dia1', {_numN: this.numNewspapers, _money: this.moneyLeft});})
@@ -146,8 +149,8 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         //Si no se cumple ninguna condicion, el boton se desactiva
         else
         {
-            this.continueButton = this.add.image(1000, 600, 'continueButtonBlocked').setInteractive();
-            this.continueButton.setScale(0.3);
+            this.continueButton.setTexture('continueButtonBlocked');
+            //this.continueButton.setScale(0.3);
             this.continueButton.on('pointerover', () => {})
             this.continueButton.on('pointerout', () => {})
             this.continueButton.on('pointerdown', () => {})

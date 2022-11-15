@@ -202,6 +202,9 @@ export default class Player extends Phaser.GameObjects.Sprite {
     //Llamamos al super para las animaciones
     super.preUpdate(t, d);
 
+    if(this.periodicos <= 0)
+      this.scene.finDia();
+
     //Al principio de cada preUpdate, el Player se para
     this.stopX()
     this.stopY()

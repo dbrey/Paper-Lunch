@@ -102,7 +102,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
 
 
     finDia(){
-        this.scene.start('menu');
+        this.scene.start('createNewspaper');
     }
 
 
