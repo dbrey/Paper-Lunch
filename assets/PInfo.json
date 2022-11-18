@@ -1,6 +1,6 @@
-{"headLines":[
+{"Days":[
 
-{"Day1":[{
+{"Day":[{
 "headLine":"Nuevo Experimento, Algas con Pasta",
 "StatJ":1,
 "StatV":0,
@@ -24,11 +24,10 @@
 "StatV":0,
 "StatI":-1,
 "StatE":1
-}
-]
+}]
 },
 
-{"Day2":[{
+{"Day":[{
 "headLine":"Vuelve El Crítico, El Arroz Real Ganará!",
 "StatJ":2,
 "StatV":0,
@@ -54,7 +53,7 @@
 "StatE":2
 }
 ]},
-{"Day3":[{
+{"Day":[{
 
 "headLine":"Tanta Pasta es Indigesta",
 "StatJ":4,
@@ -82,7 +81,7 @@
 }
 ]},
 {
-"Day4":[{
+"Day":[{
 "headLine":"Los palillos demuestran su superioridad de nuevo",
 "StatJ":4,
 "StatV":-1,
@@ -106,7 +105,7 @@
 "StatV":0,
 "StatI":-1,
 "StatE":3}
-]},{"Day5":[{
+]},{"Day":[{
 
 "headLine":"Pizza de Sushi, ¿Comida Triunfal?",
 "StatJ":7,
@@ -133,7 +132,7 @@
 "StatE":6
 }]},
 
-{"Day6":[{
+{"Day":[{
 "headLine":"Nada Como El Ramen Clásico Para Obtener La Gloria",
 "StatJ":1,
 "StatV":-1,
@@ -159,7 +158,7 @@
 "StatE":2
 }]},
 
-{"Day7":[{
+{"Day":[{
 "headLine":"A Todos Nos Une El Pescado",
 "StatJ":4,
 "StatV":-3,

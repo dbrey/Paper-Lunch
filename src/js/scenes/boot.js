@@ -53,6 +53,7 @@ export default class Boot extends Phaser.Scene {
     this.load.image('news2','assets/sprites/creatingNews/periodico 2.png');
     this.load.image('news3','assets/sprites/creatingNews/periodico 3.png');
     this.load.image('news4','assets/sprites/creatingNews/periodico 4.png');
+    this.load.json('newsData','assets/PInfo.json');
     //Anuncios
     this.load.image('adBlocked', 'assets/sprites/creatingNews/anuncio bloqueado.png');
     this.load.image('Ad1', 'assets/sprites/creatingNews/anuncioCC.png');

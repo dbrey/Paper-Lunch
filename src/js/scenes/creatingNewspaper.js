@@ -15,8 +15,14 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.Recuadro=this.add.image(955,172.5,'Recuadro');
         this.Recuadro.setScale(0.32,0.42);
 
+        //Datos de periódicos
+        this.newsData=this.cache.json.get('newsData');
+        this.nDay=0;
+        this.dayData=this.newsData.Days[this.nDay];
+
         this.Total=this.add.image(975,455,'Total');
         this.Total.setScale(0.65,0.32);
+        
         
         //Array de flechas y enteros para seleccionar el num de periodicos (unidades, decenas, centenas)
         this.arrows = [];
@@ -29,6 +35,8 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.moneySpent=this.money-this.moneyLeft;  //Dinero gastado en la creación de periódicos
         this.pricePerPaper=1;                       //Dinero que cuesta cada periódico
         this.trust = [0, 0, 0, 0];                  //Array de confianza (una por distrito)
+        this.NTrust=[this.trust,this.trust,this.trust,this.trust];
+        this.NHeadLine=['','','','']
         this.numNewspapers = 0;                     //Numero de periodicos generados
         this.titleSelected = false;                 //Booleanos de control para saber si se puede pasar a la siguiente escena
         this.numNSelected = false;
@@ -38,6 +46,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.moneyText='';
         this.moneyLeftText='';
         this.moneySpentText='';
+        
 
         this.numText = this.add.text(878, 125, this.nums[0]+' '+this.nums[1]+' '+this.nums[2], { fontSize: '64px', fill: '#000' });        
         this.moneyText=this.add.text(950,300,this.money,{fontSize: '72px', fill: '#000'});
@@ -45,7 +54,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.moneyLeftText=this.add.text(950,425,this.moneyLeft,{fontSize: '72px', fill: '#000'});
         
 
-
+        this.searchInfo();
 
 
         //Asignamos las flechas
@@ -83,6 +92,20 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         //Boton de pasar a la siguiente escena, con su evento
         this.continueButton = this.add.image(1000, 600, 'continueButtonBlocked').setInteractive();
         this.continueButton.setScale(0.3);
+        
+    }
+
+    searchInfo(){
+        for(let j=0; j<4;j++){
+            this.NHeadLine[j]=this.dayData.Day[j].headLine;
+            for(let k=0;k<4;k++){
+                this.NTrust[0][k]=this.dayData.Day[j].StatJ[k];
+                this.NTrust[1][k]=this.dayData.Day[j].StatJ[k];
+                this.NTrust[2][k]=this.dayData.Day[j].StatJ[k];
+                this.NTrust[3][k]=this.dayData.Day[j].StatJ[k];
+    }
+}
+
         
     }
 
