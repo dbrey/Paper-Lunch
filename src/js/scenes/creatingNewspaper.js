@@ -100,9 +100,9 @@ export default class DIA_DEFAULT extends Phaser.Scene {
             this.NHeadLine[j]=this.dayData.Day[j].headLine;
             for(let k=0;k<4;k++){
                 this.NTrust[0][k]=this.dayData.Day[j].StatJ[k];
-                this.NTrust[1][k]=this.dayData.Day[j].StatJ[k];
-                this.NTrust[2][k]=this.dayData.Day[j].StatJ[k];
-                this.NTrust[3][k]=this.dayData.Day[j].StatJ[k];
+                this.NTrust[1][k]=this.dayData.Day[j].StatV[k];
+                this.NTrust[2][k]=this.dayData.Day[j].StatI[k];
+                this.NTrust[3][k]=this.dayData.Day[j].StatE[k];
     }
 }
 
