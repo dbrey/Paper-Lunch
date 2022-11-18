@@ -1,0 +1,189 @@
+{"headLines":[
+
+{"Day1":[{
+"headLine":"Nuevo Experimento, Algas con Pasta",
+"StatJ":1,
+"StatV":0,
+"StatI":-2,
+"StatE":0
+},{
+"headLine":"Nada Como Una Hoja de Lechuga",
+"StatJ":0,
+"StatV":2,
+"StatI":0,
+"StatE":0
+},{
+"headLine":"Pizza Real, Queso Real",
+"StatJ":0,
+"StatV":-1,
+"StatI":1,
+"StatE":0
+},{
+"headLine":"El Mejor Aceite, El Español",
+"StatJ":0,
+"StatV":0,
+"StatI":-1,
+"StatE":1
+}
+]
+},
+
+{"Day2":[{
+"headLine":"Vuelve El Crítico, El Arroz Real Ganará!",
+"StatJ":2,
+"StatV":0,
+"StatI":0,
+"StatE":-1
+},{
+"headLine":"Demostraremos Quien Manda con La Pizza con Piña",
+"StatJ":0,
+"StatV":2,
+"StatI":-1,
+"StatE":0
+},{
+"headLine":"Aquí Manda Lo Meditarráneo",
+"StatJ":-1,
+"StatV":-1,
+"StatI":4,
+"StatE":0
+},{
+"headLine":"¿Tortilla con huevos? La mejor",
+"StatJ":0,
+"StatV":-1,
+"StatI":0,
+"StatE":2
+}
+]},
+{"Day3":[{
+
+"headLine":"Tanta Pasta es Indigesta",
+"StatJ":4,
+"StatV":0,
+"StatI":-1,
+"StatE":0
+},{
+"headLine":"Huevos Pasados: Posible Causa de la Intoxicación",
+"StatJ":0,
+"StatV":5,
+"StatI":0,
+"StatE":-1
+},{
+"headLine":"No Hay Quien Trague Tanto Arroz",
+"StatJ":-2,
+"StatV":0,
+"StatI":2,
+"StatE":0
+},{
+"headLine":"Mucha Verdura, Poco Gusto",
+"StatJ":0,
+"StatV":-2,
+"StatI":0,
+"StatE":4
+}
+]},
+{
+"Day4":[{
+"headLine":"Los palillos demuestran su superioridad de nuevo",
+"StatJ":4,
+"StatV":-1,
+"StatI":-1,
+"StatE":-1
+},{
+"headLine":"Los Restos (de Pescado) en los Cubiertos Provocan La Indigestión",
+"StatJ":-2,
+"StatV":4,
+"StatI":0,
+"StatE":0
+},{
+"headLine":"Mucha Siesta, Poca Limpieza",
+"StatJ":0,
+"StatV":0,
+"StatI":4,
+"StatE":-1
+},{
+"headLine":"El Crítico, Más Sucio que Comer Pizza",
+"StatJ":0,
+"StatV":0,
+"StatI":-1,
+"StatE":3}
+]},{"Day5":[{
+
+"headLine":"Pizza de Sushi, ¿Comida Triunfal?",
+"StatJ":7,
+"StatV":0,
+"StatI":-4,
+"StatE":0
+},{
+"headLine":"Sin Los Pimientos No Somos Nada",
+"StatJ":0,
+"StatV":1,
+"StatI":0,
+"StatE":0
+},{
+"headLine":"La Pasta, Bien",
+"StatJ":0,
+"StatV":0,
+"StatI":1,
+"StatE":0
+},{
+"headLine":"La Tortilla del Festival Con Más Huevos Que Nunca",
+"StatJ":0,
+"StatV":-4,
+"StatI":0,
+"StatE":6
+}]},
+
+{"Day6":[{
+"headLine":"Nada Como El Ramen Clásico Para Obtener La Gloria",
+"StatJ":1,
+"StatV":-1,
+"StatI":0,
+"StatE":0
+},{
+"headLine":"La Pasta Sola, La Mejor Comida",
+"StatJ":0,
+"StatV":9,
+"StatI":-3,
+"StatE":0
+},{
+"headLine":"La Italiana, La Verdadera Cocina Mediterránea",
+"StatJ":0,
+"StatV":0,
+"StatI":8,
+"StatE":-4
+},{
+"headLine":"El Arroz de la Paella No Tiene Competencia",
+"StatJ":-2,
+"StatV":0,
+"StatI":0,
+"StatE":2
+}]},
+
+{"Day7":[{
+"headLine":"A Todos Nos Une El Pescado",
+"StatJ":4,
+"StatV":-3,
+"StatI":0,
+"StatE":0
+},{
+"headLine":"El Trigo Es La Base de La Alimentación",
+"StatJ":-3,
+"StatV":5,
+"StatI":0,
+"StatE":0
+},{
+"headLine":"Italia, Continúa Sin Rival en Europa",
+"StatJ":0,
+"StatV":0,
+"StatI":6,
+"StatE":-2
+},{
+"headLine":"La Pizza Española, La Mejor Unión Cultural!",
+"StatJ":0,
+"StatV":0,
+"StatI":-2,
+"StatE":5
+}
+]
+}
+]}
