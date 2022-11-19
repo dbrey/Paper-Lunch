@@ -2,8 +2,9 @@ import { Newspaper, Ad } from '../characters/items.js';
 import CT from '../libraries/constants.js'
 
 export default class DIA_DEFAULT extends Phaser.Scene {
-    constructor(){
+    constructor(config){
         super({key: 'createNewspaper'})
+        this.nextDay = config.nextDay;
     }
 
     //Creamos lo necesario para la escena
@@ -143,7 +144,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
                 //this.continueButton.setScale(0.3);
                 this.continueButton.on('pointerover', () => {this.continueButton.setScale(0.4);})
                 this.continueButton.on('pointerout', () => {this.continueButton.setScale(0.3);})
-                this.continueButton.on('pointerdown', () => {this.scene.start('Dia1', {_numN: this.numNewspapers, _money: this.moneyLeft});})
+                this.continueButton.on('pointerdown', () => {this.scene.start({objectLayerName : this.nextDay,_numN: this.numNewspapers, _money: this.moneyLeft});})
             }
         }
         //Si no se cumple ninguna condicion, el boton se desactiva

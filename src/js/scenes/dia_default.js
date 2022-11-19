@@ -9,15 +9,16 @@ import TP from '../TP/teleport.js'
 export default class DIA_DEFAULT extends Phaser.Scene {
 
     constructor(config) {
-        super({ key: 'Dia1' });
-        this.objectLayerName = 'PrimerDia';
-
+        super({ key: config.key });
+        this.objectLayerName = config.objectLayerName;
+        this.numN = config._numN;
+        this.money = config._money;
+        this.nextDay = config.nextDay;
     }
 
     init(data)
     {
-        this.numN = data._numN;
-        this.money = data._money;
+        
         //this.objectLayerName = 'PrimerDia';
     }
 
@@ -40,7 +41,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
                 
         let mapObjects = this.map.getObjectLayer(this.objectLayerName).objects;
 
-
+        
         for (const objeto of mapObjects) {
             const props = {};
             if (objeto.properties) { for (const { name, value } of objeto.properties) { props[name] = value; } }
