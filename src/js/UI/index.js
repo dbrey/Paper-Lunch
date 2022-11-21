@@ -1,5 +1,6 @@
 import Boot from '../scenes/boot.js'
-import Dia1 from '../scenes/dia_default.js'
+import d_default from '../scenes/dia_default.js'
+import dia1 from '../scenes/Dia1.js'
 import menu from '../scenes/mainMenu.js'
 import news from '../scenes/creatingNewspaper.js'
 import pause from '../scenes/pauseMenu.js'
@@ -23,7 +24,7 @@ let config = {
     },
     pixelArt: true,
 
-    scene: [Boot, menu,news, Dia1,options,pause,tpMenu],
+    scene: [Boot, menu,news, d_default, dia1 ,options,pause,tpMenu],
 
     physics: { default: 'arcade', arcade: { debug: true } }
     };

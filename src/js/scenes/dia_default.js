@@ -6,19 +6,19 @@ import Temporizador from '../temporizador/temporizador.js';
 import TP from '../TP/teleport.js'
 
 
-export default class DIA_DEFAULT extends Phaser.Scene {
+export default class dia_default extends Phaser.Scene {
 
-    constructor(config) {
-        super({ key: config.key });
-        this.objectLayerName = config.objectLayerName;
-        this.numN = config._numN;
-        this.money = config._money;
-        this.nextDay = config.nextDay;
+    constructor(day) {
+        super({ key: day });
+
     }
 
     init(data)
     {
-        
+        this.objectLayerName = data.objectLayerName;
+        this.numN = data._numN;
+        this.money = data._money;
+        this.nextDay = data.nextDay;
         //this.objectLayerName = 'PrimerDia';
     }
 
@@ -103,7 +103,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
 
 
     finDia(){
-        this.scene.start('createNewspaper');
+        this.scene.start('createNewspaper', {diaActual: 'Dia1',nextDay: 'Dia2'});
     }
 
 
