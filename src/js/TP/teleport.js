@@ -1,7 +1,7 @@
 
 export default class TP extends Phaser.GameObjects.Sprite{
-    constructor(_scene, x, y, tpID,player, zoneX, zoneY){
-        super(_scene, x, y, tpID);
+    constructor(scene, x, y, tpID,player, zoneX, zoneY){
+        super(scene, x, y, tpID);
 
         this.scene.add.existing(this);
 
@@ -16,7 +16,7 @@ export default class TP extends Phaser.GameObjects.Sprite{
 
         this.canTP = true;
         console.log(this);
-        this._scene = _scene;
+        
     }
 
     teleport(tpx, tpy){
@@ -26,6 +26,10 @@ export default class TP extends Phaser.GameObjects.Sprite{
         this.player.y = tpy;
         console.log(this.player.x + " " + this.player.y);
         this.player.changeDinero(-10);
+        this.player.cursors.left.reset();
+    this.player.cursors.right.reset();
+    this.player.cursors.up.reset();
+    this.player.cursors.down.reset();
         
         }
     }
@@ -35,16 +39,16 @@ export default class TP extends Phaser.GameObjects.Sprite{
         if(Phaser.Geom.Intersects.RectangleToRectangle(this.triggerZone.getBounds(),this.player.getBounds())){
             console.log("Ubicacion: " + this.tpID);
             if(this.player.action.isDown && this.canTP){
-                this.player.stopX(); this.player.stopY();
-                this._scene.scene.pause();
-                this._scene.scene.launch("tpMenu", { TP: this, sceneName: "Dia1"});
-                
-                
-                
                 this.canTP = false;
+                this.player.stopX(); this.player.stopY();
+                this.scene.scene.launch("tpMenu", { TP: this, sceneName: "Dia1"});
+                this.scene.scene.pause();
+                this.player.action.reset();
+                
+                
             }
         }
-        else{
+        else if(this.canTP == false &&!Phaser.Geom.Intersects.RectangleToRectangle(this.triggerZone.getBounds(),this.player.getBounds())){
             this.canTP = true;
             
         }
