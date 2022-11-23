@@ -79,5 +79,6 @@ export default class tpMenu extends Phaser.Scene
         if(this.tp.tpID != 4){this.tp4Button.destroy();}
         this.scene.run(this.lastScene); // Cambiar segun dia
 
+        this.scene.stop();
     }
   }
