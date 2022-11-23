@@ -8,17 +8,17 @@ import TP from '../TP/teleport.js'
 
 export default class dia_default extends Phaser.Scene {
 
-    constructor(day) {
+    constructor(day, _objectLayerName, _numN, _money, _nextDay) {
         super({ key: day });
-
+        this.objectLayerName = _objectLayerName;
+        
+        this.nextDay = _nextDay;
     }
 
     init(data)
     {
-        this.objectLayerName = data.objectLayerName;
         this.numN = data._numN;
         this.money = data._money;
-        this.nextDay = data.nextDay;
         //this.objectLayerName = 'PrimerDia';
     }
 
@@ -103,7 +103,7 @@ export default class dia_default extends Phaser.Scene {
 
 
     finDia(){
-        this.scene.start('createNewspaper', {diaActual: 'Dia1',nextDay: 'Dia2'});
+        this.scene.start('createNewspaper', {diaActual: 'Dia1',nextDay: 'Dia2', _money: this.player.getDinero()});
     }
 
 

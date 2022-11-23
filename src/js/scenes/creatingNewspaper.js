@@ -10,6 +10,8 @@ export default class DIA_DEFAULT extends Phaser.Scene {
     {
         this.diaActual = data.diaActual;
         this.nextDay = data.nextDay;
+        this.money = data._money;               //Dinero con el que empieza
+
     }
 
     //Creamos lo necesario para la escena
@@ -30,7 +32,6 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.nums[2] = 0; this.nums[1] = 0; this.nums[0] = 0;
 
         //Variables
-        this.money=200;               //Dinero con el que empieza
         this.moneyLeft = 0;         //Dinero resultate tras crear los periodicos
         this.moneySpent=this.money-this.moneyLeft; //Dinero gastado en la creación de periódicos
         this.pricePerPaper=1;       //Dinero que cuesta cada periódico
@@ -150,7 +151,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
                 this.continueButton.on('pointerover', () => {this.continueButton.setScale(0.4);})
                 this.continueButton.on('pointerout', () => {this.continueButton.setScale(0.3);})
                 console.log(this.diaActual);
-                this.continueButton.on('pointerdown', () => {this.scene.start(this.diaActual, {objectLayerName : this.diaActual,_numN: this.numNewspapers, _money: this.moneyLeft});})
+                this.continueButton.on('pointerdown', () => {this.scene.start(this.diaActual, {_numN: this.numNewspapers, _money: this.moneyLeft});})
             }
         }
         //Si no se cumple ninguna condicion, el boton se desactiva
