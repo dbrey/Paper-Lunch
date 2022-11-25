@@ -17,13 +17,14 @@ export class Newspaper{
         this.tick.alpha = 0;
         
         //Imagenes de cada distrito
-        this.esp = scene.add.image(_posX - 75, _posY - 25, 'simEsp').setScale(0.03);
-        this.veg = scene.add.image(_posX, _posY - 25, 'simVeg').setScale(0.03);
-        this.ita = scene.add.image(_posX - 75, _posY + 50, 'simIta').setScale(0.03);
-        this.jap = scene.add.image(_posX, _posY + 50, 'simJap').setScale(0.03);
+        this.esp = scene.add.image(_posX - 75, _posY - 25, 'simEsp').setScale(0.04);
+        this.veg = scene.add.image(_posX + 20, _posY - 25, 'simVeg').setScale(0.04);
+        this.ita = scene.add.image(_posX - 75, _posY + 50, 'simIta').setScale(0.04);
+        this.jap = scene.add.image(_posX + 20, _posY + 50, 'simJap').setScale(0.04);
 
         //Numeros para la confianza de cada distrito
         this.trust = [0,0,0,0];
+        this.scene.setTrustValors(false);
 
         //Eventos del boton
         this.button.on('pointerdown', () => {
@@ -47,7 +48,7 @@ export class Newspaper{
             {
                 this.button.setScale(0.3,0.25);
                 this.setDistrictImages(true);
-                this.setTrustValors(true);
+                this.moveTrustValors(true);
             }
         });
         this.button.on('pointerout', () => { 
@@ -55,7 +56,7 @@ export class Newspaper{
             {
                 this.button.setScale(0.25, 0.2);
                 this.setDistrictImages(false);
-                this.setTrustValors(false);
+                this.moveTrustValors(false);
             }
         });
     }
@@ -66,32 +67,32 @@ export class Newspaper{
         {
             
             //Posiciones
-            this.esp.setPosition(this.x - 100, this.y - 30);
-            this.veg.setPosition(this.x + 25, this.y - 30);
-            this.ita.setPosition(this.x - 100, this.y + 60);
-            this.jap.setPosition(this.x + 25, this.y + 60);
+            this.esp.setPosition(this.x - 90, this.y - 30);
+            this.veg.setPosition(this.x + 40, this.y - 30);
+            this.ita.setPosition(this.x - 90, this.y + 60);
+            this.jap.setPosition(this.x + 40, this.y + 60);
             
             //Tamaños
-            this.esp.setScale(0.05);
-            this.veg.setScale(0.05);
-            this.ita.setScale(0.05);
-            this.jap.setScale(0.05);
+            this.esp.setScale(0.06);
+            this.veg.setScale(0.06);
+            this.ita.setScale(0.06);
+            this.jap.setScale(0.06);
         }
 
         else
         {
             //Posiciones
             this.esp.setPosition(this.x - 75, this.y - 25);
-            this.veg.setPosition(this.x , this.y - 25);
+            this.veg.setPosition(this.x + 20, this.y - 25);
             this.ita.setPosition(this.x - 75, this.y + 50);
-            this.jap.setPosition(this.x, this.y + 50);
+            this.jap.setPosition(this.x + 20, this.y + 50);
             
 
             //Tamaños
-            this.esp.setScale(0.03);
-            this.veg.setScale(0.03);
-            this.ita.setScale(0.03);
-            this.jap.setScale(0.03);
+            this.esp.setScale(0.04);
+            this.veg.setScale(0.04);
+            this.ita.setScale(0.04);
+            this.jap.setScale(0.04);
         }
     }
 
@@ -99,9 +100,9 @@ export class Newspaper{
         return this.title;
     }
 
-    setTrustValors(value)
+    moveTrustValors(value)
     {
-           this._myS.setTrustTexts(this.trust, this.x, this.y, value);
+        this._myS.moveTrustTexts(value);
     }
 }
 

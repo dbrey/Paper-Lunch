@@ -127,28 +127,25 @@ export default class DIA_DEFAULT extends Phaser.Scene {
     }
 
     //Escribe los textos de la confianza de cada barrio en cada periodico
-    setTrustTexts(trust, x, y, value)
+    updateTrustTexts(trust, x, y, value)
     {
-        this.espN = ': ' + trust[0];
-        this.vegN = ': ' + trust[1];
-        this.itaN = ': ' + trust[2];
-        this.japN = ': ' + trust[3];
+        this.espN = this.add.text(x - 65, y - 50, this.espN, {fontSize: '50px', fill: '#000'});
+        this.vegN = this.add.text(x + 60, y - 50, this.vegN, {fontSize: '50px', fill: '#000'});
+        this.itaN = this.add.text(x - 65, y + 40, this.itaN, {fontSize: '50px', fill: '#000'});
+        this.japN = this.add.text(x + 60, y + 40, this.japN, {fontSize: '50px', fill: '#000'});
+    }
 
-        if (value)
-        {
-            this.espN = this.add.text(x - 85, y - 30, this.espN, {fontSize: '30px', fill: '#000'});
-            this.vegN = this.add.text(x + 10, y - 30, this.vegN, {fontSize: '30px', fill: '#000'});
-            this.itaN = this.add.text(x - 85, y + 60, this.itaN, {fontSize: '30px', fill: '#000'});
-            this.japN = this.add.text(x + 10, y + 60, this.japN, {fontSize: '30px', fill: '#000'});
-        }
+    setTrustTexts(trust, x, y, value){
 
-        else
-        {
-            this.espN = this.add.text(x - 50, y - 25, this.espN, {fontSize: '30px', fill: '#000'});
-            this.vegN = this.add.text(x, y - 25, this.vegN, {fontSize: '30px', fill: '#000'});
-            this.itaN = this.add.text(x - 50, y + 35, this.itaN, {fontSize: '30px', fill: '#000'});
-            this.japN = this.add.text(x, y + 35, this.japN, {fontSize: '30px', fill: '#000'});
-        }
+        this.espN = ':' + trust[0];
+        this.vegN = ':' + trust[1];
+        this.itaN = ':' + trust[2];
+        this.japN = ':' + trust[3];
+
+        this.espN = this.add.text(x - 60, y - 45, this.espN, {fontSize: '40px', fill: '#000'});
+        this.vegN = this.add.text(x + 40, y - 45, this.vegN, {fontSize: '40px', fill: '#000'});
+        this.itaN = this.add.text(x - 60, y + 30, this.itaN, {fontSize: '40px', fill: '#000'});
+        this.japN = this.add.text(x + 40, y + 30, this.japN, {fontSize: '40px', fill: '#000'});
     }
     //Metodo para saber si ya se ha seleccionado un titulo
     getTitleSelected(){
