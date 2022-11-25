@@ -211,10 +211,7 @@ Se acerca el gran festival de la ciudad en el que se juntan todos los distritos 
 Es el día del evento. Dependiendo de la reputación que el jugador haya mantenido con los distritos saldrá bien o mal.
 
 - ***Día 7 Consecuencias:***
-- Día 7 A: El evento ha sido un desastre, ha habido una gran pelea en el que la comida ha volado por todos lados y la ciudad no se podrá recuperar.
-- Día 7 B: El evento ha salido bien, la ciudad se ha recuperado de las tensiones y todo ha vuelto a la normalidad.
-
-En cualquiera de los desenlaces el jugador podrá “ganar” si ha conseguido el suficiente dinero para comprar su propio edificio editorial.
+- Día 7: El evento ha salido bien, la ciudad se ha recuperado de las tensiones y todo ha vuelto a la normalidad.
 
 2. **Niveles**
 
@@ -232,7 +229,11 @@ En los kioskos el jugador puede vender tiradas de periódicos, es decir un alto 
 
 Las paradas de metro permiten transportarse rápidamente entre distritos comprando un billete.
 
-En los lugares para comer se puede reponer el medidor de hambre a cambio de un precio. (Si da tiempo a desarrollar la funcionalidad el jugador obtendrá una bonificación distinta dependiendo del distrito en el que coma)![](https://github.com/dbrey/Paper-Lunch/blob/main/assets/GDDImages/Mapa.jpeg)
+En los lugares para comer se puede reponer el medidor de hambre a cambio de un precio. (Si da tiempo a desarrollar la funcionalidad el jugador obtendrá una bonificación distinta dependiendo del distrito en el que coma)
+
+**Mapa**
+
+![](https://github.com/dbrey/Paper-Lunch/blob/main/assets/GDDImages/Mapa.jpeg)
 
 **División por distritos:**  
 
