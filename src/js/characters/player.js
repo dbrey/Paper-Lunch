@@ -136,6 +136,14 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.body.setVelocityY(0);
   }
 
+  resetInput(){
+    this.cursors.left.reset();
+    this.cursors.up.reset();
+    this.cursors.down.reset();
+    this.cursors.right.reset();
+    this.action.reset();
+  }
+
   // Metodos para conseguir y cambiar el dinero y confianza del jugador
   getDinero() {
     return this.dinero;

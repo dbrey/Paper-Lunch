@@ -96,6 +96,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
             this.player.stopX(); this.player.stopY();
             this.scene.pause();
             this.scene.launch("pauseMenu", {sceneName: "Dia1"});
+            this.player.resetInput();
         } 
         
     }
