@@ -232,7 +232,7 @@ En los kioskos el jugador puede vender tiradas de periódicos, es decir un alto 
 
 Las paradas de metro permiten transportarse rápidamente entre distritos comprando un billete.
 
-En los lugares para comer se puede reponer el medidor de hambre a cambio de un precio. (Si da tiempo a desarrollar la funcionalidad el jugador obtendrá una bonificación distinta dependiendo del distrito en el que coma)![](https://github.com/dbrey/Paper-Lunch/assets/GDDImages/Mapa.jpeg)
+En los lugares para comer se puede reponer el medidor de hambre a cambio de un precio. (Si da tiempo a desarrollar la funcionalidad el jugador obtendrá una bonificación distinta dependiendo del distrito en el que coma)![](https://github.com/dbrey/Paper-Lunch/blob/main/assets/GDDImages/Mapa.jpeg)
 
 **División por distritos:**  
 
