@@ -1,11 +1,11 @@
 import DIA_DEFAULT from "./dia_default.js";
 
-export default class Day1 extends DIA_DEFAULT
+export default class Day2 extends DIA_DEFAULT
 {
     constructor() {
-        super( 'PrimerDia', 
+        super( 'SegundoDia', 
         'PrimerDia',
-        'SegundoDia',);
+        'TercerDia',);
 
         
     }
@@ -17,7 +17,7 @@ export default class Day1 extends DIA_DEFAULT
 
     create()
     {
-        console.log("Primer dia");
+        console.log("Segundo dia");
         super.create();
     }
 }

@@ -8,10 +8,10 @@ import TP from '../TP/teleport.js'
 
 export default class dia_default extends Phaser.Scene {
 
-    constructor(day, _objectLayerName, _numN, _money, _nextDay) {
+    constructor(day, _objectLayerName, _nextDay) {
         super({ key: day });
         this.objectLayerName = _objectLayerName;
-        
+        this.diaActual = day;
         this.nextDay = _nextDay;
     }
 
@@ -96,14 +96,21 @@ export default class dia_default extends Phaser.Scene {
         if (Phaser.Input.Keyboard.JustDown(this.pauseButton)) { 
             this.player.stopX(); this.player.stopY();
             this.scene.pause();
-            this.scene.launch("pauseMenu", {sceneName: "Dia1"});
+            this.scene.launch("pauseMenu", {sceneName: this.diaActual});
         } 
         
     }
 
 
     finDia(){
-        this.scene.start('createNewspaper', {diaActual: 'Dia1',nextDay: 'Dia2', _money: this.player.getDinero()});
+        if(this.diaActual != 'SeptimoDia')
+        {
+            this.scene.start('createNewspaper', {diaActual: this.nextDay,  _money: this.player.getDinero()});
+        }
+        else
+        {
+            // Cambiar a menu de ganar y perder
+        }
     }
 
 

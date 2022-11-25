@@ -9,7 +9,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
     init(data)
     {
         this.diaActual = data.diaActual;
-        this.nextDay = data.nextDay;
+        //this.nextDay = data.nextDay;
         this.money = data._money;               //Dinero con el que empieza
 
     }
@@ -141,7 +141,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
                 i++;
             }
 
-            console.log(this.titleSelected);
+            //console.log(this.titleSelected);
 
             //Si se cumplen las dos condiciones, el boton se activa
             if (this.titleSelected)
@@ -150,7 +150,6 @@ export default class DIA_DEFAULT extends Phaser.Scene {
                 //this.continueButton.setScale(0.3);
                 this.continueButton.on('pointerover', () => {this.continueButton.setScale(0.4);})
                 this.continueButton.on('pointerout', () => {this.continueButton.setScale(0.3);})
-                console.log(this.diaActual);
                 this.continueButton.on('pointerdown', () => {this.scene.start(this.diaActual, {_numN: this.numNewspapers, _money: this.moneyLeft});})
             }
         }

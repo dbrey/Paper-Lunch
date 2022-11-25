@@ -31,7 +31,7 @@ export default class mainMenu extends Phaser.Scene
         this.playbutton.on('pointerout', event => { this.playbutton.setTexture('playButton'); this.playbutton.setScale(6); });
     
         // Al hacer click en el boton
-        this.playbutton.on("pointerdown", () => { this.scene.start('createNewspaper', {diaActual: 'PrimerDia',nextDay: 'SegundoDia', _money: 200}); });
+        this.playbutton.on("pointerdown", () => { this.scene.start('createNewspaper', {diaActual: 'PrimerDia', _money: 200}); });
 
         // BOTON OPCIONES
         this.optionsbutton = this.add.sprite(650,600, 'optionsButton').setInteractive();
