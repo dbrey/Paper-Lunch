@@ -1,5 +1,13 @@
 import Boot from '../scenes/boot.js'
-import Dia1 from '../scenes/dia_default.js'
+import d_default from '../scenes/dia_default.js'
+import dia1 from '../scenes/Dia1.js'
+import dia2 from '../scenes/Dia2.js'
+import dia3 from '../scenes/Dia3.js'
+import dia4 from '../scenes/Dia4.js'
+import dia5 from '../scenes/Dia5.js'
+import dia6 from '../scenes/Dia6.js'
+import dia7 from '../scenes/Dia7.js'
+
 import menu from '../scenes/mainMenu.js'
 import news from '../scenes/creatingNewspaper.js'
 import pause from '../scenes/pauseMenu.js'
@@ -23,7 +31,7 @@ let config = {
     },
     pixelArt: true,
 
-    scene: [Boot, menu,news, Dia1,options,pause,tpMenu],
+    scene: [Boot, menu,news, d_default, dia1, dia2, dia3, dia4, dia5, dia6, dia7, options,pause,tpMenu],
 
     physics: { default: 'arcade', arcade: { debug: true } }
     };

@@ -6,12 +6,13 @@ import Temporizador from '../temporizador/temporizador.js';
 import TP from '../TP/teleport.js'
 
 
-export default class DIA_DEFAULT extends Phaser.Scene {
+export default class dia_default extends Phaser.Scene {
 
-    constructor(config) {
-        super({ key: 'Dia1' });
-        this.objectLayerName = 'PrimerDia';
-
+    constructor(day, _objectLayerName, _nextDay) {
+        super({ key: day });
+        this.objectLayerName = _objectLayerName;
+        this.diaActual = day;
+        this.nextDay = _nextDay;
     }
 
     init(data)
@@ -41,7 +42,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
                 
         let mapObjects = this.map.getObjectLayer(this.objectLayerName).objects;
 
-
+        
         for (const objeto of mapObjects) {
             const props = {};
             if (objeto.properties) { for (const { name, value } of objeto.properties) { props[name] = value; } }
@@ -98,13 +99,21 @@ export default class DIA_DEFAULT extends Phaser.Scene {
             this.scene.pause();
             this.scene.launch("pauseMenu", {sceneName: "Dia1"});
             this.player.resetInput();
+
         } 
         
     }
 
 
     finDia(){
-        this.scene.start('createNewspaper');
+        if(this.diaActual != 'SeptimoDia')
+        {
+            this.scene.start('createNewspaper', {diaActual: this.nextDay,  _money: this.player.getDinero()});
+        }
+        else
+        {
+            // Cambiar a menu de ganar y perder
+        }
     }
 
 

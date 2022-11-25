@@ -6,6 +6,14 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         super({key: 'createNewspaper'})
     }
 
+    init(data)
+    {
+        this.diaActual = data.diaActual;
+        //this.nextDay = data.nextDay;
+        this.money = data._money;               //Dinero con el que empieza
+
+    }
+
     //Creamos lo necesario para la escena
     create(){
         //Fondo de la escena
@@ -47,6 +55,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.NHeadLine=['','','','']
         this.numNewspapers = 0;                     //Numero de periodicos generados
         this.titleSelected = false;                 //Booleanos de control para saber si se puede pasar a la siguiente escena
+
         this.numNSelected = false;
 
         this.information();
@@ -202,8 +211,11 @@ export default class DIA_DEFAULT extends Phaser.Scene {
                 this.continueButton.setScale(0.3);
                 this.continueButton.on('pointerover', () => {this.continueButton.setScale(0.4);})
                 this.continueButton.on('pointerout', () => {this.continueButton.setScale(0.3);})
-                this.continueButton.on('pointerdown', () => {this.scene.start('Dia1', {_numN: this.numNewspapers, _money: this.moneyLeft, _urTrust: this.trust});})
+                this.continueButton.on('pointerdown', () => {this.scene.start(this.diaActual, {_numN: this.numNewspapers, _money: this.moneyLeft, _urTrust: this.trust});})
+                //this.continueButton.on('pointerdown', () => {this.scene.start(this.diaActual, {_numN: this.numNewspapers, _money: this.moneyLeft});})
+
        }
+
         //Si no se cumple ninguna condicion, el boton se desactiva
         else
         {
