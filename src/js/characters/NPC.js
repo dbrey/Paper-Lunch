@@ -25,6 +25,10 @@ export default class NPC extends Phaser.GameObjects.Sprite {
 
     this.bought = false;
 
+    this.dirX=0;
+    this.dirY=0;
+    this.speed=40;
+
     this.scene.physics.add.existing(this);
     this.scene.physics.add.collider(this,scene.player);
     this.body.setImmovable();
@@ -156,5 +160,16 @@ export default class NPC extends Phaser.GameObjects.Sprite {
        this.canAct=true;
     }
 
+
+    
+    this.body.setVelocityX(this.dirX * this.speed);
+    this.body.setVelocityY(this.dirY * this.speed);
+
+  }
+
+
+  cambiaDir(dirXnew,dirYnew){
+    this.dirX = dirXnew;
+    this.dirY = dirYnew;
   }
 }

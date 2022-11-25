@@ -4,6 +4,7 @@ import CT from '../libraries/constants.js';
 import UI from '../UI/hud.js';
 import Temporizador from '../temporizador/temporizador.js';
 import TP from '../TP/teleport.js'
+import npc_path from '../characters/npc_path.js';
 
 
 export default class DIA_DEFAULT extends Phaser.Scene {
@@ -54,6 +55,10 @@ export default class DIA_DEFAULT extends Phaser.Scene {
                     break;
                 case 'TP':
                     this[props.nombre] = new TP(this, objeto.x, objeto.y, props.id, this.player, 35, 35)
+                break;
+                case 'PATH_NPC':
+                    this[props.nombre] = new npc_path(this,objeto.x,objeto.y,this[props.NPC_NAME],objeto.width,objeto.height,
+                        props.Next_X,props.Next_Y);
                 break;
             }
         }
