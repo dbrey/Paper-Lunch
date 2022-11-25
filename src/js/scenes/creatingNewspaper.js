@@ -70,8 +70,8 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.newspapers = [];
         for (let i = 0; i < CT.numNewspapers; i++)
         {
-            if (i < 2) this.newspapers[i] = new Newspaper(this, 'soy un periodico', 220 + i *300, 180, 'news' + (i+1));
-            else this.newspapers[i] = new Newspaper(this, 'soy un periodico', 220 + (i-2)*300, 400, 'news' + (i+1));
+            if (i < 2) this.newspapers[i] = new Newspaper(this, 'soy un periodico', 220 + i *300, 180, 'news' + (i+1), this.NTrust[i]);
+            else this.newspapers[i] = new Newspaper(this, 'soy un periodico', 220 + (i-2)*300, 400, 'news' + (i+1) ,this.NTrust[i]);
         }
 
         //Array de anuncios
