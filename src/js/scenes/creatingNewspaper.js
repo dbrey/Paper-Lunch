@@ -66,8 +66,9 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.newspapers = [];
         for (let i = 0; i < CT.numNewspapers; i++)
         {
-            if (i < 2) this.newspapers[i] = new Newspaper(this, 'soy un periodico', 220 + i *300, 180, 'news' + (i+1));
-            else this.newspapers[i] = new Newspaper(this, 'soy un periodico', 220 + (i-2)*300, 400, 'news' + (i+1));
+            
+            if (i < 2) this.newspapers[i] = new Newspaper(this, this.NHeadLine[i], 220 + i *300, 180, 'news' + (i+1), this.NTrust[i]);
+            else this.newspapers[i] = new Newspaper(this, this.NHeadLine[i], 220 + (i-2)*300, 400, 'news' + (i+1), this.NTrust[i]);
         }
 
         //Array de anuncios
@@ -91,11 +92,12 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         for(let j=0; j<4;j++){
             this.NHeadLine[j]=this.dayData.Day[j].headLine;
             for(let k=0;k<4;k++){
-                this.NTrust[0][k]=this.dayData.Day[j].StatJ[k];
-                this.NTrust[1][k]=this.dayData.Day[j].StatV[k];
-                this.NTrust[2][k]=this.dayData.Day[j].StatI[k];
-                this.NTrust[3][k]=this.dayData.Day[j].StatE[k];
+                this.NTrust[0][k]=this.dayData.Day[j].StatJ;
+                this.NTrust[1][k]=this.dayData.Day[j].StatV;
+                this.NTrust[2][k]=this.dayData.Day[j].StatI;
+                this.NTrust[3][k]=this.dayData.Day[j].StatE;
     }
+    //console.log(this.NTrust[0][0]);
 }
 
         
@@ -126,31 +128,11 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.moneyLeftText=this.add.text(1150,460,this.moneyLeft,{fontSize: '50px', fill: '#000'});
     }
 
-    //Escribe los textos de la confianza de cada barrio en cada periodico
-    updateTrustTexts(trust, x, y, value)
-    {
-        this.espN = this.add.text(x - 65, y - 50, this.espN, {fontSize: '50px', fill: '#000'});
-        this.vegN = this.add.text(x + 60, y - 50, this.vegN, {fontSize: '50px', fill: '#000'});
-        this.itaN = this.add.text(x - 65, y + 40, this.itaN, {fontSize: '50px', fill: '#000'});
-        this.japN = this.add.text(x + 60, y + 40, this.japN, {fontSize: '50px', fill: '#000'});
-    }
-
-    setTrustTexts(trust, x, y, value){
-
-        this.espN = ':' + trust[0];
-        this.vegN = ':' + trust[1];
-        this.itaN = ':' + trust[2];
-        this.japN = ':' + trust[3];
-
-        this.espN = this.add.text(x - 60, y - 45, this.espN, {fontSize: '40px', fill: '#000'});
-        this.vegN = this.add.text(x + 40, y - 45, this.vegN, {fontSize: '40px', fill: '#000'});
-        this.itaN = this.add.text(x - 60, y + 30, this.itaN, {fontSize: '40px', fill: '#000'});
-        this.japN = this.add.text(x + 40, y + 30, this.japN, {fontSize: '40px', fill: '#000'});
-    }
     //Metodo para saber si ya se ha seleccionado un titulo
     getTitleSelected(){
         return this.titleSelected;
     }
+
     //Controla si hay un titulo seleccionado (cambia para indicar si si o si no)
     changeTitleSelected(value){
         this.titleSelected = value;
