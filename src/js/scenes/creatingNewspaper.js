@@ -38,8 +38,12 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.moneyLeft = 0;                         //Dinero resultate tras crear los periodicos
         this.moneySpent=this.money-this.moneyLeft;  //Dinero gastado en la creación de periódicos
         this.pricePerPaper=1;                       //Dinero que cuesta cada periódico
-        this.trust = [0, 0, 0, 0];                  //Array de confianza (una por distrito)
-        this.NTrust=[this.trust,this.trust,this.trust,this.trust];
+        this.trustP1 = [0, 0, 0, 0];                  //Array de confianza (una por distrito)
+        this.trustP2 = [0, 0, 0, 0];                  //Array de confianza (una por distrito)
+        this.trustP3 = [0, 0, 0, 0];                  //Array de confianza (una por distrito)
+        this.trustP4 = [0, 0, 0, 0];                  //Array de confianza (una por distrito)
+        this.NTrust=[this.trustP1,this.trustP2,this.trustP3,this.trustP4];
+        
         this.NHeadLine=['','','','']
         this.numNewspapers = 0;                     //Numero de periodicos generados
         this.titleSelected = false;                 //Booleanos de control para saber si se puede pasar a la siguiente escena
@@ -66,9 +70,8 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.newspapers = [];
         for (let i = 0; i < CT.numNewspapers; i++)
         {
-            
-            if (i < 2) this.newspapers[i] = new Newspaper(this, this.NHeadLine[i], 220 + i *300, 180, 'news' + (i+1), this.NTrust[i]);
-            else this.newspapers[i] = new Newspaper(this, this.NHeadLine[i], 220 + (i-2)*300, 400, 'news' + (i+1), this.NTrust[i]);
+            if (i < 2) this.newspapers[i] = new Newspaper(this, 'soy un periodico', 220 + i *300, 180, 'news' + (i+1));
+            else this.newspapers[i] = new Newspaper(this, 'soy un periodico', 220 + (i-2)*300, 400, 'news' + (i+1));
         }
 
         //Array de anuncios
@@ -91,16 +94,11 @@ export default class DIA_DEFAULT extends Phaser.Scene {
     searchInfo(){
         for(let j=0; j<4;j++){
             this.NHeadLine[j]=this.dayData.Day[j].headLine;
-            for(let k=0;k<4;k++){
-                this.NTrust[0][k]=this.dayData.Day[j].StatJ;
-                this.NTrust[1][k]=this.dayData.Day[j].StatV;
-                this.NTrust[2][k]=this.dayData.Day[j].StatI;
-                this.NTrust[3][k]=this.dayData.Day[j].StatE;
-    }
-    //console.log(this.NTrust[0][0]);
-}
-
-        
+                this.NTrust[j][0]=this.dayData.Day[j].StatJ;
+                this.NTrust[j][1]=this.dayData.Day[j].StatV;
+                this.NTrust[j][2]=this.dayData.Day[j].StatI;
+                this.NTrust[j][3]=this.dayData.Day[j].StatE;
+}  
     }
 
     //Escribe en pantalla la informacion necesaria para el jugador
@@ -128,11 +126,34 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.moneyLeftText=this.add.text(1150,460,this.moneyLeft,{fontSize: '50px', fill: '#000'});
     }
 
+    //Escribe los textos de la confianza de cada barrio en cada periodico
+    setTrustTexts(trust, x, y, value)
+    {
+        this.espN = ': ' + trust[0];
+        this.vegN = ': ' + trust[1];
+        this.itaN = ': ' + trust[2];
+        this.japN = ': ' + trust[3];
+
+        if (value)
+        {
+            this.espN = this.add.text(x - 85, y - 30, this.espN, {fontSize: '30px', fill: '#000'});
+            this.vegN = this.add.text(x + 10, y - 30, this.vegN, {fontSize: '30px', fill: '#000'});
+            this.itaN = this.add.text(x - 85, y + 60, this.itaN, {fontSize: '30px', fill: '#000'});
+            this.japN = this.add.text(x + 10, y + 60, this.japN, {fontSize: '30px', fill: '#000'});
+        }
+
+        else
+        {
+            this.espN = this.add.text(x - 50, y - 25, this.espN, {fontSize: '30px', fill: '#000'});
+            this.vegN = this.add.text(x, y - 25, this.vegN, {fontSize: '30px', fill: '#000'});
+            this.itaN = this.add.text(x - 50, y + 35, this.itaN, {fontSize: '30px', fill: '#000'});
+            this.japN = this.add.text(x, y + 35, this.japN, {fontSize: '30px', fill: '#000'});
+        }
+    }
     //Metodo para saber si ya se ha seleccionado un titulo
     getTitleSelected(){
         return this.titleSelected;
     }
-
     //Controla si hay un titulo seleccionado (cambia para indicar si si o si no)
     changeTitleSelected(value){
         this.titleSelected = value;
