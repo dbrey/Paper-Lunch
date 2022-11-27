@@ -17,9 +17,10 @@ export default class dia_default extends Phaser.Scene {
 
     init(data)
     {
-        this._myTrust = data._urTrust;
         this.numN = data._numN;
         this.money = data._money;
+        this._myTrust = data._urTrust;
+        this.nDay = data._nDay; // Dia para los periodicos
         //this.objectLayerName = 'PrimerDia';
     }
 
@@ -108,7 +109,7 @@ export default class dia_default extends Phaser.Scene {
     finDia(){
         if(this.diaActual != 'SeptimoDia')
         {
-            this.scene.start('createNewspaper', {diaActual: this.nextDay,  _money: this.player.getDinero()});
+            this.scene.start('createNewspaper', {diaActual: this.nextDay,  _money: this.player.getDinero(), _nDay: this.nDay, _confianza: this._myTrust});
         }
         else
         {

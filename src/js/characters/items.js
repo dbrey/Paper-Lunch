@@ -144,6 +144,11 @@ export class Newspaper{
         this.itaN = this._myS.add.text(x - 60, y + 30, this.itaN, {fontSize: '40px', fill: '#000'});
         this.japN = this._myS.add.text(x + 40, y + 30, this.japN, {fontSize: '40px', fill: '#000'});
     }
+
+    getTrust()
+    {
+        return this.trust;
+    }
 }
 
 //clase Anuncio

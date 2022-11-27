@@ -9,8 +9,9 @@ export default class DIA_DEFAULT extends Phaser.Scene {
     init(data)
     {
         this.diaActual = data.diaActual;
-        //this.nextDay = data.nextDay;
+        this.nDay= data._nDay;                  // Dia para los periodicos
         this.money = data._money;               //Dinero con el que empieza
+        this.confianza = data._confianza;
 
     }
 
@@ -29,7 +30,6 @@ export default class DIA_DEFAULT extends Phaser.Scene {
 
         //Datos de periódicos
         this.newsData=this.cache.json.get('newsData');
-        this.nDay=0;
         this.dayData=this.newsData.Days[this.nDay];
 
         this.Total=this.add.image(1150,480,'Total');
@@ -211,7 +211,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
                 this.continueButton.setScale(0.3);
                 this.continueButton.on('pointerover', () => {this.continueButton.setScale(0.4);})
                 this.continueButton.on('pointerout', () => {this.continueButton.setScale(0.3);})
-                this.continueButton.on('pointerdown', () => {this.scene.start(this.diaActual, {_numN: this.numNewspapers, _money: this.moneyLeft, _urTrust: this.trust});})
+                this.continueButton.on('pointerdown', () => {this.scene.start(this.diaActual, {_numN: this.numNewspapers, _money: this.moneyLeft, _urTrust: this.confianza, _nDay: this.nDay + 1});})
                 //this.continueButton.on('pointerdown', () => {this.scene.start(this.diaActual, {_numN: this.numNewspapers, _money: this.moneyLeft});})
 
        }
