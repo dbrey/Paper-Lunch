@@ -70,8 +70,8 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.newspapers = [];
         for (let i = 0; i < CT.numNewspapers; i++)
         {
-            if (i < 2) this.newspapers[i] = new Newspaper(this, 'soy un periodico', 220 + i *300, 180, 'news' + (i+1), this.NTrust[i]);
-            else this.newspapers[i] = new Newspaper(this, 'soy un periodico', 220 + (i-2)*300, 400, 'news' + (i+1) ,this.NTrust[i]);
+            if (i < 2) this.newspapers[i] = new Newspaper(this, this.NHeadLine[i], 220 + i *300, 180, 'news' + (i+1), this.NTrust[i]);
+            else this.newspapers[i] = new Newspaper(this, this.NHeadLine[i], 220 + (i-2)*300, 400, 'news' + (i+1) ,this.NTrust[i]);
         }
 
         //Array de anuncios
@@ -117,8 +117,8 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.moneySpentText='';
         
         this.titleMessage = this.add.text(950, 100, 'TITLE', {fontSize: '30px', fill: '#000'});
-        this.message = this.add.text(115, 30, 'Select a newspaper and a number of newspapers to continue', {fontSize: '30px', fill: '#000'});
-        this.adMessage= this.add.text(140, 520, 'Including ads is an optional action and' + '\n      it will affect your trust', {fontSize: '20px', fill: '#000'});
+        this.message = this.add.text(75, 30, 'Selecciona un periódico y un número de periódicos para continuar', {fontSize: '30px', fill: '#000'});
+        this.adMessage= this.add.text(140, 520, 'Incluir anuncios es una acción opcional' + '\n      y afectará a la confianza', {fontSize: '20px', fill: '#000'});
         this.numText = this.add.text(790, 400, this.nums[0]+' '+this.nums[1]+' '+this.nums[2], { fontSize: '50px', fill: '#000' });        
         this.moneyText=this.add.text(1150,350,this.money,{fontSize: '50px', fill: '#000'});
         this.moneySpentText=this.add.text(1120,400,'-'+this.moneySpent,{fontSize: '50px', fill: '#9e0d0d'});

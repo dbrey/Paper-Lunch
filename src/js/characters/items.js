@@ -4,7 +4,9 @@ export class Newspaper{
         //super(scene);
         scene.add.existing(this);
         this._myS = scene;
+        this.text;
         this.title = _title;
+        this.Ntitle="";
         this.selected = false;
         this.x = _posX;
         this.y = _posY;
@@ -32,6 +34,7 @@ export class Newspaper{
                 if (!scene.getTitleSelected()){         //Y no hay ningun periodico seleccionado 
                     this.selected = true;               //Me selecciono
                     this.tick.alpha = 1;
+                    this.setHeadlineText();
                     scene.changeTitleSelected(true);    //Informo de que hay un periodico seleccionado
                 }
             }
@@ -39,6 +42,7 @@ export class Newspaper{
                 if (scene.getTitleSelected()) {         //Y hay un periodico seleccionado (esto me indica que soy yo)
                     this.selected = false;              //Ya no estoy seleccionado
                     this.tick.alpha = 0;
+                    this.removeHeadline();
                     scene.changeTitleSelected(false);   //Informo de que ya no hay ningun periodico seleccionado
                 }
             }
@@ -47,6 +51,7 @@ export class Newspaper{
             if(!this.selected && !scene.getTitleSelected()) 
             {
                 this.button.setScale(0.3,0.25);
+                this.setHeadlineText();
                 this.setDistrictImages(true);
                 this.updateTrustTexts(true);
             }
@@ -55,10 +60,20 @@ export class Newspaper{
             if(!this.selected && !scene.getTitleSelected()) 
             {
                 this.button.setScale(0.25, 0.2);
+                this.removeHeadline();
                 this.setDistrictImages(false);
                 this.updateTrustTexts(false);
             }
         });
+    }
+
+    setHeadlineText(){
+        this.Ntitle=this.title;
+        this.text = this._myS.add.text(600,40, this.Ntitle, {fontSize: '30px', fill: '#000'});
+    }
+
+    removeHeadline(){
+        this.text.destroy();
     }
 
     setDistrictImages(value)
@@ -94,10 +109,6 @@ export class Newspaper{
             this.ita.setScale(0.04);
             this.jap.setScale(0.04);
         }
-    }
-
-    getTitle(){
-        return this.title;
     }
 /*
     moveTrustValors(value)
