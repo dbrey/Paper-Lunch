@@ -43,6 +43,7 @@ export default class Boot extends Phaser.Scene {
 
     // Fondos
     this.load.spritesheet('mainmenu', 'assets/sprites/background.png', { frameWidth: 480, frameHeight: 254 });
+    this.load.image('optionsBackground', 'assets/sprites/optionsBackground.jpg');
 
     // Logo
     this.load.image('logo', 'assets/sprites/MangoGamesLogo.png');
@@ -76,8 +77,11 @@ export default class Boot extends Phaser.Scene {
     this.load.image('titleRect', 'assets/sprites/creatingNews/recuadroTitulo.png');
     this.load.image('Recuadro','assets/sprites/creatingNews/Recuadro.png');
     this.load.image('BackgroundP','assets/sprites/creatingNews/FondoMasMejor.png');
-    this.load.image('Total','assets/sprites/creatingNews/BarraTotal.png')
+    this.load.image('Total','assets/sprites/creatingNews/BarraTotal.png');
+ 
+    // Sonidos y soundtrack
+    this.load.audio('mainMenuSoundtrack', 'assets/sounds/Sweden.mp3');
   }
 
-  create() { this.scene.start('menu'); }
+  create() { this.scene.start('menu', {_volume: 0.5, _continue: false}); }
 }

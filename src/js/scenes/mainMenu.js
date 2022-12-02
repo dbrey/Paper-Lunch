@@ -4,6 +4,12 @@ export default class mainMenu extends Phaser.Scene
         super({ key: 'menu' });
     }
 
+    init(data)
+    {
+        this.volume = data._volume;
+        this.continueSong = data._continue;
+    }
+
     create()
     {
         this.anims.create ({
@@ -13,6 +19,18 @@ export default class mainMenu extends Phaser.Scene
             repeat: -1
           }); 
         
+        this.music = this.sound.add('mainMenuSoundtrack', {volume: this.volume}, {loop: true});
+            
+        if(!this.continueSong)
+        {
+            this.music = this.sound.add('mainMenuSoundtrack', {volume: this.volume}, {loop: true});
+            this.music.play();    
+            //this.music.on('volume', listener);
+
+        }
+
+
+
         this.fondo = this.add.sprite(525, 300, 'mainmenu');
         this.fondo.anims.play('menu');
         this.fondo.setScale(3.25);
@@ -44,7 +62,8 @@ export default class mainMenu extends Phaser.Scene
         this.optionsbutton.on('pointerout', event => { this.optionsbutton.setTexture('optionsButton'); this.optionsbutton.setScale(6); });
 
         // Al hacer click en el boton
-        this.optionsbutton.on("pointerdown",() => { this.scene.start('options')});
+        this.optionsbutton.on("pointerdown",() => {this.scene.launch("options", {sceneName: "menu", _volume: this.volume});
+    });
 
     }
 }
