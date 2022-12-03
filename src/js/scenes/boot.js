@@ -83,5 +83,5 @@ export default class Boot extends Phaser.Scene {
     this.load.audio('mainMenuSoundtrack', 'assets/sounds/Sweden.mp3');
   }
 
-  create() { this.scene.start('menu', {_volume: 0.5, _continue: false}); }
+  create() { this.scene.start('menu', {_volume: 1, _continue: false}); }
 }

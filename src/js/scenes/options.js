@@ -6,6 +6,7 @@ export default class mainMenu extends Phaser.Scene
 
     init(data)
     {
+        this.mainMenu = data._scene;
         this.lastScene = data.sceneName;
         this.volume = data._volume;
     }
@@ -14,7 +15,13 @@ export default class mainMenu extends Phaser.Scene
     {
         this.fondo = this.add.sprite(525, 325, 'optionsBackground');
         this.fondo.setScale(0.80);
-        this.volume = 5.0;
+        this.volume = 3.0;
+        
+        // Ajustamos el nivel general de sonido y el volumen de la cancion que suena
+        this.mainMenu.volume = this.volume;
+        this.mainMenu.music.setVolume(this.volume);
+
+
         // BOTON VOLVER AL MENU
         this.menubutton = this.add.sprite(650,350, 'goBackButton').setInteractive();
         this.menubutton.setScale(6);
@@ -44,6 +51,6 @@ export default class mainMenu extends Phaser.Scene
     {
         this.fondo.destroy()
         this.menubutton.destroy();
-        this.scene.resume(this.lastScene, {_volume: this.volume, _continue: true}); 
+        this.scene.resume(this.lastScene/*, {_volume: this.volume, _continue: true}*/); 
     }
 }
