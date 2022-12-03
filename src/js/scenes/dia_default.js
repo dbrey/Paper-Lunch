@@ -10,7 +10,8 @@ export default class dia_default extends Phaser.Scene {
 
     constructor(day, _objectLayerName, _nextDay) {
         super({ key: day });
-       
+        this.objectLayerName = _objectLayerName;
+        this.nextDay = _nextDay;
     }
 
     init(data)
