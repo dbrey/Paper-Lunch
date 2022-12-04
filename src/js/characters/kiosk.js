@@ -7,6 +7,7 @@ export default class kiosk extends Phaser.GameObjects.Sprite{
         this.player = player;
         this.zoneWidth = zoneWidth;
         this.zoneHeight = zoneHeight;
+        this.content = "DDiego";
 
     }
 
@@ -17,6 +18,9 @@ export default class kiosk extends Phaser.GameObjects.Sprite{
     }
 
     preupdate(){
+        if(this.player.action.isDown){
+            var text = this.add.text(160,"PATATA",{fontFamily:'Arial', color:'#FFA500', wordWrap:{width:310}}).setOrigin(0);
+        }
 
     }
 

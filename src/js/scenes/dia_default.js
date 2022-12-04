@@ -3,7 +3,8 @@ import Player from '../characters/player.js';
 import CT from '../libraries/constants.js';
 import UI from '../UI/hud.js';
 import Temporizador from '../temporizador/temporizador.js';
-import TP from '../TP/teleport.js'
+import TP from '../TP/teleport.js';
+import dialogue from '../UI/dialogue.js';
 
 
 export default class DIA_DEFAULT extends Phaser.Scene {
@@ -37,6 +38,16 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.mapBajos = this.map.createStaticLayer('BajosE', tileSet);
         this.mapAdornos = this.map.createStaticLayer('Adornos', tileSet);
         this.player = new Player(this, 900, 1500, this.numN, this.money);
+
+        //this.dialoge = new dialogue(this, 0,0, 1280, 40, 'PATATA');
+        
+
+      
+      console.log(this.sys.dialogue);
+
+      this.dialogo = new dialogue(this, 545, 565, CT.gameWidth, 'MUERETE');
+      
+      
                 
         let mapObjects = this.map.getObjectLayer(this.objectLayerName).objects;
 
@@ -97,7 +108,11 @@ export default class DIA_DEFAULT extends Phaser.Scene {
             this.scene.pause();
             this.scene.launch("pauseMenu", {sceneName: "Dia1"});
             this.player.resetInput();
+            var text = this.add.text(160,"PATATA",{fontFamily:'Arial', color:'#FFA500', wordWrap:{width:310}}).setOrigin(0);
         } 
+        this.dialogo.writeText();
+        
+        
         
     }
 
