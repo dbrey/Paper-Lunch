@@ -7,18 +7,20 @@ import TP from '../TP/teleport.js';
 import dialogue from '../UI/dialogue.js';
 
 
-export default class DIA_DEFAULT extends Phaser.Scene {
+export default class dia_default extends Phaser.Scene {
 
-    constructor(config) {
-        super({ key: 'Dia1' });
-        this.objectLayerName = 'PrimerDia';
-
+    constructor(day, _objectLayerName, _nextDay) {
+        super({ key: day });
+        this.objectLayerName = _objectLayerName;
+        this.nextDay = _nextDay;
     }
 
     init(data)
     {
         this.numN = data._numN;
         this.money = data._money;
+        this._myTrust = data._urTrust;
+        this.nDay = data._nDay; // Dia para los periodicos
         //this.objectLayerName = 'PrimerDia';
     }
 
@@ -37,21 +39,13 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.mapGround = this.map.createStaticLayer('Ground', tileSet);
         this.mapBajos = this.map.createStaticLayer('BajosE', tileSet);
         this.mapAdornos = this.map.createStaticLayer('Adornos', tileSet);
-        this.player = new Player(this, 900, 1500, this.numN, this.money);
 
-        //this.dialoge = new dialogue(this, 0,0, 1280, 40, 'PATATA');
-        
+        this.player = new Player(this, 900, 1500, this.numN, this.money, this._myTrust);
 
-      
-      console.log(this.sys.dialogue);
-
-      this.dialogo = new dialogue(this, 545, 565, CT.gameWidth, 'MUERETE');
-      
-      
                 
         let mapObjects = this.map.getObjectLayer(this.objectLayerName).objects;
 
-
+        
         for (const objeto of mapObjects) {
             const props = {};
             if (objeto.properties) { for (const { name, value } of objeto.properties) { props[name] = value; } }
@@ -108,17 +102,20 @@ export default class DIA_DEFAULT extends Phaser.Scene {
             this.scene.pause();
             this.scene.launch("pauseMenu", {sceneName: "Dia1"});
             this.player.resetInput();
-            var text = this.add.text(160,"PATATA",{fontFamily:'Arial', color:'#FFA500', wordWrap:{width:310}}).setOrigin(0);
+
         } 
-        this.dialogo.writeText();
-        
-        
-        
     }
 
 
     finDia(){
-        this.scene.start('createNewspaper');
+        if(this.diaActual != 'SeptimoDia')
+        {
+            this.scene.start('createNewspaper', {diaActual: this.nextDay,  _money: this.player.getDinero(), _nDay: this.nDay, _confianza: this._myTrust});
+        }
+        else
+        {
+            // Cambiar a menu de ganar y perder
+        }
     }
 
 

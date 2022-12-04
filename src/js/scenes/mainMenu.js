@@ -4,6 +4,12 @@ export default class mainMenu extends Phaser.Scene
         super({ key: 'menu' });
     }
 
+    init(data)
+    {
+        this.volume = data._volume;
+        this.continueSong = data._continue;
+    }
+
     create()
     {
         this.anims.create ({
@@ -13,6 +19,14 @@ export default class mainMenu extends Phaser.Scene
             repeat: -1
           }); 
         
+        this.music = this.sound.add('mainMenuSoundtrack', {volume: this.volume}, {loop: true});
+            
+        if(!this.continueSong)
+        {
+            this.music.play()
+        }
+
+
         this.fondo = this.add.sprite(525, 300, 'mainmenu');
         this.fondo.anims.play('menu');
         this.fondo.setScale(3.25);
@@ -31,7 +45,7 @@ export default class mainMenu extends Phaser.Scene
         this.playbutton.on('pointerout', event => { this.playbutton.setTexture('playButton'); this.playbutton.setScale(6); });
     
         // Al hacer click en el boton
-        this.playbutton.on("pointerdown", () => { this.scene.start('createNewspaper'); });
+        this.playbutton.on("pointerdown", () => { this.scene.start('createNewspaper', {diaActual: 'PrimerDia',_nDay: 0, _money: 200, _confianza: [0,0,0,0]}); });
 
         // BOTON OPCIONES
         this.optionsbutton = this.add.sprite(650,600, 'optionsButton').setInteractive();
@@ -44,7 +58,10 @@ export default class mainMenu extends Phaser.Scene
         this.optionsbutton.on('pointerout', event => { this.optionsbutton.setTexture('optionsButton'); this.optionsbutton.setScale(6); });
 
         // Al hacer click en el boton
-        this.optionsbutton.on("pointerdown",() => { this.scene.start('options')});
+        this.optionsbutton.on("pointerdown",() => {this.scene.launch("options",{_scene: this, sceneName: "menu", _volume: this.volume});
+    });
 
     }
+
+    
 }

@@ -82,5 +82,6 @@ export default class tpMenu extends Phaser.Scene
         
          // Cambiar segun dia
 
+        this.scene.stop();
     }
   }

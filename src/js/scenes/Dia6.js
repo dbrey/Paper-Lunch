@@ -1,0 +1,23 @@
+import DIA_DEFAULT from "./dia_default.js";
+
+export default class Day4 extends DIA_DEFAULT
+{
+    constructor() {
+        super( 'SextoDia', 
+        'PrimerDia',
+        'SeptimoDia',);
+
+        
+    }
+
+    init(data)
+    {
+        super.init(data);
+    }
+
+    create()
+    {
+        console.log("Sexto dia");
+        super.create();
+    }
+}
