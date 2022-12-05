@@ -25,7 +25,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.speed = 125;
     
     this.dinero = _money;
-    this.confianza = _myTrust;
+    this.confianza = 10;
     this.periodicos = _numN;
     this.anteriorMovimiento = {x : 0, y:0};
 
@@ -152,8 +152,10 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
   compraPeriodicos(nPeriodicos){
     this.periodicos-=nPeriodicos;
-    this.dinero += 5; // DEPENDERA DE CUANTO CUESTA CADA PERIODICO
+    this.dinero += 5 * nPeriodicos; // DEPENDERA DE CUANTO CUESTA CADA PERIODICO
     console.log("Te queda " + this.periodicos + " periodicos");
+    this.scene.ui.updateDinero();
+    this.scene.ui.updateNumPeriodicos();
   }
 
   numeroPeriodicos(){

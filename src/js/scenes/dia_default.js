@@ -4,6 +4,7 @@ import CT from '../libraries/constants.js';
 import UI from '../UI/hud.js';
 import Temporizador from '../temporizador/temporizador.js';
 import TP from '../TP/teleport.js';
+import kiosk from '../characters/kiosk.js';
 import dialogue from '../UI/dialogue.js';
 
 
@@ -52,14 +53,17 @@ export default class dia_default extends Phaser.Scene {
             //Con esto ponemos bien el punto de origen
             objeto.x += objeto.width / 2;
             objeto.y += objeto.height / 2;
-
             switch (objeto.name) {
+                case 'KIO':
+                    this[props.nombre] = new kiosk(this, objeto.x, objeto.y, this.player, 50, 50)
+                break;
                 case 'NPC': //NPC
                 this[props.nombre] = new NPC(this,objeto.x,objeto.y,props.nombre,this.player,35,35)
                     break;
                 case 'TP':
                     this[props.nombre] = new TP(this, objeto.x, objeto.y, props.id, this.player, 35, 35)
                 break;
+                
             }
         }
 

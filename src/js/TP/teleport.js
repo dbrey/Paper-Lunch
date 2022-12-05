@@ -40,9 +40,6 @@ export default class TP extends Phaser.GameObjects.Sprite{
                 this.player.stopX(); this.player.stopY();
                 this.scene.scene.launch("tpMenu", { TP: this, sceneName: "Dia1"});
                 this.scene.scene.pause();
-                
-                
-                
             }
         }
         else if(this.canTP == false &&!Phaser.Geom.Intersects.RectangleToRectangle(this.triggerZone.getBounds(),this.player.getBounds())){
