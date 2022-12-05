@@ -11,17 +11,20 @@ export default class kiosk extends Phaser.GameObjects.Sprite{
 
     }
 
-    buy(){}
+    
 
     isTrustWorthy(){
-
+        if(this.player.getConfianza() >= 15){
+            this.player.compraPeriodicos(25);
+        }
     }
 
-    preupdate(){
-        if(this.player.action.isDown){
-            var text = this.add.text(160,"PATATA",{fontFamily:'Arial', color:'#FFA500', wordWrap:{width:310}}).setOrigin(0);
+    preUpdate(t, d){
+        if(Phaser.Geom.Intersects.RectangleToRectangle(this.triggerZone.getBounds(),this.player.getBounds())){
+            if(this.player.action.isDown){
+                this.isTrustWorthy();
+            }
         }
-
     }
 
 }
