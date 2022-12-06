@@ -159,29 +159,30 @@ export class Newspaper{
 
 //clase Anuncio
 export class Ad{
-    constructor(scene, _posX, _posY, _imgId){
+    constructor(scene, _posX, _posY, _activated, _imgId){
         //super(scene);
         scene.add.existing(this);
 
         this.x = _posX;
         this.y = _posY;
         this.selected = false;
-        this.available = false;
-        this.button = scene.add.image(_posX, _posY, 'Ad' + _imgId).setInteractive();
+        this.available = _activated;
+        if (_activated) this.button = scene.add.image(_posX, _posY, 'Ad' + _imgId).setInteractive();
+        else this.button = scene.add.image(_posX, _posY, 'adBlocked').setInteractive();
         this.button.setScale(0.12);
 
         //Eventos del boton
         this.button.on('pointerdown', () => {
             console.log('soy un anuncio bloqueado');
-            if (this.available && !this.selected) this.selected = true;
-            else if (this.available && this.selected) this.selected = false;
+            if (this.available && !this.selected) {this.selected = true; scene.modifyNewspaperPrice(true); }
+            else if (this.available && this.selected) {this.selected = false; scene.modifyNewspaperPrice(false); } 
         });
 
         this.button.on('pointerover', () => {
             if (this.available) this.button.setScale(0.14);
         })
         this.button.on('pointerout', () => {
-            if (this.available) this.button.setScale(0.12);
+            if (this.available && !this.selected) this.button.setScale(0.12);
         })
     }
 

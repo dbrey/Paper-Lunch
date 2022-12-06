@@ -19,6 +19,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this._myTrust = data._urTrust;
         this.numN = data._numN;
         this.money = data._money;
+        this.moneyPP = data._moneyPP;
         //this.objectLayerName = 'PrimerDia';
     }
 
@@ -37,7 +38,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.mapGround = this.map.createStaticLayer('Ground', tileSet);
         this.mapBajos = this.map.createStaticLayer('BajosE', tileSet);
         this.mapAdornos = this.map.createStaticLayer('Adornos', tileSet);
-        this.player = new Player(this, 900, 1500, this.numN, this.money, this._myTrust);
+        this.player = new Player(this, 900, 1500, this.numN, this.money, this._myTrust, this.moneyPP);
                 
         let mapObjects = this.map.getObjectLayer(this.objectLayerName).objects;
 

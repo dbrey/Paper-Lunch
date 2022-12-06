@@ -38,6 +38,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.moneyLeft = 0;                         //Dinero resultate tras crear los periodicos
         this.moneySpent=this.money-this.moneyLeft;  //Dinero gastado en la creación de periódicos
         this.pricePerPaper=1;                       //Dinero que cuesta cada periódico
+        this.trustFinal = [0, 0, 0, 0];
         this.trustP1 = [0, 0, 0, 0];                  //Array de confianza (una por distrito)
         this.trustP2 = [0, 0, 0, 0];                  //Array de confianza (una por distrito)
         this.trustP3 = [0, 0, 0, 0];                  //Array de confianza (una por distrito)
@@ -79,7 +80,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         var num = 1;
         for (let i = 0; i < CT.numAds; i++)
         {
-            this.ads[i] = new Ad(this, 150 + i*150, 630, num);
+            this.ads[i] = new Ad(this, 150 + i*150, 630, true, num);
             num++;
         }
 
@@ -97,7 +98,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
                 this.NTrust[j][1]=this.dayData.Day[j].StatV;
                 this.NTrust[j][2]=this.dayData.Day[j].StatI;
                 this.NTrust[j][3]=this.dayData.Day[j].StatE;
-}  
+        }  
     }
 
     //Escribe en pantalla la informacion necesaria para el jugador
@@ -159,6 +160,13 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.checkContinueButton();
     }
 
+    //Averiguar cuantos anuncios han sido seleccionados
+    modifyNewspaperPrice(value){
+       if (value) this.pricePerPaper += 0.25;
+       else this.pricePerPaper -= 0.25;
+       console.log(this.pricePerPaper);
+    }
+
     //Cambia el valor del array de numeros que controla el numero de periodicos
     changeNumbers(params) {
         if (params < 3) 
@@ -179,7 +187,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
     //Calcula el numero de periodicos, y si no es 0 cambia el booleano de control
     calculateNumNewspapers(){
         
-        this.moneySpent=(this.pricePerPaper*(this.nums[0] + this.nums[1] * 10 + this.nums[2] * 100));
+        this.moneySpent=(0.50*(this.nums[0] + this.nums[1] * 10 + this.nums[2] * 100));
         this.numNewspapers = this.nums[0] + this.nums[1] * 10 + this.nums[2] * 100;
         
         
@@ -202,7 +210,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
                 this.continueButton.setScale(0.3);
                 this.continueButton.on('pointerover', () => {this.continueButton.setScale(0.4);})
                 this.continueButton.on('pointerout', () => {this.continueButton.setScale(0.3);})
-                this.continueButton.on('pointerdown', () => {this.scene.start('Dia1', {_numN: this.numNewspapers, _money: this.moneyLeft, _urTrust: this.trust});})
+                this.continueButton.on('pointerdown', () => {this.scene.start('Dia1', {_numN: this.numNewspapers, _money: this.moneyLeft, _urTrust: this.trust, _moneyPP: this.pricePerPaper});})
        }
         //Si no se cumple ninguna condicion, el boton se desactiva
         else

@@ -1,6 +1,6 @@
 
 export default class Player extends Phaser.GameObjects.Sprite {
-  constructor(scene, x, y, _numN, _money, _myTrust) {
+  constructor(scene, x, y, _numN, _money, _myTrust, _moneyPP) {
     super(scene, x, y);
 
     // Añadirlo a la escena
@@ -28,6 +28,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.confianza = _myTrust;
     this.periodicos = _numN;
     this.anteriorMovimiento = {x : 0, y:0};
+    this.dineroXperiodico = _moneyPP;
 
     //ANIMACIONES    
     scene.anims.create({
@@ -152,8 +153,9 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
   compraPeriodicos(nPeriodicos){
     this.periodicos-=nPeriodicos;
-    this.dinero += 5; // DEPENDERA DE CUANTO CUESTA CADA PERIODICO
+    this.dinero += this.dineroXperiodico; // DEPENDERA DE CUANTO CUESTA CADA PERIODICO
     console.log("Te queda " + this.periodicos + " periodicos");
+    console.log("Tu dinero es " + this.dinero);
   }
 
   numeroPeriodicos(){
