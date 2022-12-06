@@ -19,10 +19,10 @@ export class Newspaper{
         this.tick.alpha = 0;
         
         //Imagenes de cada distrito
-        this.jap = scene.add.image(_posX - 75, _posY - 25, 'simJap').setScale(0.04);
-        this.veg = scene.add.image(_posX + 20, _posY - 25, 'simVeg').setScale(0.04);
-        this.ita = scene.add.image(_posX - 75, _posY + 50, 'simIta').setScale(0.04);
-        this.esp = scene.add.image(_posX + 20, _posY + 50, 'simEsp').setScale(0.04);
+        this.jap = scene.add.image(_posX - 80, _posY - 25, 'simJap').setScale(0.04);
+        this.veg = scene.add.image(_posX + 25, _posY - 25, 'simVeg').setScale(0.04);
+        this.ita = scene.add.image(_posX - 80, _posY + 50, 'simIta').setScale(0.04);
+        this.esp = scene.add.image(_posX + 25, _posY + 50, 'simEsp').setScale(0.04);
 
         //Numeros para la confianza de cada distrito
         this.trust =_trust;
@@ -34,6 +34,7 @@ export class Newspaper{
                 if (!scene.getTitleSelected()){         //Y no hay ningun periodico seleccionado 
                     this.selected = true;               //Me selecciono
                     this.tick.alpha = 1;
+                    this.removeHeadline();
                     this.setHeadlineText();
                     scene.changeTitleSelected(true);    //Informo de que hay un periodico seleccionado
                     scene.setTrustSelected(this.trust); //Asigno la confianza de este periodico a la final de la escena
@@ -83,10 +84,10 @@ export class Newspaper{
         {
             
             //Posiciones
-            this.jap.setPosition(this.x - 90, this.y - 30);
-            this.veg.setPosition(this.x + 40, this.y - 30);
-            this.ita.setPosition(this.x - 90, this.y + 60);
-            this.esp.setPosition(this.x + 40, this.y + 60);
+            this.jap.setPosition(this.x - 100, this.y - 30);
+            this.veg.setPosition(this.x + 35, this.y - 30);
+            this.ita.setPosition(this.x - 100, this.y + 60);
+            this.esp.setPosition(this.x + 35, this.y + 60);
             
             //Tamaños
             this.jap.setScale(0.06);
@@ -98,10 +99,10 @@ export class Newspaper{
         else
         {
             //Posiciones
-            this.jap.setPosition(this.x - 75, this.y - 25);
-            this.veg.setPosition(this.x + 20, this.y - 25);
-            this.ita.setPosition(this.x - 75, this.y + 50);
-            this.esp.setPosition(this.x + 20, this.y + 50);
+            this.jap.setPosition(this.x - 80, this.y - 25);
+            this.veg.setPosition(this.x + 25, this.y - 25);
+            this.ita.setPosition(this.x - 80, this.y + 50);
+            this.esp.setPosition(this.x + 25, this.y + 50);
             
 
             //Tamaños
@@ -115,41 +116,41 @@ export class Newspaper{
     updateTrustTexts(value)
     {
         if(value) {
-            this.espN.setPosition(this.x - 65, this.y - 50);
-            this.vegN.setPosition(this.x + 70, this.y - 50);
-            this.itaN.setPosition(this.x - 65, this.y + 40);
-            this.japN.setPosition(this.x + 70, this.y + 40);
+            this.japN.setPosition(this.x - 75, this.y - 50);
+            this.vegN.setPosition(this.x + 58, this.y - 50);
+            this.itaN.setPosition(this.x - 75, this.y + 40);
+            this.espN.setPosition(this.x + 58, this.y + 40);
 
-            this.espN.setFontSize(50);
-            this.vegN.setFontSize(50);
-            this.itaN.setFontSize(50);
-            this.japN.setFontSize(50);
+            this.japN.setFontSize(45);
+            this.vegN.setFontSize(45);
+            this.itaN.setFontSize(45);
+            this.espN.setFontSize(45);
         }
 
         else{
-            this.espN.setPosition(this.x - 60, this.y - 45);
+            this.japN.setPosition(this.x - 65, this.y - 45);
             this.vegN.setPosition(this.x + 40, this.y - 45);
-            this.itaN.setPosition(this.x - 60, this.y + 30);
-            this.japN.setPosition(this.x + 40, this.y + 30);
+            this.itaN.setPosition(this.x - 65, this.y + 30);
+            this.espN.setPosition(this.x + 40, this.y + 30);
 
-            this.espN.setFontSize(40);
-            this.vegN.setFontSize(40);
-            this.itaN.setFontSize(40);
-            this.japN.setFontSize(40);
+            this.japN.setFontSize(35);
+            this.vegN.setFontSize(35);
+            this.itaN.setFontSize(35);
+            this.espN.setFontSize(35);
         }
     }
 
     setTrustTexts(x, y, trust){
 
-        this.espN = ':' + trust[0];
+        this.japN = ':' + trust[0];
         this.vegN = ':' + trust[1];
         this.itaN = ':' + trust[2];
-        this.japN = ':' + trust[3];
+        this.espN = ':' + trust[3];
 
-        this.espN = this._myS.add.text(x - 60, y - 45, this.espN, {fontSize: '40px', fill: '#000'});
-        this.vegN = this._myS.add.text(x + 40, y - 45, this.vegN, {fontSize: '40px', fill: '#000'});
-        this.itaN = this._myS.add.text(x - 60, y + 30, this.itaN, {fontSize: '40px', fill: '#000'});
-        this.japN = this._myS.add.text(x + 40, y + 30, this.japN, {fontSize: '40px', fill: '#000'});
+        this.japN = this._myS.add.text(x - 65, y - 45, this.japN, {fontSize: '35px', fill: '#000'});
+        this.vegN = this._myS.add.text(x + 40, y - 45, this.vegN, {fontSize: '35px', fill: '#000'});
+        this.itaN = this._myS.add.text(x - 65, y + 30, this.itaN, {fontSize: '35px', fill: '#000'});
+        this.espN = this._myS.add.text(x + 40, y + 30, this.espN, {fontSize: '35px', fill: '#000'});
     }
 
     getSelected(){ return this.selected;}

@@ -12,11 +12,11 @@ export default class Temporizador extends Phaser.GameObjects.GameObject {
         this.minutosTranscurridos = 0;
 
         this.tiempoTranscurrido = this.horas + ' : '+ this.minutos;
-        this.text = this.scene.add.text(CT.gameWidth - 480, 235,this.tiempoTranscurrido);
+        this.text = this.scene.add.text(CT.gameWidth - 420, CT.gameHeight - 515,this.tiempoTranscurrido);
         this.text.setScrollFactor(0);
         this.text.setAlign('center');
         this.text.setFont('Arial Black');
-        this.text.setFontSize(40);
+        this.text.setFontSize(30);
 
 
         this.horaFinJornada = 14;
