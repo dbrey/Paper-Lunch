@@ -150,10 +150,18 @@ export default class DIA_DEFAULT extends Phaser.Scene {
             this.japN = this.add.text(x, y + 35, this.japN, {fontSize: '30px', fill: '#000'});
         }
     }
+
     //Metodo para saber si ya se ha seleccionado un titulo
     getTitleSelected(){
         return this.titleSelected;
     }
+
+    //El periodico seleccionado informa de su confianza
+    setTrustSelected(newspaperstrust){
+        this.trustFinal = newspaperstrust;
+        console.log(this.trustFinal);
+    }
+
     //Controla si hay un titulo seleccionado (cambia para indicar si si o si no)
     changeTitleSelected(value){
         this.titleSelected = value;

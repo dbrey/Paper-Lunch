@@ -19,10 +19,10 @@ export class Newspaper{
         this.tick.alpha = 0;
         
         //Imagenes de cada distrito
-        this.esp = scene.add.image(_posX - 75, _posY - 25, 'simEsp').setScale(0.04);
+        this.jap = scene.add.image(_posX - 75, _posY - 25, 'simJap').setScale(0.04);
         this.veg = scene.add.image(_posX + 20, _posY - 25, 'simVeg').setScale(0.04);
         this.ita = scene.add.image(_posX - 75, _posY + 50, 'simIta').setScale(0.04);
-        this.jap = scene.add.image(_posX + 20, _posY + 50, 'simJap').setScale(0.04);
+        this.esp = scene.add.image(_posX + 20, _posY + 50, 'simEsp').setScale(0.04);
 
         //Numeros para la confianza de cada distrito
         this.trust =_trust;
@@ -36,6 +36,7 @@ export class Newspaper{
                     this.tick.alpha = 1;
                     this.setHeadlineText();
                     scene.changeTitleSelected(true);    //Informo de que hay un periodico seleccionado
+                    scene.setTrustSelected(this.trust); //Asigno la confianza de este periodico a la final de la escena
                 }
             }
             else {                                      //Si estoy seleccionado
@@ -82,39 +83,34 @@ export class Newspaper{
         {
             
             //Posiciones
-            this.esp.setPosition(this.x - 90, this.y - 30);
+            this.jap.setPosition(this.x - 90, this.y - 30);
             this.veg.setPosition(this.x + 40, this.y - 30);
             this.ita.setPosition(this.x - 90, this.y + 60);
-            this.jap.setPosition(this.x + 40, this.y + 60);
+            this.esp.setPosition(this.x + 40, this.y + 60);
             
             //Tamaños
-            this.esp.setScale(0.06);
+            this.jap.setScale(0.06);
             this.veg.setScale(0.06);
             this.ita.setScale(0.06);
-            this.jap.setScale(0.06);
+            this.esp.setScale(0.06);
         }
 
         else
         {
             //Posiciones
-            this.esp.setPosition(this.x - 75, this.y - 25);
+            this.jap.setPosition(this.x - 75, this.y - 25);
             this.veg.setPosition(this.x + 20, this.y - 25);
             this.ita.setPosition(this.x - 75, this.y + 50);
-            this.jap.setPosition(this.x + 20, this.y + 50);
+            this.esp.setPosition(this.x + 20, this.y + 50);
             
 
             //Tamaños
-            this.esp.setScale(0.04);
+            this.jap.setScale(0.04);
             this.veg.setScale(0.04);
             this.ita.setScale(0.04);
-            this.jap.setScale(0.04);
+            this.esp.setScale(0.04);
         }
     }
-/*
-    moveTrustValors(value)
-    {
-        this._myS.updateTrustTexts(value);
-    }*/
 
     updateTrustTexts(value)
     {
@@ -155,6 +151,9 @@ export class Newspaper{
         this.itaN = this._myS.add.text(x - 60, y + 30, this.itaN, {fontSize: '40px', fill: '#000'});
         this.japN = this._myS.add.text(x + 40, y + 30, this.japN, {fontSize: '40px', fill: '#000'});
     }
+
+    getSelected(){ return this.selected;}
+    getTrust(){ return this.trust;}
 }
 
 //clase Anuncio
