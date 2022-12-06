@@ -6,7 +6,8 @@ export default class mainMenu extends Phaser.Scene
 
     init(data)
     {
-        this.volume = data._volume;
+        this.mainVolume = data._mainVolume;
+        this.effectsVolume = data._effectsVolume;        
         this.continueSong = data._continue;
     }
 
@@ -19,8 +20,8 @@ export default class mainMenu extends Phaser.Scene
             repeat: -1
           }); 
         
-        this.music = this.sound.add('mainMenuSoundtrack', {volume: this.volume}, {loop: true});
-            
+        this.music = this.sound.add('mainMenuSoundtrack', {volume: this.mainVolume}, {loop: true});
+        this.clickSound = this.sound.add('click', {volume: this.effectsVolume}, {loop: false});
         if(!this.continueSong)
         {
             this.music.play()
@@ -45,7 +46,7 @@ export default class mainMenu extends Phaser.Scene
         this.playbutton.on('pointerout', event => { this.playbutton.setTexture('playButton'); this.playbutton.setScale(6); });
     
         // Al hacer click en el boton
-        this.playbutton.on("pointerdown", () => { this.scene.start('createNewspaper', {diaActual: 'PrimerDia',_nDay: 0, _money: 200, _confianza: [0,0,0,0]}); });
+        this.playbutton.on("pointerdown", () => { this.clickSound.play(); this.scene.start('createNewspaper', {diaActual: 'PrimerDia',_nDay: 0, _money: 200, _confianza: [0,0,0,0]}); });
 
         // BOTON OPCIONES
         this.optionsbutton = this.add.sprite(650,600, 'optionsButton').setInteractive();
@@ -58,7 +59,7 @@ export default class mainMenu extends Phaser.Scene
         this.optionsbutton.on('pointerout', event => { this.optionsbutton.setTexture('optionsButton'); this.optionsbutton.setScale(6); });
 
         // Al hacer click en el boton
-        this.optionsbutton.on("pointerdown",() => {this.scene.launch("options",{_scene: this, sceneName: "menu", _volume: this.volume});
+        this.optionsbutton.on("pointerdown",() => {this.clickSound.play(); this.scene.launch("options",{_scene: this, sceneName: "menu", _mainVolume: this.mainVolume, _effectsVolume: this.effectsVolume});
     });
 
     }

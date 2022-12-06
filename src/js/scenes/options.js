@@ -8,91 +8,162 @@ export default class mainMenu extends Phaser.Scene
     {
         this.mainMenu = data._scene;
         this.lastScene = data.sceneName;
-        this.volume = data._volume;
+        this.mainVolume = data._mainVolume;
+        this.effectsVolume = data._effectsVolume;
     }
 
     create()
     {
         this.fondo = this.add.sprite(525, 325, 'optionsBackground');
         this.fondo.setScale(0.80);
-        this.volume = 3.0;
         
-        // Ajustamos el nivel general de sonido y el volumen de la cancion que suena
-        this.mainMenu.volume = this.volume;
-        this.mainMenu.music.setVolume(this.volume);
-
+        // VOLUMEN PRINCIPAL
         //-------------------------------------------------------
-
         //Mostrar texto volumen
-        this.volText = this.add.text(615,260, this.volume, { fontSize: '100px', fill: '#fff' })
-
+        this.volMainText = this.add.text(795,160, this.mainVolume, { fontSize: '100px', fill: '#fff' });
+        this.mainText = this.add.text(150,160, "MUSIC ", { fontSize: '100px', fill: '#fff' });
         //Boton subir volumen
-        this.upVolButton = this.add.sprite(950,300, 'UpVolV1').setInteractive();
-        this.upVolButton.setScale(6);
+        this.upMainVolButton = this.add.sprite(1000,200, 'UpVolV1').setInteractive();
+        this.upMainVolButton.setScale(6);
 
-        this.upVolButton.on('pointerover', event => { this.upVolButton.setTexture('UpVolV2'); this.upVolButton.setScale(6.5); });
+        this.upMainVolButton.on('pointerover', event => { this.upMainVolButton.setTexture('UpVolV2'); this.upMainVolButton.setScale(6.5); });
 
-        this.upVolButton.on('pointerout', event => { this.upVolButton.setTexture('UpVolV1'); this.upVolButton.setScale(6); });
+        this.upMainVolButton.on('pointerout', event => { this.upMainVolButton.setTexture('UpVolV1'); this.upMainVolButton.setScale(6); });
     
-        this.upVolButton.on("pointerdown", () => { 
-            this.volume += 1;
-            this.mainMenu.volume = this.volume;
-            this.mainMenu.music.setVolume(this.volume);
-            this.volText.setText(this.volume);
+        this.upMainVolButton.on("pointerdown", () => { 
+            this.mainVolume += 1;
+            this.mainMenu.mainVolume = this.mainVolume;
+            this.mainMenu.music.setVolume(this.mainVolume);
+            this.volMainText.setText(this.mainVolume);
         });
 
         //Boton bajar volumen
-        this.downVolButton = this.add.sprite(350,300, 'DownVolV1').setInteractive();
-        this.downVolButton.setScale(6);
+        this.downMainVolButton = this.add.sprite(650,200, 'DownVolV1').setInteractive();
+        this.downMainVolButton.setScale(6);
 
-        this.downVolButton.on('pointerover', event => { this.downVolButton.setTexture('DownVolV2'); this.downVolButton.setScale(6.5); });
+        this.downMainVolButton.on('pointerover', event => { this.downMainVolButton.setTexture('DownVolV2'); this.downMainVolButton.setScale(6.5); });
 
-        this.downVolButton.on('pointerout', event => { this.downVolButton.setTexture('DownVolV1'); this.downVolButton.setScale(6); });
+        this.downMainVolButton.on('pointerout', event => { this.downMainVolButton.setTexture('DownVolV1'); this.downMainVolButton.setScale(6); });
     
-        this.downVolButton.on("pointerdown", () => { 
-            if(this.volume > 0)
+        this.downMainVolButton.on("pointerdown", () => { 
+            if(this.mainVolume > 0)
             {        
-                this.volume -= 1;
-                this.mainMenu.volume = this.volume;
-                this.mainMenu.music.setVolume(this.volume);
-                this.volText.setText(this.volume);
+                this.mainVolume -= 1;
+                this.mainMenu.mainVolume = this.mainVolume;
+                this.mainMenu.music.setVolume(this.mainVolume);
+                this.volMainText.setText(this.mainVolume);
 
             }
         });
 
-        
+
+        //Boton Mutear
+        this.muteMainButton = this.add.sprite(1200,200, 'UnMute').setInteractive();
+        this.muteMainButton.setScale(6);
+
+        this.muteMainButton.on('pointerover', event => { this.muteMainButton.setScale(6.5); });
+
+        this.muteMainButton.on('pointerout', event => { this.muteMainButton.setScale(6); });
+    
+        this.muteMainButton.on("pointerdown", () => { 
+            
+            this.muteMainButton.setTexture('Mute');
+        });
+        //-------------------------------------------------------
+
+        // VOLUMEN EFECTOS
+        //-------------------------------------------------------
+        //Mostrar texto volumen
+        this.volEffectsText = this.add.text(795,360, this.effectsVolume, { fontSize: '100px', fill: '#fff' })
+        this.effectsText = this.add.text(85,360, "EFFECTS ", { fontSize: '100px', fill: '#fff' });
+
+        //Boton subir volumen
+        this.upEffectsVolButton = this.add.sprite(1000,400, 'UpVolV1').setInteractive();
+        this.upEffectsVolButton.setScale(6);
+
+        this.upEffectsVolButton.on('pointerover', event => { this.upEffectsVolButton.setTexture('UpVolV2'); this.upEffectsVolButton.setScale(6.5); });
+
+        this.upEffectsVolButton.on('pointerout', event => { this.upEffectsVolButton.setTexture('UpVolV1'); this.upEffectsVolButton.setScale(6); });
+    
+        this.upEffectsVolButton.on("pointerdown", () => { 
+            this.effectsVolume += 1;
+            this.mainMenu.effectsVolume = this.effectsVolume;
+            this.mainMenu.clickSound.setVolume(this.effectsVolume);
+            this.volEffectsText.setText(this.effectsVolume);
+        });
+
+        //Boton bajar volumen
+        this.downEffectsVolButton = this.add.sprite(650,400, 'DownVolV1').setInteractive();
+        this.downEffectsVolButton.setScale(6);
+
+        this.downEffectsVolButton.on('pointerover', event => { this.downEffectsVolButton.setTexture('DownVolV2'); this.downEffectsVolButton.setScale(6.5); });
+
+        this.downEffectsVolButton.on('pointerout', event => { this.downEffectsVolButton.setTexture('DownVolV1'); this.downEffectsVolButton.setScale(6); });
+    
+        this.downEffectsVolButton.on("pointerdown", () => { 
+            if(this.effectsVolume > 0)
+            {        
+                this.effectsVolume -= 1;
+                this.mainMenu.effectsVolume = this.effectsVolume;
+                this.mainMenu.clickSound.setVolume(this.effectsVolume);
+                this.volEffectsText.setText(this.effectsVolume);
+
+            }
+        });
+
+         //Boton Mutear
+         this.muteEffectsButton = this.add.sprite(1200,400, 'UnMute').setInteractive();
+         this.muteEffectsButton.setScale(6);
+ 
+         this.muteEffectsButton.on('pointerover', event => { this.muteEffectsButton.setScale(6.5); });
+ 
+         this.muteEffectsButton.on('pointerout', event => { this.muteEffectsButton.setScale(6); });
+     
+         this.muteEffectsButton.on("pointerdown", () => { 
+             
+             this.muteEffectsButton.setTexture('Mute');
+         });
 
         //-------------------------------------------------------
         // BOTON VOLVER AL MENU
-        this.menubutton = this.add.sprite(650,550, 'goBackButton').setInteractive();
-        this.menubutton.setScale(6);
+        this.menubutton = this.add.sprite(1100,665, 'goBackButton').setInteractive();
+        this.menubutton.setScale(4);
         
         // Si el raton esta encima del boton
         this.menubutton.on('pointerover', event => 
         {
             this.menubutton.setTexture('goBackButtonMouseOn');
-            this.menubutton.setScale(6);
+            this.menubutton.setScale(4.25);
         });
 
         // Si el raton sale fuera del boton
         this.menubutton.on('pointerout', event => 
         {
             this.menubutton.setTexture('goBackButton');
-            this.menubutton.setScale(6);
+            this.menubutton.setScale(4);
 
         });
     
         // Al hacer click en el boton
         this.menubutton.on("pointerdown", () => {
-          this.resume();
+            this.mainMenu.clickSound.play(); this.resume();
         });
     }
 
     resume()
     {
-        this.upVolButton.destroy();
-        this.downVolButton.destroy();
-        this.volText.destroy();
+        this.upMainVolButton.destroy();
+        this.downMainVolButton.destroy();
+        this.volMainText.destroy();
+        this.mainText.destroy();
+        this.muteMainButton.destroy();
+
+        this.upEffectsVolButton.destroy();
+        this.downEffectsVolButton.destroy();
+        this.volEffectsText.destroy();
+        this.effectsText.destroy();
+        this.muteEffectsButton.destroy();
+
         this.fondo.destroy()
         this.menubutton.destroy();
         this.scene.resume(this.lastScene/*, {_volume: this.volume, _continue: true}*/); 

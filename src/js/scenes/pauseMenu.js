@@ -41,7 +41,7 @@ export default class PauseMenu extends Phaser.Scene
       this.menuButton = this.add.sprite(650, 550, 'menuButton').setInteractive();
       this.menuButton.setScale(5);
 
-      this.menuButton.on('pointerdown',event => { this.scene.stop(this.lastScene); this.scene.start('menu');});
+      this.menuButton.on('pointerdown',event => { this.scene.stop(this.lastScene); this.scene.start('menu', {_mainVolume: 1, _effectsVolume: 1,_continue: false});});
       this.menuButton.on('pointerover', event => { this.menuButton.setTexture('menuButtonMouseOn'); this.menuButton.setScale(5);});
       this.menuButton.on('pointerout', event => { this.menuButton.setTexture('menuButton'); this.menuButton.setScale(5); });
       

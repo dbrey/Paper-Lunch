@@ -33,6 +33,9 @@ export default class Boot extends Phaser.Scene {
     this.load.image('UpVolV2', 'assets/sprites/UI/UpButtonVolume_V2.png');
     this.load.image('DownVolV1', 'assets/sprites/UI/DownButtonVolume_V1.png');
     this.load.image('DownVolV2', 'assets/sprites/UI/DownButtonVolume_V2.png');
+    this.load.image('UnMute', 'assets/sprites/UI/Unmute_Button.png');
+    this.load.image('Mute', 'assets/sprites/UI/Mute_Button.png');
+    
 
     //TP
     this.load.image('metroMap','assets/sprites/UI/MapaMetro.png');
@@ -87,7 +90,8 @@ export default class Boot extends Phaser.Scene {
  
     // Sonidos y soundtrack
     this.load.audio('mainMenuSoundtrack', 'assets/sounds/Sweden.mp3');
+    this.load.audio('click', 'assets/sounds/click_sound_effect.mp3');
   }
 
-  create() { this.scene.start('menu', {_volume: 1, _continue: false}); }
+  create() { this.scene.start('menu', {_mainVolume: 1, _effectsVolume: 1,_continue: false}); }
 }
