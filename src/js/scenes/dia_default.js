@@ -4,7 +4,6 @@ import CT from '../libraries/constants.js';
 import UI from '../UI/hud.js';
 import Temporizador from '../temporizador/temporizador.js';
 import TP from '../TP/teleport.js'
-import npc_path from '../characters/npc_path.js';
 
 
 export default class DIA_DEFAULT extends Phaser.Scene {
