@@ -1,4 +1,6 @@
 
+import Paths from "./paths.js"
+
 export default class NPC extends Phaser.GameObjects.Sprite {
   constructor(scene, x, y, npcName,player,zoneWidth,zoneHeight) {
     super(scene, x, y, npcName);
@@ -6,7 +8,7 @@ export default class NPC extends Phaser.GameObjects.Sprite {
     //Fisicas
     this.scene.add.existing(this);
     this.overlaping = false;
-
+    this.path;
 
     this.zonaTrigger = this.scene.add.zone(x, y);
     //this.zonaTrigger.setCircleDropZone(3);
@@ -18,6 +20,18 @@ export default class NPC extends Phaser.GameObjects.Sprite {
     this.barrio; //BARRIO AL QUE PERTENECE
     this.confianzaConPlayer=0.2; // VALOR ENTRE 0 Y 1
 
+    for (let i = 0; i < Paths.length; i++) {
+      if (Paths[i].name === npcName) this.path = Paths[i];
+    }
+
+    this.indexPath = 0;
+    this.destinoX = this.path.path[this.indexPath].x;
+    this.destinoY = this.path.path[this.indexPath].y;
+    this.dirX =  this.path.path[this.indexPath].dirX;
+    this.dirY =  this.path.path[this.indexPath].dirY;
+    this.offsetX=this.path.path[this.indexPath].offsetX;
+    this.offsetY=this.path.path[this.indexPath].offsetY;
+    this.indexPath=this.path.path[this.indexPath].index;
 
     this.actionCoolDown = 150; //MILISEGUNDOS
     this.actualCoolDown = 0;
@@ -25,8 +39,6 @@ export default class NPC extends Phaser.GameObjects.Sprite {
 
     this.bought = false;
 
-    this.dirX=0;
-    this.dirY=0;
     this.speed=40;
 
     this.scene.physics.add.existing(this);
@@ -159,6 +171,20 @@ export default class NPC extends Phaser.GameObjects.Sprite {
       if(t-this.actualCoolDown > this.actionCoolDown)
        this.canAct=true;
     }
+
+
+    //Comprobamos si hemos llegado al destino de la ruta para cambiar de destino
+    if((this.x >= this.destinoX && this.x <= this.destinoX + this.offsetX) && 
+      (this.y >= this.destinoY && this.y <= this.destinoY + this.offsetY)){
+        
+        this.destinoX = this.path.path[this.indexPath].x;
+        this.destinoY = this.path.path[this.indexPath].y;
+        this.dirX =  this.path.path[this.indexPath].dirX;
+        this.dirY =  this.path.path[this.indexPath].dirY;
+        this.offsetX=this.path.path[this.indexPath].offsetX;
+        this.offsetY=this.path.path[this.indexPath].offsetY;
+        this.indexPath=this.path.path[this.indexPath].index;
+      }
 
 
     

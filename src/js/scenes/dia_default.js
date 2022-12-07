@@ -56,10 +56,6 @@ export default class DIA_DEFAULT extends Phaser.Scene {
                 case 'TP':
                     this[props.nombre] = new TP(this, objeto.x, objeto.y, props.id, this.player, 35, 35)
                 break;
-                case 'PATH_NPC':
-                    this[props.nombre] = new npc_path(this,objeto.x,objeto.y,this[props.NPC_NAME],objeto.width,objeto.height,
-                        props.Next_X,props.Next_Y);
-                break;
             }
         }
 
