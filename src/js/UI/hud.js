@@ -15,7 +15,6 @@ export default class HUD extends Phaser.GameObjects.Text{
         this.newspaper = scene.add.image(CT.gameWidth - 377, CT.gameHeight - 226, 'newspaperImg').setScrollFactor(0);
         this.newspaper.displayWidth = 40;
         this.newspaper.displayHeight = 25;
-        //this.newspaper.setScale(0.7);
 
         this.coin =scene.add.image(CT.gameWidth - 380, CT.gameHeight - 195, 'coinImg').setScrollFactor(0);
         this.coin.displayWidth = 25;
