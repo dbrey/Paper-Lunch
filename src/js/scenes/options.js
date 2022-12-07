@@ -31,10 +31,12 @@ export default class mainMenu extends Phaser.Scene
         this.upMainVolButton.on('pointerout', event => { this.upMainVolButton.setTexture('UpVolV1'); this.upMainVolButton.setScale(6); });
     
         this.upMainVolButton.on("pointerdown", () => { 
+            // Actualizar valor volumen musica
             this.mainVolume += 1;
             this.mainMenu.mainVolume = this.mainVolume;
-            this.mainMenu.music.setVolume(this.mainVolume);
-            this.volMainText.setText(this.mainVolume);
+            this.volMainText.setText(this.mainVolume);  // Actualizar texto segun volumen de la musica
+
+            if(!this.mainMenu.isMainMute) {this.mainMenu.music.setVolume(this.mainVolume);} // Si no esta muteado, entonces cambiamos el volumen de la cancion de fondo
         });
 
         //Boton bajar volumen
@@ -48,17 +50,19 @@ export default class mainMenu extends Phaser.Scene
         this.downMainVolButton.on("pointerdown", () => { 
             if(this.mainVolume > 0)
             {        
+                // Actualizar valor volumen musica
                 this.mainVolume -= 1;
                 this.mainMenu.mainVolume = this.mainVolume;
-                this.mainMenu.music.setVolume(this.mainVolume);
-                this.volMainText.setText(this.mainVolume);
+                this.volMainText.setText(this.mainVolume); // Actualizar texto segun volumen de la musica
 
+                if(!this.mainMenu.isMainMute) {this.mainMenu.music.setVolume(this.mainVolume);} // Si no esta muteado, entonces cambiamos el volumen de la cancion de fondo
             }
         });
 
 
         //Boton Mutear
-        this.muteMainButton = this.add.sprite(1200,200, 'UnMute').setInteractive();
+        if(!this.mainMenu.isMainMute) {this.muteMainButton = this.add.sprite(1200,200, 'UnMute').setInteractive(); }
+        else { this.muteMainButton = this.add.sprite(1200,200, 'Mute').setInteractive(); }
         this.muteMainButton.setScale(6);
 
         this.muteMainButton.on('pointerover', event => { this.muteMainButton.setScale(6.5); });
@@ -66,8 +70,18 @@ export default class mainMenu extends Phaser.Scene
         this.muteMainButton.on('pointerout', event => { this.muteMainButton.setScale(6); });
     
         this.muteMainButton.on("pointerdown", () => { 
-            
-            this.muteMainButton.setTexture('Mute');
+            // Se cambia la textura segun si esta o no muteado. 
+            if(this.mainMenu.isMainMute) { 
+                this.muteMainButton.setTexture('UnMute'); 
+                this.mainMenu.music.setVolume(this.mainVolume); // Devolvemos el valor original del volumen
+            }
+            else { 
+                this.muteMainButton.setTexture('Mute'); 
+                this.mainMenu.music.setVolume(0); // "Muteamos" la musica de fondo
+
+            }
+            this.mainMenu.isMainMute = !this.mainMenu.isMainMute;
+
         });
         //-------------------------------------------------------
 
@@ -88,8 +102,8 @@ export default class mainMenu extends Phaser.Scene
         this.upEffectsVolButton.on("pointerdown", () => { 
             this.effectsVolume += 1;
             this.mainMenu.effectsVolume = this.effectsVolume;
-            this.mainMenu.clickSound.setVolume(this.effectsVolume);
             this.volEffectsText.setText(this.effectsVolume);
+            if(!this.mainMenu.isEffectsMute) {this.mainMenu.clickSound.setVolume(this.effectsVolume);}            
         });
 
         //Boton bajar volumen
@@ -104,15 +118,17 @@ export default class mainMenu extends Phaser.Scene
             if(this.effectsVolume > 0)
             {        
                 this.effectsVolume -= 1;
-                this.mainMenu.effectsVolume = this.effectsVolume;
-                this.mainMenu.clickSound.setVolume(this.effectsVolume);
                 this.volEffectsText.setText(this.effectsVolume);
+                this.mainMenu.effectsVolume = this.effectsVolume;
+
+                if(!this.mainMenu.isEffectsMute) {this.mainMenu.clickSound.setVolume(this.effectsVolume);}            
 
             }
         });
 
          //Boton Mutear
-         this.muteEffectsButton = this.add.sprite(1200,400, 'UnMute').setInteractive();
+         if(!this.mainMenu.isEffectsMute) {this.muteEffectsButton = this.add.sprite(1200,400, 'UnMute').setInteractive();}
+         else {this.muteEffectsButton = this.add.sprite(1200,400, 'Mute').setInteractive(); }
          this.muteEffectsButton.setScale(6);
  
          this.muteEffectsButton.on('pointerover', event => { this.muteEffectsButton.setScale(6.5); });
@@ -121,7 +137,17 @@ export default class mainMenu extends Phaser.Scene
      
          this.muteEffectsButton.on("pointerdown", () => { 
              
-             this.muteEffectsButton.setTexture('Mute');
+            // Se cambia la textura segun si esta o no muteado. 
+            if(this.mainMenu.isEffectsMute) { 
+                this.muteEffectsButton.setTexture('UnMute'); 
+                this.mainMenu.clickSound.setVolume(this.effectsVolume); // Devolvemos el valor original del volumen
+            }
+            else { 
+                this.muteEffectsButton.setTexture('Mute'); 
+                this.mainMenu.clickSound.setVolume(0); // "Muteamos" la musica de fondo
+
+            }
+            this.mainMenu.isEffectsMute = !this.mainMenu.isEffectsMute;
          });
 
         //-------------------------------------------------------
@@ -166,6 +192,6 @@ export default class mainMenu extends Phaser.Scene
 
         this.fondo.destroy()
         this.menubutton.destroy();
-        this.scene.resume(this.lastScene/*, {_volume: this.volume, _continue: true}*/); 
+        this.scene.resume(this.lastScene); 
     }
 }

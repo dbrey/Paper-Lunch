@@ -9,6 +9,8 @@ export default class mainMenu extends Phaser.Scene
         this.mainVolume = data._mainVolume;
         this.effectsVolume = data._effectsVolume;        
         this.continueSong = data._continue;
+        this.isMainMute = data._isMainMute;
+        this.isEffectsMute = data._isEffectsMute;
     }
 
     create()
@@ -20,13 +22,18 @@ export default class mainMenu extends Phaser.Scene
             repeat: -1
           }); 
         
-        this.music = this.sound.add('mainMenuSoundtrack', {volume: this.mainVolume}, {loop: true});
-        this.clickSound = this.sound.add('click', {volume: this.effectsVolume}, {loop: false});
-        if(!this.continueSong)
-        {
-            this.music.play()
-        }
+        
+        //  SONIDO
+        //------------------------------------------------------------------------
+        if(this.isMainMute) { this.music = this.sound.add('mainMenuSoundtrack', {volume: 0}, {loop: true}); }
+        else { this.music = this.sound.add('mainMenuSoundtrack', {volume: this.mainVolume}, {loop: true}); }
 
+        if(this.isEffectsMute) { this.clickSound = this.sound.add('click', {volume: 0}, {loop: false}); }
+        else { this.clickSound = this.sound.add('click', {volume: this.effectsVolume}, {loop: false});}
+
+        if(!this.continueSong) { this.music.play(); }
+
+        //------------------------------------------------------------------------
 
         this.fondo = this.add.sprite(525, 300, 'mainmenu');
         this.fondo.anims.play('menu');
