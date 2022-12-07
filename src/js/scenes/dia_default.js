@@ -53,6 +53,7 @@ export default class dia_default extends Phaser.Scene {
             //Con esto ponemos bien el punto de origen
             objeto.x += objeto.width / 2;
             objeto.y += objeto.height / 2;
+            
             switch (objeto.name) {
                 case 'KIO':
                     this[props.nombre] = new kiosk(this, objeto.x, objeto.y, this.player, 50, 50)
