@@ -409,47 +409,6 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <objectgroup id="5" name="tps">
-  <object id="5" name="TP" x="710.5" y="5503.5" width="88" height="194.5" visible="0">
-   <properties>
-    <property name="id" value="2"/>
-   </properties>
-  </object>
-  <object id="6" name="TP" x="702.5" y="708" width="235.5" height="89" visible="0">
-   <properties>
-    <property name="id" value="1"/>
-   </properties>
-  </object>
-  <object id="7" name="TP" x="7193.33" y="702" width="108" height="198.667" visible="0">
-   <properties>
-    <property name="id" value="4"/>
-   </properties>
-  </object>
-  <object id="8" name="TP" x="7201.5" y="5499.5" width="92" height="197" visible="0">
-   <properties>
-    <property name="id" value="3"/>
-   </properties>
-  </object>
-  <object id="9" name="NPC" x="3840" y="3025.33">
-   <properties>
-    <property name="nombre" value="Rodolfo"/>
-   </properties>
-  </object>
-  <object id="10" name="PLAYER" x="3840" y="2770">
-   <properties>
-    <property name="type" value="PLAYER"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="12" name="KIOSKO" x="2938.67" y="2620" width="102.667" height="51.3333" visible="0">
-   <properties>
-    <property name="id" type="int" value="1"/>
-   </properties>
-  </object>
-  <object id="13" name="KIOSKO" x="1015.67" y="4827.33" width="109.667" height="53.3333" visible="0"/>
-  <object id="15" name="KIOSKO" x="7134" y="4190.5" width="97" height="48" visible="0"/>
-  <object id="16" name="KIOSKO" x="4600.67" y="1434.67" width="106.667" height="55.3333" visible="0"/>
- </objectgroup>
  <layer id="4" name="jugEncima" width="250" height="200">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -654,6 +613,47 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
+ <objectgroup id="5" name="tps">
+  <object id="5" name="TP" x="710.5" y="5503.5" width="88" height="194.5" visible="0">
+   <properties>
+    <property name="id" value="2"/>
+   </properties>
+  </object>
+  <object id="6" name="TP" x="702.5" y="708" width="235.5" height="89" visible="0">
+   <properties>
+    <property name="id" value="1"/>
+   </properties>
+  </object>
+  <object id="7" name="TP" x="7193.33" y="702" width="108" height="198.667" visible="0">
+   <properties>
+    <property name="id" value="4"/>
+   </properties>
+  </object>
+  <object id="8" name="TP" x="7201.5" y="5499.5" width="92" height="197" visible="0">
+   <properties>
+    <property name="id" value="3"/>
+   </properties>
+  </object>
+  <object id="9" name="NPC" x="3840" y="3025.33">
+   <properties>
+    <property name="nombre" value="Rodolfo"/>
+   </properties>
+  </object>
+  <object id="10" name="PLAYER" x="3840" y="2770">
+   <properties>
+    <property name="type" value="PLAYER"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="12" name="KIOSKO" x="2938.67" y="2620" width="102.667" height="51.3333" visible="0">
+   <properties>
+    <property name="id" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="13" name="KIOSKO" x="1015.67" y="4827.33" width="109.667" height="53.3333" visible="0"/>
+  <object id="15" name="KIOSKO" x="7134" y="4190.5" width="97" height="48" visible="0"/>
+  <object id="16" name="KIOSKO" x="4600.67" y="1434.67" width="106.667" height="55.3333" visible="0"/>
+ </objectgroup>
  <layer id="3" name="jugDebajo" width="250" height="200">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,

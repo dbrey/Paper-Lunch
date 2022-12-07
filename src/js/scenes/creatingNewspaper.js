@@ -218,7 +218,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
                 this.continueButton.setScale(0.3);
                 this.continueButton.on('pointerover', () => {this.continueButton.setScale(0.4);})
                 this.continueButton.on('pointerout', () => {this.continueButton.setScale(0.3);})
-                this.continueButton.on('pointerdown', () => {this.scene.start('Dia1', {_numN: this.numNewspapers, _money: this.moneyLeft, _urTrust: this.trust, _moneyPP: this.pricePerPaper});})
+                this.continueButton.on('pointerdown', () => {this.scene.start('Dia1', {_numN: this.numNewspapers, _money: this.moneyLeft, _urTrust: this.trustFinal, _moneyPP: this.pricePerPaper});})
        }
         //Si no se cumple ninguna condicion, el boton se desactiva
         else
