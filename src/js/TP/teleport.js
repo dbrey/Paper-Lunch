@@ -26,7 +26,7 @@ export default class TP extends Phaser.GameObjects.Sprite{
         this.player.y = tpy;
         console.log(this.player.x + " " + this.player.y);
         this.player.changeDinero(-10);
-        //this.player.resetInput();
+        this.player.resetInput();
         
         }
     }
@@ -38,7 +38,7 @@ export default class TP extends Phaser.GameObjects.Sprite{
             if(this.player.action.isDown && this.canTP){
                 this.canTP = false;
                 this.player.stopX(); this.player.stopY();
-                this.scene.scene.launch("tpMenu", { TP: this, sceneName: "Dia1"});
+                this.scene.scene.launch("tpMenu", { TP: this, sceneName: this.scene.objectLayerName});
                 this.scene.scene.pause();
             }
         }
