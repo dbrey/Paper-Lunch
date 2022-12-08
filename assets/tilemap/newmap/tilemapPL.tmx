@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="250" height="200" tilewidth="32" tileheight="32" infinite="0" nextlayerid="6" nextobjectid="17">
+<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="250" height="200" tilewidth="32" tileheight="32" infinite="0" nextlayerid="7" nextobjectid="24">
  <tileset firstgid="1" source="tilesetPL.tsx"/>
  <layer id="1" name="suelo" width="250" height="200">
   <data encoding="csv">
@@ -613,6 +613,12 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
+ <objectgroup id="6" name="CambioDIst">
+  <object id="19" name="Italiano" x="656" y="2840" width="3200" height="2920"/>
+  <object id="20" name="Japones" x="608" y="616" width="3240" height="2184"/>
+  <object id="22" name="Vegano" x="3880" y="672" width="3456" height="2128"/>
+  <object id="23" name="Espanol" x="3880" y="2840" width="3480" height="2928"/>
+ </objectgroup>
  <objectgroup id="5" name="tps">
   <object id="5" name="TP" x="710.5" y="5503.5" width="88" height="194.5" visible="0">
    <properties>
