@@ -11,11 +11,11 @@ export default class NPC extends Phaser.GameObjects.Sprite {
     this.path;
 
     this.zonaTrigger = this.scene.add.zone(x, y);
-    //this.zonaTrigger.setCircleDropZone(3);
     this.zonaTrigger.setSize(zoneWidth, zoneHeight);
     this.scene.physics.world.enable(this.zonaTrigger);
     this.zonaTrigger.body.setAllowGravity(false);
 
+    this.talking = false;
 
     this.barrio; //BARRIO AL QUE PERTENECE
     this.confianzaConPlayer=0.2; // VALOR ENTRE 0 Y 1
@@ -37,9 +37,14 @@ export default class NPC extends Phaser.GameObjects.Sprite {
     this.actualCoolDown = 0;
     this.canAct=true;
 
+
+
     this.bought = false;
 
     this.speed=40;
+
+    this.zonaTrigger.body.setVelocityX(this.dirX * this.speed);
+    this.zonaTrigger.body.setVelocityY(this.dirY * this.speed);
 
     this.scene.physics.add.existing(this);
     this.scene.physics.add.collider(this,scene.player);
@@ -54,56 +59,57 @@ export default class NPC extends Phaser.GameObjects.Sprite {
     this.enterZone = false;
 
     this.player = player;
+    this.npcName = npcName;
     this.scale = (0.4,0.4);
 
     //ANIMACIONES    
     scene.anims.create({
       key: 'leftNPC_' + npcName,
-      frames: scene.anims.generateFrameNumbers(npcName, { start: 3, end: 5 }),
+      frames: scene.anims.generateFrameNumbers(npcName, { start: 4, end: 7 }),
       frameRate: 7,
       repeat: -1
     });
     scene.anims.create({
       key: 'idleLeft_' + npcName,
-      frames: scene.anims.generateFrameNumbers(npcName, { start: 3, end: 3 }),
-      repeat: 0
+      frames: scene.anims.generateFrameNumbers(npcName, { start: 4, end: 4 }),
+      repeat: -1
     });
 
     scene.anims.create({
       key: 'upNPC_' + npcName,
-      frames: scene.anims.generateFrameNumbers(npcName, { start: 9, end: 11 }),
+      frames: scene.anims.generateFrameNumbers(npcName, { start: 12, end: 15 }),
       frameRate: 7,
       repeat: -1
     });
     scene.anims.create({
       key: 'idleUp_'+npcName,
-      frames: scene.anims.generateFrameNumbers(npcName, { start: 10, end: 10 }),
-      repeat: 0
+      frames: scene.anims.generateFrameNumbers(npcName, { start: 12, end: 12 }),
+      repeat: -1
     });
 
     scene.anims.create({
-      key: 'idleNPC_' + npcName,
-      frames: scene.anims.generateFrameNumbers(npcName, { start: 1, end: 1 }),
+      key: 'idleDown_' + npcName,
+      frames: scene.anims.generateFrameNumbers(npcName, { start: 0, end: 0 }),
       frameRate: 7,
       repeat: -1
     });
 
     scene.anims.create({
       key: 'downNPC_' + npcName,
-      frames: scene.anims.generateFrameNumbers(npcName, { start: 0, end: 2 }),
+      frames: scene.anims.generateFrameNumbers(npcName, { start: 0, end: 3 }),
       frameRate: 7,
       repeat: -1
     });
     scene.anims.create({
       key: 'rightNPC_' + npcName,
-      frames: scene.anims.generateFrameNumbers(npcName, { start: 6, end: 8 }),
+      frames: scene.anims.generateFrameNumbers(npcName, { start: 8, end: 11 }),
       frameRate: 7,
       repeat: -1
     });
     scene.anims.create({
       key: 'idleRight_'+npcName,
-      frames: scene.anims.generateFrameNumbers(npcName, { start: 6, end: 6 }),
-      repeat: 0
+      frames: scene.anims.generateFrameNumbers(npcName, { start: 8, end: 8 }),
+      repeat: -1
     });
   }
 
@@ -122,6 +128,11 @@ export default class NPC extends Phaser.GameObjects.Sprite {
           console.log("Acabo de entrar a la zona")
           this.enterZone = true; // Utilizamos un booleano para diferenciar entre cuando acaba de entrar a la zona
                                   // y cuando ya estaba en ella
+          this.talking =true;
+          this.body.setVelocityX(0);
+          this.body.setVelocityY(0);
+          this.zonaTrigger.body.setVelocityX(0);
+          this.zonaTrigger.body.setVelocityY(0);
         }
         else {
           //AQUI PODEMOS HACER LO QUE QUERAMOS QUE OCURRA MIENTRAS EL PERSONAJE SE MANTIENE EN LA ZONA
@@ -151,6 +162,7 @@ export default class NPC extends Phaser.GameObjects.Sprite {
           //AQUÍ PODEMOS HACER LO QUE QUERAMOS QUE OCRURRA CUANDO EL PERSONAJE SALE DE LA ZONA
           console.log("Acaba de salir de la zona");
           this.enterZone=false;
+          this.talking =false;
       }
     
     }
@@ -187,10 +199,15 @@ export default class NPC extends Phaser.GameObjects.Sprite {
       }
 
 
-    
-    this.body.setVelocityX(this.dirX * this.speed);
-    this.body.setVelocityY(this.dirY * this.speed);
+    if(!this.talking){
+      this.body.setVelocityX(this.dirX * this.speed);
+      this.body.setVelocityY(this.dirY * this.speed);
+      this.zonaTrigger.body.setVelocityX(this.dirX * this.speed);
+      this.zonaTrigger.body.setVelocityY(this.dirY * this.speed);
+    }
 
+
+    this.checkAnims();
   }
 
 
@@ -198,4 +215,32 @@ export default class NPC extends Phaser.GameObjects.Sprite {
     this.dirX = dirXnew;
     this.dirY = dirYnew;
   }
+
+
+
+  checkAnims() {
+
+    if(this.talking){
+      if(this.dirX===0){
+        if(this.dirY===1)
+          this.play('idleDown_'+  this.npcName);
+        else this.play('idleUp_'+  this.npcName);
+      }
+      else if(this.dirX===1)
+        this.play('idleRight_'+  this.npcName);
+      else this.play('idleLeft_'+  this.npcName);
+    }
+    else {
+      if(this.dirX===0){
+        if(this.dirY===1)
+          this.play('downNPC_'+  this.npcName,true);
+        else this.play('upNPC_'+  this.npcName,true);
+      }
+      else if(this.dirX===1)
+        this.play('rightNPC_'+  this.npcName,true);
+      else this.play('leftNPC_'+  this.npcName,true);
+    }
+
+  }
+
 }
