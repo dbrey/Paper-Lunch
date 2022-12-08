@@ -39,13 +39,13 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.moneySpent=this.money-this.moneyLeft;  //Dinero gastado en la creación de periódicos
         this.pricePerPaper=1;                       //Dinero que cuesta cada periódico
         this.trustFinal = [0, 0, 0, 0];
-        this.trustP1 = [0, 0, 0, 0];                  //Array de confianza (una por distrito)
-        this.trustP2 = [0, 0, 0, 0];                  //Array de confianza (una por distrito)
-        this.trustP3 = [0, 0, 0, 0];                  //Array de confianza (una por distrito)
-        this.trustP4 = [0, 0, 0, 0];                  //Array de confianza (una por distrito)
-        this.NTrust=[this.trustP1,this.trustP2,this.trustP3,this.trustP4];
+        this.trustP1 = [0, 0, 0, 0];                  //Array de confianza (una por periodico)
+        this.trustP2 = [0, 0, 0, 0];                  //Array de confianza (una por periodico)
+        this.trustP3 = [0, 0, 0, 0];                  //Array de confianza (una por periodico)
+        this.trustP4 = [0, 0, 0, 0];                  //Array de confianza (una por periodico)
+        this.NTrust=[this.trustP1,this.trustP2,this.trustP3,this.trustP4]; //Array de arrays con las confianzas
         
-        this.NHeadLine=['','','','']
+        this.NHeadLine=['','','',''];
         this.numNewspapers = 0;                     //Numero de periodicos generados
         this.titleSelected = false;                 //Booleanos de control para saber si se puede pasar a la siguiente escena
         this.numNSelected = false;

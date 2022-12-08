@@ -6,6 +6,7 @@ export class Newspaper{
         this._myS = scene;
         this.text;
         this.title = _title;
+        this.titleWords= [];
         this.Ntitle="";
         this.selected = false;
         this.x = _posX;
@@ -70,11 +71,29 @@ export class Newspaper{
     }
 
     setHeadlineText(){
-        this.Ntitle=this.title;
+        this.checkOnce=false;
+        this.titleWords=this.title.split(" ");
+        if(this.titleWords.length>3){
+            this.Ntitle+=this.titleWords[0];
+        for(let i=1; i<this.titleWords.length; i++ ){
+            if(i>this.titleWords.length/2&&!this.checkOnce){
+                this.Ntitle+="\n";
+                this.checkOnce=true;
+            }
+            this.Ntitle+=" "+ this.titleWords[i];
+            console.log(this.Ntitle);
+
+        }}else{
+            this.Ntitle=this.title;
+        }
+
+        
         this.text = this._myS.add.text(600,40, this.Ntitle, {fontSize: '30px', fill: '#000'});
     }
 
     removeHeadline(){
+        this.Ntitle="";
+        this.titleWords=[];
         this.text.destroy();
     }
 
