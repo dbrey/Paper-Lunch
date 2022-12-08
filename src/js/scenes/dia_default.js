@@ -29,8 +29,8 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         //Mapa
         this.map = this.make.tilemap({
             key: 'tileMap',
-            tileWidth: 16,
-            tileHeight: 16
+            tileWidth: 32,
+            tileHeight: 32
         });
 
         //Mapa - Capas Normales 1 - Parte 1
