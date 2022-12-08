@@ -70,7 +70,7 @@ export default class tpMenu extends Phaser.Scene
 
     resume()
     {
-      this.scene.run(this.lastScene);
+      this.scene.resume(this.lastScene);
       this.scene.stop();
         /*this.backgroundPaper.destroy();
         this.backMain.destroy();
@@ -79,9 +79,6 @@ export default class tpMenu extends Phaser.Scene
         if(this.tp.tpID != 2){this.tp2Button.destroy();}
         if(this.tp.tpID != 3){this.tp3Button.destroy();}
         if(this.tp.tpID != 4){this.tp4Button.destroy();}*/
-        
-         // Cambiar segun dia
-
-        this.scene.stop();
+    
     }
   }

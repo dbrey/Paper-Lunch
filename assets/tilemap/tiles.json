@@ -1208,6 +1208,50 @@
                  "width":133.333333333333,
                  "x":2196.9696969697,
                  "y":1809.09090909091
+                }, 
+                {
+                 "class":"",
+                 "height":1227.27272727273,
+                 "id":23,
+                 "name":"ZONA",
+                 "rotation":0,
+                 "visible":true,
+                 "width":1181.81818181818,
+                 "x":3.03030303030303,
+                 "y":0
+                }, 
+                {
+                 "class":"",
+                 "height":1220,
+                 "id":24,
+                 "name":"ZONA",
+                 "rotation":0,
+                 "visible":true,
+                 "width":1670,
+                 "x":1172,
+                 "y":8
+                }, 
+                {
+                 "class":"",
+                 "height":1345.45454545455,
+                 "id":25,
+                 "name":"ZONA",
+                 "rotation":0,
+                 "visible":true,
+                 "width":1184.84848484848,
+                 "x":3.03030303030303,
+                 "y":1227.27272727273
+                }, 
+                {
+                 "class":"",
+                 "height":1339.39393939394,
+                 "id":26,
+                 "name":"ZONA",
+                 "rotation":0,
+                 "visible":true,
+                 "width":1657.57575757576,
+                 "x":1181.81818181818,
+                 "y":1227.27272727273
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -1216,7 +1260,7 @@
          "y":0
         }],
  "nextlayerid":15,
- "nextobjectid":22,
+ "nextobjectid":27,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.9.2",

@@ -25,56 +25,56 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.speed = 125;
     
     this.dinero = _money;
-    this.confianza = 10;
+    this.confianza = _myTrust;
     this.periodicos = _numN;
     this.anteriorMovimiento = {x : 0, y:0};
 
     //ANIMACIONES    
     scene.anims.create({
       key: 'left',
-      frames: scene.anims.generateFrameNumbers('Player', { start: 4, end: 7 }),
+      frames: scene.anims.generateFrameNumbers('Player', { start: 16, end: 19 }),
       frameRate: 7,
       repeat: -1
     });
     scene.anims.create({
       key: 'idleLeft',
-      frames: scene.anims.generateFrameNumbers('Player', { start: 4, end: 4 }),
+      frames: scene.anims.generateFrameNumbers('Player', { start: 16, end: 16 }),
       repeat: 0
     });
 
     scene.anims.create({
       key: 'up',
-      frames: scene.anims.generateFrameNumbers('Player', { start: 16, end: 19 }),
+      frames: scene.anims.generateFrameNumbers('Player', { start: 8, end: 11 }),
       frameRate: 10,
       repeat: -1
     });
     scene.anims.create({
       key: 'idleUp',
-      frames: scene.anims.generateFrameNumbers('Player', { start: 16, end: 16 }),
+      frames: scene.anims.generateFrameNumbers('Player', { start: 8, end: 8 }),
       repeat: 0
     });
     scene.anims.create({
       key: 'idleDown',
-      frames: scene.anims.generateFrameNumbers('Player', { start: 8, end: 8 }),
+      frames: scene.anims.generateFrameNumbers('Player', { start: 0, end: 3 }),
       frameRate: 7,
       repeat: -1
     });
 
     scene.anims.create({
       key: 'down',
-      frames: scene.anims.generateFrameNumbers('Player', { start: 8, end: 11 }),
+      frames: scene.anims.generateFrameNumbers('Player', { start: 4, end: 7 }),
       frameRate: 10,
       repeat: -1
     });
     scene.anims.create({
       key: 'right',
-      frames: scene.anims.generateFrameNumbers('Player', { start: 0, end: 3 }),
+      frames: scene.anims.generateFrameNumbers('Player', { start: 12, end: 15 }),
       frameRate: 10,
       repeat: -1
     });
     scene.anims.create({
       key: 'idleRight',
-      frames: scene.anims.generateFrameNumbers('Player', { start: 0, end: 0 }),
+      frames: scene.anims.generateFrameNumbers('Player', { start: 12, end: 12 }),
       repeat: 0
     });
   }
@@ -171,8 +171,12 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.scene.ui.updateDinero();
   }
 
-  changeConfianza(amount){
+  incrementConfianza(amount){
     this.confianza += amount;
+  }
+
+  changeConfianza(amount){
+    this.confianza = amount;
   }
 
   // Chequeamos la velocidad del juegador y cambiamos su animacion
@@ -223,7 +227,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.calculateVelocity()
 
     //Y realizas la animacion
-    this.checkAnims();
+      this.checkAnims();
   }
 
 }

@@ -5,6 +5,7 @@ import UI from '../UI/hud.js';
 import Temporizador from '../temporizador/temporizador.js';
 import TP from '../TP/teleport.js';
 import kiosk from '../characters/kiosk.js';
+import ZONE from '../TP/zone.js';
 import dialogue from '../UI/dialogue.js';
 
 
@@ -64,6 +65,9 @@ export default class dia_default extends Phaser.Scene {
                 case 'TP':
                     this[props.nombre] = new TP(this, objeto.x, objeto.y, props.id, this.player, 35, 35)
                 break;
+                case 'ZONA':
+                    this[props.nombre] = new ZONE(this, objeto.x, objeto.y, this.player, objeto.width, objeto.height);
+                    break; 
                 
             }
         }

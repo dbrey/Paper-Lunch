@@ -26,7 +26,7 @@ export default class TP extends Phaser.GameObjects.Sprite{
         this.player.y = tpy;
         console.log(this.player.x + " " + this.player.y);
         this.player.changeDinero(-10);
-        this.player.resetInput();
+        //this.player.resetInput();
         
         }
     }
