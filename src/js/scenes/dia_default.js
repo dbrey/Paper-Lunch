@@ -57,13 +57,13 @@ export default class dia_default extends Phaser.Scene {
             
             switch (objeto.name) {
                 case 'KIO':
-                    this[props.nombre] = new kiosk(this, objeto.x, objeto.y, this.player, 50, 50)
+                    this[props.nombre] = new kiosk(this, objeto.x, objeto.y, this.player, objeto.width, objeto.height)
                 break;
                 case 'NPC': //NPC
                 this[props.nombre] = new NPC(this,objeto.x,objeto.y,props.nombre,this.player,35,35)
                     break;
                 case 'TP':
-                    this[props.nombre] = new TP(this, objeto.x, objeto.y, props.id, this.player, 35, 35)
+                    this[props.nombre] = new TP(this, objeto.x, objeto.y, props.id, this.player, objeto.width, objeto.height)
                 break;
                 case 'ZONA':
                     this[props.nombre] = new ZONE(this, objeto.x, objeto.y, this.player, objeto.width, objeto.height);
