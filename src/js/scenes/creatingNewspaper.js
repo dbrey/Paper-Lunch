@@ -13,7 +13,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.Background.setScale(0.625,0.3511);
         
         this.titleRect = this.add.image(1000, 200, 'titleRect');
-        this.titleRect.setScale(0.3);
+        this.titleRect.setScale(0.5,0.3);
 
         //Recuadro de los enteros
         this.Recuadro=this.add.image(850,440,'Recuadro');

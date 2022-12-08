@@ -81,14 +81,13 @@ export class Newspaper{
                 this.checkOnce=true;
             }
             this.Ntitle+=" "+ this.titleWords[i];
-            console.log(this.Ntitle);
 
         }}else{
             this.Ntitle=this.title;
         }
 
         
-        this.text = this._myS.add.text(600,40, this.Ntitle, {fontSize: '30px', fill: '#000'});
+        this.text = this._myS.add.text(775,150, this.Ntitle, {fontSize: '30px', fill: '#000'});
     }
 
     removeHeadline(){
