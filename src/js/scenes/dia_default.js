@@ -21,6 +21,11 @@ export default class dia_default extends Phaser.Scene {
         this.money = data._money;
         this._myTrust = data._urTrust;
         this.nDay = data._nDay; // Dia para los periodicos
+        this.mainVolume = data._mainVolume;
+        this.effectsVolume = data._effectsVolume
+        this.isMainMute = data._isMainMute;
+        this.isEffectsMute = data._isEffectsMute;
+
         //this.objectLayerName = 'PrimerDia';
     }
 
@@ -41,8 +46,16 @@ export default class dia_default extends Phaser.Scene {
         this.mapAdornos = this.map.createStaticLayer('Adornos', tileSet);
 
         this.player = new Player(this, 900, 1500, this.numN, this.money, this._myTrust);
+               
+        if(this.isMainMute) { this.music = this.sound.add('mainMenuSoundtrack', {volume: 0}, {loop: true}); }
+        else { this.music = this.sound.add('mainMenuSoundtrack', {volume: this.mainVolume}, {loop: true}); }
 
-                
+        if(this.isEffectsMute) { this.clickSound = this.sound.add('click', {volume: 0}, {loop: false}); }
+        else { this.clickSound = this.sound.add('click', {volume: this.effectsVolume}, {loop: false});}
+
+        if(!this.continueSong) { this.music.play(); }
+
+
         let mapObjects = this.map.getObjectLayer(this.objectLayerName).objects;
 
         
@@ -100,7 +113,7 @@ export default class dia_default extends Phaser.Scene {
         if (Phaser.Input.Keyboard.JustDown(this.pauseButton)) { 
             this.player.stopX(); this.player.stopY();
             this.scene.pause();
-            this.scene.launch("pauseMenu", {sceneName: "Dia1"});
+            this.scene.launch("pauseMenu", {_scene: this, sceneName: this.objectLayerName});
             this.player.resetInput();
 
         } 
@@ -110,7 +123,8 @@ export default class dia_default extends Phaser.Scene {
     finDia(){
         if(this.diaActual != 'SeptimoDia')
         {
-            this.scene.start('createNewspaper', {diaActual: this.nextDay,  _money: this.player.getDinero(), _nDay: this.nDay, _confianza: this._myTrust});
+            this.scene.start('createNewspaper', {diaActual: this.nextDay,  _money: this.player.getDinero(), _nDay: this.nDay, _confianza: this._myTrust,  
+                _mainVolume: this.mainVolume, _effectsVolume: this.effectsVolume, _isMainMute: this.isMainMute, _isEffectsMute: this.isEffectsMute});
         }
         else
         {

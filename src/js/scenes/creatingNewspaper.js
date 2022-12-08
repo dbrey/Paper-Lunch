@@ -12,7 +12,10 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.nDay= data._nDay;                  // Dia para los periodicos
         this.money = data._money;               //Dinero con el que empieza
         this.confianza = data._confianza;
-
+        this.mainVolume = data._mainVolume;
+        this.effectsVolume = data._effectsVolume;
+        this.isMainMute = data._isMainMute;
+        this.isEffectsMute = data._isEffectsMute;
     }
 
     //Creamos lo necesario para la escena
@@ -211,8 +214,9 @@ export default class DIA_DEFAULT extends Phaser.Scene {
                 this.continueButton.setScale(0.3);
                 this.continueButton.on('pointerover', () => {this.continueButton.setScale(0.4);})
                 this.continueButton.on('pointerout', () => {this.continueButton.setScale(0.3);})
-                this.continueButton.on('pointerdown', () => {this.scene.start(this.diaActual, {_numN: this.numNewspapers, _money: this.moneyLeft, _urTrust: this.confianza, _nDay: this.nDay + 1});})
-                //this.continueButton.on('pointerdown', () => {this.scene.start(this.diaActual, {_numN: this.numNewspapers, _money: this.moneyLeft});})
+                this.continueButton.on('pointerdown', () => {this.scene.start(this.diaActual, 
+                    {_numN: this.numNewspapers, _money: this.moneyLeft, _urTrust: this.confianza, _nDay: this.nDay + 1, 
+                        _mainVolume: this.mainVolume, _effectsVolume: this.effectsVolume, _isMainMute: this.isMainMute, _isEffectsMute: this.isEffectsMute});})
 
        }
 
