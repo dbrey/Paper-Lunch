@@ -89,7 +89,7 @@ export default class Boot extends Phaser.Scene {
     this.load.image('Total','assets/sprites/creatingNews/BarraTotal.png');
  
     // Sonidos y soundtrack
-    this.load.audio('mainMenuSoundtrack', 'assets/sounds/Sweden.mp3');
+    this.load.audio('mainMenuSoundtrack', 'assets/sounds/TheLunch.wav');
     this.load.audio('click', 'assets/sounds/click_sound_effect.mp3');
   }
 
