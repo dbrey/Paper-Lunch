@@ -14,7 +14,13 @@ const CT =
   tp3x: 2380 ,
   tp3y: 2432,
   tp4x:2596 ,
-  tp4y: 520
+  tp4y: 520 ,
+
+  districtE: 23,
+  districtV: 22,
+  districtJ: 20,
+  districtI: 19
+
 
 }
 

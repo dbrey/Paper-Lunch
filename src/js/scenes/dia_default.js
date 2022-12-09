@@ -21,8 +21,11 @@ export default class dia_default extends Phaser.Scene {
     {
         this.numN = data._numN;
         this.money = data._money;
+
         this._myTrust = data._urTrust;
         this.nDay = data._nDay; // Dia para los periodicos
+        this.moneyPP = data._moneyPP;
+
         //this.objectLayerName = 'PrimerDia';
     }
 
@@ -32,8 +35,8 @@ export default class dia_default extends Phaser.Scene {
         //Mapa
         this.map = this.make.tilemap({
             key: 'tileMap',
-            tileWidth: 16,
-            tileHeight: 16
+            tileWidth: 32,
+            tileHeight: 32
         });
 
         //Mapa - Capas Normales 1 - Parte 1
@@ -41,10 +44,7 @@ export default class dia_default extends Phaser.Scene {
         this.mapGround = this.map.createStaticLayer('Ground', tileSet);
         this.mapBajos = this.map.createStaticLayer('BajosE', tileSet);
         this.mapAdornos = this.map.createStaticLayer('Adornos', tileSet);
-
-        this.player = new Player(this, 900, 1500, this.numN, this.money, this._myTrust);
-
-                
+        this.player = new Player(this, 900, 1500, this.numN, this.money, this._myTrust, this.moneyPP);
         let mapObjects = this.map.getObjectLayer(this.objectLayerName).objects;
 
         

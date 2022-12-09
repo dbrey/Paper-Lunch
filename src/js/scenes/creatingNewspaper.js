@@ -6,15 +6,6 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         super({key: 'createNewspaper'})
     }
 
-    init(data)
-    {
-        this.diaActual = data.diaActual;
-        this.nDay= data._nDay;                  // Dia para los periodicos
-        this.money = data._money;               //Dinero con el que empieza
-        this.confianza = data._confianza;
-
-    }
-
     //Creamos lo necesario para la escena
     create(){
         //Fondo de la escena
@@ -22,7 +13,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.Background.setScale(0.625,0.3511);
         
         this.titleRect = this.add.image(1000, 200, 'titleRect');
-        this.titleRect.setScale(0.3);
+        this.titleRect.setScale(0.5,0.3);
 
         //Recuadro de los enteros
         this.Recuadro=this.add.image(850,440,'Recuadro');
@@ -30,6 +21,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
 
         //Datos de periódicos
         this.newsData=this.cache.json.get('newsData');
+        this.nDay=0;
         this.dayData=this.newsData.Days[this.nDay];
 
         this.Total=this.add.image(1150,480,'Total');
@@ -46,16 +38,16 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.moneyLeft = 0;                         //Dinero resultate tras crear los periodicos
         this.moneySpent=this.money-this.moneyLeft;  //Dinero gastado en la creación de periódicos
         this.pricePerPaper=1;                       //Dinero que cuesta cada periódico
-        this.trustP1 = [0, 0, 0, 0];                  //Array de confianza (una por distrito)
-        this.trustP2 = [0, 0, 0, 0];                  //Array de confianza (una por distrito)
-        this.trustP3 = [0, 0, 0, 0];                  //Array de confianza (una por distrito)
-        this.trustP4 = [0, 0, 0, 0];                  //Array de confianza (una por distrito)
-        this.NTrust=[this.trustP1,this.trustP2,this.trustP3,this.trustP4];
+        this.trustFinal = [0, 0, 0, 0];
+        this.trustP1 = [0, 0, 0, 0];                  //Array de confianza (una por periodico)
+        this.trustP2 = [0, 0, 0, 0];                  //Array de confianza (una por periodico)
+        this.trustP3 = [0, 0, 0, 0];                  //Array de confianza (una por periodico)
+        this.trustP4 = [0, 0, 0, 0];                  //Array de confianza (una por periodico)
+        this.NTrust=[this.trustP1,this.trustP2,this.trustP3,this.trustP4]; //Array de arrays con las confianzas
         
-        this.NHeadLine=['','','','']
+        this.NHeadLine=['','','',''];
         this.numNewspapers = 0;                     //Numero de periodicos generados
         this.titleSelected = false;                 //Booleanos de control para saber si se puede pasar a la siguiente escena
-
         this.numNSelected = false;
 
         this.information();
@@ -79,16 +71,19 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.newspapers = [];
         for (let i = 0; i < CT.numNewspapers; i++)
         {
-            if (i < 2) this.newspapers[i] = new Newspaper(this, 'soy un periodico', 220 + i *300, 180, 'news' + (i+1), this.NTrust[i]);
-            else this.newspapers[i] = new Newspaper(this, 'soy un periodico', 220 + (i-2)*300, 400, 'news' + (i+1) ,this.NTrust[i]);
+            if (i < 2) this.newspapers[i] = new Newspaper(this, this.NHeadLine[i], 220 + i *300, 180, 'news' + (i+1), this.NTrust[i]);
+            else this.newspapers[i] = new Newspaper(this, this.NHeadLine[i], 220 + (i-2)*300, 400, 'news' + (i+1) ,this.NTrust[i]);
         }
 
         //Array de anuncios
         this.ads = [];
         var num = 1;
+        var myDay = this.nDay;
         for (let i = 0; i < CT.numAds; i++)
         {
-            this.ads[i] = new Ad(this, 150 + i*150, 630, num);
+            if(myDay >= 3 ) this.ads[i] = new Ad(this, 150 + i*150, 630, true, num);
+            else this.ads[i] = new Ad(this, 150 + i*150, 630, false, num);
+            myDay--;
             num++;
         }
 
@@ -106,7 +101,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
                 this.NTrust[j][1]=this.dayData.Day[j].StatV;
                 this.NTrust[j][2]=this.dayData.Day[j].StatI;
                 this.NTrust[j][3]=this.dayData.Day[j].StatE;
-}  
+        }  
     }
 
     //Escribe en pantalla la informacion necesaria para el jugador
@@ -126,8 +121,8 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.moneySpentText='';
         
         this.titleMessage = this.add.text(950, 100, 'TITLE', {fontSize: '30px', fill: '#000'});
-        this.message = this.add.text(115, 30, 'Select a newspaper and a number of newspapers to continue', {fontSize: '30px', fill: '#000'});
-        this.adMessage= this.add.text(140, 520, 'Including ads is an optional action and' + '\n      it will affect your trust', {fontSize: '20px', fill: '#000'});
+        this.message = this.add.text(75, 30, 'Selecciona un periódico y un número de periódicos para continuar', {fontSize: '30px', fill: '#000'});
+        this.adMessage= this.add.text(140, 520, 'Incluir anuncios es una acción opcional' + '\n      y afectará a la confianza', {fontSize: '20px', fill: '#000'});
         this.numText = this.add.text(790, 400, this.nums[0]+' '+this.nums[1]+' '+this.nums[2], { fontSize: '50px', fill: '#000' });        
         this.moneyText=this.add.text(1150,350,this.money,{fontSize: '50px', fill: '#000'});
         this.moneySpentText=this.add.text(1120,400,'-'+this.moneySpent,{fontSize: '50px', fill: '#9e0d0d'});
@@ -158,14 +153,29 @@ export default class DIA_DEFAULT extends Phaser.Scene {
             this.japN = this.add.text(x, y + 35, this.japN, {fontSize: '30px', fill: '#000'});
         }
     }
+
     //Metodo para saber si ya se ha seleccionado un titulo
     getTitleSelected(){
         return this.titleSelected;
     }
+
+    //El periodico seleccionado informa de su confianza
+    setTrustSelected(newspaperstrust){
+        this.trustFinal = newspaperstrust;
+        console.log(this.trustFinal);
+    }
+
     //Controla si hay un titulo seleccionado (cambia para indicar si si o si no)
     changeTitleSelected(value){
         this.titleSelected = value;
         this.checkContinueButton();
+    }
+
+    //Averiguar cuantos anuncios han sido seleccionados
+    modifyNewspaperPrice(value){
+       if (value) this.pricePerPaper += 0.25;
+       else this.pricePerPaper -= 0.25;
+       console.log(this.pricePerPaper);
     }
 
     //Cambia el valor del array de numeros que controla el numero de periodicos
@@ -188,7 +198,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
     //Calcula el numero de periodicos, y si no es 0 cambia el booleano de control
     calculateNumNewspapers(){
         
-        this.moneySpent=(this.pricePerPaper*(this.nums[0] + this.nums[1] * 10 + this.nums[2] * 100));
+        this.moneySpent=(0.50*(this.nums[0] + this.nums[1] * 10 + this.nums[2] * 100));
         this.numNewspapers = this.nums[0] + this.nums[1] * 10 + this.nums[2] * 100;
         
         
@@ -211,11 +221,8 @@ export default class DIA_DEFAULT extends Phaser.Scene {
                 this.continueButton.setScale(0.3);
                 this.continueButton.on('pointerover', () => {this.continueButton.setScale(0.4);})
                 this.continueButton.on('pointerout', () => {this.continueButton.setScale(0.3);})
-                this.continueButton.on('pointerdown', () => {this.scene.start(this.diaActual, {_numN: this.numNewspapers, _money: this.moneyLeft, _urTrust: this.confianza, _nDay: this.nDay + 1});})
-                //this.continueButton.on('pointerdown', () => {this.scene.start(this.diaActual, {_numN: this.numNewspapers, _money: this.moneyLeft});})
-
+                this.continueButton.on('pointerdown', () => {this.scene.start('Dia1', {_numN: this.numNewspapers, _money: this.moneyLeft, _urTrust: this.trustFinal, _moneyPP: this.pricePerPaper});})
        }
-
         //Si no se cumple ninguna condicion, el boton se desactiva
         else
         {
