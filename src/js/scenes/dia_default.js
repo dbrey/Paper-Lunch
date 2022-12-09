@@ -99,14 +99,6 @@ export default class dia_default extends Phaser.Scene {
 
     }
 
-
-    // Metodos para manejar cambios de las escenas
-    changeScene(sceneName = this.nextLevel) {
-        this.currentPlaying.stop()
-        this.scene.start(sceneName);
-    }
-
-
     update() {
         if (Phaser.Input.Keyboard.JustDown(this.pauseButton)) { 
             this.player.stopX(); this.player.stopY();
@@ -119,13 +111,22 @@ export default class dia_default extends Phaser.Scene {
 
 
     finDia(){
-        if(this.diaActual != 'SeptimoDia'|| this.player.getDinero() >= 50000)
+        if(this.diaActual != 'SeptimoDia'&& this.player.getDinero() < 200 )
         {
             this.scene.start('createNewspaper', {diaActual: this.nextDay,  _money: this.player.getDinero(), _nDay: this.nDay, _confianza: this._myTrust,  
                 _mainVolume: this.mainVolume, _effectsVolume: this.effectsVolume, _isMainMute: this.isMainMute, _isEffectsMute: this.isEffectsMute});
         }
         else
         {
+            this.music.stop();
+            if(this.player.getDinero() > 200)
+            {
+                this.scene.start('win_lose', {_win: false, _mainVolume: this.mainVolume, _effectsVolume: this.effectsVolume, _isMainMute: this.isMainMute, _isEffectsMute: this.isEffectsMute});
+            }
+            else
+            {
+                this.scene.start('win_lose', {_win: false, _mainVolume: this.mainVolume, _effectsVolume: this.effectsVolume, _isMainMute: this.isMainMute, _isEffectsMute: this.isEffectsMute});
+            }           
             // Cambiar a menu de ganar y perder
 
             // Pasar mainVolume,effectsVolume, isMainMute, isEffectsMute por referencia

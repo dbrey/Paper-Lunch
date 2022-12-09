@@ -185,7 +185,9 @@ export default class PauseMenu extends Phaser.Scene
             }
             else { 
                 this.muteEffectsButton.setTexture('Mute'); 
-                this.dayGame.clickSound.setVolume(0); // "Muteamos" la musica de fondo
+                // Aqui hay que hacer referencia a todos los efectos de sonido del juego tal que:
+                // this.daygame.NOMBRE.setVolume(0);
+                
 
             }
             this.dayGame.isEffectsMute = !this.dayGame.isEffectsMute;

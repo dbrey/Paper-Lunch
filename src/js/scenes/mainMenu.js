@@ -11,8 +11,6 @@ export default class mainMenu extends Phaser.Scene
         this.continueSong = data._continue;
         this.isMainMute = data._isMainMute;
         this.isEffectsMute = data._isEffectsMute;
-
-        console.log(this.isEffectsMute);
     }
 
     create()
