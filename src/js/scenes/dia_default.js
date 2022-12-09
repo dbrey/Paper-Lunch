@@ -17,14 +17,14 @@ export default class dia_default extends Phaser.Scene {
 
     init(data)
     {
-        this.numN = data._numN;
-        this.money = data._money;
-        this._myTrust = data._urTrust;
+        this.numN = data._numN; // Numero de Newspapers
+        this.money = data._money; // Dinero del jugador (Empieza con 200 - la cantidad gastada en periodicos)
+        this._myTrust = data._urTrust; // Array de confianza
         this.nDay = data._nDay; // Dia para los periodicos
-        this.mainVolume = data._mainVolume;
-        this.effectsVolume = data._effectsVolume
-        this.isMainMute = data._isMainMute;
-        this.isEffectsMute = data._isEffectsMute;
+        this.mainVolume = data._mainVolume; // Volumen musica
+        this.effectsVolume = data._effectsVolume // Volumen efectos
+        this.isMainMute = data._isMainMute; // Booleano si esta la musica muteada
+        this.isEffectsMute = data._isEffectsMute; // Booleano si estan los efectos muteados 
 
         //this.objectLayerName = 'PrimerDia';
     }
@@ -47,13 +47,11 @@ export default class dia_default extends Phaser.Scene {
 
         this.player = new Player(this, 900, 1500, this.numN, this.money, this._myTrust);
                
+        // Si esta muteado, añadimos el sonido con 0 volumen, sino con el volumen principal
         if(this.isMainMute) { this.music = this.sound.add('mainMenuSoundtrack', {volume: 0}, {loop: true}); }
         else { this.music = this.sound.add('mainMenuSoundtrack', {volume: this.mainVolume}, {loop: true}); }
 
-        if(this.isEffectsMute) { this.clickSound = this.sound.add('click', {volume: 0}, {loop: false}); }
-        else { this.clickSound = this.sound.add('click', {volume: this.effectsVolume}, {loop: false});}
-
-        if(!this.continueSong) { this.music.play(); }
+        this.music.play();
 
 
         let mapObjects = this.map.getObjectLayer(this.objectLayerName).objects;
@@ -121,7 +119,7 @@ export default class dia_default extends Phaser.Scene {
 
 
     finDia(){
-        if(this.diaActual != 'SeptimoDia')
+        if(this.diaActual != 'SeptimoDia'|| this.player.getDinero() >= 50000)
         {
             this.scene.start('createNewspaper', {diaActual: this.nextDay,  _money: this.player.getDinero(), _nDay: this.nDay, _confianza: this._myTrust,  
                 _mainVolume: this.mainVolume, _effectsVolume: this.effectsVolume, _isMainMute: this.isMainMute, _isEffectsMute: this.isEffectsMute});
@@ -129,6 +127,8 @@ export default class dia_default extends Phaser.Scene {
         else
         {
             // Cambiar a menu de ganar y perder
+
+            // Pasar mainVolume,effectsVolume, isMainMute, isEffectsMute por referencia
         }
     }
 
