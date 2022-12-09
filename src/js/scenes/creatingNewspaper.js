@@ -5,6 +5,15 @@ export default class DIA_DEFAULT extends Phaser.Scene {
     constructor(){
         super({key: 'createNewspaper'})
     }
+    
+    init(data)
+    {
+        this.diaActual = data.diaActual;
+        this.nDay= data._nDay;                  // Dia para los periodicos
+        this.money = data._money;               //Dinero con el que empieza
+        this.confianza = data._confianza;
+
+    }
 
     //Creamos lo necesario para la escena
     create(){
@@ -221,7 +230,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
                 this.continueButton.setScale(0.3);
                 this.continueButton.on('pointerover', () => {this.continueButton.setScale(0.4);})
                 this.continueButton.on('pointerout', () => {this.continueButton.setScale(0.3);})
-                this.continueButton.on('pointerdown', () => {this.scene.start('Dia1', {_numN: this.numNewspapers, _money: this.moneyLeft, _urTrust: this.trustFinal, _moneyPP: this.pricePerPaper});})
+                this.continueButton.on('pointerdown', () => {this.scene.start(this.diaActual, {_numN: this.numNewspapers, _money: this.moneyLeft, _urTrust: this.trustFinal, _moneyPP: this.pricePerPaper});})
        }
         //Si no se cumple ninguna condicion, el boton se desactiva
         else
