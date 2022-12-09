@@ -75,7 +75,7 @@ export default class dia_default extends Phaser.Scene {
 
         this.mapTechos = this.map.createStaticLayer('jugDebajo', tileSet);
         this.mapCollisions = this.map.createStaticLayer('Collisions', tileSet);
-        this.mapCollisions.setCollisionBetween(10000, 10053);
+        this.mapCollisions.setCollisionBetween(1000, 11000);
         this.physics.add.collider(this.player, this.mapCollisions);
         this.mapCollisions.visible = true;
 
@@ -109,7 +109,7 @@ export default class dia_default extends Phaser.Scene {
         if (Phaser.Input.Keyboard.JustDown(this.pauseButton)) { 
             this.player.stopX(); this.player.stopY();
             this.scene.pause();
-            this.scene.launch("pauseMenu", {sceneName: "Dia1"});
+            this.scene.launch("pauseMenu", {sceneName: 'PrimerDia'});
             this.player.resetInput();
 
         } 
