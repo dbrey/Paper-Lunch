@@ -37,7 +37,6 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         let tileSet = this.map.addTilesetImage('Modern_Exteriors_Complete_Tileset_32x32', 'mapTiles');
         this.mapGround = this.map.createStaticLayer('suelo', tileSet);
         this.mapBajos = this.map.createStaticLayer('jugEncima', tileSet);
-        this.mapAdornos = this.map.createStaticLayer('jugColisiona', tileSet);
         this.player = new Player(this, 900, 1500, this.numN, this.money, this._myTrust, this.moneyPP);
                 
         let mapObjects = this.map.getObjectLayer(this.objectLayerName).objects;
@@ -61,6 +60,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         }
 
 
+        this.mapAdornos = this.map.createStaticLayer('jugColisiona', tileSet);
         this.mapTechos = this.map.createStaticLayer('jugDebajo', tileSet);
         this.mapCollisions = this.map.createStaticLayer('Collisions', tileSet);
         this.mapCollisions.setCollisionBetween(0, 10000, true, false);
