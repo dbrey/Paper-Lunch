@@ -10,7 +10,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
 
     constructor(config) {
         super({ key: 'Dia1' });
-        this.objectLayerName = 'PrimerDia';
+        this.objectLayerName = 'tps';
 
     }
 
@@ -34,10 +34,10 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         });
 
         //Mapa - Capas Normales 1 - Parte 1
-        let tileSet = this.map.addTilesetImage('Modern_Exteriors_Complete_Tileset', 'mapTiles');
-        this.mapGround = this.map.createStaticLayer('Ground', tileSet);
-        this.mapBajos = this.map.createStaticLayer('BajosE', tileSet);
-        this.mapAdornos = this.map.createStaticLayer('Adornos', tileSet);
+        let tileSet = this.map.addTilesetImage('Modern_Exteriors_Complete_Tileset_32x32', 'mapTiles');
+        this.mapGround = this.map.createStaticLayer('suelo', tileSet);
+        this.mapBajos = this.map.createStaticLayer('jugEncima', tileSet);
+        this.mapAdornos = this.map.createStaticLayer('jugColisiona', tileSet);
         this.player = new Player(this, 900, 1500, this.numN, this.money, this._myTrust, this.moneyPP);
                 
         let mapObjects = this.map.getObjectLayer(this.objectLayerName).objects;
@@ -61,9 +61,9 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         }
 
 
-        this.mapTechos = this.map.createStaticLayer('Techos', tileSet);
+        this.mapTechos = this.map.createStaticLayer('jugDebajo', tileSet);
         this.mapCollisions = this.map.createStaticLayer('Collisions', tileSet);
-        this.mapCollisions.setCollisionBetween(10000, 10053);
+        this.mapCollisions.setCollisionBetween(0, 10000, true, false);
         this.physics.add.collider(this.player, this.mapCollisions);
         this.mapCollisions.visible = false;
 
