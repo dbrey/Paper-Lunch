@@ -18,7 +18,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         super({ key: day });
         this.objectLayerName = 'tps';
         this.nextDay = _nextDay;
-
+        this.currentScene = day;
     }
 
     init(data)
@@ -129,7 +129,8 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         if (Phaser.Input.Keyboard.JustDown(this.pauseButton)) { 
             this.player.stopX(); this.player.stopY();
             this.scene.pause();
-            this.scene.launch("pauseMenu", {_scene: this, sceneName: this.objectLayerName});
+            
+            this.scene.launch("pauseMenu", {_scene: this, sceneName: this.currentScene});
             this.player.resetInput();
         } 
 
