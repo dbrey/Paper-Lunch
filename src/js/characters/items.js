@@ -71,17 +71,18 @@ export class Newspaper{
     }
 
     setHeadlineText(){
-        this.checkOnce=false;
+        
         this.titleWords=this.title.split(" ");
+
         if(this.titleWords.length>3){
             this.Ntitle+=this.titleWords[0];
         for(let i=1; i<this.titleWords.length; i++ ){
-            if(i>this.titleWords.length/2&&!this.checkOnce){
-                this.Ntitle+="\n";
+            if(i%3===0){
+                this.Ntitle+="\n"+ this.titleWords[i];
                 this.checkOnce=true;
-            }
+            }else{
             this.Ntitle+=" "+ this.titleWords[i];
-
+            }
         }}else{
             this.Ntitle=this.title;
         }
