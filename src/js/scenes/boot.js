@@ -95,5 +95,5 @@ export default class Boot extends Phaser.Scene {
     this.load.audio('click', 'assets/sounds/click_sound_effect.mp3');
   }
 
-  create() { this.scene.start('menu', {_mainVolume: 1, _effectsVolume: 1,_continue: false}); }
+  create() { this.scene.start('menu', {_mainVolume: 1, _effectsVolume: 1,_continue: false, _isMainMute: false, _isEffectsMute: false}); }
 }

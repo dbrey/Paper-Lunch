@@ -192,7 +192,6 @@ export class Ad{
 
         //Eventos del boton
         this.button.on('pointerdown', () => {
-            console.log('soy un anuncio bloqueado');
             if (this.available && !this.selected) {this.selected = true; scene.modifyNewspaperPrice(true); }
             else if (this.available && this.selected) {this.selected = false; scene.modifyNewspaperPrice(false); } 
         });
