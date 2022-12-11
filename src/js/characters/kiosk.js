@@ -2,7 +2,6 @@
 export default class kiosk extends Phaser.GameObjects.Sprite{
     constructor(scene, x, y, player, id, zoneWidth, zoneHeight){
         super(scene,x, y);
-        console.log(x + ' ' + y + ' ' +zoneWidth + ' ' + zoneHeight);
         this.scene.add.existing(this);
         this.player = player;
         this.kioskZone = id;
@@ -17,7 +16,6 @@ export default class kiosk extends Phaser.GameObjects.Sprite{
     
 
     isTrustWorthy(){
-        console.log(this.player.getConfianzaInZone(this.kioskZone) );
         if( this.canBuy && this.player.getConfianzaInZone(this.kioskZone) >= 1){
             this.player.compraPeriodicos(Math.floor(Math.random() * (this.player.getConfianzaInZone(this.kioskZone) + 25)) + 10);
         }

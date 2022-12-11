@@ -171,7 +171,6 @@ export default class DIA_DEFAULT extends Phaser.Scene {
     //El periodico seleccionado informa de su confianza
     setTrustSelected(newspaperstrust){
         this.trustFinal = newspaperstrust;
-        console.log(this.trustFinal);
     }
 
     //Controla si hay un titulo seleccionado (cambia para indicar si si o si no)
@@ -184,7 +183,6 @@ export default class DIA_DEFAULT extends Phaser.Scene {
     modifyNewspaperPrice(value){
        if (value) this.pricePerPaper += 0.25;
        else this.pricePerPaper -= 0.25;
-       console.log(this.pricePerPaper);
     }
 
     //Cambia el valor del array de numeros que controla el numero de periodicos
@@ -201,7 +199,6 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         }
         this.numText.setText(this.nums[2]+' '+this.nums[1]+' '+this.nums[0]);
         this.calculateNumNewspapers();
-        //console.log(this.numNewspapers);
     }
     
     //Calcula el numero de periodicos, y si no es 0 cambia el booleano de control

@@ -126,7 +126,6 @@ export default class NPC extends Phaser.GameObjects.Sprite {
       if(Phaser.Geom.Intersects.RectangleToRectangle(this.zonaTrigger.getBounds(),this.player.getBounds())){
         if(!this.enterZone){
           //AQUI PODEMOS HACER LO QUE QUERAMOS QUE OCURRA CUANDO EL PERSONAJE ENTRA EN LA ZONA
-          console.log("Acabo de entrar a la zona")
           this.enterZone = true; // Utilizamos un booleano para diferenciar entre cuando acaba de entrar a la zona
                                   // y cuando ya estaba en ella
           this.talking =true;
@@ -137,7 +136,6 @@ export default class NPC extends Phaser.GameObjects.Sprite {
         }
         else {
           //AQUI PODEMOS HACER LO QUE QUERAMOS QUE OCURRA MIENTRAS EL PERSONAJE SE MANTIENE EN LA ZONA
-          console.log("Estoy en la zona");
   
           //Si el personaje está en la zona y pulsa la tecla de accion, podemos hacer lo que queramos
           if(this.player.action.isDown){
@@ -162,18 +160,13 @@ export default class NPC extends Phaser.GameObjects.Sprite {
       }
       else if(this.enterZone){ // SI EL PLAYER NO SE ENCUENTRA EN LA ZONA, PERO ESTABA DENTRO EN EL FRAME ANTERIOR, SIGNIFICA QUE ACABA DE SALIR
           //AQUÍ PODEMOS HACER LO QUE QUERAMOS QUE OCRURRA CUANDO EL PERSONAJE SALE DE LA ZONA
-          console.log("Acaba de salir de la zona");
           this.enterZone=false;
           this.talking =false;
       }
     
     }
     else if (Phaser.Geom.Intersects.RectangleToRectangle(this.zonaTrigger.getBounds(),this.player.getBounds()) && this.player.action.isDown && this.canAct){
-      //AQUÍ PODRÍAMOS HACER QUE TE DIGA UNA FRASE QUE PODEMOS COLOCAR POR TILED
-      if(this.bought)
-        console.log("No necesito más periódicos gracias");
-      else console.log("Te he dicho que no me interesea");
-
+  
       this.actualCoolDown = t;
       this.canAct=false;
     }

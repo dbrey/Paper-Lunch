@@ -17,7 +17,6 @@ export default class Day1 extends DIA_DEFAULT
 
     create()
     {
-        console.log("Primer dia");
         super.create();
     }
 }

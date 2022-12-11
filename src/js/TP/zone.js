@@ -19,7 +19,6 @@ export default class ZONE extends Phaser.GameObjects.Sprite{
         this.auxTrust;
 
         this.inZone = false;
-        console.log(this);
         
     }
 
