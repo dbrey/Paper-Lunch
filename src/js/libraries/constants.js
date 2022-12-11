@@ -20,7 +20,7 @@ const CT =
   districtE: 23,
   districtV: 22,
   districtJ: 20,
-  districtI: 19
+  districtI: 19,
 
 
   lineSpacing : 10,
