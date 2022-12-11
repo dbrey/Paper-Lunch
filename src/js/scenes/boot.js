@@ -28,6 +28,8 @@ export default class Boot extends Phaser.Scene {
 
     this.load.image('newspaperImg', 'assets/sprites/UI/newspaperUI.png');
     this.load.image('coinImg', 'assets/sprites/UI/monedaUI.png');
+    this.load.image('cuadroHUD', 'assets/sprites/UI/cuadroHUD.png');
+    this.load.image('cuadroTemp', 'assets/sprites/UI/cuadroTemp.png');
 
     this.load.image('UpVolV1', 'assets/sprites/UI/UpButtonVolume_V1.png');
     this.load.image('UpVolV2', 'assets/sprites/UI/UpButtonVolume_V2.png');
@@ -40,8 +42,8 @@ export default class Boot extends Phaser.Scene {
     this.load.image('selectionTpOn', 'assets/sprites/UI/selectionTpOn.png');
 
     //Mapa
-    this.load.tilemapTiledJSON('tileMap', 'assets/tilemap/tiles.json');
-    this.load.image('mapTiles', 'assets/sprites/tileset/Modern_Exteriors_16x16/Modern_Exteriors_Complete_Tileset.png');
+    this.load.tilemapTiledJSON('tileMap', 'assets/tilemap/newmap/tilemapPL.json');
+    this.load.image('mapTiles', 'assets/sprites/tileset/Modern_Exteriors_32x32/Modern_Exteriors_Complete_Tileset_32x32.png');
 
     //Fuente
     this.load.bitmapFont('font', 'assets/fonts/mainFont.png', 'assets/fonts/Inkbit.ttf');

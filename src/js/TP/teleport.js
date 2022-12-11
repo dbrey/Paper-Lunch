@@ -38,7 +38,7 @@ export default class TP extends Phaser.GameObjects.Sprite{
             if(this.player.action.isDown && this.canTP){
                 this.canTP = false;
                 this.player.stopX(); this.player.stopY();
-                this.scene.scene.launch("tpMenu", { TP: this, sceneName: this.scene.objectLayerName});
+                this.scene.scene.launch("tpMenu", { TP: this, sceneName: 'PrimerDia'});
                 this.scene.scene.pause();
             }
         }

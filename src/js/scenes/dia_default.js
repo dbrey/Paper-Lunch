@@ -13,7 +13,7 @@ export default class dia_default extends Phaser.Scene {
 
     constructor(day, _objectLayerName, _nextDay) {
         super({ key: day });
-        this.objectLayerName = _objectLayerName;
+        //this.objectLayerName = _objectLayerName;
         this.nextDay = _nextDay;
     }
 
@@ -21,9 +21,12 @@ export default class dia_default extends Phaser.Scene {
     {
         this.numN = data._numN;
         this.money = data._money;
+
         this._myTrust = data._urTrust;
         this.nDay = data._nDay; // Dia para los periodicos
-        //this.objectLayerName = 'PrimerDia';
+        this.moneyPP = data._moneyPP;
+
+        this.objectLayerName = 'tps';
     }
 
     //Aqui te crea todo lo que necesites al inicio para todo el juego
@@ -32,19 +35,16 @@ export default class dia_default extends Phaser.Scene {
         //Mapa
         this.map = this.make.tilemap({
             key: 'tileMap',
-            tileWidth: 16,
-            tileHeight: 16
+            tileWidth: 32,
+            tileHeight: 32
         });
 
         //Mapa - Capas Normales 1 - Parte 1
-        let tileSet = this.map.addTilesetImage('Modern_Exteriors_Complete_Tileset', 'mapTiles');
-        this.mapGround = this.map.createStaticLayer('Ground', tileSet);
-        this.mapBajos = this.map.createStaticLayer('BajosE', tileSet);
-        this.mapAdornos = this.map.createStaticLayer('Adornos', tileSet);
-
-        this.player = new Player(this, 900, 1500, this.numN, this.money, this._myTrust);
-
-                
+        let tileSet = this.map.addTilesetImage('Modern_Exteriors_Complete_Tileset_32x32', 'mapTiles');
+        this.mapGround = this.map.createStaticLayer('suelo', tileSet);
+        this.mapBajos = this.map.createStaticLayer('jugEncima', tileSet);
+        //this.mapAdornos = this.map.createStaticLayer('jugDebajo', tileSet);
+        this.player = new Player(this, 900, 1500, this.numN, this.money, this._myTrust, this.moneyPP);
         let mapObjects = this.map.getObjectLayer(this.objectLayerName).objects;
 
         
@@ -73,11 +73,11 @@ export default class dia_default extends Phaser.Scene {
         }
 
 
-        this.mapTechos = this.map.createStaticLayer('Techos', tileSet);
+        this.mapTechos = this.map.createStaticLayer('jugDebajo', tileSet);
         this.mapCollisions = this.map.createStaticLayer('Collisions', tileSet);
-        this.mapCollisions.setCollisionBetween(10000, 10053);
+        this.mapCollisions.setCollisionBetween(1000, 11000);
         this.physics.add.collider(this.player, this.mapCollisions);
-        this.mapCollisions.visible = false;
+        this.mapCollisions.visible = true;
 
         //Cámara que sigue al jugador
         this.cameras.main.startFollow(this.player);
@@ -109,7 +109,7 @@ export default class dia_default extends Phaser.Scene {
         if (Phaser.Input.Keyboard.JustDown(this.pauseButton)) { 
             this.player.stopX(); this.player.stopY();
             this.scene.pause();
-            this.scene.launch("pauseMenu", {sceneName: this.objectLayerName});
+            this.scene.launch("pauseMenu", {sceneName: 'PrimerDia'});
             this.player.resetInput();
 
         } 
