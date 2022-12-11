@@ -13,13 +13,14 @@ export default class ZONE extends Phaser.GameObjects.Sprite{
         this.triggerZone.body.setAllowGravity(false);
 
         this.zoneId = id;
+        console.log('id: ' + this.zoneId)
 
         this.player = player;
 
         this.trust = 10;
         this.auxTrust;
 
-        this.inZone = true;
+        this.inZone = false;
         console.log(this);
         
     }
@@ -28,10 +29,14 @@ export default class ZONE extends Phaser.GameObjects.Sprite{
 
     preUpdate(t, d){
         super.preUpdate(t, d);
-        if(Phaser.Geom.Intersects.RectangleToRectangle(this.triggerZone.getBounds(),this.player.getBounds())&& this.inZone){
-            console.log(this.player.getConfianzaInZone(this.id));
-            this.inZone == false;
+        if(this.inZone == false && Phaser.Geom.Intersects.RectangleToRectangle(this.triggerZone.getBounds(),this.player.getBounds())){
+            console.log(this.player.getConfianzaInZone(this.zoneId));
+            this.inZone = true;
         }
+        else if(this.inZone == true && !Phaser.Geom.Intersects.RectangleToRectangle(this.triggerZone.getBounds(),this.player.getBounds())){
+            this.inZone = false;
+        }
+        
         
     }
 }
