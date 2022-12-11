@@ -169,6 +169,10 @@ export default class Player extends Phaser.GameObjects.Sprite {
     return this.confianza;
   }
 
+  getConfianzaInZone(id){
+    return this.confianza[id];
+  }
+
   changeDinero(amount) {
     this.dinero += amount;
     this.scene.ui.updateDinero();

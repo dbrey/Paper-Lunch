@@ -639,51 +639,7 @@
          "draworder":"topdown",
          "id":6,
          "name":"CambioDIst",
-         "objects":[
-                {
-                 "class":"",
-                 "height":2920,
-                 "id":19,
-                 "name":"Italiano",
-                 "rotation":0,
-                 "visible":true,
-                 "width":3200,
-                 "x":656,
-                 "y":2840
-                }, 
-                {
-                 "class":"",
-                 "height":2184,
-                 "id":20,
-                 "name":"Japones",
-                 "rotation":0,
-                 "visible":true,
-                 "width":3240,
-                 "x":608,
-                 "y":616
-                }, 
-                {
-                 "class":"",
-                 "height":2128,
-                 "id":22,
-                 "name":"Vegano",
-                 "rotation":0,
-                 "visible":true,
-                 "width":3456,
-                 "x":3880,
-                 "y":672
-                }, 
-                {
-                 "class":"",
-                 "height":2928,
-                 "id":23,
-                 "name":"Espanol",
-                 "rotation":0,
-                 "visible":true,
-                 "width":3480,
-                 "x":3880,
-                 "y":2840
-                }],
+         "objects":[],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
@@ -693,7 +649,7 @@
         {
          "draworder":"topdown",
          "id":5,
-         "name":"tps",
+         "name":"objetos",
          "objects":[
                 {
                  "class":"",
@@ -802,7 +758,7 @@
                  "class":"",
                  "height":51.3333,
                  "id":12,
-                 "name":"KIOSKO",
+                 "name":"KIO",
                  "properties":[
                         {
                          "name":"id",
@@ -819,7 +775,7 @@
                  "class":"",
                  "height":53.3333,
                  "id":13,
-                 "name":"KIOSKO",
+                 "name":"KIO",
                  "rotation":0,
                  "visible":false,
                  "width":109.667,
@@ -830,7 +786,7 @@
                  "class":"",
                  "height":48,
                  "id":15,
-                 "name":"KIOSKO",
+                 "name":"KIO",
                  "rotation":0,
                  "visible":false,
                  "width":97,
@@ -841,12 +797,80 @@
                  "class":"",
                  "height":55.3333,
                  "id":16,
-                 "name":"KIOSKO",
+                 "name":"KIO",
                  "rotation":0,
                  "visible":false,
                  "width":106.667,
                  "x":4600.67,
                  "y":1434.67
+                }, 
+                {
+                 "class":"",
+                 "height":2920,
+                 "id":24,
+                 "name":"ZONA",
+                 "properties":[
+                        {
+                         "name":"id",
+                         "type":"int",
+                         "value":2
+                        }],
+                 "rotation":0,
+                 "visible":true,
+                 "width":3200,
+                 "x":672,
+                 "y":2832
+                }, 
+                {
+                 "class":"",
+                 "height":2184,
+                 "id":25,
+                 "name":"ZONA",
+                 "properties":[
+                        {
+                         "name":"id",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "visible":true,
+                 "width":3240,
+                 "x":624,
+                 "y":608
+                }, 
+                {
+                 "class":"",
+                 "height":2128,
+                 "id":26,
+                 "name":"ZONA",
+                 "properties":[
+                        {
+                         "name":"id",
+                         "type":"int",
+                         "value":1
+                        }],
+                 "rotation":0,
+                 "visible":true,
+                 "width":3456,
+                 "x":3896,
+                 "y":664
+                }, 
+                {
+                 "class":"",
+                 "height":2928,
+                 "id":27,
+                 "name":"ZONA",
+                 "properties":[
+                        {
+                         "name":"id",
+                         "type":"int",
+                         "value":3
+                        }],
+                 "rotation":0,
+                 "visible":true,
+                 "width":3480,
+                 "x":3896,
+                 "y":2832
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -1066,7 +1090,7 @@
          "y":0
         }],
  "nextlayerid":7,
- "nextobjectid":24,
+ "nextobjectid":28,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.9.2",

@@ -26,7 +26,7 @@ export default class dia_default extends Phaser.Scene {
         this.nDay = data._nDay; // Dia para los periodicos
         this.moneyPP = data._moneyPP;
 
-        this.objectLayerName = 'tps';
+        this.objectLayerName = 'objetos';
     }
 
     //Aqui te crea todo lo que necesites al inicio para todo el juego
