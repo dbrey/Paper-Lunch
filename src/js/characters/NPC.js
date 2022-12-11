@@ -1,5 +1,6 @@
 
 import Paths from "./paths.js"
+import CT from "../libraries/constants.js";
 
 export default class NPC extends Phaser.GameObjects.Sprite {
   constructor(scene, x, y, npcName,player,zoneWidth,zoneHeight) {
@@ -143,14 +144,15 @@ export default class NPC extends Phaser.GameObjects.Sprite {
               if(this.probability > this.confianzaConPlayer){
                 //TO DO : SE COMPRA EL PERIÓDICO
                 if(this.player.numeroPeriodicos()>0){
-                  console.log("Perfecto, te compro el periódico");
-                  this.player.compraPeriodicos(1); //SE PODRÍA HACER UN RANDOM DEL NUMERO DE PERIODICOS A COMPRAR, AUNQUE LO NORMAL ES UNO
+                  this.scene.dialogManager.updatePosition(this.player.x - CT.offsetDialogX, this.player.y + CT.offsetDialogY);
+                  this.scene.dialogManager.startWritting("Gracias por el periódico! Seguro que está muy interesante y me alegra la mañana. Muchas gracias!!");
+                  this.player.compraPeriodicos(1); 
+                  //SE PODRÍA HACER UN RANDOM DEL NUMERO DE PERIODICOS A COMPRAR, AUNQUE LO NORMAL ES UNO
                   this.scene.ui.updateNumPeriodicos(); 
                   this.bought=true;
                 }
-
+                
               }
-              else console.log("Lo siento, no me interesa");
               this.canBuy=false;
               this.actualCoolDown = t;
               this.canAct=false;
@@ -182,6 +184,11 @@ export default class NPC extends Phaser.GameObjects.Sprite {
 
       if(t-this.actualCoolDown > this.actionCoolDown)
        this.canAct=true;
+    }
+
+
+    if(this.player.action.isDown && this.canAct && this.scene.dialogManager.writting){
+      this.scene.dialogManager.finishWrittting();
     }
 
 

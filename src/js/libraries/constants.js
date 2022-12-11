@@ -14,7 +14,17 @@ const CT =
   tp3x: 2380 ,
   tp3y: 2432,
   tp4x:2596 ,
-  tp4y: 520
+  tp4y: 520,
+
+  lineSpacing : 10,
+  wordWrapWidth : 500,
+  interval : 30,
+  dialogFontSize : 15,
+
+  offsetDialogX : 250,
+  offsetDialogY : 100,
+
+
 
 }
 

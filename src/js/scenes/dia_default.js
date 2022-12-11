@@ -4,7 +4,7 @@ import CT from '../libraries/constants.js';
 import UI from '../UI/hud.js';
 import Temporizador from '../temporizador/temporizador.js';
 import TP from '../TP/teleport.js'
-
+import dialogManager from '../libraries/dialogManager.js'
 
 export default class DIA_DEFAULT extends Phaser.Scene {
 
@@ -80,7 +80,8 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         
 
         this.temporizador = new Temporizador(this);
-
+        this.dialogManager = new dialogManager(this, 545, 565); 
+        this.dialogTimer = 0;
     }
 
 
@@ -91,12 +92,25 @@ export default class DIA_DEFAULT extends Phaser.Scene {
     }
 
 
-    update() {
+    update(t,dt) {
         if (Phaser.Input.Keyboard.JustDown(this.pauseButton)) { 
             this.player.stopX(); this.player.stopY();
             this.scene.pause();
             this.scene.launch("pauseMenu", {sceneName: "Dia1"});
         } 
+
+
+
+        if(this.dialogManager.writting){
+
+            //Actualizamos el timmer;
+            this.dialogTimer+=dt;
+            if(this.dialogTimer >= CT.interval){
+                this.dialogManager.updateDialog();
+                this.dialogTimer = 0;
+            }
+
+		}
         
     }
 
