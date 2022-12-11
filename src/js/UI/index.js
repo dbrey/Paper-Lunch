@@ -13,6 +13,7 @@ import news from '../scenes/creatingNewspaper.js'
 import pause from '../scenes/pauseMenu.js'
 import options from '../scenes/options.js'
 import tpMenu from '../scenes/tpMenu.js'
+import win_lose from '../scenes/win_lose.js'
 
 import CT from '../libraries/constants.js'
 
@@ -31,7 +32,7 @@ let config = {
     },
     pixelArt: true,
 
-    scene: [Boot, menu,news, d_default, dia1, dia2, dia3, dia4, dia5, dia6, dia7, options,pause,tpMenu],
+    scene: [Boot, menu,news, d_default, dia1, dia2, dia3, dia4, dia5, dia6, dia7, options,pause,tpMenu, win_lose],
 
     physics: { default: 'arcade', arcade: { debug: true } }
     };

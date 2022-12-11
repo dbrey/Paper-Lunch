@@ -23,11 +23,16 @@ export default class DIA_DEFAULT extends Phaser.Scene {
 
     init(data)
     {
-        this._myTrust = data._urTrust;
-        this.numN = data._numN;
-        this.money = data._money;
-        this.moneyPP = data._moneyPP;
-        //this.objectLayerName = 'PrimerDia';
+
+        this.numN = data._numN; // Numero de Newspapers
+        this.money = data._money; // Dinero del jugador (Empieza con 200 - la cantidad gastada en periodicos)
+        this._myTrust = data._urTrust; // Array de confianza
+        this.nDay = data._nDay; // Dia para los periodicos
+        this.mainVolume = data._mainVolume; // Volumen musica
+        this.effectsVolume = data._effectsVolume // Volumen efectos
+        this.isMainMute = data._isMainMute; // Booleano si esta la musica muteada
+        this.isEffectsMute = data._isEffectsMute; // Booleano si estan los efectos muteados 
+//this.objectLayerName = 'PrimerDia';
     }
 
     //Aqui te crea todo lo que necesites al inicio para todo el juego
@@ -41,11 +46,22 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         });
 
         //Mapa - Capas Normales 1 - Parte 1
+
         let tileSet = this.map.addTilesetImage('Modern_Exteriors_Complete_Tileset_32x32', 'mapTiles');
         this.mapGround = this.map.createStaticLayer('suelo', tileSet);
         this.mapBajos = this.map.createStaticLayer('jugEncima', tileSet);
         this.player = new Player(this, 3840, 2770, this.numN, this.money, this._myTrust, this.moneyPP);
                 
+
+               
+        // Si esta muteado, añadimos el sonido con 0 volumen, sino con el volumen principal
+        if(this.isMainMute) { this.music = this.sound.add('mainMenuSoundtrack', {volume: 0}, {loop: true}); }
+        else { this.music = this.sound.add('mainMenuSoundtrack', {volume: this.mainVolume}, {loop: true}); }
+
+        this.music.play();
+
+
+
         let mapObjects = this.map.getObjectLayer(this.objectLayerName).objects;
 
 
@@ -101,6 +117,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
     }
 
 
+
     // Metodos para manejar cambios de las escenas
     changeScene(sceneName = this.nextLevel) {
         this.currentPlaying.stop()
@@ -112,7 +129,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         if (Phaser.Input.Keyboard.JustDown(this.pauseButton)) { 
             this.player.stopX(); this.player.stopY();
             this.scene.pause();
-            this.scene.launch("pauseMenu", {sceneName: "Dia1"});
+            this.scene.launch("pauseMenu", {_scene: this, sceneName: this.objectLayerName});
             this.player.resetInput();
         } 
 
@@ -134,6 +151,28 @@ export default class DIA_DEFAULT extends Phaser.Scene {
 
     finDia(){
         this.scene.start('createNewspaper');
+
+        if(this.diaActual != 'SeptimoDia'&& this.player.getDinero() < 200 )
+        {
+            this.scene.start('createNewspaper', {diaActual: this.nextDay,  _money: this.player.getDinero(), _nDay: this.nDay, _confianza: this._myTrust,  
+                _mainVolume: this.mainVolume, _effectsVolume: this.effectsVolume, _isMainMute: this.isMainMute, _isEffectsMute: this.isEffectsMute});
+        }
+        else
+        {
+            this.music.stop();
+            if(this.player.getDinero() > 200)
+            {
+                this.scene.start('win_lose', {_win: false, _mainVolume: this.mainVolume, _effectsVolume: this.effectsVolume, _isMainMute: this.isMainMute, _isEffectsMute: this.isEffectsMute});
+            }
+            else
+            {
+                this.scene.start('win_lose', {_win: false, _mainVolume: this.mainVolume, _effectsVolume: this.effectsVolume, _isMainMute: this.isMainMute, _isEffectsMute: this.isEffectsMute});
+            }           
+            // Cambiar a menu de ganar y perder
+
+            // Pasar mainVolume,effectsVolume, isMainMute, isEffectsMute por referencia
+        }
+
     }
 
 
