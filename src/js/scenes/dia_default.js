@@ -4,13 +4,17 @@ import CT from '../libraries/constants.js';
 import UI from '../UI/hud.js';
 import Temporizador from '../temporizador/temporizador.js';
 import TP from '../TP/teleport.js'
+import kiosk from '../characters/kiosk.js';
+import ZONE from '../TP/zone.js';
+
 
 
 export default class DIA_DEFAULT extends Phaser.Scene {
 
-    constructor(config) {
-        super({ key: 'Dia1' });
+    constructor(day, _nextDay) {
+        super({ key: day });
         this.objectLayerName = 'tps';
+        this.nextDay = _nextDay;
 
     }
 
@@ -37,7 +41,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         let tileSet = this.map.addTilesetImage('Modern_Exteriors_Complete_Tileset_32x32', 'mapTiles');
         this.mapGround = this.map.createStaticLayer('suelo', tileSet);
         this.mapBajos = this.map.createStaticLayer('jugEncima', tileSet);
-        this.player = new Player(this, 900, 1500, this.numN, this.money, this._myTrust, this.moneyPP);
+        this.player = new Player(this, 3840, 2770, this.numN, this.money, this._myTrust, this.moneyPP);
                 
         let mapObjects = this.map.getObjectLayer(this.objectLayerName).objects;
 
@@ -50,12 +54,19 @@ export default class DIA_DEFAULT extends Phaser.Scene {
             objeto.y += objeto.height / 2;
 
             switch (objeto.name) {
+                case 'KIO':
+                    this[props.nombre] = new kiosk(this, objeto.x, objeto.y, this.player, props.id, objeto.width, objeto.height)
+                break;
                 case 'NPC': //NPC
                 this[props.nombre] = new NPC(this,objeto.x,objeto.y,props.nombre,this.player,35,35)
                     break;
                 case 'TP':
+                    this[props.nombre] = new TP(this, objeto.x, objeto.y, props.id, this.player, objeto.width, objeto.height)
                     this[props.nombre] = new TP(this, objeto.x, objeto.y, props.id, this.player, 35, 35)
                 break;
+                case 'ZONE':
+                    this[props.nombre] = new ZONE(this, objeto.x, objeto.y,props.id, this.player, objeto.width, objeto.height);
+                    break; 
             }
         }
 

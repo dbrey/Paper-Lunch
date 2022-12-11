@@ -13,8 +13,6 @@ export default class ZONE extends Phaser.GameObjects.Sprite{
         this.triggerZone.body.setAllowGravity(false);
 
         this.zoneId = id;
-        console.log('id: ' + this.zoneId)
-
         this.player = player;
 
         this.trust = 10;

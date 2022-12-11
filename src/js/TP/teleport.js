@@ -15,8 +15,6 @@ export default class TP extends Phaser.GameObjects.Sprite{
         this.player = player;
 
         this.canTP = true;
-        console.log(this);
-        
     }
 
     teleport(tpx, tpy){
@@ -34,7 +32,6 @@ export default class TP extends Phaser.GameObjects.Sprite{
     preUpdate(t, d){
         super.preUpdate(t, d);
         if(Phaser.Geom.Intersects.RectangleToRectangle(this.triggerZone.getBounds(),this.player.getBounds())){
-            console.log("Ubicacion: " + this.tpID);
             if(this.player.action.isDown && this.canTP){
                 this.canTP = false;
                 this.player.stopX(); this.player.stopY();
