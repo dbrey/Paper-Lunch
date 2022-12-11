@@ -226,6 +226,8 @@ export default class Player extends Phaser.GameObjects.Sprite {
     if(this.periodicos <= 0)
       this.scene.finDia();
 
+
+
     //Al principio de cada preUpdate, el Player se para
     this.stopX()
     this.stopY()

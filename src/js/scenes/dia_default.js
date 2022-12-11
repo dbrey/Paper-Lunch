@@ -9,6 +9,9 @@ import ZONE from '../TP/zone.js';
 
 
 
+import dialogManager from '../libraries/dialogManager.js'
+
+
 export default class DIA_DEFAULT extends Phaser.Scene {
 
     constructor(day, _nextDay) {
@@ -58,11 +61,11 @@ export default class DIA_DEFAULT extends Phaser.Scene {
                     this[props.nombre] = new kiosk(this, objeto.x, objeto.y, this.player, props.id, objeto.width, objeto.height)
                 break;
                 case 'NPC': //NPC
-                this[props.nombre] = new NPC(this,objeto.x,objeto.y,props.nombre,this.player,35,35)
+                this[props.nombre] = new NPC(this,objeto.x,objeto.y,props.nombre,this.player,25,25)
                     break;
                 case 'TP':
                     this[props.nombre] = new TP(this, objeto.x, objeto.y, props.id, this.player, objeto.width, objeto.height)
-                    this[props.nombre] = new TP(this, objeto.x, objeto.y, props.id, this.player, 35, 35)
+                    
                 break;
                 case 'ZONE':
                     this[props.nombre] = new ZONE(this, objeto.x, objeto.y,props.id, this.player, objeto.width, objeto.height);
@@ -93,7 +96,8 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         
 
         this.temporizador = new Temporizador(this);
-
+        this.dialogManager = new dialogManager(this, 545, 565); 
+        this.dialogTimer = 0;
     }
 
 
@@ -104,13 +108,26 @@ export default class DIA_DEFAULT extends Phaser.Scene {
     }
 
 
-    update() {
+    update(t,dt) {
         if (Phaser.Input.Keyboard.JustDown(this.pauseButton)) { 
             this.player.stopX(); this.player.stopY();
             this.scene.pause();
             this.scene.launch("pauseMenu", {sceneName: "Dia1"});
             this.player.resetInput();
         } 
+
+
+
+        if(this.dialogManager.writting){
+
+            //Actualizamos el timmer;
+            this.dialogTimer+=dt;
+            if(this.dialogTimer >= CT.interval){
+                this.dialogManager.updateDialog();
+                this.dialogTimer = 0;
+            }
+
+		}
         
     }
 

@@ -7,6 +7,7 @@ const CT =
   numAds: 4,
   cameraZoom: 2 ,
   
+
   tp1x:710 ,
   tp1y:735 ,
   tp2x:710 ,
@@ -20,6 +21,17 @@ const CT =
   districtV: 22,
   districtJ: 20,
   districtI: 19
+
+
+  lineSpacing : 10,
+  wordWrapWidth : 500,
+  interval : 30,
+  dialogFontSize : 15,
+
+  offsetDialogX : 250,
+  offsetDialogY : 100,
+
+
 
 
 }
