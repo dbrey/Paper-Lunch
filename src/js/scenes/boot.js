@@ -38,6 +38,7 @@ export default class Boot extends Phaser.Scene {
     this.load.image('UnMute', 'assets/sprites/UI/Unmute_Button.png');
     this.load.image('Mute', 'assets/sprites/UI/Mute_Button.png');
     
+    this.load.image('miniMap', 'assets/sprites/minimap.png')
 
     //TP
     this.load.image('metroMap','assets/sprites/UI/MapaMetro.png');
@@ -52,7 +53,7 @@ export default class Boot extends Phaser.Scene {
     this.load.bitmapFont('font', 'assets/fonts/mainFont.png', 'assets/fonts/Inkbit.ttf');
 
     // Fondos
-    this.load.spritesheet('mainmenu', 'assets/sprites/background.png', { frameWidth: 480, frameHeight: 254 });
+    this.load.spritesheet('mainmenu', 'assets/sprites/city_spritesheet.png', { frameWidth: 320, frameHeight: 180 });
     this.load.image('optionsBackground', 'assets/sprites/optionsBackground.jpg');
 
     // Logo
