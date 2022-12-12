@@ -1,7 +1,7 @@
 
 
 export default class ZONE extends Phaser.GameObjects.Sprite{
-    constructor(scene, x, y, id ,player, zoneX, zoneY){
+    constructor(scene, x, y, id , _player ,_hud, zoneX, zoneY){
         super(scene, x, y);
 
         this.scene.add.existing(this);
@@ -13,13 +13,12 @@ export default class ZONE extends Phaser.GameObjects.Sprite{
         this.triggerZone.body.setAllowGravity(false);
 
         this.zoneId = id;
-        this.player = player;
-
+        this.hud = _hud;
+        this.player = _player;
         this.trust = 10;
         this.auxTrust;
 
         this.inZone = false;
-        
     }
 
    
@@ -27,7 +26,8 @@ export default class ZONE extends Phaser.GameObjects.Sprite{
     preUpdate(t, d){
         super.preUpdate(t, d);
         if(this.inZone == false && Phaser.Geom.Intersects.RectangleToRectangle(this.triggerZone.getBounds(),this.player.getBounds())){
-            console.log(this.player.getConfianzaInZone(this.zoneId));
+            this.hud.setTrustImage(this.zoneId);
+            console.log(this.zoneId);
             this.inZone = true;
         }
         else if(this.inZone == true && !Phaser.Geom.Intersects.RectangleToRectangle(this.triggerZone.getBounds(),this.player.getBounds())){

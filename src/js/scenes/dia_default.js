@@ -51,15 +51,20 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.mapGround = this.map.createStaticLayer('suelo', tileSet);
         this.mapBajos = this.map.createStaticLayer('jugEncima', tileSet);
         this.player = new Player(this, 3840, 2770, this.numN, this.money, this._myTrust, this.moneyPP);
-                
-
+        this.mapAdornos = this.map.createStaticLayer('jugColisiona', tileSet);
+        this.mapTechos = this.map.createStaticLayer('jugDebajo', tileSet);
+        this.mapCollisions = this.map.createStaticLayer('Collisions', tileSet);
+        this.mapCollisions.setCollisionBetween(0, 10000, true, false);
+        this.physics.add.collider(this.player, this.mapCollisions);
+        this.mapCollisions.visible = false;
+        //HUD
+        this.ui = new UI(this, this.player);  
                
         // Si esta muteado, añadimos el sonido con 0 volumen, sino con el volumen principal
         if(this.isMainMute) { this.music = this.sound.add('mainMenuSoundtrack', {volume: 0}, {loop: true}); }
         else { this.music = this.sound.add('mainMenuSoundtrack', {volume: this.mainVolume}, {loop: true}); }
 
         this.music.play();
-
 
 
         let mapObjects = this.map.getObjectLayer(this.objectLayerName).objects;
@@ -84,18 +89,13 @@ export default class DIA_DEFAULT extends Phaser.Scene {
                     
                 break;
                 case 'ZONE':
-                    this[props.nombre] = new ZONE(this, objeto.x, objeto.y,props.id, this.player, objeto.width, objeto.height);
+                    this[props.nombre] = new ZONE(this, objeto.x, objeto.y, props.id, this.player, this.ui , objeto.width, objeto.height);
+                    console.log(objeto.y,props.id);
                     break; 
             }
         }
 
-
-        this.mapAdornos = this.map.createStaticLayer('jugColisiona', tileSet);
-        this.mapTechos = this.map.createStaticLayer('jugDebajo', tileSet);
-        this.mapCollisions = this.map.createStaticLayer('Collisions', tileSet);
-        this.mapCollisions.setCollisionBetween(0, 10000, true, false);
-        this.physics.add.collider(this.player, this.mapCollisions);
-        this.mapCollisions.visible = false;
+        
 
         //Cámara que sigue al jugador
         this.cameras.main.startFollow(this.player);
@@ -104,12 +104,9 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.cameras.main.zoom = CT.cameraZoom;
         this.cameras.main.setLerp(0.8, 0.8)
 
-        //HUD
-        this.ui = new UI(this, this.player);
         this.pauseButton = this.input.keyboard.addKey('ESC');
         this.pauseButton.on('down', () => { 
         });
-        
 
         this.temporizador = new Temporizador(this);
         this.dialogManager = new dialogManager(this, 545, 565); 

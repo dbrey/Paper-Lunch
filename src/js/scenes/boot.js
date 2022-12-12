@@ -37,6 +37,12 @@ export default class Boot extends Phaser.Scene {
     this.load.image('DownVolV2', 'assets/sprites/UI/DownButtonVolume_V2.png');
     this.load.image('UnMute', 'assets/sprites/UI/Unmute_Button.png');
     this.load.image('Mute', 'assets/sprites/UI/Mute_Button.png');
+
+    this.load.image('BarraRoja', 'assets/sprites/UI/MarcoJapones.png');
+    this.load.image('BarraAzul', 'assets/sprites/UI/MarcoVegano.png');
+    this.load.image('BarraVerde', 'assets/sprites/UI/MarcoItaliano.png');
+    this.load.image('BarraAmarilla', 'assets/sprites/UI/MarcoEspanol.png');
+    this.load.spritesheet('BarraConfianza', 'assets/sprites/UI/barraConfianza.png', {frameWidth: 20, frameHeight: 75});
     
     this.load.image('miniMap', 'assets/sprites/minimap.png')
 
