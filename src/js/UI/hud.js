@@ -1,20 +1,19 @@
+import TrustMeasurer from '../characters/items.js';
 import CT from '../libraries/constants.js'
 export default class HUD extends Phaser.GameObjects.Text{
     constructor(scene, player){
         super(scene);
         scene.add.existing(this);
 
+        //Referencia a mi jugador
+        this.myPlayer = player;
+
         //Imagenes
-        /*
-        scene.anims.create({
-            key: 'noTrust',
-            frames: scene.anims.generateFrameNumbers('BarraConfianza', { start: 5, end: 5 }),
-            frameRate: 1,
-            repeat: -1
-          });
-        */
-        this.activeBarra =scene.add.sprite(CT.gameWidth - 400 , CT.gameHeight - 270, 'BarraRoja').setScrollFactor(0);
+        this.activeBarra =scene.add.sprite(CT.gameWidth - 350 , CT.gameHeight - 370, 'BarraRoja').setScrollFactor(0);
         this.activeBarra.setScale(0.15);
+
+        //this.barraCon = new TrustMeasurer(scene, CT.gameWidth - 350 , CT.gameHeight - 370);
+        this.barraCon = new TrustMeasurer(scene, 100, 100);
 
         this.cuadroHUD = scene.add.image(CT.gameWidth - 360, CT.gameHeight - 210, 'cuadroHUD').setScrollFactor(0);
         this.cuadroHUD.setScale(0.8);
@@ -39,9 +38,6 @@ export default class HUD extends Phaser.GameObjects.Text{
         this.coinPaperText.setAlign('center');
         this.coinPaperText.setFont('Arial Black');
         this.coinPaperText.setFontSize(17);
-
-        //Referencia a mi jugador
-        this.myPlayer = player;
     }
 
     //Metodos para mostrar actualizar los valores correspondientes
@@ -57,10 +53,15 @@ export default class HUD extends Phaser.GameObjects.Text{
     }
 
     setTrustImage(zoneId){
+
+        //Dependiendo del barrio en el que estemos renderizamos un marco u otro
         if(zoneId === 0)this.activeBarra.setTexture('BarraRoja');
         else if(zoneId === 1)this.activeBarra.setTexture('BarraAzul');
         else if(zoneId === 2)this.activeBarra.setTexture('BarraVerde');
         else if(zoneId === 3)this.activeBarra.setTexture('BarraAmarilla');
-        //this.myPlayer.confianza[zoneId]
+        
+
+        //Dependiendo de la confianza que tengamos en ese barrio, la barra de confianza se mostrara mas o menos llena
+        this.barraCon.checkAnims(this.myPlayer.confianza[zoneId]);
     }
 }

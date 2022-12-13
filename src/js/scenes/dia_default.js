@@ -90,7 +90,6 @@ export default class DIA_DEFAULT extends Phaser.Scene {
                 break;
                 case 'ZONE':
                     this[props.nombre] = new ZONE(this, objeto.x, objeto.y, props.id, this.player, this.ui , objeto.width, objeto.height);
-                    console.log(objeto.y,props.id);
                     break; 
             }
         }

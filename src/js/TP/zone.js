@@ -27,7 +27,6 @@ export default class ZONE extends Phaser.GameObjects.Sprite{
         super.preUpdate(t, d);
         if(this.inZone == false && Phaser.Geom.Intersects.RectangleToRectangle(this.triggerZone.getBounds(),this.player.getBounds())){
             this.hud.setTrustImage(this.zoneId);
-            console.log(this.zoneId);
             this.inZone = true;
         }
         else if(this.inZone == true && !Phaser.Geom.Intersects.RectangleToRectangle(this.triggerZone.getBounds(),this.player.getBounds())){
