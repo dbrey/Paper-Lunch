@@ -212,157 +212,106 @@ export class Ad{
 
 }
 
-export default class TrustMeasurer  extends Phaser.GameObjects.Sprite{
+export default class TrustMeasurer extends Phaser.GameObjects.Sprite{
     constructor(scene, x, y){
     super(scene, x, y);
     // Añadirlo a la escena
     this.scene.add.existing(this);
+    this.myS = scene;
+
+    scene.add.sprite(x, y, 'BarraConfianza', 5);
 
     scene.anims.create({
-        key: '-trust5',
+        key: 'NegTrust5',
         frames: scene.anims.generateFrameNumbers('BarraConfianza', { start: 0, end: 0}),
-        frameRate: 1,
-        repeat: -1
+        repeat: 0
     });
 
     scene.anims.create({
-        key: '-trust4',
+        key: 'NegTrust4',
         frames: scene.anims.generateFrameNumbers('BarraConfianza', { start: 1, end: 1}),
-        frameRate: 1,
-        repeat: -1
+        repeat: 0
     });
 
     scene.anims.create({
-        key: '-trust3',
+        key: 'NegTrust3',
         frames: scene.anims.generateFrameNumbers('BarraConfianza', { start: 2, end: 2}),
-        frameRate: 1,
-        repeat: -1
+        repeat: 0
     });
 
     scene.anims.create({
-        key: '-trust2',
+        key: 'NegTrust2',
         frames: scene.anims.generateFrameNumbers('BarraConfianza', { start: 3, end: 3}),
-        frameRate: 1,
-        repeat: -1
+        repeat: 0
     });
 
     scene.anims.create({
-        key: '-trust1',
+        key: 'NegTrust1',
         frames: scene.anims.generateFrameNumbers('BarraConfianza', { start: 4, end: 4}),
-        frameRate: 1,
-        repeat: -1
+        repeat: 0
     });
 
-    this.scene.anims.create({
+    scene.anims.create({
         key: 'noTrust',
         frames: scene.anims.generateFrameNumbers('BarraConfianza', { start: 5, end: 5 }),
-        frameRate: 1,
-        repeat: -1
+        repeat: 0
     });
 
     scene.anims.create({
         key: 'trust1',
         frames: scene.anims.generateFrameNumbers('BarraConfianza', { start: 6, end: 6}),
-        frameRate: 1,
-        repeat: -1
+        repeat: 0
     });
 
     scene.anims.create({
         key: 'trust2',
         frames: scene.anims.generateFrameNumbers('BarraConfianza', { start: 7, end: 7}),
-        frameRate: 1,
-        repeat: -1
+        repeat: 0
     });
 
     scene.anims.create({
         key: 'trust3',
         frames: scene.anims.generateFrameNumbers('BarraConfianza', { start: 8, end: 8}),
-        frameRate: 1,
-        repeat: -1
+        repeat: 0
     });
 
     scene.anims.create({
         key: 'trust4',
         frames: scene.anims.generateFrameNumbers('BarraConfianza', { start: 9, end: 9}),
-        frameRate: 1,
-        repeat: -1
+        repeat: 0
     });
 
     scene.anims.create({
         key: 'trust5',
         frames: scene.anims.generateFrameNumbers('BarraConfianza', { start: 10, end: 10}),
-        frameRate: 1,
-        repeat: -1
+        repeat: 0
     });
 
-    this.play('noTrust');
+    //this.play('noTrust');
     }
 
     checkAnims(trust){
-        /*
-        switch (trust) {
-            case 0: //No hay confianza
-                this.play( 'noTrust', true);
-                console.log('noTruuuuust');
-            break;
-
-            case 0 < trust <= 5: //Confianza positiva nivel 1
-                this.play( 'trust1', true);
-            break;
-
-            case -5 <= trust < 0: //Confianza negativa nivel 1
-                this.play( '-trust1', true);
-            break;
-
-            case 5 < trust <= 10: //Confianza positiva nivel 2
-                this.play( 'trust2', true);
-            break;
-
-            case -10 <= trust < -5: //Confianza negativa nivel 2
-                this.play( '-trust2', true);
-            break;
-
-            case 10 < trust <= 15: //Confianza positiva nivel 3
-                this.play( 'trust3', true);
-            break;
-
-            case -15 <= trust < -10: //Confianza negativa nivel 3
-                this.play( '-trust3', true);
-            break;
-
-            case 15 < trust <= 20: //Confianza positiva nivel 4
-                this.play( 'trust4', true);
-            break;
-
-            case -20 <= trust < -15: //Confianza negativa nivel 4
-                this.play( '-trust4', true);
-            break;
-
-            case 20 < trust <= 25: //Confianza positiva nivel 5
-                this.play( 'trust5', true);
-            break;
-
-            case -25 <= trust < -20: //Confianza negativa nivel 5
-                this.play( '-trust5', true);
-            break;
-        }
-*/
-
-        if (trust === 0) {this.play('noTrust', true); console.log('ola');}
+        
+        if (trust === 0) this.play('noTrust');
         else if (trust > 0) {
-            if (0 < trust <= 5) this.play( 'trust1', true);
-            else if (5 < trust <= 10) this.play('trust2', true);
-            else if (10 < trust <= 15) this.play('trust3', true);
-            else if (15 < trust <= 20) this.play('trust4', true);
-            else if (20 < trust <= 25) this.play('trust5', true);
+            if (0 < trust && trust <= 5) this.play( 'trust1');
+            else if (5 < trust && trust <= 10) this.play('trust2');
+            else if (10 < trust && trust <= 15) this.play('trust3');
+            else if (15 < trust && trust <= 20) this.play('trust4');
+            else if (20 < trust && trust <= 25) this.play('trust5');
         }
 
-        else{
-            if (-5 <= trust < 0) this.play( '-trust1', true);
-            else if (-10 <= trust < -5) this.play('-trust2', true);
-            else if (-15 <= trust < -10) this.play('-trust3', true);
-            else if (-20 <= trust < -15) this.play('-trust4', true);
-            else if (-25 <= trust < -20) this.play('-trust5', true);
+        else if (trust < 0) {
+            if (0 > trust && trust >= -5) this.play('NegTrust1');
+            else if (-5 > trust && trust >= -10) this.play('NegTrust2');
+            else if (-10 > trust && trust >= -15) this.play('NegTrust3');
+            else if (-15 > trust && trust >= -20) this.play('NegTrust4');
+            else if (-20 > trust && trust >= -25) this.play('NegTrust5');
         }
+    }
+
+    preUpdate(t, d){
+        //Llamamos al super para las animaciones
+        super.preUpdate(t, d);
     }
 }

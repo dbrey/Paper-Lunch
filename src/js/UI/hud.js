@@ -12,9 +12,8 @@ export default class HUD extends Phaser.GameObjects.Text{
         this.activeBarra =scene.add.sprite(CT.gameWidth - 350 , CT.gameHeight - 370, 'BarraRoja').setScrollFactor(0);
         this.activeBarra.setScale(0.15);
 
-        //this.barraCon = new TrustMeasurer(scene, CT.gameWidth - 350 , CT.gameHeight - 370);
-        this.barraCon = new TrustMeasurer(scene, 100, 100);
-
+        this.barraCon = new TrustMeasurer(scene, CT.gameWidth - 350 , CT.gameHeight - 370).setScrollFactor(0);
+        this.barraCon.setScale(2, 2.4);
         this.cuadroHUD = scene.add.image(CT.gameWidth - 360, CT.gameHeight - 210, 'cuadroHUD').setScrollFactor(0);
         this.cuadroHUD.setScale(0.8);
 
