@@ -34,7 +34,9 @@ export default class DIA_DEFAULT extends Phaser.Scene {
 
         //Datos de periódicos
         this.newsData=this.cache.json.get('newsData');
+        //Variable que itera entre los datos
         this.nDay=0;
+        //Asignación de los datos
         this.dayData=this.newsData.Days[this.nDay];
 
         this.Total=this.add.image(1150,480,'Total');
@@ -58,12 +60,12 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.trustP4 = [0, 0, 0, 0];                  //Array de confianza (una por periodico)
         this.NTrust=[this.trustP1,this.trustP2,this.trustP3,this.trustP4]; //Array de arrays con las confianzas
         
-        this.NHeadLine=['','','',''];
+        this.NHeadLine=['','','',''];               //Titulares
         this.numNewspapers = 0;                     //Numero de periodicos generados
         this.titleSelected = false;                 //Booleanos de control para saber si se puede pasar a la siguiente escena
         this.numNSelected = false;
 
-        this.information();
+        this.information();                         //Funciones de asignación de datos
         this.searchInfo();
 
 
@@ -106,6 +108,9 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.continueButton.setScale(0.3);
         
     }
+
+    //Recorre la estructura de datos asignando el titular con sus
+    //... correspondientes datos de confianza
 
     searchInfo(){
         for(let j=0; j<4;j++){

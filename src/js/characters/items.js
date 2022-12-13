@@ -53,37 +53,38 @@ export class Newspaper{
         this.button.on('pointerover', () => {
             if(!this.selected && !scene.getTitleSelected()) 
             {
-                this.button.setScale(0.3,0.25);
-                this.setHeadlineText();
-                this.setDistrictImages(true);
-                this.updateTrustTexts(true);
+                this.button.setScale(0.3,0.25);         //Aumenta el tamaño del botón
+                this.setHeadlineText();                 //Coloca el titular
+                this.setDistrictImages(true);           //Aumenta el tamaño de los iconos
+                this.updateTrustTexts(true);            //Aumenta el tamaño de los textos de confianza
             }
         });
         this.button.on('pointerout', () => { 
             if(!this.selected && !scene.getTitleSelected()) 
             {
-                this.button.setScale(0.25, 0.2);
-                this.removeHeadline();
-                this.setDistrictImages(false);
-                this.updateTrustTexts(false);
+                this.button.setScale(0.25, 0.2);        //Reduce el tamaño del botón
+                this.removeHeadline();                  //Quita el titular
+                this.setDistrictImages(false);          //Reduce el tamaño de los iconos
+                this.updateTrustTexts(false);           //Reduce el tamaño de los textos de confianza
             }
         });
     }
 
+    //Asigna los titulares y hace que se añada \n cada tres palabras
+    //... para que quepan en el recuadro
     setHeadlineText(){
         
-        this.titleWords=this.title.split(" ");
+        this.titleWords=this.title.split(" ");      //Divide las palabras por espacios
 
-        if(this.titleWords.length>3){
-            this.Ntitle+=this.titleWords[0];
+        if(this.titleWords.length>3){               //Si hay más de 3 palabras se ejeuta
+            this.Ntitle+=this.titleWords[0];        //Se coloca la primera palabra para no insertar \n al principio
         for(let i=1; i<this.titleWords.length; i++ ){
-            if(i%3===0){
+            if(i%3===0){                            //Cada 3 palabras se inserta \n
                 this.Ntitle+="\n"+ this.titleWords[i];
-                this.checkOnce=true;
-            }else{
+            }else{                                  //Si no se inserta un espacio
             this.Ntitle+=" "+ this.titleWords[i];
             }
-        }}else{
+        }}else{                                     //Si no hay más de 3 palabras se asigna el titular de manera normal
             this.Ntitle=this.title;
         }
 
@@ -91,6 +92,7 @@ export class Newspaper{
         this.text = this._myS.add.text(775,150, this.Ntitle, {fontSize: '30px', fill: '#000'});
     }
 
+    //Destrucción del titular y variables asociadas
     removeHeadline(){
         this.Ntitle="";
         this.titleWords=[];
