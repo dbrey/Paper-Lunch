@@ -208,7 +208,7 @@
          "name":"suelo",
          "opacity":1,
          "type":"tilelayer",
-         "visible":false,
+         "visible":true,
          "width":250,
          "x":0,
          "y":0
@@ -288,7 +288,7 @@
                 }, 
                 {
                  "class":"",
-                 "height":0,
+                 "height":30,
                  "id":9,
                  "name":"NPC",
                  "properties":[
@@ -299,9 +299,9 @@
                         }],
                  "rotation":0,
                  "visible":true,
-                 "width":0,
-                 "x":3840,
-                 "y":3025.33
+                 "width":32,
+                 "x":3821,
+                 "y":3122.33
                 }, 
                 {
                  "class":"",
@@ -1363,7 +1363,7 @@
          "y":0
         }],
  "nextlayerid":8,
- "nextobjectid":32,
+ "nextobjectid":57,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.9.2",

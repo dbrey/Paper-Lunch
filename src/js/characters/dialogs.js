@@ -3,13 +3,17 @@ const Dialogs=[
         name: 'Rodolfo',
         dialog : [
             {
-                text : "Hola, me llamo rodolfo",
-                nextIndex : 1
+                text : "Gracias por el periódico! Seguro que está muy interesante y me alegra la mañana. Muchas gracias!!",
             },
 
             {
-                text : "Claro que quiero",
-                nextIndex : 2
+                text : "Muchas gracias pero ahora mismo tengo prisa!",
+            },
+            {
+                text : "Lo siento no necesito más periódicos, gracias!",
+            },
+            {
+                text : "Ya te he dicho que no me interesa",
             }
 
         ]
