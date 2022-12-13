@@ -85,7 +85,7 @@ export default class Boot extends Phaser.Scene {
     this.load.image('simJap', 'assets/sprites/creatingNews/banderaJAP.png');
     //Flechas y  tick
     this.load.image('arrowUp', 'assets/sprites/creatingNews/arrowUp.png');
-    this.load.image('arrowDown', 'assets/sprites/creatingNews/arrow down.png');
+    this.load.image('arrowDown', 'assets/sprites/creatingNews/arrowDown.png');
     this.load.image('tick', 'assets/sprites/creatingNews/tick.png');
     //Boton continuar
     this.load.image('continueButtonBlocked', 'assets/sprites/creatingNews/contButtonBlocked.png');
