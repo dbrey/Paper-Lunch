@@ -28,7 +28,12 @@ Eres una vendedora de periódicos ambulante con un gran sueño: ¡Tener tu propi
 
 **1.1. Relato breve y parcial de una partida típica**
 
-El jugador elegirá entre un número de titulares, que afectarán de manera positiva o negativa a su reputación en los distintos distritos, tras esto tendrá que seleccionar el número de periódicos que planea vender. También podrá elegir la cantidad de anuncios que introducir, generando más dinero por venta pero reduciendo la reputación de manera general. Una vez configurado el periódico el jugador será llevado al centro de la ciudad y tomará el control de Amelia, el personaje principal. Tendrá que moverse por los distritos e interactuar con los NPCs para vender periódicos. Dependiendo del nivel de reputación que tenga en el distrito en el que se encuentre podrá vender una tirada de periódicos en el correspondiente kiosko. El día acabará si se acaba el tiempo que dura, 5:00 minutos o si el jugador vende todos los periódicos producidos ese día. De manera adicional, un día podrá acabar si el jugador se queda sin energía, esto podrá ser evitado yendo a restaurantes para así rellenar esa energía a cambio de dinero y una reducción de tiempo.
+Al comenzar el juego, el jugador tendrá 4 opciones a elegir para publicar su periodico, las cuales afectan a su confianza en los distintos distritos. Además, también deberá decidir cuantos periódicos crear teniendo en cuenta el precio por periodico y que debe vender la mayor cantidad posible. Una vez creados los periódicos , el jugador irá hablando con varios NPCs o visitando kioskos, con la idea de venderlos todo. 
+
+Y una vez vendidos todos o haya terminado el día, el jugador volverá a la pantalla de generar periódicos pero esta vez con la posibilidad de poner anuncios a costa de su propia confianza con los ciudadanos de ciertos distritos. A cambio, recibirá una cantidad de dinero
+
+Este proceso se repetirá unas 7 veces más, como si fuera una semana dentro del juego, si durante esas 7 veces o al terminar, consigue suficiente dinero para lograr el objetivo, entonces gana la partida. Si llega al final de la semana sin suficiente dinero, pierde.
+
 
 2. **Menús y modos de juego**
 
@@ -45,9 +50,7 @@ Solo habrá un modo de juego, en el que solo podrá jugar un jugador. Habra los 
 
 1. **Configuración**
 
-La única opción de configuración del juego será el volumen de la música y/o efectos de
-
-sonido. El jugador podrá aumentar o disminuir el volumen de estos desde el menú de pausa.
+La única opción de configuración del juego será el volumen de la música y/o efectos de sonido. El jugador podrá aumentar o disminuir el volumen de estos desde el menú de pausa o el menú de opciones.
 
 2. **Interfaz y control**
 
@@ -55,130 +58,126 @@ sonido. El jugador podrá aumentar o disminuir el volumen de estos desde el men�
 
 ![](https://github.com/dbrey/Paper-Lunch/blob/main/assets/GDDImages/MenuPrinc.jpeg)
 
-En este menú, siendo el principal del juego y el primero que ve el jugador, presentamos el nombre del juego, el nombre de nuestra “compañía” y un botón para empezar la partida. El fondo se trata de un gif en el que observamos la ciudad del juego.
+En este menú, siendo el principal del juego y el primero que ve el jugador, presentamos el nombre del juego, el nombre de nuestra “compañía” y un botón para empezar la partida. El fondo se trataría de un gif en el que observamos la ciudad del juego.
 
 **Menú de pausa**
 
 ![](https://github.com/dbrey/Paper-Lunch/blob/main/assets/GDDImages/MenuPausa.jpeg)
 
-En el menú de pausa el jugador podrá modificar la intensidad del volumen del juego (o directamente quitarlo) así como ver los controles y un minimapa para que le sea más fácil moverse por la ciudad. También cuenta con dos botones: uno para volver al juego y otro para ir al menú principal.
+![](https://github.com/dbrey/Paper-Lunch/blob/main/assets/GDDImages/MenuPausa2.jpeg)
+
+En el menú de pausa el jugador podrá modificar la intensidad del volumen del juego o los efectos de sonido (o directamente mutearlos) así como ver el minimapa para que le sea más fácil moverse por la ciudad. También cuenta con dos botones: uno para volver al juego y otro para ir al menú principal.
 
 **Juego principal (cuando esta el jugador en la ciudad)**
 
 ![](https://github.com/dbrey/Paper-Lunch/blob/main/assets/GDDImages/HUD.jpeg)
 
-En el HUD del juego habrán 4 estadísticas que el jugador debe conocer en todo momento. Dos de ellas serán barras verticales (que representan la hambruna del jugador y el nivel de reputación en el distrito determinado) y otras dos serán elementos numéricos (que informarán del dinero y del número de periódicos que posee el jugador en cada momento). Todos ellos contarán con un símbolo que facilite su interpretación por los jugadores. En la parte superior encontramos un reloj/contador que nos informa del tiempo que queda para que se complete el día de juego (este reloj no se modificará mientras el jugador esté en otros menús).
+En el HUD habrá 2 estadísticas, el número de periódicos restantes y el dinero total del jugador, ambos se mostrarán con un símbolo y un valor al lado. La barra de la derecha simboliza la cantidad de confianza que tiene el distrito en el jugador. Este cambiará según el distrito en el que se encuentre (representando diferentes valores). Arriba a la derecha, está un temporizador que indica cuánto tiempo lleva el jugador en la ciudad
 
 **Juego principal (cuando se esta preparando el periodico)**
 
 ![](https://github.com/dbrey/Paper-Lunch/blob/main/assets/GDDImages/Prep.jpeg)
 
-El jugador deberá escoger un titular de entre las cuatro opciones (se selecciona haciendo clic sobre él, y aunque ya tengas seleccionado uno se actualizará la elección si se hace clic sobre otro) viendo cómo afectará cada uno a su reputación en los distintos distritos. A continuación, sabiendo el número de monedas que tiene, introducirá el número de periódicos que desea producir ese día (seleccionando la casilla e introduciendo el número con el teclado).
+El jugador deberá escoger un titular de entre las cuatro opciones (se selecciona haciendo click sobre él, y para seleccionar otro, debes hacer click antes para “deseleccionar” el anterior) viendo cómo afectará cada uno a su confianza en los distintos distritos. A continuación, sabiendo el número de monedas que tiene, introducirá el número de periódicos que desea producir ese día, con 2 flechas por dígito para subir o bajar de 0 a 9.
 
-En la parte inferior se encontrará el botón para seguir con el juego y pasar a la fase de venta, ya disponible si se han realizado las dos acciones anteriores (de no ser así no se podrá hacer clic sobre él), y a su izquierda los distintos anuncios que se podrán añadir al periódico si se hace clic sobre ellos. Estos se irán desbloqueando con el paso de los días (se verán con un candado si aún siguen bloqueados).
+Habrá un botón de continuar que solo funciona tras seleccionar un tutorial y al menos tener 1 periodico a generar. Como detalle, se puede ver el titular de cada periodico en un pequeño cuadro.
+
+Según vayan pasando los días, se irán desbloqueando los anuncios. Hasta entonces, estarán bloqueados (indicandolo con dibujos de candados)
 
 **Menú de opciones**
 
 ![](https://github.com/dbrey/Paper-Lunch/blob/main/assets/GDDImages/Opciones.jpeg)
 
-En este menú el jugador podrá ver los controles del juego y ajustar el volumen del mismo a su gusto (como si decide eliminarlo por completo). Será accesible desde el menú principal y desde el menú de pausa (como se observa en el diagrama de flujo de la página 2). El botón volver devolverá al jugador al menú en el que estaba anteriormente siendo cualquiera de los dos ya nombrados.
+En este menú el jugador podrá ver los controles del juego y ajustar el volumen del mismo a su gusto (como si decide eliminarlo por completo). Será accesible desde el menú principal y desde el menú de pausa (como se observa en el diagrama de flujo de la página 2)
 
 3. **Jugabilidad**
 
-Al iniciar la partida, el jugador tiene X días para reunir cierta cantidad de dinero para montar una editorial. Cada día implica unos X minutos de juego (5-10 minutos aprox)
+Al iniciar la partida, el jugador tiene 7 días para reunir cierta cantidad de dinero para montar una editorial. Cada día implica unos X minutos de juego (5-10 minutos aprox)
 
 Cada día, el jugador empieza preparando los periódicos, y tras personalizar sus noticias, empieza desde el centro del mapa. El jugador se moverá por el mapa, buscando personas a las que venderles sus periódicos y consiguiendo comida para pasar el día
 
-1. **Mecánicas**
+4. **Controles**
+
+- Andar/Correr: WASD y mantener SHIFT para correr
+- E : Vender periódicos
+- ESC : Abrir menú de pausa
+
+
+5. **Mecánicas**
 
 Podemos dividir las mecánicas del juego en 4 secciones distintas:
 
--*Sistema*:
+- MOVIMIENTO
+- PREPARACIÓN DEL PERIÓDICO
+- CIUDAD
+  - Estaciones de bus
+  - Interacción con kioskos: 
 
--Energía: Se consume mientras el personaje camine o corra. Si el personaje se queda sin ella acabará el día.
+6. **Movimiento**
 
--Dinero: Sirve para producir periódicos. Se obtiene vendiéndolos. Si el jugador se queda sin el suficiente como para poder producir periódicos pierde la partida, por el contrario, si consigue ahorrar lo suficiente y llega al final del juego con la cantidad requerida ganará.
+El jugador puede moverse en un mapa topdown hacia el norte,sur este u oeste. Puede moverse caminando o corriendo
 
--Reputación: Hay una estadística de reputación para cada distrito. Dependiendo de las elecciones realizadas al configurar el periódico aumentará o disminuirá. La reputación ayuda a vender periódicos, aumentando la posibilidad de venderlos a NPCs  y desbloqueando kioskos que comprarán tiradas.
+7. **Estadísticas**
+- *Confianza*
+  - Hay un valor de confianza por cada distrito. Este puede subir o bajar solo al crear nuevos periódicos, dependiendo de cual elija el jugador
+- *Dinero*
+  - Necesario para poder llegar a la meta final y generar nuevos periódicos
+Puede conseguirse vendiendo periódicos. 1 periodico = X monedas
+Puede conseguirse poniendo anuncios, a cambio de confianza
 
--Periódicos: Sirven para obtener dinero y reputación. Se configuran antes de empezar el día en el menú de creación de periódicos.
+8. **Preparación del periodico**
 
--*Movimiento*:
-
--Andar/Correr: Permite al jugador desplazarse por el mapa usando WASD, consumiendo la energía del jugador. Pulsando SHIFT la velocidad de movimiento aumenta, haciendo que el personaje corra, pero aumentando la tasa de consumo de energía.
-
--Estaciones de metro: Son puntos de teletransporte que el jugador puede usar a cambio de dinero, sin consumir energía, pero sí una breve cantidad de tiempo.
-
--*Creación de periódicos*:
-
--Selección de periódicos: Al inicio de cada día el jugador tendrá que elegir entre cuatro titulares distintos que afectarán la reputación que mantiene con cada distrito de manera distinta y de forma positiva o negativa.
-
--Selección de anuncios: Conforme pasen los días se irán desbloqueando los anuncios. Se puede elegir el número a introducir. Si se introducen aumentarán los ingresos generados por venta, pero se reducirán los beneficios en reputación.
-
--Selección de tirada: El jugador tendrá que ajustar los periódicos que planea vender. Producirlos cuesta dinero, por lo que solo podrá producir como máximo lo que su dinero ahorrado le permita.
-
--*Venta de periódicos*.:
-
--Interacción con NPCs: Es posible interactuar con los NPCs que rondan los distritos para tratar de venderles un periódico. Dependiendo de la reputación que mantengas en el distrito la probabilidad de venta será mayor o menor.
-
--Interacción con kioskos: Alcanzado cierto nivel de reputación en un distrito será posible vender grandes tiradas de periódicos a los kioskos de ese distrito.
-
-
-
-3. **Estadísticas**
-- Reputación
-  - Si a los vecinos les gusta el tipo de periódicos que vende el jugador, tu reputación entre ellos aumentará. Si no les gusta, su confianza en tus periódicos caerá, así como tus ingresos.
-  - En algunas ocasiones, si tienes suficiente reputación, los vecinos te pueden dar una propina al venderles.
-- Dinero
-- Necesario para poder llegar a la meta final y generar nuevos periódicos.
-- Puede conseguirse vendiendo periódicos. 1 periodico = X monedas.
-- Puede conseguirse poniendo anuncios, a costa de una cantidad X de reputación.
-- Hambre (Opcional)
-  - Según pasa el día dentro del juego, el jugador puede tener hambre. Si baja demasiado esta estadística, se desmayará y perderá todo el dinero conseguido ese día junto con los periódicos que no haya vendido todavía. (El nivel de confianza no caerá si ocurre eso mismo)
-- Sed (Opcional)
-- Funciona igual que el hambre: debes beber para no acabar deshidratado y desmayarte. El beber te llevará X cantidad de tiempo, pero es gratis. El objetivo es tener fuentes en distintos puntos de la ciudad para que el jugador la sienta más dinámica y recorra más distancia, así como añadir un cierto punto de realismo al juego.
-4. **Preparación del periodico**
+*Periódicos*: Sirven para obtener dinero y confianza.
 
 Al inicio del dia, el jugador prepara el periodico en el que tiene en cuenta las siguientes características:
 
 - Titular:
-  - Dependiendo del titular, éste se venderá más o menos dependiendo del distrito.
+  - Dependiendo del titular, éste aumentará o reducirá la confianza en determinados distritos
 - Número de periódicos:
-  - Generar periódicos cuesta X monedas por periodico. Lo ideal es generar suficientes periódicos teniendo en cuenta cuantos va a poder vender en el día según el titular y la reputación entre los vecinos.
+  - Generar periódicos cuesta 1 moneda por periodico. Lo ideal es generar suficientes periódicos teniendo en cuenta cuantos va a poder vender en el día según el titular y la confianza entre los vecinos
 - Anuncios:
-- Para poder incluir anuncios, es necesario avanzar en los días del juego, ya que irás siendo más conocido entre los lugareños. Cuidado, los anuncios harán que la gente pueda comprar menos periódicos aunque te ayudan a conseguir más dinero.
-3. **Movimiento**
+  - Para poder incluir anuncios, es necesario un nivel mínimo de confianza , ya que poner anuncios consume esta estadística, a cambio de conseguir más dinero
 
-El jugador puede moverse en un mapa topdown hacia el norte,sur este u oeste. Puede moverse caminando o usando un vehículo (probablemente una bicicleta).
+9. **CIUDAD**
+- *Bono del bus*
 
-- **Billetes de metro**
+  - El jugador puede comprar un ticket para el bus y así poder moverse de un punto a otro de la ciudad, permitiéndole llegar mucho más lejos y así vender en más zonas. Un ticket a otro punto del mapa cuesta X monedas
+- *Kioskos*
+  - Alcanzado cierto nivel de confianza en un distrito será posible vender varios periódicos en ese distrito
+- *Interacción con NPCs*
+  - Es posible interactuar con los NPCs que rondan los distritos para tratar de venderles un periódico. Dependiendo de la confianza que mantengas en el distrito podrás venderselo o no
 
-El jugador puede comprar un ticket en el metro para poder moverse de un punto a otro de la ciudad, permitiéndole llegar mucho más lejos y rápido y así vender en más zonas. Un ticket a otro punto del mapa cuesta X monedas.
-
-2. **Dinámica**
+10. **Dinámica**
 
 Tras pasar 7 días, si el jugador ha conseguido la cantidad de dinero necesaria, consigue montar una editorial y ganar el juego, si no llega a esa cantidad, pierde la partida y obtiene un final negativo.
 
-El jugador tendrá que balancear los periódicos que produce con el dinero que tiene y con el tiempo del que dispone. También será necesario balancear la reputación en los distritos y vigilar la cantidad de anuncios introducidos. Conforme vaya avanzando en el juego y gane más reputación, la venta en kioskos permitirá vender mayores cantidades de una sola vez.
+El jugador tendrá que balancear los periódicos que produce con el dinero que tiene y con el tiempo del que dispone. También será necesario balancear la confianza  en los distritos y vigilar la cantidad de anuncios introducidos. Conforme vaya avanzando en el juego y gane más confianza, la venta en kioskos permitirá vender mayores cantidades de una sola vez.
 
-3. **Estética**
+11. **Estética**
 
-Nos hemos decantado por el estilo artístico *Pixel-art*. Varios recursos se sacarán de Itch.io u otros lados, y posiblemente se modifiquen para adaptarse mejor al juego. Otros, los haremos nosotros, como puede ser el caso de los NPCs, desarrollados a partir de una plantilla
+Nos hemos decantado por el estilo artístico Pixel-art. Varios recursos se sacarán de Itch.io u otros lados, y posiblemente se modifiquen para adaptarse mejor al juego. Otros, los haremos nosotros, como puede ser el caso de los NPCs, desarrollados a partir de una plantilla
 
-4. **Contenido**
+12. **Sonido**
+
+Toda la banda sonora y efectos de sonido del juego son originales
+
+13. **Contenido**
 
 Serán necesarios sonidos de ambiente y se crearán dos temas musicales, uno para el momento en el que se crea el periódico y otro mientras se reparten los periódicos.
 
 Visualmente se usarán tilesets de ciudad (preferentemente representativos de cada cultura) y modelos de NPCs genéricos. Se creará un modelo específico para el personaje principal.
 
-1. **Historia**
+15. **Historia**
 
 La venta de periódicos, sus titulares, los anuncios entre otros, son dependientes de la historia y su temática: *la gastronomía*. Para este juego se han elegido (a priori) las siguientes cocinas:
 
-- Gastronomía española: Representada por la paella, la tortilla, el cocido montañés, el pulpo gallego, el cachopo, el gazpacho, entre otros platos típicos. Cuidado con mencionar la cebolla cerca, ya que puede incitar a una pelea sobre si una tortilla de patata debe llevar cebolla o no.
-- Gastronomía italiana: Representado por la pasta, la pizza, la lasaña, el risotto, el carpaccio… Son capaces de ir a la guerra como un trozo de piña caiga cerca de la pizzería local de su distrito.
-- Gastronomía japonesa: Representada por el ramen, el sushi, el takoyaki, los onigiris, la sopa de miso, el gyudon. Ante cualquier problema, se crea una revuelta donde encienden antorchas recubiertas de wasabi.
-- Gastronomía vegana: Aquí manda la verdura.
+- Gastronomía española: Representada por la paella, la tortilla, el cocido montañés, el pulpo gallego, el cachopo, el gazpacho, entre otros platos típicos. Cuidado con mencionar la cebolla cerca, ya que puede incitar a una pelea sobre si una tortilla de patata debe llevar cebolla o no
+
+- Gastronomía italiana: Representado por la pasta, la pizza, la lasaña, el risotto, el carpaccio… Literalmente, son capaces de ir a la guerra como un trozo de piña caiga cerca de su pizzería local de su distrito
+
+- Gastronomía japonesa: Representada por el ramen, el sushi, el takoyaki, los onigiris, la sopa de miso, el gyudon. Como la lies, se crea una revuelta donde encienden antorchas recubiertas de wasabi y te persiguen hasta la frontera de su distrito
+
+- Gastronomía Vegana: Nada como una buena ensalada para ser sano. Cualquier comida de origen vegetal es bienvenida en este distrito. Tan solo asegurarse de que ninguna carne o pescado pisa este barrio a menos que quieras sufrir miradas de odio
 
 El jugador jugará como el personaje Amelia, la nieta de Leoncia, a quien la representaron como una hermosa estatua de una repartidora de periódicos. Para cumplir el sueño de su abuela, quiere montar una editorial en su honor.
 
@@ -213,35 +212,21 @@ Es el día del evento. Dependiendo de la reputación que el jugador haya manteni
 - ***Día 7 Consecuencias:***
 - Día 7: El evento ha salido bien, la ciudad se ha recuperado de las tensiones y todo ha vuelto a la normalidad.
 
-2. **Niveles**
+16. **Mapa**
 
-El nivel es una ciudad dividida en 4 distritos temáticos divididos por su estilo de comida. Cada distrito se diferencia estéticamente para reflejar la gastronomía que representa.
+El mapa es una ciudad dividida en 4 distritos temáticos divididos por su estilo de comida.
+Cada distrito se diferencia estéticamente para reflejar la gastronomía que representa.
 
-El jugador aparece junto al spawn, que representa la casa de la protagonista, en esta localización se pueden mejorar los sistemas relacionados con los periódicos. Junto al spawn se encuentra una tienda de bicicletas que permiten mejorar la movilidad del personaje.
+El jugador aparece en el centro del mapa y a lo largo de las calles de la ciudad el jugador encontrará NPCs con los que interactuar y a los que vender periódicos.
 
-A lo largo de las calles el jugador encontrará NPCs con los que interactuar y a los que vender periódicos.
+Cada distrito tiene un parque, 1 kiosko y una parada de bus:
 
-Cada distrito tiene un parque, dos kioskos, una parada de metro y un lugar donde comer, temático del distrito.
+- Los parques se encuentran en el centro de cada distrito y en ellos se encuentra una mayor cantidad de NPCs
+- Los kioskos están repartidos de forma aleatoria, pero al menos uno por distrito. Ahí el jugador puede vender X periodicos de una sola vez siempre que cuente con la confianza suficiente del distrito
+- Las paradas de bus permiten transportarse rápidamente a otras paradas de otros distritos, los cuales están situados en las esquinas del mapa. 
 
-Los parques se encuentran en el centro de cada distrito y en ellos se encuentra una mayor cantidad de NPCs y un kiosko.
 
-En los kioskos el jugador puede vender tiradas de periódicos, es decir un alto número de periódicos de una sola vez, a partir de alcanzar una cantidad de reputación. El jugador puede encontrar uno en el parque del distrito correspondiente y otro adentrándose más en el distrito.
-
-Las paradas de metro permiten transportarse rápidamente entre distritos comprando un billete.
-
-En los lugares para comer se puede reponer el medidor de hambre a cambio de un precio. (Si da tiempo a desarrollar la funcionalidad el jugador obtendrá una bonificación distinta dependiendo del distrito en el que coma)
-
-**Mapa**
-
-![](https://github.com/dbrey/Paper-Lunch/blob/main/assets/GDDImages/Mapa.jpeg)
-
-**División por distritos:**  
-
-![](https://github.com/dbrey/Paper-Lunch/blob/main/assets/GDDImages/DivisionDistritos.jpeg)
-
-**Escala:**
-
-![](https://github.com/dbrey/Paper-Lunch/blob/main/assets/GDDImages/Escala.png)
+![](https://github.com/dbrey/Paper-Lunch/blob/main/assets/GDDImages/minimap.jpeg)
 
 3. **Personajes**
 - *Amelia*: Personaje principal del juego que el jugador controla. Es la nieta de Leoncia,
@@ -251,14 +236,6 @@ personaje de Cáceres que tiene una estatua en la que se basa el juego. Se mueve
 - *NPCs varios*: Se encuentran repartidos por la ciudad, moviéndose o estáticos. No
 
 tienen una distinción característica.
-
-4. **Objetos**
-
-El jugador llevará los siguientes objetos:
-
--Periódicos: El jugador lleva la cantidad que ha decidido previamente imprimir y puede repartir entre NPCs y kioskos para obtener dinero y recuperar la inversión. Solo duran la jornada en la que se han impreso.
-
--Bicicleta (Implementación opcional) : Permite al jugador moverse a mayor velocidad y se pueden comprar mejoras en el taller de bicicletas.
 
 **Referencias**
 
