@@ -129,6 +129,7 @@ export default class NPC extends Phaser.GameObjects.Sprite {
       if(!this.enterZone){
         this.enterZone = true; // Utilizamos un booleano para diferenciar entre cuando acaba de entrar a la zona
                                 // y cuando ya estaba en ella
+        this.player.showInteractable();
 
         //Paramos al NPC y la zona con la que interactuar para que sea más cómodo para el player
         this.body.setVelocityX(0);
@@ -199,6 +200,7 @@ export default class NPC extends Phaser.GameObjects.Sprite {
     else if(this.enterZone){ // SI EL PLAYER NO SE ENCUENTRA EN LA ZONA, PERO ESTABA DENTRO EN EL FRAME ANTERIOR, SIGNIFICA QUE ACABA DE SALIR
         //AQUÍ PODEMOS HACER LO QUE QUERAMOS QUE OCRURRA CUANDO EL PERSONAJE SALE DE LA ZONA
         console.log("Acaba de salir de la zona");
+        this.player.removeInteractable();
         this.enterZone=false;
         this.talking =false;
     }
