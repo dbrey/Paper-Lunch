@@ -18,6 +18,25 @@ const Dialogs=[
 
         ]
 
+    },
+    {
+        name: 'Kiosko',
+        dialog : [
+            {
+                text : "Gracias por los periódicos! Seguro que a la gente le interesa!!",
+            },
+            {
+                text : "Lo siento, ya le hemos comprado muchos a otra persona.",
+            },
+            {
+                text : "Seguro que tus periódicos serán un éxito.",
+            },
+            {
+                text : "Vuelve antes otro día, quizás te compremos.",
+            }
+
+        ]
+
     }
     
 ]
