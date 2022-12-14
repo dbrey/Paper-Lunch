@@ -28,7 +28,7 @@ const CT =
   interval : 30,
   dialogFontSize : 15,
 
-  offsetDialogX : 250,
+  offsetDialogX : 230,
   offsetDialogY : 100,
 
 

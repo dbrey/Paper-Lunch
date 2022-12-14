@@ -1,5 +1,6 @@
 
 import Paths from "./paths.js"
+import Dialogs from "./dialogs.js";
 import CT from "../libraries/constants.js";
 
 export default class NPC extends Phaser.GameObjects.Sprite {
@@ -25,6 +26,10 @@ export default class NPC extends Phaser.GameObjects.Sprite {
       if (Paths[i].name === npcName) this.path = Paths[i];
     }
 
+    for (let i = 0; i < Dialogs.length; i++) {
+      if (Dialogs[i].name === npcName) this.dialogs = Dialogs[i];
+    }
+
     this.indexPath = 0;
     this.destinoX = this.path.path[this.indexPath].x;
     this.destinoY = this.path.path[this.indexPath].y;
@@ -34,7 +39,7 @@ export default class NPC extends Phaser.GameObjects.Sprite {
     this.offsetY=this.path.path[this.indexPath].offsetY;
     this.indexPath=this.path.path[this.indexPath].index;
 
-    this.actionCoolDown = 150; //MILISEGUNDOS
+    this.actionCoolDown = 120; //MILISEGUNDOS
     this.actualCoolDown = 0;
     this.canAct=true;
 
@@ -42,7 +47,7 @@ export default class NPC extends Phaser.GameObjects.Sprite {
 
     this.bought = false;
 
-    this.speed=40;
+    this.speed=30;
 
     this.zonaTrigger.body.setVelocityX(this.dirX * this.speed);
     this.zonaTrigger.body.setVelocityY(this.dirY * this.speed);
@@ -119,71 +124,94 @@ export default class NPC extends Phaser.GameObjects.Sprite {
     //Llamamos al super para las animaciones
     super.preUpdate(t, d);
 
-    if(this.canBuy){ //SI TODAVÍA NO HAS INTENTADO VENDERLE PERIÓDICOS A ESTE NPC, PUEDES INTERACTUAR CON ÉL
+    //SI LA PROBABILIDAD DE QUE COMPRE ES MAYOR QUE LA CONFIANZA QUE TIENES, LE COMPRAS EL PERIÓDICO
+    if(Phaser.Geom.Intersects.RectangleToRectangle(this.zonaTrigger.getBounds(),this.player.getBounds())){
+      if(!this.enterZone){
+        this.enterZone = true; // Utilizamos un booleano para diferenciar entre cuando acaba de entrar a la zona
+                                // y cuando ya estaba en ella
 
+        //Paramos al NPC y la zona con la que interactuar para que sea más cómodo para el player
+        this.body.setVelocityX(0);
+        this.body.setVelocityY(0);
 
-      //SI LA PROBABILIDAD DE QUE COMPRE ES MAYOR QUE LA CONFIANZA QUE TIENES, LE COMPRAS EL PERIÓDICO
-      if(Phaser.Geom.Intersects.RectangleToRectangle(this.zonaTrigger.getBounds(),this.player.getBounds())){
-        if(!this.enterZone){
-          //AQUI PODEMOS HACER LO QUE QUERAMOS QUE OCURRA CUANDO EL PERSONAJE ENTRA EN LA ZONA
-          this.player.showInteractable();
-          this.enterZone = true; // Utilizamos un booleano para diferenciar entre cuando acaba de entrar a la zona
-                                  // y cuando ya estaba en ella
-          this.talking =true;
-          this.body.setVelocityX(0);
-          this.body.setVelocityY(0);
-          this.zonaTrigger.body.setVelocityX(0);
-          this.zonaTrigger.body.setVelocityY(0);
-        }
-        else {
-          //AQUI PODEMOS HACER LO QUE QUERAMOS QUE OCURRA MIENTRAS EL PERSONAJE SE MANTIENE EN LA ZONA
-  
-          //Si el personaje está en la zona y pulsa la tecla de accion, podemos hacer lo que queramos
-          if(this.player.action.isDown){
-              if(this.probability > this.confianzaConPlayer){
-                //TO DO : SE COMPRA EL PERIÓDICO
-                if(this.player.numeroPeriodicos()>0){
-                  this.scene.dialogManager.updatePosition(this.player.x - CT.offsetDialogX, this.player.y + CT.offsetDialogY);
-                  this.scene.dialogManager.startWritting("Gracias por el periódico! Seguro que está muy interesante y me alegra la mañana. Muchas gracias!!");
-                  this.player.compraPeriodicos(1); 
-                  //SE PODRÍA HACER UN RANDOM DEL NUMERO DE PERIODICOS A COMPRAR, AUNQUE LO NORMAL ES UNO
-                  this.scene.ui.updateNumPeriodicos(); 
-                  this.bought=true;
-                }
-                
+        this.talking=true;
+        this.zonaTrigger.body.setVelocityX(0);
+        this.zonaTrigger.body.setVelocityY(0);
+      }
+      else {
+
+        //Si el personaje está en la zona y pulsa la tecla de accion, podemos hacer lo que queramos
+        if(this.player.action.isDown && this.canBuy){
+            if(this.probability > this.confianzaConPlayer){
+              //TO DO : SE COMPRA EL PERIÓDICO
+              if(this.player.numeroPeriodicos()>0){
+
+                this.scene.ui.dialogBar.setVisible(true);
+                this.scene.dialogManager.updatePosition(this.player.x - CT.offsetDialogX, this.player.y + CT.offsetDialogY);
+                this.scene.dialogManager.startWritting(this.dialogs.dialog[0].text);
+                this.player.compraPeriodicos(1); 
+
+                //SE PODRÍA HACER UN RANDOM DEL NUMERO DE PERIODICOS A COMPRAR, AUNQUE LO NORMAL ES UNO
+                this.scene.ui.updateNumPeriodicos(); 
+                this.bought=true;
+                this.player.canMove = false;
               }
-              this.canBuy=false;
-              this.actualCoolDown = t;
-              this.canAct=false;
+            }
+            else {
+              this.scene.ui.dialogBar.setVisible(true);
+              this.scene.dialogManager.updatePosition(this.player.x - CT.offsetDialogX, this.player.y + CT.offsetDialogY);
+              this.scene.dialogManager.startWritting(this.dialogs.dialog[1].text);
+              this.player.canMove = false;
+            }
+            this.canBuy=false;
+            this.actualCoolDown = 0;
+            this.canAct=false;
 
+        }
+        else if(this.player.action.isDown && !this.canBuy && this.canAct){
+          if(!this.scene.dialogManager.writting && this.scene.dialogManager.waitingPlayer){
+            this.scene.dialogManager.clearText();
+            this.scene.ui.dialogBar.setVisible(false);
+            this.player.canMove = true;
           }
+          else if(this.scene.dialogManager.writting){
+            this.scene.dialogManager.finishWrittting();
+          }
+          else {
+            if(this.bought){
+              this.scene.ui.dialogBar.setVisible(true);
+              this.scene.dialogManager.updatePosition(this.player.x - CT.offsetDialogX, this.player.y + CT.offsetDialogY);
+              this.scene.dialogManager.startWritting(this.dialogs.dialog[2].text);
+              this.player.canMove = false;
+            }
+            else {
+              this.scene.ui.dialogBar.setVisible(true);
+              this.scene.dialogManager.updatePosition(this.player.x - CT.offsetDialogX, this.player.y + CT.offsetDialogY);
+              this.scene.dialogManager.startWritting(this.dialogs.dialog[3].text);
+              this.player.canMove = false;
+            }
+          }
+          this.actualCoolDown = 0;
+          this.canAct=false;
         }
       }
-      else if(this.enterZone){ // SI EL PLAYER NO SE ENCUENTRA EN LA ZONA, PERO ESTABA DENTRO EN EL FRAME ANTERIOR, SIGNIFICA QUE ACABA DE SALIR
-          //AQUÍ PODEMOS HACER LO QUE QUERAMOS QUE OCRURRA CUANDO EL PERSONAJE SALE DE LA ZONA
-          this.player.removeInteractable();
-          this.enterZone=false;
-          this.talking =false;
-      }
-    
     }
-    else if (Phaser.Geom.Intersects.RectangleToRectangle(this.zonaTrigger.getBounds(),this.player.getBounds()) && this.player.action.isDown && this.canAct){
-  
-      this.actualCoolDown = t;
-      this.canAct=false;
+    else if(this.enterZone){ // SI EL PLAYER NO SE ENCUENTRA EN LA ZONA, PERO ESTABA DENTRO EN EL FRAME ANTERIOR, SIGNIFICA QUE ACABA DE SALIR
+        //AQUÍ PODEMOS HACER LO QUE QUERAMOS QUE OCRURRA CUANDO EL PERSONAJE SALE DE LA ZONA
+        console.log("Acaba de salir de la zona");
+        this.enterZone=false;
+        this.talking =false;
     }
+
 
 
     //COMPROBAMOS SI PODEMOS INTERACTUAR
     if(!this.canAct){
-
-      if(t-this.actualCoolDown > this.actionCoolDown)
-       this.canAct=true;
-    }
-
-
-    if(this.player.action.isDown && this.canAct && this.scene.dialogManager.writting){
-      this.scene.dialogManager.finishWrittting();
+      if(this.actualCoolDown >= this.actionCoolDown){
+        this.canAct=true;
+        this.actualCoolDown=0;
+      }
+      else this.actualCoolDown+=d;
     }
 
 
@@ -200,14 +228,12 @@ export default class NPC extends Phaser.GameObjects.Sprite {
         this.indexPath=this.path.path[this.indexPath].index;
       }
 
-
-    if(!this.talking){
-      this.body.setVelocityX(this.dirX * this.speed);
-      this.body.setVelocityY(this.dirY * this.speed);
-      this.zonaTrigger.body.setVelocityX(this.dirX * this.speed);
-      this.zonaTrigger.body.setVelocityY(this.dirY * this.speed);
-    }
-
+      if(!this.talking){
+        this.body.setVelocityX(this.dirX * this.speed);
+        this.body.setVelocityY(this.dirY * this.speed);
+        this.zonaTrigger.body.setVelocityX(this.dirX * this.speed);
+        this.zonaTrigger.body.setVelocityY(this.dirY * this.speed);
+      }
 
     this.checkAnims();
   }

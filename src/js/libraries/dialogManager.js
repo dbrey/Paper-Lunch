@@ -11,6 +11,7 @@ export default class dialogManager extends Phaser.GameObjects.Text {
         this.setLineSpacing(CT.lineSpacing);
         this.setFontSize(CT.dialogFontSize);
 
+        this.waitingPlayer=false;
         this.writting = false;
         this.dialog;
         this.index = 0; //Comienza escribiendo por la primera letra del string dialog
@@ -22,6 +23,7 @@ export default class dialogManager extends Phaser.GameObjects.Text {
         if(this.index > this.dialog.length -1){
             //Reseteamos el texto 
             this.resetText();
+            this.waitingPlayer = true;
         }
         else {
             this._text+=this.dialog[this.index];
@@ -40,6 +42,7 @@ export default class dialogManager extends Phaser.GameObjects.Text {
         // Si el player pulsa la tecla para continuar antes de que se haya escrito todo el texto
         // se escribirá automáticamente todo el texto
         this._text = this.dialog;
+        this.waitingPlayer = true;
         this.updateText();
         this.resetText();
     }
@@ -51,6 +54,7 @@ export default class dialogManager extends Phaser.GameObjects.Text {
 
     resetText(){
         this.dialog = '';
+        this._text = this.dialog;
         this.dialogWritted=this.dialog;
         this.index=0;
         this.writting = false;
@@ -58,6 +62,7 @@ export default class dialogManager extends Phaser.GameObjects.Text {
 
     //Metodo que se llamará cuando el jugador haya pulsado para continuar si el diálogo ya se ha terminado
     clearText(){
+        this.waitingPlayer=false;
         this.updateText();
     }
 }

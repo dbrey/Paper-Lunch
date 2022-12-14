@@ -31,6 +31,9 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.anteriorMovimiento = {x : 0, y:0};
     this.dineroXperiodico = _moneyPP;
 
+
+    this.canMove = true;
+
     //ANIMACIONES    
     scene.anims.create({
       key: 'left',
@@ -245,8 +248,10 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.stopX()
     this.stopY()
 
+    if(this.canMove){
     //Calculas la velocidad
-    this.calculateVelocity()
+      this.calculateVelocity()
+    }
 
     //Y realizas la animacion
       this.checkAnims();

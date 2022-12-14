@@ -46,6 +46,9 @@ export default class Boot extends Phaser.Scene {
     
     this.load.image('miniMap', 'assets/sprites/minimap.png')
 
+    this.load.image('dialogBar', 'assets/sprites/UI/dialogBar.png');
+
+
     //TP
     this.load.image('metroMap','assets/sprites/minimap.png');
     this.load.image('selectionTp', 'assets/sprites/UI/selectionTp.png');

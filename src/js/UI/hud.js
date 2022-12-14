@@ -37,6 +37,14 @@ export default class HUD extends Phaser.GameObjects.Text{
         this.coinPaperText.setAlign('center');
         this.coinPaperText.setFont('Arial Black');
         this.coinPaperText.setFontSize(17);
+        this.dialogBar = this.scene.add.image(CT.gameWidth-650, CT.gameHeight-240,'dialogBar').setScrollFactor(0);
+        this.dialogBar.setScale(0.7,0.3);
+        this.dialogBar.setVisible(false);
+
+        this.activeBarra =scene.add.sprite(CT.gameWidth -400 , 2000, 'BarraRoja').setScrollFactor(0);
+        this.activeBarra.setScale(0.3);
+
+
     }
 
     //Metodos para mostrar actualizar los valores correspondientes
