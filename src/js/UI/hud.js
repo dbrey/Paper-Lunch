@@ -76,4 +76,12 @@ export default class HUD extends Phaser.GameObjects.Text{
     removeInteractive(){
         this.eKey.destroy();
     }
+
+
+    activeDialogBar(){
+        this.dialogBar.setVisible(true);
+    }
+    desactiveDialogBar(){
+        this.dialogBar.setVisible(false);
+    }
 }

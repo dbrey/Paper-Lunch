@@ -147,22 +147,16 @@ export default class NPC extends Phaser.GameObjects.Sprite {
               //TO DO : SE COMPRA EL PERIÓDICO
               if(this.player.numeroPeriodicos()>0){
 
-                this.scene.ui.dialogBar.setVisible(true);
-                this.scene.dialogManager.updatePosition(this.player.x - CT.offsetDialogX, this.player.y + CT.offsetDialogY);
-                this.scene.dialogManager.startWritting(this.dialogs.dialog[0].text);
+                this.scene.comienzaDialogo(this.dialogs.dialog[0].text)
                 this.player.compraPeriodicos(1); 
 
                 //SE PODRÍA HACER UN RANDOM DEL NUMERO DE PERIODICOS A COMPRAR, AUNQUE LO NORMAL ES UNO
                 this.scene.ui.updateNumPeriodicos(); 
                 this.bought=true;
-                this.player.canMove = false;
               }
             }
             else {
-              this.scene.ui.dialogBar.setVisible(true);
-              this.scene.dialogManager.updatePosition(this.player.x - CT.offsetDialogX, this.player.y + CT.offsetDialogY);
-              this.scene.dialogManager.startWritting(this.dialogs.dialog[1].text);
-              this.player.canMove = false;
+              this.scene.comienzaDialogo(this.dialogs.dialog[1].text)
             }
             this.canBuy=false;
             this.actualCoolDown = 0;
@@ -171,25 +165,17 @@ export default class NPC extends Phaser.GameObjects.Sprite {
         }
         else if(this.player.action.isDown && !this.canBuy && this.canAct){
           if(!this.scene.dialogManager.writting && this.scene.dialogManager.waitingPlayer){
-            this.scene.dialogManager.clearText();
-            this.scene.ui.dialogBar.setVisible(false);
-            this.player.canMove = true;
+            this.scene.finalizaDialogo();
           }
           else if(this.scene.dialogManager.writting){
-            this.scene.dialogManager.finishWrittting();
+            this.scene.terminaDialogo();
           }
           else {
             if(this.bought){
-              this.scene.ui.dialogBar.setVisible(true);
-              this.scene.dialogManager.updatePosition(this.player.x - CT.offsetDialogX, this.player.y + CT.offsetDialogY);
-              this.scene.dialogManager.startWritting(this.dialogs.dialog[2].text);
-              this.player.canMove = false;
+              this.scene.comienzaDialogo(this.dialogs.dialog[2].text)
             }
             else {
-              this.scene.ui.dialogBar.setVisible(true);
-              this.scene.dialogManager.updatePosition(this.player.x - CT.offsetDialogX, this.player.y + CT.offsetDialogY);
-              this.scene.dialogManager.startWritting(this.dialogs.dialog[3].text);
-              this.player.canMove = false;
+              this.scene.comienzaDialogo(this.dialogs.dialog[3].text)
             }
           }
           this.actualCoolDown = 0;

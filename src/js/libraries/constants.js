@@ -24,7 +24,7 @@ const CT =
 
 
   lineSpacing : 10,
-  wordWrapWidth : 500,
+  wordWrapWidth : 480,
   interval : 30,
   dialogFontSize : 15,
 

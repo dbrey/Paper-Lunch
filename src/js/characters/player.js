@@ -261,6 +261,8 @@ export default class Player extends Phaser.GameObjects.Sprite {
   }
 
 
-
+  changePlayerState(){
+    this.canMove = !this.canMove;
+  }
 
 }
