@@ -31,8 +31,8 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.mainVolume = data._mainVolume; // Volumen musica
         this.effectsVolume = data._effectsVolume // Volumen efectos
         this.isMainMute = data._isMainMute; // Booleano si esta la musica muteada
-        this.isEffectsMute = data._isEffectsMute; // Booleano si estan los efectos muteados 
-//this.objectLayerName = 'PrimerDia';
+        this.isEffectsMute = data._isEffectsMute; // Booleano si estan los efectos muteados
+        this.moneyPP = data._pricePaper;
     }
 
     //Aqui te crea todo lo que necesites al inicio para todo el juego
