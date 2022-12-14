@@ -7,7 +7,7 @@ export default class Boot extends Phaser.Scene {
 
   preload() {
     //Jugador
-    this.load.spritesheet('Player', 'assets/sprites/amelia.png', { frameWidth: 18, frameHeight: 25 });
+    this.load.spritesheet('Player', 'assets/sprites/ameliaV2.png', { frameWidth: 36, frameHeight: 56 });
     this.load.spritesheet('Rodolfo', 'assets/sprites/NPC.png', { frameWidth: 64, frameHeight: 66 });
 
     // UI
