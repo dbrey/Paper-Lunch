@@ -293,6 +293,11 @@
                  "name":"NPC",
                  "properties":[
                         {
+                         "name":"barrioId",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
                          "name":"nombre",
                          "type":"string",
                          "value":"Rodolfo"

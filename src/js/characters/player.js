@@ -24,16 +24,13 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
     // Variables
     this.speed = 175;
-
-    this.confianzaLimiteMax = 25;
-    this.confianzaLimiteMin = -25;
     
     this.dinero = _money;
     this.confianza = _myTrust;
     this.periodicos = _numN;
     this.anteriorMovimiento = {x : 0, y:0};
     this.dineroXperiodico = _moneyPP;
-
+    this.currentDistrict;
 
     this.canMove = true;
 
@@ -171,24 +168,20 @@ export default class Player extends Phaser.GameObjects.Sprite {
   }
 
   getConfianza() {
-    return this.confianza;
+    return this.confianza[this.currentDistrict];
   }
 
   getConfianzaInZone(id){
     return this.confianza[id];
   }
 
+  setDistrict(id){
+    this.currentDistrict=id;
+  }
+
   changeDinero(amount) {
     this.dinero += amount;
     this.scene.ui.updateDinero();
-  }
-
-  incrementConfianza(amount){
-    this.confianza += amount;
-  }
-
-  changeConfianza(amount){
-    this.confianza = amount;
   }
 
   showInteractable(){
@@ -264,5 +257,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
   changePlayerState(){
     this.canMove = !this.canMove;
   }
+
+
 
 }

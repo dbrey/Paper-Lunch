@@ -14,6 +14,10 @@ export default class kiosk extends Phaser.GameObjects.Sprite{
         this.canBuy = true;
         this.bought=false;
         
+        this.umbral = 25;
+        this.confianzaMinima = 5;
+        this.periodicosMinimos = 15;
+
         this.actionCoolDown = 120; //MILISEGUNDOS
         this.actualCoolDown = 0;
         this.canAct=true;
@@ -26,16 +30,18 @@ export default class kiosk extends Phaser.GameObjects.Sprite{
     
 
     isTrustWorthy(){
-        if(this.player.getConfianzaInZone(this.kioskZone) >= 1){
-            this.player.compraPeriodicos(Math.floor(Math.random() * (this.player.getConfianzaInZone(this.kioskZone) + 25)) + 10);
+        if(this.player.getConfianzaInZone(this.kioskZone) >= this.confianzaMinima){
+            
+            this.player.compraPeriodicos(Math.floor(Math.random() * (this.player.getConfianzaInZone(this.kioskZone) + this.periodicosMinimos)) + this.periodicosMinimos);
             
             this.scene.comienzaDialogo(this.dialogs.dialog[0].text)
 
             this.bought=true;
         }
-        else {
-            this.scene.comienzaDialogo(this.dialogs.dialog[1].text)
+        else if(this.player.getConfianzaInZone(this.kioskZone) < this.confianzaMinima) {
+            this.scene.comienzaDialogo(this.dialogs.dialog[4].text)
         }
+        else this.scene.comienzaDialogo(this.dialogs.dialog[1].text)
     }
 
     preUpdate(t, d){

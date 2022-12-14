@@ -26,6 +26,7 @@ export default class ZONE extends Phaser.GameObjects.Sprite{
     preUpdate(t, d){
         super.preUpdate(t, d);
         if(this.inZone == false && Phaser.Geom.Intersects.RectangleToRectangle(this.triggerZone.getBounds(),this.player.getBounds())){
+            this.player.setDistrict(this.zoneId);
             this.hud.setTrustImage(this.zoneId);
             this.inZone = true;
         }

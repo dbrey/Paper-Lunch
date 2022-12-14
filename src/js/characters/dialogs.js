@@ -33,6 +33,9 @@ const Dialogs=[
             },
             {
                 text : "Vuelve antes otro día, quizás te compremos.",
+            },
+            {
+                text : "Lo siento, todavía no te conocemos lo suficiente.",
             }
 
         ]

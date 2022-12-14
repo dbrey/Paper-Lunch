@@ -4,7 +4,7 @@ import Dialogs from "./dialogs.js";
 import CT from "../libraries/constants.js";
 
 export default class NPC extends Phaser.GameObjects.Sprite {
-  constructor(scene, x, y, npcName,player,zoneWidth,zoneHeight) {
+  constructor(scene, x, y, npcName,player,zoneWidth,zoneHeight,barrioId) {
     super(scene, x, y, npcName);
 
     //Fisicas
@@ -18,9 +18,8 @@ export default class NPC extends Phaser.GameObjects.Sprite {
     this.zonaTrigger.body.setAllowGravity(false);
 
     this.talking = false;
-
-    this.barrio; //BARRIO AL QUE PERTENECE
-    this.confianzaConPlayer=0.2; // VALOR ENTRE 0 Y 1
+    this.barrio=barrioId;
+    this.umbral = 25;
 
     for (let i = 0; i < Paths.length; i++) {
       if (Paths[i].name === npcName) this.path = Paths[i];
@@ -43,8 +42,6 @@ export default class NPC extends Phaser.GameObjects.Sprite {
     this.actualCoolDown = 0;
     this.canAct=true;
 
-
-
     this.bought = false;
 
     this.speed=30;
@@ -57,8 +54,7 @@ export default class NPC extends Phaser.GameObjects.Sprite {
     this.body.setImmovable();
 
 
-
-    this.probability = Math.random() * 1
+    this.probability = (Math.random() * this.umbral*2) - this.umbral; // Le restamos el umbral por que la confianza va entre umbral y -umbral
     //Booleano para controlar las veces que el player puede vender periodicos a un NPC
     this.canBuy = true;
 
@@ -143,7 +139,7 @@ export default class NPC extends Phaser.GameObjects.Sprite {
 
         //Si el personaje está en la zona y pulsa la tecla de accion, podemos hacer lo que queramos
         if(this.player.action.isDown && this.canBuy){
-            if(this.probability > this.confianzaConPlayer){
+            if(this.probability < this.player.getConfianza(this.barrio)){
               //TO DO : SE COMPRA EL PERIÓDICO
               if(this.player.numeroPeriodicos()>0){
 
