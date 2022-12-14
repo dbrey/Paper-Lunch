@@ -24,6 +24,9 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
     // Variables
     this.speed = 175;
+
+    this.confianzaLimiteMax = 25;
+    this.confianzaLimiteMin = -25;
     
     this.dinero = _money;
     this.confianza = _myTrust;
