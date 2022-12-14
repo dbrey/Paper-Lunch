@@ -187,14 +187,15 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
   showInteractable(){
     if(!this.alreadyShown){
-      this.ui.showInteractive();
+      this.scene.ui.showInteractive();
       this.alreadyShown=true;
     }
   }
 
   removeInteractable(){
     if(this.alreadyShown){
-      this.ui.removeInteractive();
+      this.scene.ui.removeInteractive();
+      this.alreadyShown=false;
     }
   }
 

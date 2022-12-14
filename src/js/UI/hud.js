@@ -65,7 +65,8 @@ export default class HUD extends Phaser.GameObjects.Text{
     }
 
     showInteractive(){
-        this.eKey=this.scene.add.image(20,CT.gameHeight-100, "eKey").setScrollFactor(0);
+        this.eKey=this.scene.add.image((CT.gameWidth/2)+20,(CT.gameHeight/2)+20, "eButton").setScrollFactor(0);
+        this.eKey.setScale(0.02);
     }
 
     removeInteractive(){
