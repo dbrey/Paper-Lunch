@@ -63,4 +63,12 @@ export default class HUD extends Phaser.GameObjects.Text{
         //Dependiendo de la confianza que tengamos en ese barrio, la barra de confianza se mostrara mas o menos llena
         this.barraCon.checkAnims(this.myPlayer.confianza[zoneId]);
     }
+
+    showInteractive(){
+        this.eKey=this.scene.add.image(20,CT.gameHeight-100, "eKey").setScrollFactor(0);
+    }
+
+    removeInteractive(){
+        this.eKey.destroy();
+    }
 }

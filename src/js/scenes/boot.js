@@ -18,7 +18,7 @@ export default class Boot extends Phaser.Scene {
     this.load.image('menuButton', 'assets/sprites/UI/menu_button.png');
     this.load.image('backgroundOptionsPause', 'assets/sprites/UI/backgroundOptionsPause.png');
     this.load.image('backgroundNewspaper', 'assets/sprites/UI/newspaper_background.png');
-    
+    this.load.image('eButton','assets/sprites/UI/EBoton.png');
 
     this.load.image('playButtonMouseOn', 'assets/sprites/UI/play_button_mouse_on.png');
     this.load.image('optionsButtonMouseOn', 'assets/sprites/UI/options_button_mouse_on.png');

@@ -20,6 +20,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
     })
 
     this.action = scene.input.keyboard.addKey('E');
+    this.alreadyShown=false;
 
     // Variables
     this.speed = 175;
@@ -184,6 +185,19 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.confianza = amount;
   }
 
+  showInteractable(){
+    if(!this.alreadyShown){
+      this.ui.showInteractive();
+      this.alreadyShown=true;
+    }
+  }
+
+  removeInteractable(){
+    if(this.alreadyShown){
+      this.ui.removeInteractive();
+    }
+  }
+
   // Chequeamos la velocidad del juegador y cambiamos su animacion
   // En caso de que no se mueva, comprobamos su movimiento anterior y mantenemos su animacion (Para que no haya una animacion por defecto)
   checkAnims() {
@@ -236,5 +250,8 @@ export default class Player extends Phaser.GameObjects.Sprite {
     //Y realizas la animacion
       this.checkAnims();
   }
+
+
+
 
 }

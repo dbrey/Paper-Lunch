@@ -126,6 +126,7 @@ export default class NPC extends Phaser.GameObjects.Sprite {
       if(Phaser.Geom.Intersects.RectangleToRectangle(this.zonaTrigger.getBounds(),this.player.getBounds())){
         if(!this.enterZone){
           //AQUI PODEMOS HACER LO QUE QUERAMOS QUE OCURRA CUANDO EL PERSONAJE ENTRA EN LA ZONA
+          this.player.showInteractable();
           this.enterZone = true; // Utilizamos un booleano para diferenciar entre cuando acaba de entrar a la zona
                                   // y cuando ya estaba en ella
           this.talking =true;
@@ -160,6 +161,7 @@ export default class NPC extends Phaser.GameObjects.Sprite {
       }
       else if(this.enterZone){ // SI EL PLAYER NO SE ENCUENTRA EN LA ZONA, PERO ESTABA DENTRO EN EL FRAME ANTERIOR, SIGNIFICA QUE ACABA DE SALIR
           //AQUÍ PODEMOS HACER LO QUE QUERAMOS QUE OCRURRA CUANDO EL PERSONAJE SALE DE LA ZONA
+          this.removeInteractable();
           this.enterZone=false;
           this.talking =false;
       }
