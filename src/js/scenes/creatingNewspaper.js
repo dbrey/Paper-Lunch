@@ -116,7 +116,9 @@ export default class DIA_DEFAULT extends Phaser.Scene {
 
         
         //Boton de pasar a la siguiente escena, con su evento
-        this.continueButton = this.add.sprite(1000, 600, 'continueButtonBlocked').setInteractive();
+        // this.continueButton = this.add.sprite(1000, 600, 'continueButtonBlocked').setInteractive();
+        // this.continueButton.setScale(0.3);
+        this.continueButton = this.add.image(1000, 600, 'continueButtonBlocked');
         this.continueButton.setScale(0.3);
         
     }
@@ -261,7 +263,6 @@ export default class DIA_DEFAULT extends Phaser.Scene {
     {
        if (this.titleSelected && this.numNSelected&&this.moneyLeft>=0)
        {
-        this.continueButton.inputEnabled = true;
         this.continueButton = this.add.image(1000, 600, 'continueButton').setInteractive();
                 this.continueButton.setScale(0.3);
                 this.continueButton.on('pointerover', () => {this.continueButton.setScale(0.4);})
@@ -277,8 +278,11 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         //Si no se cumple ninguna condicion, el boton se desactiva
         else
         {
-            this.continueButton.setTexture('continueButtonBlocked');
-            this.continueButton.inputEnabled = false;
+            this.continueButton = this.add.image(1000, 600, 'continueButtonBlocked').setInteractive();
+            this.continueButton.setScale(0.3);
+            this.continueButton.on('pointerover', () => {})
+                this.continueButton.on('pointerout', () => {})
+                this.continueButton.on('pointerdown', () => {})
         }
     }
 }
