@@ -1,7 +1,6 @@
 //Clase Periodico
 export class Newspaper{
     constructor(scene, _title, _posX, _posY, _imgId, _trust){
-        //super(scene);
         scene.add.existing(this);
         this._myS = scene;
         this.text;
@@ -98,7 +97,7 @@ export class Newspaper{
         this.titleWords=[];
         this.text.destroy();
     }
-
+    //Posiciona las imagenes de los barrios segun el jugador tenga el raton sobre el periodico o no
     setDistrictImages(value)
     {
         if (value)
@@ -133,7 +132,7 @@ export class Newspaper{
             this.esp.setScale(0.04);
         }
     }
-
+    //Posiciona los valores de confianza de cada distrito segun el jugador tenga el raton sobre el periodico o no
     updateTrustTexts(value)
     {
         if(value) {
@@ -160,7 +159,7 @@ export class Newspaper{
             this.espN.setFontSize(35);
         }
     }
-
+    //Añade a escena los valores de confianza
     setTrustTexts(x, y, trust){
 
         this.japN = ':' + trust[0];
@@ -174,6 +173,7 @@ export class Newspaper{
         this.espN = this._myS.add.text(x + 40, y + 30, this.espN, {fontSize: '35px', fill: '#000'});
     }
 
+    //Acceso al booleano de estado seleccionado y el array de confianza
     getSelected(){ return this.selected;}
     getTrust(){ return this.trust;}
 }
@@ -181,32 +181,31 @@ export class Newspaper{
 //Clase Anuncio
 export class Ad{
     constructor(scene, _posX, _posY, _activated, _imgId){
+        //Nos añadimos a la escena
         scene.add.existing(this);
-
-        this.x = _posX;
-        this.y = _posY;
+        //Booleanos de control: sobre si esta seleccionado y/o disponible
         this.selected = false;
         this.available = _activated;
+        //Si estoy disponible añado mi imagen correspondiente, si no añado la imagen de anuncio bloqueado
         if (_activated) this.button = scene.add.image(_posX, _posY, 'Ad' + _imgId).setInteractive();
         else this.button = scene.add.image(_posX, _posY, 'adBlocked').setInteractive();
         this.button.setScale(0.12);
 
-        //Si selecciona el anuncio, cambia el precio del periodico a generar
+        //Si selecciona/deseleccionar el anuncio, cambia el precio del periodico a generar
         this.button.on('pointerdown', () => {
             if (this.available && !this.selected) {this.selected = true; scene.modifyNewspaperPrice(true); }
             else if (this.available && this.selected) {this.selected = false; scene.modifyNewspaperPrice(false); } 
         });
-
+        //Si esta el raton encima me hago mas grande
         this.button.on('pointerover', () => {
             if (this.available) this.button.setScale(0.14);
         })
+        //Si esta el raton fuera tengo el tamaño original
         this.button.on('pointerout', () => {
             if (this.available && !this.selected) this.button.setScale(0.12);
         })
     }
-
-    getX() {return this.x}
-    getY() {return this.y}
+    //Acceso al estado de seleccion del anuncio
     getSelected() {return this.selected}
 
 }
@@ -217,7 +216,7 @@ export default class TrustMeasurer extends Phaser.GameObjects.Sprite{
     super(scene, x, y);
     this.scene.add.existing(this);
     this.myS = scene;
-
+        //Creamos las animaciones de la barra de confianza(sus diferentes estados)
     scene.add.sprite(x, y, 'BarraConfianza', 5);
 
     scene.anims.create({
@@ -287,7 +286,7 @@ export default class TrustMeasurer extends Phaser.GameObjects.Sprite{
     });
 
     }
-
+    //Revisamos qué animación reproducir según el valor de la confianza
     checkAnims(trust){
         
         if (trust === 0) this.play('noTrust');
