@@ -103,18 +103,18 @@ const Dialogs=[
     },
     {
         name: 'señora1',
-        compra : "Gracias por el periódico! Seguro que está muy interesante y me alegra la mañana. Muchas gracias!!",
-        noCompra : "Muchas gracias pero ahora mismo tengo prisa!",
-        haComprado : "Lo siento no necesito más periódicos, gracias!",
-        noHaComprado :  "Ya te he dicho que no me interesa"
+        compra : "Mira que receta tan buena, ahora mismo le digo a mi marido que la prepare.",
+        noCompra : "No tengo tiempo para hablar lo siento.",
+        haComprado : "Me voy a trabajar que llego tarde!",
+        noHaComprado :  "Pero chica, no ves que te estoy diciendo que no, dejame en paz."
 
     },
     {
         name: 'señorPendiente',
-        compra : "Gracias por el periódico! Seguro que está muy interesante y me alegra la mañana. Muchas gracias!!",
-        noCompra : "Muchas gracias pero ahora mismo tengo prisa!",
-        haComprado : "Lo siento no necesito más periódicos, gracias!",
-        noHaComprado :  "Ya te he dicho que no me interesa"
+        compra : "No hay nada como leer un buen periódico sobre comida, y más con el hambre que tengo.",
+        noCompra : "Con el hambre que tengo no quiero saber nada de comida, pero gracias.",
+        haComprado : "Me voy corriendo a comer, que me desmayo!",
+        noHaComprado :  "Creo que me estoy empezando a desmayar, no me hables de comida."
 
     },
     {
