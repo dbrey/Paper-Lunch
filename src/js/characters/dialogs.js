@@ -54,31 +54,31 @@ const Dialogs=[
     },
     {
         name: 'NinoPeroChef2',
-        compra : "Gracias por el periódico! Seguro que está muy interesante y me alegra la mañana. Muchas gracias!!",
-        noCompra : "Muchas gracias pero ahora mismo tengo prisa!",
-        haComprado : "Lo siento no necesito más periódicos, gracias!",
-        noHaComprado :  "Ya te he dicho que no me interesa"
+        compra : "Espero leer cosas buenas sobre mi gastronomía...",
+        noCompra : "Me gustaría comprártelo, pero me pillas con las manos ocupadas.",
+        haComprado : "Creo que con uno voy sobrado. Hasta luego.",
+        noHaComprado :  "No quiero sonar borde, pero no me interesa tu basura de periódico."
     },
     {
         name: 'NinoPeroChef3',
-        compra : "Gracias por el periódico! Seguro que está muy interesante y me alegra la mañana. Muchas gracias!!",
-        noCompra : "Muchas gracias pero ahora mismo tengo prisa!",
-        haComprado : "Lo siento no necesito más periódicos, gracias!",
-        noHaComprado :  "Ya te he dicho que no me interesa"
+        compra : "Si es igual de dulce que tu cara, el periódico me encantará",
+        noCompra : "Ni harto de vino lo compraría.",
+        haComprado : "Si sigues así me 'agriarás' el día",
+        noHaComprado :  "Dejáme en paz. Yo he estudiado, ¿tú que has hecho en la vida?"
     },
     {
         name: 'NinoPeroChef4',
-        compra : "Gracias por el periódico! Seguro que está muy interesante y me alegra la mañana. Muchas gracias!!",
-        noCompra : "Muchas gracias pero ahora mismo tengo prisa!",
-        haComprado : "Lo siento no necesito más periódicos, gracias!",
-        noHaComprado :  "Ya te he dicho que no me interesa"
+        compra : "Espero que me deje buen sabor de boca",
+        noCompra : "Lo siento, a tu periódico le falta sabor",
+        haComprado : "Comprarte dos periódicos sería ya gula...",
+        noHaComprado :  "Vete ya maldito usurero. Un euro el periodico, ver para creer."
     },
     {
         name: 'niñoCabezon',
-        compra : "Gracias por el periódico! Seguro que está muy interesante y me alegra la mañana. Muchas gracias!!",
-        noCompra : "Muchas gracias pero ahora mismo tengo prisa!",
+        compra : "Pero bueno Folagooooorrr!! Buen periódico, me lo llevo",
+        noCompra : "Si hombre, con ese dinero me compro una esquina de Fortnite.",
         haComprado : "Lo siento no necesito más periódicos, gracias!",
-        noHaComprado :  "Ya te he dicho que no me interesa"
+        noHaComprado :  "Te he dicho que no, prefiero gastarlo en diamante 'pal free'."
     },
     {
         name: 'niñoflequillo',
