@@ -3,7 +3,7 @@ import Dialogs from "./dialogs.js";
 
 export default class kiosk extends Phaser.GameObjects.Sprite{
     constructor(scene, x, y, player, id, zoneWidth, zoneHeight){
-        super(scene,x, y);
+        super(scene,x , y - 30, 'kiosko');
         this.scene.add.existing(this);
         this.player = player;
         this.kioskZone = id;

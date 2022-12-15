@@ -1,9 +1,10 @@
 
 export default class TP extends Phaser.GameObjects.Sprite{
     constructor(scene, x, y, tpID,player, zoneX, zoneY){
-        super(scene, x, y, tpID);
+        super(scene, x, y, 'bus');
 
         this.scene.add.existing(this);
+        
 
         //numero identificador del tp
         this.tpID = tpID;
