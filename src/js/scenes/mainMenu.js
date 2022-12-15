@@ -22,7 +22,8 @@ export default class mainMenu extends Phaser.Scene
             repeat: -1
           }); 
         
-        
+        //------------------------------------------------------------------------
+
         //  SONIDO
         //------------------------------------------------------------------------
         if(this.isMainMute) { this.music = this.sound.add('mainMenuSoundtrack', {volume: 0}, {loop: true}); }
@@ -31,9 +32,7 @@ export default class mainMenu extends Phaser.Scene
         if(this.isEffectsMute) { this.clickSound = this.sound.add('click', {volume: 0}, {loop: false}); }
         else { this.clickSound = this.sound.add('click', {volume: this.effectsVolume}, {loop: false});}
 
-        //if(!this.continueSong) { this.music.play(); }
-
-        //------------------------------------------------------------------------
+        if(!this.continueSong) {this.music.play();}
 
         this.fondo = this.add.sprite(640, 360, 'mainmenu');
         this.fondo.anims.play('menu');
@@ -68,7 +67,7 @@ export default class mainMenu extends Phaser.Scene
         this.optionsbutton.on('pointerout', event => { this.optionsbutton.setTexture('optionsButton'); this.optionsbutton.setScale(6); });
 
         // Al hacer click en el boton
-        this.optionsbutton.on("pointerdown",() => {this.clickSound.play(); this.scene.launch("options",{_scene: this, sceneName: "menu"});
+        this.optionsbutton.on("pointerdown",() => {this.scene.launch("options",{_scene: this, sceneName: "menu"});
     });
 
     }

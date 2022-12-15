@@ -21,6 +21,15 @@ export default class DIA_DEFAULT extends Phaser.Scene {
 
     //Creamos lo necesario para la escena
     create(){
+        
+        if(this.isMainMute) { this.music = this.sound.add('newsSoundtrack', {volume: 0}, {loop: true}); }
+        else { this.music = this.sound.add('newsSoundtrack', {volume: this.mainVolume}, {loop: true}); }
+        this.music.play();
+
+        if(this.isEffectsMute) { this.clickSound = this.sound.add('selPeriod', {volume: 0}, {loop: false}); }
+        else { this.clickSound = this.sound.add('selPeriod', {volume: this.effectsVolume}, {loop: false});}
+
+
         //Fondo de la escena
         this.Background=this.add.image(640,360,'BackgroundP');
         this.Background.setScale(0.625,0.3511);
@@ -196,6 +205,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
 
     //Cambia el valor del array de numeros que controla el numero de periodicos
     changeNumbers(params) {
+        this.clickSound.play();
         if (params < 3) 
         {
             if (this.nums[params] < 9) this.nums[params]++;
@@ -237,7 +247,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
                 this.continueButton.on('pointerover', () => {this.continueButton.setScale(0.4);})
                 this.continueButton.on('pointerout', () => {this.continueButton.setScale(0.3);})
                 this.continueButton.on('pointerdown', () => {this.scene.start(this.diaActual, {_numN: this.numNewspapers, _money: this.moneyLeft, _urTrust: this.trustFinal, _pricePaper: this.pricePerPaper,
-                    _mainVolume: this.mainVolume, _effectsVolume: this.effectsVolume, _isMainMute: this.isMainMute, _isEffectsMute: this.isEffectsMute });})
+                    _mainVolume: this.mainVolume, _effectsVolume: this.effectsVolume, _isMainMute: this.isMainMute, _isEffectsMute: this.isEffectsMute, _music: this.music });})
        }
         //Si no se cumple ninguna condicion, el boton se desactiva
         else

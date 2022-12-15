@@ -147,7 +147,10 @@ export default class PauseMenu extends Phaser.Scene
         this.upEffectsVolButton.on("pointerdown", () => { 
             this.dayGame.effectsVolume += 1;
             this.volEffectsText.setText( this.dayGame.effectsVolume);
-            if(!this.dayGame.isEffectsMute) {this.dayGame.clickSound.setVolume( this.dayGame.effectsVolume);}            
+            if(!this.dayGame.isEffectsMute) {
+                this.dayGame.soldSound.setVolume( this.dayGame.effectsVolume);
+                this.dayGame.numKeySound.setVolume( this.dayGame.effectsVolume);
+            }            
         });
 
         //Boton bajar volumen
@@ -164,7 +167,10 @@ export default class PauseMenu extends Phaser.Scene
                 this.dayGame.effectsVolume -= 1;
                 this.volEffectsText.setText(this.dayGame.effectsVolume);
 
-                if(!this.dayGame.isEffectsMute) {this.dayGame.clickSound.setVolume(this.dayGame.effectsVolume);}            
+                if(!this.dayGame.isEffectsMute) {
+                    this.dayGame.soldSound.setVolume( this.dayGame.effectsVolume);
+                    this.dayGame.numKeySound.setVolume( this.dayGame.effectsVolume);
+                }            
 
             }
         });
@@ -183,13 +189,15 @@ export default class PauseMenu extends Phaser.Scene
             // Se cambia la textura segun si esta o no muteado. 
             if(this.dayGame.isEffectsMute) { 
                 this.muteEffectsButton.setTexture('UnMute'); 
-                this.dayGame.clickSound.setVolume(this.dayGame.effectsVolume); // Devolvemos el valor original del volumen
+                this.dayGame.soldSound.setVolume( this.dayGame.effectsVolume); // Devolvemos el valor original del volumen
+                this.dayGame.numKeySound.setVolume( this.dayGame.effectsVolume);
             }
             else { 
                 this.muteEffectsButton.setTexture('Mute'); 
                 // Aqui hay que hacer referencia a todos los efectos de sonido del juego tal que:
                 // this.daygame.NOMBRE.setVolume(0);
-                
+                this.dayGame.soldSound.setVolume(0);
+                this.dayGame.numKeySound.setVolume(0);
 
             }
             this.dayGame.isEffectsMute = !this.dayGame.isEffectsMute;

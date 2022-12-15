@@ -142,7 +142,7 @@ export default class NPC extends Phaser.GameObjects.Sprite {
             if(this.probability < this.player.getConfianza(this.barrio)){
               //TO DO : SE COMPRA EL PERIÓDICO
               if(this.player.numeroPeriodicos()>0){
-
+                
                 this.scene.comienzaDialogo(this.dialogs.dialog[0].text)
                 this.player.compraPeriodicos(1); 
 
@@ -154,6 +154,7 @@ export default class NPC extends Phaser.GameObjects.Sprite {
             else {
               this.scene.comienzaDialogo(this.dialogs.dialog[1].text)
             }
+            this.scene.playSound("NumKey");
             this.canBuy=false;
             this.actualCoolDown = 0;
             this.canAct=false;

@@ -33,6 +33,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.isMainMute = data._isMainMute; // Booleano si esta la musica muteada
         this.isEffectsMute = data._isEffectsMute; // Booleano si estan los efectos muteados
         this.moneyPP = data._pricePaper;
+        this.music = data._music;
     }
 
     //Aqui te crea todo lo que necesites al inicio para todo el juego
@@ -44,6 +45,16 @@ export default class DIA_DEFAULT extends Phaser.Scene {
             tileWidth: 32,
             tileHeight: 32
         });
+
+
+        if(this.isEffectsMute) { 
+            this.soldSound = this.sound.add('sold', {volume: 0}, {loop: false}); 
+            this.numKeySound = this.sound.add('numKey', {volume: 0}, {loop: false}); 
+        }
+        else {
+            this.soldSound = this.sound.add('sold', {volume: this.effectsVolume}, {loop: false});
+            this.numKeySound = this.sound.add('numKey', {volume: 0}, {loop: false}); 
+        }
 
         //Mapa - Capas Normales 1 - Parte 1
 
@@ -60,13 +71,6 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         //HUD
         this.ui = new UI(this, this.player);  
                
-        // Si esta muteado, añadimos el sonido con 0 volumen, sino con el volumen principal
-        if(this.isMainMute) { this.music = this.sound.add('mainMenuSoundtrack', {volume: 0}, {loop: true}); }
-        else { this.music = this.sound.add('mainMenuSoundtrack', {volume: this.mainVolume}, {loop: true}); }
-
-        this.music.play();
-
-
         let mapObjects = this.map.getObjectLayer(this.objectLayerName).objects;
 
 
@@ -157,9 +161,9 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         else
         {
             this.music.stop();
-            if(this.player.getDinero() > 200)
+            if(this.player.getDinero() > 300)
             {
-                this.scene.start('win_lose', {_win: false, _mainVolume: this.mainVolume, _effectsVolume: this.effectsVolume, _isMainMute: this.isMainMute, _isEffectsMute: this.isEffectsMute});
+                this.scene.start('win_lose', {_win: true, _mainVolume: this.mainVolume, _effectsVolume: this.effectsVolume, _isMainMute: this.isMainMute, _isEffectsMute: this.isEffectsMute});
             }
             else
             {
@@ -188,6 +192,18 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.dialogManager.clearText();
         this.ui.desactiveDialogBar();
         this.player.changePlayerState();
+    }
+
+    playSound(string)
+    {
+        if(string == "sold")
+        {
+            this.soldSound.play();
+        }
+        else if (string == "NumKey")
+        {
+            this.numKeySound.play();
+        }
     }
 
 }

@@ -161,6 +161,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.dinero += this.dineroXperiodico * nPeriodicos; // DEPENDERA DE CUANTO CUESTA CADA PERIODICO
     this.scene.ui.updateDinero();
     this.scene.ui.updateNumPeriodicos();
+    this.scene.playSound("sold")
   }
 
   numeroPeriodicos(){

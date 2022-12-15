@@ -102,7 +102,13 @@ export default class Boot extends Phaser.Scene {
  
     // Sonidos y soundtrack
     this.load.audio('mainMenuSoundtrack', 'assets/sounds/TheLunch.wav');
-    this.load.audio('click', 'assets/sounds/click_sound_effect.mp3');
+    this.load.audio('selPeriod', 'assets/sounds/SelPeriod.wav');
+    this.load.audio('newsSoundtrack', 'assets/sounds/SandPaper.wav');
+
+    this.load.audio('click', 'assets/sounds/StartSound.wav');
+    this.load.audio('numKey', 'assets/sounds/NumKeyPressed.wav');
+    this.load.audio('sold', 'assets/sounds/Sold.wav');
+    
   }
 
   create() { this.scene.start('menu', {_mainVolume: 1, _effectsVolume: 1,_continue: false, _isMainMute: false, _isEffectsMute: false}); }
