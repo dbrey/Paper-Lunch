@@ -23,7 +23,6 @@ export default class DIA_DEFAULT extends Phaser.Scene {
 
     init(data)
     {
-
         this.numN = data._numN; // Numero de Newspapers
         this.money = data._money; // Dinero del jugador (Empieza con 200 - la cantidad gastada en periodicos)
         this._myTrust = data._urTrust; // Array de confianza
@@ -38,7 +37,6 @@ export default class DIA_DEFAULT extends Phaser.Scene {
 
     //Aqui te crea todo lo que necesites al inicio para todo el juego
     create() {
-
         //Mapa
         this.map = this.make.tilemap({
             key: 'tileMap',
@@ -152,8 +150,9 @@ export default class DIA_DEFAULT extends Phaser.Scene {
 
     finDia(){
         // Si no es el ultimo dia y no tenemos suficiente dinero, entonces continuamos a seleccionar el periodico del siguiente dia
-        if(this.diaActual != 'SeptimoDia'&& this.player.getDinero() < 200 )
+        if(this.diaActual != 'SeptimoDia' && this.player.getDinero() < 200 )
         {
+            this.nDay++;
             this.scene.start('createNewspaper', {diaActual: this.nextDay,  _money: this.player.getDinero(), _nDay: this.nDay, _confianza: this._myTrust,  
                 _mainVolume: this.mainVolume, _effectsVolume: this.effectsVolume, _isMainMute: this.isMainMute, _isEffectsMute: this.isEffectsMute, _continueSong: true});
         }

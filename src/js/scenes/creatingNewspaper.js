@@ -9,7 +9,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
     init(data)
     {
         this.diaActual = data.diaActual;
-        this.nDay= data._nDay;                  // Dia para los periodicos
+        this.nDay = data._nDay;                  // Dia para los periodicos
         this.money = data._money;               //Dinero con el que empieza
         this.confianza = data._confianza;
         this.mainVolume = data._mainVolume;     // Volumen musica
@@ -48,7 +48,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         //Datos de periódicos
         this.newsData=this.cache.json.get('newsData');
         //Variable que itera entre los datos
-        this.nDay=0;
+        //this.nDay = 0;
         //Asignación de los datos
         this.dayData=this.newsData.Days[this.nDay];
 
@@ -238,6 +238,20 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.checkContinueButton();
     }
 
+    adsEffect(){
+
+        console.log(this.trustFinal);
+        for (let i = 0; i < 4; i++){
+            if (this.ads[i].getSelected()){
+                for (let j = 0; j < 4; j++){
+                    this.trustFinal[j]--;
+                }
+            }
+        }
+        
+        console.log(this.trustFinal);
+    }
+
     //Actualizamos el boton de continuar en cuestion de si hay un titulo seleccionado y el num de periodicos no es 0
     checkContinueButton()
     {
@@ -247,8 +261,13 @@ export default class DIA_DEFAULT extends Phaser.Scene {
                 this.continueButton.setScale(0.3);
                 this.continueButton.on('pointerover', () => {this.continueButton.setScale(0.4);})
                 this.continueButton.on('pointerout', () => {this.continueButton.setScale(0.3);})
-                this.continueButton.on('pointerdown', () => {this.scene.start(this.diaActual, {_numN: this.numNewspapers, _money: this.moneyLeft, _urTrust: this.trustFinal, _pricePaper: this.pricePerPaper,
-                    _mainVolume: this.mainVolume, _effectsVolume: this.effectsVolume, _isMainMute: this.isMainMute, _isEffectsMute: this.isEffectsMute, _music: this.music });})
+                this.continueButton.on('pointerdown', () => {
+                    this.adsEffect();
+
+                    this.scene.start(this.diaActual, {_numN: this.numNewspapers, 
+                    _money: this.moneyLeft, _urTrust: this.trustFinal, _pricePaper: this.pricePerPaper, _nDay: this.nDay,
+                    _mainVolume: this.mainVolume, _effectsVolume: this.effectsVolume, _isMainMute: this.isMainMute, 
+                    _isEffectsMute: this.isEffectsMute, _music: this.music });})
        }
         //Si no se cumple ninguna condicion, el boton se desactiva
         else
