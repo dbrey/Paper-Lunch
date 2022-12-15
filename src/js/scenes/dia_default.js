@@ -59,8 +59,8 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         let tileSet = this.map.addTilesetImage('Modern_Exteriors_Complete_Tileset_32x32', 'mapTiles');
         this.mapGround = this.map.createStaticLayer('suelo', tileSet);
         this.mapBajos = this.map.createStaticLayer('jugEncima', tileSet);
-        this.player = new Player(this, 3840, 2770, this.numN, this.money, this._myTrust, this.moneyPP);
         this.mapAdornos = this.map.createStaticLayer('jugColisiona', tileSet);
+        this.player = new Player(this, 3840, 2770, this.numN, this.money, this._myTrust, this.moneyPP);
         this.mapTechos = this.map.createStaticLayer('jugDebajo', tileSet);
         this.mapCollisions = this.map.createStaticLayer('Collisions', tileSet);
         this.mapCollisions.setCollisionBetween(0, 10000, true, false);
@@ -150,7 +150,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
 
     finDia(){
         // Si no es el ultimo dia y no tenemos suficiente dinero, entonces continuamos a seleccionar el periodico del siguiente dia
-        if(this.diaActual != 'SeptimoDia' && this.player.getDinero() < 200 )
+        if(this.nDay != 6 && this.player.getDinero() < 200 )
         {
             this.nDay++;
             this.scene.start('createNewspaper', {diaActual: this.nextDay,  _money: this.player.getDinero(), _nDay: this.nDay, _confianza: this._myTrust,  

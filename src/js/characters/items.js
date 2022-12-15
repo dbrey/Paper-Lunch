@@ -296,7 +296,7 @@ export default class TrustMeasurer extends Phaser.GameObjects.Sprite{
             else if (5 < trust && trust <= 10) this.play('trust2');
             else if (10 < trust && trust <= 15) this.play('trust3');
             else if (15 < trust && trust <= 20) this.play('trust4');
-            else if (20 < trust && trust <= 25) this.play('trust5');
+            else if (20 < trust) this.play('trust5');
         }
 
         else if (trust < 0) {
@@ -304,7 +304,7 @@ export default class TrustMeasurer extends Phaser.GameObjects.Sprite{
             else if (-5 > trust && trust >= -10) this.play('NegTrust2');
             else if (-10 > trust && trust >= -15) this.play('NegTrust3');
             else if (-15 > trust && trust >= -20) this.play('NegTrust4');
-            else if (-20 > trust && trust >= -25) this.play('NegTrust5');
+            else if (-20 > trust) this.play('NegTrust5');
         }
     }
 

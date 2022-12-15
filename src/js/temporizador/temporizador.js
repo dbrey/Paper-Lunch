@@ -19,7 +19,7 @@ export default class Temporizador extends Phaser.GameObjects.GameObject {
         this.text.setFontSize(27);
 
 
-        this.horaFinJornada = 13;
+        this.horaFinJornada = 8;
         
     }
 

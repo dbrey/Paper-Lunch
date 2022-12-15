@@ -239,8 +239,6 @@ export default class DIA_DEFAULT extends Phaser.Scene {
     }
 
     adsEffect(){
-
-        console.log(this.trustFinal);
         for (let i = 0; i < 4; i++){
             if (this.ads[i].getSelected()){
                 for (let j = 0; j < 4; j++){
@@ -248,8 +246,14 @@ export default class DIA_DEFAULT extends Phaser.Scene {
                 }
             }
         }
-        
-        console.log(this.trustFinal);
+
+    }
+
+    keepTrust(){
+        this.trustFinal[0] += this.confianza[0];
+        this.trustFinal[1] += this.confianza[1];
+        this.trustFinal[2] += this.confianza[2];
+        this.trustFinal[3] += this.confianza[3];
     }
 
     //Actualizamos el boton de continuar en cuestion de si hay un titulo seleccionado y el num de periodicos no es 0
@@ -263,7 +267,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
                 this.continueButton.on('pointerout', () => {this.continueButton.setScale(0.3);})
                 this.continueButton.on('pointerdown', () => {
                     this.adsEffect();
-
+                    this.keepTrust();
                     this.scene.start(this.diaActual, {_numN: this.numNewspapers, 
                     _money: this.moneyLeft, _urTrust: this.trustFinal, _pricePaper: this.pricePerPaper, _nDay: this.nDay,
                     _mainVolume: this.mainVolume, _effectsVolume: this.effectsVolume, _isMainMute: this.isMainMute, 
