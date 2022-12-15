@@ -119,7 +119,7 @@ export default class Boot extends Phaser.Scene {
     this.load.spritesheet('NinoPeroChef', 'assets/sprites/npcs/NinoPeroChef.png', { frameWidth: 32, frameHeight: 52 });
     this.load.spritesheet('NinoPeroChef2', 'assets/sprites/npcs/NinoPeroChef2.png', { frameWidth: 32, frameHeight: 52 });
     this.load.spritesheet('NinoPeroChef3', 'assets/sprites/npcs/NinoPeroChef3.png', { frameWidth: 32, frameHeight: 52 });
-    this.load.spritesheet('NinoPeroChef4', 'assets/sprites/npcs/NinoPeroChef4.png', { frameWidth: 32, frameHeight: 52 });v
+    this.load.spritesheet('NinoPeroChef4', 'assets/sprites/npcs/NinoPeroChef4.png', { frameWidth: 32, frameHeight: 52 });
     this.load.spritesheet('niñoCabezon', 'assets/sprites/npcs/niñoCabezon.png', { frameWidth: 32, frameHeight: 52 });
     this.load.spritesheet('niñoflequillo', 'assets/sprites/npcs/niñoflequillo.png', { frameWidth: 32, frameHeight: 52 });
     this.load.spritesheet('Oficinista', 'assets/sprites/npcs/Oficinista.png', { frameWidth: 32, frameHeight: 52 });
