@@ -150,7 +150,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
 
     finDia(){
         // Si no es el ultimo dia y no tenemos suficiente dinero, entonces continuamos a seleccionar el periodico del siguiente dia
-        if(this.nDay != 6 && this.player.getDinero() < 200 )
+        if(this.nDay != 6 && this.player.getDinero() < 150 )
         {
             this.nDay++;
             this.scene.start('createNewspaper', {diaActual: this.nextDay,  _money: this.player.getDinero(), _nDay: this.nDay, _confianza: this._myTrust,  
@@ -161,7 +161,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
             this.music.stop();
 
             // Pantalla de ganar y perder
-            if(this.player.getDinero() > 300)
+            if(this.player.getDinero() > 150)
             {
                 this.scene.start('win_lose', {_win: true, _mainVolume: this.mainVolume, _effectsVolume: this.effectsVolume, _isMainMute: this.isMainMute, _isEffectsMute: this.isEffectsMute});
             }

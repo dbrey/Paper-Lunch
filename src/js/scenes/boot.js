@@ -115,8 +115,6 @@ export default class Boot extends Phaser.Scene {
     this.load.audio('numKey', 'assets/sounds/NumKeyPressed.wav');
     this.load.audio('sold', 'assets/sounds/Sold.wav');
     
-    this.load.audio('click', 'assets/sounds/click_sound_effect.mp3');
-
     // Npcs
     this.load.spritesheet('aliade', 'assets/sprites/npcs/aliade.png', { frameWidth: 32, frameHeight: 52 });
     this.load.spritesheet('auronplay', 'assets/sprites/npcs/auronplay.png', { frameWidth: 32, frameHeight: 52 });

@@ -67,7 +67,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         //Variables
         this.moneyLeft = 0;                         //Dinero resultate tras crear los periodicos
         this.moneySpent=this.money-this.moneyLeft;  //Dinero gastado en la creación de periódicos
-        this.pricePerPaper=1;                       //Dinero que cuesta cada periódico
+        this.pricePerPaper=2;                       //Dinero que cuesta cada periódico
         this.trustFinal = [0, 0, 0, 0];             //Arrays de confianza (una por periodico y una final)
         this.trustP1 = [0, 0, 0, 0];                  
         this.trustP2 = [0, 0, 0, 0];                  
