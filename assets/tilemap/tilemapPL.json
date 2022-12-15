@@ -335,7 +335,7 @@
                         {
                          "name":"id",
                          "type":"int",
-                         "value":1
+                         "value":0
                         }],
                  "rotation":0,
                  "visible":false,
@@ -348,6 +348,12 @@
                  "height":53.3333,
                  "id":13,
                  "name":"KIO",
+                 "properties":[
+                        {
+                         "name":"id",
+                         "type":"int",
+                         "value":2
+                        }],
                  "rotation":0,
                  "visible":false,
                  "width":109.667,
@@ -359,6 +365,12 @@
                  "height":48,
                  "id":15,
                  "name":"KIO",
+                 "properties":[
+                        {
+                         "name":"id",
+                         "type":"int",
+                         "value":3
+                        }],
                  "rotation":0,
                  "visible":false,
                  "width":97,
@@ -370,6 +382,12 @@
                  "height":55.3333,
                  "id":16,
                  "name":"KIO",
+                 "properties":[
+                        {
+                         "name":"id",
+                         "type":"int",
+                         "value":1
+                        }],
                  "rotation":0,
                  "visible":false,
                  "width":106.667,
@@ -1474,7 +1492,7 @@
                          "value":2
                         }],
                  "rotation":0,
-                 "visible":true,
+                 "visible":false,
                  "width":3200,
                  "x":656,
                  "y":2840
@@ -1491,7 +1509,7 @@
                          "value":0
                         }],
                  "rotation":0,
-                 "visible":true,
+                 "visible":false,
                  "width":3240,
                  "x":608,
                  "y":616
@@ -1508,7 +1526,7 @@
                          "value":1
                         }],
                  "rotation":0,
-                 "visible":true,
+                 "visible":false,
                  "width":3456,
                  "x":3880,
                  "y":672
@@ -1525,14 +1543,14 @@
                          "value":3
                         }],
                  "rotation":0,
-                 "visible":true,
+                 "visible":false,
                  "width":3480,
                  "x":3880,
                  "y":2840
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":true,
+         "visible":false,
          "x":0,
          "y":0
         }, 
