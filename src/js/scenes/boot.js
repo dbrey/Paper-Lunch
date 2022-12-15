@@ -7,8 +7,7 @@ export default class Boot extends Phaser.Scene {
 
   preload() {
     //Jugador
-    this.load.spritesheet('Player', 'assets/sprites/amelia.png', { frameWidth: 18, frameHeight: 25 });
-    this.load.spritesheet('Rodolfo', 'assets/sprites/NPC.png', { frameWidth: 64, frameHeight: 66 });
+    this.load.spritesheet('Player', 'assets/sprites/ameliaV2.png', { frameWidth: 36, frameHeight: 56 });
 
     // UI
     this.load.image('playButton', 'assets/sprites/UI/play_button.png');
@@ -18,7 +17,7 @@ export default class Boot extends Phaser.Scene {
     this.load.image('menuButton', 'assets/sprites/UI/menu_button.png');
     this.load.image('backgroundOptionsPause', 'assets/sprites/UI/backgroundOptionsPause.png');
     this.load.image('backgroundNewspaper', 'assets/sprites/UI/newspaper_background.png');
-    
+    this.load.image('eButton','assets/sprites/UI/EBoton.png');
 
     this.load.image('playButtonMouseOn', 'assets/sprites/UI/play_button_mouse_on.png');
     this.load.image('optionsButtonMouseOn', 'assets/sprites/UI/options_button_mouse_on.png');
@@ -37,10 +36,27 @@ export default class Boot extends Phaser.Scene {
     this.load.image('DownVolV2', 'assets/sprites/UI/DownButtonVolume_V2.png');
     this.load.image('UnMute', 'assets/sprites/UI/Unmute_Button.png');
     this.load.image('Mute', 'assets/sprites/UI/Mute_Button.png');
+
+    this.load.image('BarraRoja', 'assets/sprites/UI/MarcoJapones.png');
+    this.load.image('BarraAzul', 'assets/sprites/UI/MarcoVegano.png');
+    this.load.image('BarraVerde', 'assets/sprites/UI/MarcoItaliano.png');
+    this.load.image('BarraAmarilla', 'assets/sprites/UI/MarcoEspanol.png');
+    this.load.spritesheet('BarraConfianza', 'assets/sprites/UI/barraConfianza.png', {frameWidth: 20, frameHeight: 75});
     
+    this.load.image('miniMap', 'assets/sprites/UI/Mapa.png');
+    this.load.image('leyenda', 'assets/sprites/UI/Leyend.png');
+
+    this.load.image('bus', 'assets/sprites/UI/bus.png');
+    this.load.image('kiosko', 'assets/sprites/UI/kiosko.png');
+
+
+
+
+    this.load.image('dialogBar', 'assets/sprites/UI/dialogBar.png');
+
 
     //TP
-    this.load.image('metroMap','assets/sprites/UI/MapaMetro.png');
+    this.load.image('metroMap','assets/sprites/minimap.png');
     this.load.image('selectionTp', 'assets/sprites/UI/selectionTp.png');
     this.load.image('selectionTpOn', 'assets/sprites/UI/selectionTpOn.png');
 
@@ -52,11 +68,11 @@ export default class Boot extends Phaser.Scene {
     this.load.bitmapFont('font', 'assets/fonts/mainFont.png', 'assets/fonts/Inkbit.ttf');
 
     // Fondos
-    this.load.spritesheet('mainmenu', 'assets/sprites/background.png', { frameWidth: 480, frameHeight: 254 });
+    this.load.spritesheet('mainmenu', 'assets/sprites/city_spritesheet.png', { frameWidth: 320, frameHeight: 180 });
     this.load.image('optionsBackground', 'assets/sprites/optionsBackground.jpg');
 
     // Logo
-    this.load.image('logo', 'assets/sprites/MangoGamesLogo.png');
+    this.load.image('logo', 'assets/sprites/paperlunchLogo.png');
 
     //Periodicos
     this.load.image('newspaper', 'assets/sprites/creatingNews/periodico.jpg');
@@ -78,7 +94,7 @@ export default class Boot extends Phaser.Scene {
     this.load.image('simJap', 'assets/sprites/creatingNews/banderaJAP.png');
     //Flechas y  tick
     this.load.image('arrowUp', 'assets/sprites/creatingNews/arrowUp.png');
-    this.load.image('arrowDown', 'assets/sprites/creatingNews/arrow Down.png');
+    this.load.image('arrowDown', 'assets/sprites/creatingNews/arrowDown.png');
     this.load.image('tick', 'assets/sprites/creatingNews/tick.png');
     //Boton continuar
     this.load.image('continueButtonBlocked', 'assets/sprites/creatingNews/contButtonBlocked.png');
@@ -92,8 +108,33 @@ export default class Boot extends Phaser.Scene {
  
     // Sonidos y soundtrack
     this.load.audio('mainMenuSoundtrack', 'assets/sounds/TheLunch.wav');
-    this.load.audio('click', 'assets/sounds/click_sound_effect.mp3');
+    this.load.audio('selPeriod', 'assets/sounds/SelPeriod.wav');
+    this.load.audio('newsSoundtrack', 'assets/sounds/SandPaper.wav');
+
+    this.load.audio('click', 'assets/sounds/StartSound.wav');
+    this.load.audio('numKey', 'assets/sounds/NumKeyPressed.wav');
+    this.load.audio('sold', 'assets/sounds/Sold.wav');
+    
+    // Npcs
+    this.load.spritesheet('aliade', 'assets/sprites/npcs/aliade.png', { frameWidth: 32, frameHeight: 52 });
+    this.load.spritesheet('auronplay', 'assets/sprites/npcs/auronplay.png', { frameWidth: 32, frameHeight: 52 });
+    this.load.spritesheet('lacoletas', 'assets/sprites/npcs/lacoletas.png', { frameWidth: 32, frameHeight: 52 });
+    this.load.spritesheet('messi', 'assets/sprites/npcs/messi.png', { frameWidth: 32, frameHeight: 52 });
+    this.load.spritesheet('NinoPeroCascos', 'assets/sprites/npcs/NinoPeroCascos.png', { frameWidth: 32, frameHeight: 46 });
+    this.load.spritesheet('NinoPeroChef', 'assets/sprites/npcs/NinoPeroChef.png', { frameWidth: 32, frameHeight: 52 });
+    this.load.spritesheet('NinoPeroChef2', 'assets/sprites/npcs/NinoPeroChef2.png', { frameWidth: 32, frameHeight: 52 });
+    this.load.spritesheet('NinoPeroChef3', 'assets/sprites/npcs/NinoPeroChef3.png', { frameWidth: 32, frameHeight: 52 });
+    this.load.spritesheet('NinoPeroChef4', 'assets/sprites/npcs/NinoPeroChef4.png', { frameWidth: 32, frameHeight: 52 });
+    this.load.spritesheet('niñoCabezon', 'assets/sprites/npcs/niñoCabezon.png', { frameWidth: 32, frameHeight: 52 });
+    this.load.spritesheet('niñoflequillo', 'assets/sprites/npcs/niñoflequillo.png', { frameWidth: 32, frameHeight: 52 });
+    this.load.spritesheet('Oficinista', 'assets/sprites/npcs/Oficinista.png', { frameWidth: 32, frameHeight: 54 });
+    this.load.spritesheet('rubiacoletas', 'assets/sprites/npcs/rubiacoletas.png', { frameWidth: 32, frameHeight: 52 });
+    this.load.spritesheet('señora1', 'assets/sprites/npcs/señora1.png', { frameWidth: 32, frameHeight: 52 });
+    this.load.spritesheet('señorPendiente', 'assets/sprites/npcs/señorPendiente.png', { frameWidth: 32, frameHeight: 52 });
+    this.load.spritesheet('Pita', 'assets/sprites/npcs/Pita.png', { frameWidth: 32, frameHeight: 52 });
+    this.load.spritesheet('UnOtaku_1', 'assets/sprites/npcs/UnOtaku_1.png', { frameWidth: 32, frameHeight: 48 });
+    this.load.spritesheet('UnViejo_1', 'assets/sprites/npcs/UnViejo_1.png', { frameWidth: 32, frameHeight: 48 });
   }
 
-  create() { this.scene.start('menu', {_mainVolume: 1, _effectsVolume: 1,_continue: false}); }
+  create() { this.scene.start('menu', {_mainVolume: 1, _effectsVolume: 1,_continue: false, _isMainMute: false, _isEffectsMute: false}); }
 }

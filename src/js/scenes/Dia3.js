@@ -4,7 +4,6 @@ export default class Day3 extends DIA_DEFAULT
 {
     constructor() {
         super( 'TercerDia', 
-        'PrimerDia',
         'CuartoDia',);
 
         
@@ -17,7 +16,6 @@ export default class Day3 extends DIA_DEFAULT
 
     create()
     {
-        console.log("Tercer dia");
         super.create();
     }
 }

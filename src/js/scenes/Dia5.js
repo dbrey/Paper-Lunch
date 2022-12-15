@@ -17,7 +17,6 @@ export default class Day4 extends DIA_DEFAULT
 
     create()
     {
-        console.log("Quinto dia");
         super.create();
     }
 }
