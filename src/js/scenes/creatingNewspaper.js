@@ -27,8 +27,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         if(this.isMainMute) { this.music = this.sound.add('newsSoundtrack', {volume: 0}, {loop: true}); }
         else { this.music = this.sound.add('newsSoundtrack', {volume: this.mainVolume}, {loop: true}); }
         
-        if(!this.continueSong) { this.music.play(); }
-        
+        this.music.play();
 
         if(this.isEffectsMute) { this.clickSound = this.sound.add('numKey', {volume: 0}, {loop: false}); }
         else { this.clickSound = this.sound.add('numKey', {volume: this.effectsVolume}, {loop: false});}
