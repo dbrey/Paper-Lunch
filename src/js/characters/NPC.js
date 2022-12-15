@@ -39,13 +39,13 @@ export default class NPC extends Phaser.GameObjects.Sprite {
 
     this.bought = false;
 
+    this.speed=200;
+
     this.scene.physics.add.existing(this);
     this.scene.physics.add.collider(this,scene.player);
 
 
     this.body.setImmovable();
-
-    this.speed;
 
 
     this.probability = (Math.random() * this.umbral*2) - this.umbral; // Le restamos el umbral por que la confianza va entre umbral y -umbral
@@ -118,7 +118,6 @@ export default class NPC extends Phaser.GameObjects.Sprite {
       this.offsetX=this.path.path[this.indexPath].offsetX;
       this.offsetY=this.path.path[this.indexPath].offsetY;
       this.indexPath=this.path.path[this.indexPath].index;
-      this.speed = this.path.speed;
 
       this.zonaTrigger.body.setVelocityX(this.dirX * this.speed);
       this.zonaTrigger.body.setVelocityY(this.dirY * this.speed);
