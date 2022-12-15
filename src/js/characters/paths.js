@@ -3,7 +3,7 @@ const Paths=[
         name: 'aliade',
         state : "Move",
         path : [
-            {
+            { // Abajo
                 x: 3816.00,
                 y: 3682,
                 offsetX: 30,
@@ -12,7 +12,7 @@ const Paths=[
                 dirY: 1,
                 index : 1
             },
-            {
+            { // Derecha
                 x: 4354,
                 y: 3667,
                 offsetX: 4,
@@ -21,7 +21,7 @@ const Paths=[
                 dirY: 0,
                 index : 2
             },
-            {
+            { // Arriba
                 x: 4354,
                 y: 3435,
                 offsetX: 20,
@@ -30,7 +30,7 @@ const Paths=[
                 dirY: -1,
                 index : 3
             },
-            {
+            { // Derecha
                 x: 5744,
                 y: 3435,
                 offsetX: 5,
@@ -39,7 +39,7 @@ const Paths=[
                 dirY: 0,
                 index : 4
             },
-            {
+            { // Arriba
                 x: 5744,
                 y: 2904,
                 offsetX: 15,
@@ -48,7 +48,7 @@ const Paths=[
                 dirY: -1,
                 index : 5
             },
-            {
+            {// Izquierda
                 x: 4654,
                 y: 2904,
                 offsetX: 4,
@@ -58,7 +58,7 @@ const Paths=[
                 index : 6
             },
 
-            {
+            {// Arriba
                 x: 4654,
                 y: 2904,
                 offsetX: 4,
@@ -67,7 +67,7 @@ const Paths=[
                 dirY: -1,
                 index : 7
             },
-            {
+            {// Arriba
                 x: 4654,
                 y: 2740,
                 offsetX: 14,
@@ -76,7 +76,7 @@ const Paths=[
                 dirY: -1,
                 index : 8
             },
-            {
+            { // Izquierda
                 x: 4000,
                 y: 2740,
                 offsetX: 4,
@@ -85,7 +85,7 @@ const Paths=[
                 dirY: 0,
                 index : 9
             },
-            {
+            { // Abajo
                 x: 4000,
                 y: 2842,
                 offsetX: 15,
@@ -94,7 +94,7 @@ const Paths=[
                 dirY: 1,
                 index : 10
             },
-            {
+            {// Izquierda
                 x: 3876,
                 y: 2842,
                 offsetX: 3,
@@ -103,7 +103,7 @@ const Paths=[
                 dirY: 0,
                 index : 11
             },
-            {
+            {// Abajo
                 x: 3876,
                 y: 2990,
                 offsetX: 16,
@@ -112,7 +112,7 @@ const Paths=[
                 dirY: 1,
                 index : 12
             },
-            {
+            {// Izquierda
                 x: 3821,
                 y: 2990,
                 offsetX: 5,
@@ -128,7 +128,7 @@ const Paths=[
         name: 'auronplay',
         state : "Move",
         path : [
-            {
+            {// Derecha
                 x: 2070.00,
                 y: 1678,
                 offsetX: 4,
@@ -137,7 +137,7 @@ const Paths=[
                 dirY: 0,
                 index : 1
             },
-            {
+            {// Izquierda
                 x: 1440.00,
                 y: 1678,
                 offsetX: 4,
@@ -152,7 +152,7 @@ const Paths=[
         name: 'lacoletas',
         state : "Move",
         path : [
-            {
+            {// Izquierda
                 x: 1155.00,
                 y: 2400,
                 offsetX: 4,
@@ -161,7 +161,7 @@ const Paths=[
                 dirY: 0,
                 index : 1
             },
-            {
+            {// Abajo
                 x: 1155.00,
                 y: 2840,
                 offsetX: 50,
@@ -170,7 +170,7 @@ const Paths=[
                 dirY: 1,
                 index : 2
             },
-            {
+            {// Derecha
                 x: 2655.00,
                 y: 2825,
                 offsetX: 3,
@@ -179,7 +179,7 @@ const Paths=[
                 dirY: 0,
                 index : 3
             },
-            {
+            {// Arriba
                 x: 2655.00,
                 y: 2720,
                 offsetX: 50,
@@ -188,7 +188,7 @@ const Paths=[
                 dirY: -1,
                 index : 4
             },
-            {
+            {// Derecha
                 x: 3650.00,
                 y: 2720,
                 offsetX: 3,
@@ -197,7 +197,7 @@ const Paths=[
                 dirY: 0,
                 index : 5
             },
-            {
+            {// Abajo
                 x: 3650.00,
                 y: 2800,
                 offsetX: 50,
@@ -206,7 +206,7 @@ const Paths=[
                 dirY: 1,
                 index : 6,
             },
-            {
+            {// Derecha
                 x: 3850.00,
                 y: 2800,
                 offsetX: 3,
@@ -215,7 +215,7 @@ const Paths=[
                 dirY: 0,
                 index : 7,
             },
-            {
+            {// Arriba
                 x: 3850.00,
                 y: 2650,
                 offsetX: 50,
@@ -224,7 +224,7 @@ const Paths=[
                 dirY: -1,
                 index : 8,
             },
-            {
+            {// Derecha
                 x: 3950.00,
                 y: 2650,
                 offsetX: 3,
@@ -233,7 +233,7 @@ const Paths=[
                 dirY: 0,
                 index : 9,
             },
-            {
+            {// Arriba
                 x: 3950.00,
                 y: 2125,
                 offsetX: 70,
@@ -242,7 +242,7 @@ const Paths=[
                 dirY: -1,
                 index : 10,
             },
-            {
+            {// Izquierda
                 x: 3110.00,
                 y: 2125,
                 offsetX: 6,
@@ -251,7 +251,7 @@ const Paths=[
                 dirY: 0,
                 index : 11,
             },
-            {
+            {// Abajo
                 x: 3110.00,
                 y: 2255,
                 offsetX: 50,
@@ -260,7 +260,7 @@ const Paths=[
                 dirY: 1,
                 index : 12,
             },
-            {
+            {// Izquierda
                 x: 2532.00,
                 y: 2255,
                 offsetX: 5,
@@ -269,7 +269,7 @@ const Paths=[
                 dirY: 0,
                 index : 13,
             },
-            {
+            {// Arriba
                 x: 2532.00,
                 y: 1980,
                 offsetX: 50,
@@ -278,7 +278,7 @@ const Paths=[
                 dirY: -1,
                 index : 14,
             },
-            {
+            {// Derecha
                 x: 2832.00,
                 y: 1980,
                 offsetX: 5,
@@ -287,7 +287,7 @@ const Paths=[
                 dirY: 0,
                 index : 15,
             },
-            {
+            {// Arriba
                 x: 2832.00,
                 y: 1740,
                 offsetX: 50,
@@ -296,7 +296,7 @@ const Paths=[
                 dirY: -1,
                 index : 16,
             },
-            {
+            {// Izquierda
                 x: 2533.00,
                 y: 1740,
                 offsetX: 5,
@@ -305,7 +305,7 @@ const Paths=[
                 dirY: 0,
                 index : 17,
             },
-            {
+            {// Arriba
                 x: 2533.00,
                 y: 1546,
                 offsetX: 50,
@@ -314,7 +314,7 @@ const Paths=[
                 dirY: -1,
                 index : 18,
             },
-            {
+            {// Izquierda
                 x: 2285.00,
                 y: 1546,
                 offsetX: 5,
@@ -323,7 +323,7 @@ const Paths=[
                 dirY: 0,
                 index : 19,
             },
-            {
+            {// Abajo
                 x: 2285.00,
                 y: 2128,
                 offsetX: 50,
@@ -332,7 +332,7 @@ const Paths=[
                 dirY: 1,
                 index : 20,
             },
-            {
+            {// Izquierda
                 x: 1507.00,
                 y: 2128,
                 offsetX: 5,
@@ -341,7 +341,7 @@ const Paths=[
                 dirY: 0,
                 index : 21,
             },
-            {
+            {// Abajo
                 x: 1507.00,
                 y: 2400,
                 offsetX: 50,
@@ -363,7 +363,7 @@ const Paths=[
         name: 'NinoPeroCascos',
         state : "Move",
         path :[
-            {
+            {// Abajo
                 x: 905.00,
                 y: 2950,
                 offsetX: 50,
@@ -372,7 +372,7 @@ const Paths=[
                 dirY: 1,
                 index : 1,
             },
-            {
+            {// Arriba
                 x: 905.00,
                 y: 950,
                 offsetX: 50,
@@ -387,7 +387,7 @@ const Paths=[
         name: 'NinoPeroChef',
         state : "Move",
         path :[
-            {
+            {// Derecha
                 x: 3590.00,
                 y: 2212,
                 offsetX: 5,
@@ -396,7 +396,7 @@ const Paths=[
                 dirY: 0,
                 index : 1,
             },
-            {
+            {// Arriba
                 x: 3590.00,
                 y: 2050,
                 offsetX: 50,
@@ -405,7 +405,7 @@ const Paths=[
                 dirY: -1,
                 index : 2,
             },
-            {
+            {// Izquierda
                 x: 3400.00,
                 y: 2050,
                 offsetX: 5,
@@ -414,7 +414,7 @@ const Paths=[
                 dirY: 0,
                 index : 3,
             },
-            {
+            {// Arriba
                 x: 3400.00,
                 y: 1890,
                 offsetX: 50,
@@ -423,7 +423,7 @@ const Paths=[
                 dirY: -1,
                 index : 4,
             },
-            {
+            {// Derecha
                 x: 3590.00,
                 y: 1890,
                 offsetX: 5,
@@ -432,7 +432,7 @@ const Paths=[
                 dirY: 0,
                 index : 5,
             },
-            {
+            {// Arriba
                 x: 3590.00,
                 y: 1730,
                 offsetX: 50,
@@ -441,7 +441,7 @@ const Paths=[
                 dirY: -1,
                 index : 6,
             },
-            {
+            {// Izquierda
                 x: 3400.00,
                 y: 1730,
                 offsetX: 5,
@@ -450,7 +450,7 @@ const Paths=[
                 dirY: 0,
                 index : 7,
             },
-            {
+            {// Arriba
                 x: 3400.00,
                 y: 1560,
                 offsetX: 50,
@@ -459,7 +459,7 @@ const Paths=[
                 dirY: -1,
                 index : 8,
             },
-            {
+            {// Derecha
                 x: 3590.00,
                 y: 1560,
                 offsetX: 5,
@@ -468,7 +468,7 @@ const Paths=[
                 dirY: 0,
                 index : 9,
             },
-            {
+            {// Arriba
                 x: 3590.00,
                 y: 1410,
                 offsetX: 50,
@@ -477,7 +477,7 @@ const Paths=[
                 dirY: -1,
                 index : 10,
             },
-            {
+            {// Izquierda
                 x: 3400.00,
                 y: 1410,
                 offsetX: 5,
@@ -486,7 +486,7 @@ const Paths=[
                 dirY: 0,
                 index : 11,
             },
-            {
+            {// Arriba
                 x: 3400.00,
                 y: 1035,
                 offsetX: 50,
@@ -495,7 +495,7 @@ const Paths=[
                 dirY: -1,
                 index : 12,
             },
-            {
+            {// Derecha
                 x: 3590.00,
                 y: 1035,
                 offsetX: 50,
@@ -504,7 +504,7 @@ const Paths=[
                 dirY: 0,
                 index : 13,
             },
-            {
+            {// Abajo
                 x: 3590.00,
                 y: 1320,
                 offsetX: 50,
@@ -513,7 +513,7 @@ const Paths=[
                 dirY: 1,
                 index : 14,
             },
-            {
+            {// Izquierda
                 x: 3400.00,
                 y: 1320,
                 offsetX: 5,
@@ -522,7 +522,7 @@ const Paths=[
                 dirY: 0,
                 index : 15,
             },
-            {
+            {// Abajo
                 x: 3400.00,
                 y: 1410,
                 offsetX: 50,
@@ -531,7 +531,7 @@ const Paths=[
                 dirY: 1,
                 index : 16,
             },
-            {
+            {// Derecha
                 x: 3590.00,
                 y: 1410,
                 offsetX: 5,
@@ -540,7 +540,7 @@ const Paths=[
                 dirY: 0,
                 index : 17,
             },
-            {
+            {// Abajo
                 x: 3590.00,
                 y: 1560,
                 offsetX: 50,
@@ -549,7 +549,7 @@ const Paths=[
                 dirY: 1,
                 index : 18,
             },
-            {
+            {// Izquierda
                 x: 3400.00,
                 y: 1560,
                 offsetX: 5,
@@ -558,7 +558,7 @@ const Paths=[
                 dirY: 0,
                 index : 19,
             },
-            {
+            {// Abajo
                 x: 3400.00,
                 y: 1730,
                 offsetX: 50,
@@ -567,7 +567,7 @@ const Paths=[
                 dirY: 1,
                 index : 20,
             },
-            {
+            {// Derecha
                 x: 3590.00,
                 y: 1730,
                 offsetX: 5,
@@ -576,7 +576,7 @@ const Paths=[
                 dirY: 0,
                 index : 21,
             },
-            {
+            {// Abajo
                 x: 3590.00,
                 y: 1890,
                 offsetX: 50,
@@ -585,7 +585,7 @@ const Paths=[
                 dirY: 1,
                 index : 22,
             },
-            {
+            {// Izquierda
                 x: 3400.00,
                 y: 1890,
                 offsetX: 5,
@@ -594,7 +594,7 @@ const Paths=[
                 dirY: 0,
                 index : 23,
             },
-            {
+            {// Abajo
                 x: 3400.00,
                 y: 2050,
                 offsetX: 50,
@@ -603,7 +603,7 @@ const Paths=[
                 dirY: 1,
                 index : 24,
             },
-            {
+            {// Derecha
                 x: 3590.00,
                 y: 2050,
                 offsetX: 5,
@@ -612,7 +612,7 @@ const Paths=[
                 dirY: 0,
                 index : 25,
             }, 
-            {
+            {// Abajo
                 x: 3590.00,
                 y: 2212,
                 offsetX: 50,
@@ -621,7 +621,7 @@ const Paths=[
                 dirY: 1,
                 index : 26,
             },
-            {
+            {// Izquierda
                 x: 3400.00,
                 y: 2212,
                 offsetX: 5,
@@ -655,7 +655,7 @@ const Paths=[
         name: 'señorPendiente',
         state : "Move",
         path :[
-            {
+            {// Derecha
                 x: 6550.00,
                 y: 1630,
                 offsetX: 5,
@@ -664,7 +664,7 @@ const Paths=[
                 dirY: 0,
                 index : 1,
             },
-            {
+            {// Abajo
                 x: 6550.00,
                 y: 1820,
                 offsetX: 50,
@@ -673,7 +673,7 @@ const Paths=[
                 dirY: 1,
                 index : 2,
             },
-            {
+            {// Izquierda
                 x: 5570.00,
                 y: 1820,
                 offsetX: 5,
@@ -682,7 +682,7 @@ const Paths=[
                 dirY: 0,
                 index : 3,
             },
-            {
+            {// Arriba
                 x: 5570.00,
                 y: 1630,
                 offsetX: 50,
@@ -697,7 +697,7 @@ const Paths=[
         name: 'UnOtaku_1',
         state : "Move",
         path :[
-            {
+            {// Abajo
                 x: 7240.00,
                 y: 1570,
                 offsetX: 50,
@@ -706,7 +706,7 @@ const Paths=[
                 dirY: 1,
                 index : 1,
             },
-            {
+            {// Arriba
                 x: 7240.00,
                 y: 1030,
                 offsetX: 50,
@@ -721,7 +721,7 @@ const Paths=[
         name: 'rubiacoletas',
         state : "Move",
         path :[
-            {
+            {// Derecha
                 x: 5750.00,
                 y: 922,
                 offsetX: 5,
@@ -730,7 +730,7 @@ const Paths=[
                 dirY: 0,
                 index : 1,
             },
-            {
+            {// Izquierda
                 x: 4900.00,
                 y: 922,
                 offsetX: 5,
@@ -745,7 +745,7 @@ const Paths=[
         name: 'niñoflequillo',
         state : "Move",
         path :[
-            {
+            {// Derecha
                 x: 1900.00,
                 y: 5584,
                 offsetX: 5,
@@ -754,7 +754,7 @@ const Paths=[
                 dirY: 0,
                 index : 1,
             },
-            {
+            {// Izquierda
                 x: 1040.00,
                 y: 5584,
                 offsetX: 5,
@@ -769,7 +769,7 @@ const Paths=[
         name: 'NinoPeroChef4',
         state : "Move",
         path :[
-            {
+            {// Derecha
                 x: 4330.00,
                 y: 3670,
                 offsetX: 5,
@@ -778,7 +778,7 @@ const Paths=[
                 dirY: 0,
                 index : 1,
             },
-            {
+            {// Abajo
                 x: 4330.00,
                 y: 3834,
                 offsetX: 50,
@@ -787,7 +787,7 @@ const Paths=[
                 dirY: 1,
                 index : 2,
             },
-            {
+            {// Izquierda
                 x: 3150.00,
                 y: 3834,
                 offsetX: 5,
@@ -796,7 +796,7 @@ const Paths=[
                 dirY: 0,
                 index : 3,
             },
-            {
+            {// Arriba
                 x: 3150.00,
                 y: 3670,
                 offsetX: 50,
@@ -811,7 +811,7 @@ const Paths=[
         name: 'NinoPeroChef3',
         state : "Move",
         path :[
-            {
+            {// Derecha
                 x: 2226.00,
                 y: 4380,
                 offsetX: 5,
@@ -820,7 +820,7 @@ const Paths=[
                 dirY: 0,
                 index : 1,
             },
-            {
+            {// Abajo
                 x: 2226.00,
                 y: 4910,
                 offsetX: 50,
@@ -829,7 +829,7 @@ const Paths=[
                 dirY: 1,
                 index : 2,
             },
-            {
+            {// Derecha
                 x: 2717.00,
                 y: 4910,
                 offsetX: 50,
@@ -838,7 +838,7 @@ const Paths=[
                 dirY: 0,
                 index : 3,
             },
-            {
+            {// Arriba
                 x: 2717.00,
                 y: 4380,
                 offsetX: 50,
@@ -847,7 +847,7 @@ const Paths=[
                 dirY: -1,
                 index : 4,
             },
-            {
+            {// Izquierda
                 x: 2226.00,
                 y: 4380,
                 offsetX: 50,
@@ -862,7 +862,7 @@ const Paths=[
         name: 'Oficinista',
         state : "Move",
         path :[
-            {
+            {// Derecha
                 x: 6760.00,
                 y: 5574,
                 offsetX: 5,
@@ -871,7 +871,7 @@ const Paths=[
                 dirY: 0,
                 index : 1,
             },
-            {
+            {// Izquierda
                 x: 5400.00,
                 y: 5574,
                 offsetX: 5,
