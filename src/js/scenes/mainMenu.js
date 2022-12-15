@@ -53,8 +53,8 @@ export default class mainMenu extends Phaser.Scene
     
         // Al hacer click en el boton
         this.playbutton.on("pointerdown", () => { this.clickSound.play(); this.music.stop(); this.scene.start('createNewspaper', 
-        {diaActual: 'PrimerDia',_nDay: 0, _money: 200, _confianza: [0,0,0,0], 
-         _mainVolume: this.mainVolume, _effectsVolume: this.effectsVolume, _isMainMute: this.isMainMute, _isEffectsMute: this.isEffectsMute}); });
+        {diaActual: 'PrimerDia',_nDay: 0, _money: 50, _confianza: [0,0,0,0], 
+         _mainVolume: this.mainVolume, _effectsVolume: this.effectsVolume, _isMainMute: this.isMainMute, _isEffectsMute: this.isEffectsMute, _continueSong: false}); });
 
         // BOTON OPCIONES
         this.optionsbutton = this.add.sprite(650,600, 'optionsButton').setInteractive();

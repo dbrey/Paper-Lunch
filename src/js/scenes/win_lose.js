@@ -11,7 +11,6 @@ export default class win_lose extends Phaser.Scene {
         this.effectsVolume = data._effectsVolume // Volumen efectos
         this.isMainMute = data._isMainMute; // Booleano si esta la musica muteada
         this.isEffectsMute = data._isEffectsMute; // Booleano si estan los efectos muteados 
-
     }
 
     create() 

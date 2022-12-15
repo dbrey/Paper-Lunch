@@ -4,7 +4,6 @@ export default class Day4 extends DIA_DEFAULT
 {
     constructor() {
         super( 'CuartoDia', 
-        'PrimerDia',
         'QuintoDia',);
 
         

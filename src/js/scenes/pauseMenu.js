@@ -21,8 +21,11 @@ export default class PauseMenu extends Phaser.Scene
       this.backMain = this.add.sprite(400,400, 'backgroundOptionsPause');
       this.backMain.setScale(3.5,7);
 
-      this.miniMapa = this.add.image(950, 400, 'miniMap');
+      this.miniMapa = this.add.image(950, 300, 'miniMap');
       this.miniMapa.setScale(0.5);
+
+      this.leyenda = this.add.image(950, 650, 'leyenda');
+      this.leyenda.setScale(0.5);
 
         // Resume to level
       this.resumeButton = this.add.sprite(400,250, 'resumeButton').setInteractive();
@@ -203,8 +206,6 @@ export default class PauseMenu extends Phaser.Scene
             this.dayGame.isEffectsMute = !this.dayGame.isEffectsMute;
          });
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
       // Pasamos todo a invisible
       this.changeOptionsPanel(false);
     

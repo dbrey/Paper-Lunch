@@ -101,6 +101,7 @@ Cada día, el jugador empieza preparando los periódicos, y tras personalizar su
 - Andar/Correr: WASD y mantener SHIFT para correr
 - E : Vender periódicos
 - ESC : Abrir menú de pausa
+- Hacer click en diferentes botones, en la escena de preparacion del periodico
 
 
 5. **Mecánicas**
@@ -122,7 +123,7 @@ El jugador puede moverse en un mapa topdown hacia el norte,sur este u oeste. Pue
   - Hay un valor de confianza por cada distrito. Este puede subir o bajar solo al crear nuevos periódicos, dependiendo de cual elija el jugador
 - *Dinero*
   - Necesario para poder llegar a la meta final y generar nuevos periódicos
-Puede conseguirse vendiendo periódicos. 1 periodico = X monedas
+Puede conseguirse vendiendo periódicos. 1 venta = 2 monedas
 Puede conseguirse poniendo anuncios, a cambio de confianza
 
 8. **Preparación del periodico**
@@ -136,12 +137,12 @@ Al inicio del dia, el jugador prepara el periodico en el que tiene en cuenta las
 - Número de periódicos:
   - Generar periódicos cuesta 1 moneda por periodico. Lo ideal es generar suficientes periódicos teniendo en cuenta cuantos va a poder vender en el día según el titular y la confianza entre los vecinos
 - Anuncios:
-  - Para poder incluir anuncios, es necesario un nivel mínimo de confianza , ya que poner anuncios consume esta estadística, a cambio de conseguir más dinero
+  - Para poder incluir anuncios, es necesario un nivel mínimo de confianza , ya que poner anuncios consume esta estadística, a cambio de ganar 0.25 monedas por periodico. 
 
 9. **CIUDAD**
 - *Bono del bus*
 
-  - El jugador puede comprar un ticket para el bus y así poder moverse de un punto a otro de la ciudad, permitiéndole llegar mucho más lejos y así vender en más zonas. Un ticket a otro punto del mapa cuesta X monedas
+  - El jugador puede comprar un ticket para el bus y así poder moverse de un punto a otro de la ciudad, permitiéndole llegar mucho más lejos y así vender en más zonas. Un ticket a otro punto del mapa cuesta 5 monedas
 - *Kioskos*
   - Alcanzado cierto nivel de confianza en un distrito será posible vender varios periódicos en ese distrito
 - *Interacción con NPCs*

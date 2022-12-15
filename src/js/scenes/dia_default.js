@@ -151,30 +151,29 @@ export default class DIA_DEFAULT extends Phaser.Scene {
 
 
     finDia(){
-        this.scene.start('createNewspaper');
-
+        // Si no es el ultimo dia y no tenemos suficiente dinero, entonces continuamos a seleccionar el periodico del siguiente dia
         if(this.diaActual != 'SeptimoDia'&& this.player.getDinero() < 200 )
         {
             this.scene.start('createNewspaper', {diaActual: this.nextDay,  _money: this.player.getDinero(), _nDay: this.nDay, _confianza: this._myTrust,  
-                _mainVolume: this.mainVolume, _effectsVolume: this.effectsVolume, _isMainMute: this.isMainMute, _isEffectsMute: this.isEffectsMute});
+                _mainVolume: this.mainVolume, _effectsVolume: this.effectsVolume, _isMainMute: this.isMainMute, _isEffectsMute: this.isEffectsMute, _continueSong: true});
         }
         else
         {
             this.music.stop();
+
+            // Pantalla de ganar y perder
             if(this.player.getDinero() > 300)
             {
                 this.scene.start('win_lose', {_win: true, _mainVolume: this.mainVolume, _effectsVolume: this.effectsVolume, _isMainMute: this.isMainMute, _isEffectsMute: this.isEffectsMute});
             }
             else
             {
-                this.scene.start('win_lose', {_win: false, _mainVolume: this.mainVolume, _effectsVolume: this.effectsVolume, _isMainMute: this.isMainMute, _isEffectsMute: this.isEffectsMute});
+                this.scene.start('win_lose', {_win: false, _mainVolume: this.mainVolume, _effectsVolume: this.effectsVolume, _isMainMute: this.isMainMute, _isEffectsMute: this.isEffectsMute,});
             }           
-            // Cambiar a menu de ganar y perder
-
-            // Pasar mainVolume,effectsVolume, isMainMute, isEffectsMute por referencia
         }
 
     }
+
 
 
     comienzaDialogo(text){

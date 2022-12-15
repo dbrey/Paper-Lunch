@@ -178,10 +178,9 @@ export class Newspaper{
     getTrust(){ return this.trust;}
 }
 
-//clase Anuncio
+//Clase Anuncio
 export class Ad{
     constructor(scene, _posX, _posY, _activated, _imgId){
-        //super(scene);
         scene.add.existing(this);
 
         this.x = _posX;
@@ -192,7 +191,7 @@ export class Ad{
         else this.button = scene.add.image(_posX, _posY, 'adBlocked').setInteractive();
         this.button.setScale(0.12);
 
-        //Eventos del boton
+        //Si selecciona el anuncio, cambia el precio del periodico a generar
         this.button.on('pointerdown', () => {
             if (this.available && !this.selected) {this.selected = true; scene.modifyNewspaperPrice(true); }
             else if (this.available && this.selected) {this.selected = false; scene.modifyNewspaperPrice(false); } 
@@ -212,10 +211,10 @@ export class Ad{
 
 }
 
+// Barra de confianza que se muestra en el HUD
 export default class TrustMeasurer extends Phaser.GameObjects.Sprite{
     constructor(scene, x, y){
     super(scene, x, y);
-    // Añadirlo a la escena
     this.scene.add.existing(this);
     this.myS = scene;
 
@@ -287,7 +286,6 @@ export default class TrustMeasurer extends Phaser.GameObjects.Sprite{
         repeat: 0
     });
 
-    //this.play('noTrust');
     }
 
     checkAnims(trust){

@@ -18,10 +18,10 @@ export default class TP extends Phaser.GameObjects.Sprite{
     }
 
     teleport(tpx, tpy){
-        if(this.player.getDinero() >= 10){
+        if(this.player.getDinero() >= 5){
         this.player.x = tpx;
         this.player.y = tpy;
-        this.player.changeDinero(-10);
+        this.player.changeDinero(-5);
         this.player.resetInput();
         
         }

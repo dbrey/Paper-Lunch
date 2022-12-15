@@ -43,7 +43,11 @@ export default class Boot extends Phaser.Scene {
     this.load.image('BarraAmarilla', 'assets/sprites/UI/MarcoEspanol.png');
     this.load.spritesheet('BarraConfianza', 'assets/sprites/UI/barraConfianza.png', {frameWidth: 20, frameHeight: 75});
     
-    this.load.image('miniMap', 'assets/sprites/minimap.png')
+    this.load.image('miniMap', 'assets/sprites/UI/Mapa.png')
+    this.load.image('leyenda', 'assets/sprites/UI/Leyend.png')
+
+
+
 
     this.load.image('dialogBar', 'assets/sprites/UI/dialogBar.png');
 

@@ -12,23 +12,27 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.nDay= data._nDay;                  // Dia para los periodicos
         this.money = data._money;               //Dinero con el que empieza
         this.confianza = data._confianza;
-        this.mainVolume = data._mainVolume; // Volumen musica
+        this.mainVolume = data._mainVolume;     // Volumen musica
         this.effectsVolume = data._effectsVolume // Volumen efectos
-        this.isMainMute = data._isMainMute; // Booleano si esta la musica muteada
+        this.isMainMute = data._isMainMute;     // Booleano si esta la musica muteada
         this.isEffectsMute = data._isEffectsMute; // Booleano si estan los efectos muteados 
-
+        this.continueSong = data._continueSong; // Booleano para ver si es la primera vez que se debe tocar la cancion
     }
 
     //Creamos lo necesario para la escena
     create(){
         
+        // SONIDO
+        //----------------------------------------------------------------------------------------------------
         if(this.isMainMute) { this.music = this.sound.add('newsSoundtrack', {volume: 0}, {loop: true}); }
         else { this.music = this.sound.add('newsSoundtrack', {volume: this.mainVolume}, {loop: true}); }
-        this.music.play();
+        
+        if(!this.continueSong) { this.music.play(); }
+        
 
         if(this.isEffectsMute) { this.clickSound = this.sound.add('selPeriod', {volume: 0}, {loop: false}); }
         else { this.clickSound = this.sound.add('selPeriod', {volume: this.effectsVolume}, {loop: false});}
-
+        //----------------------------------------------------------------------------------------------------
 
         //Fondo de la escena
         this.Background=this.add.image(640,360,'BackgroundP');
@@ -58,7 +62,6 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.nums[2] = 0; this.nums[1] = 0; this.nums[0] = 0;
 
         //Variables
-        this.money=200;                             //Dinero con el que empieza
         this.moneyLeft = 0;                         //Dinero resultate tras crear los periodicos
         this.moneySpent=this.money-this.moneyLeft;  //Dinero gastado en la creación de periódicos
         this.pricePerPaper=1;                       //Dinero que cuesta cada periódico
@@ -228,9 +231,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         
         
         this.moneyLeft=this.money-this.moneySpent;
-        /*
-        if (this.numNewspapers > 0) this.numNSelected = true;
-        else this.numNSelected = false;*/
+ 
         this.moneyLeftText.setText(this.moneyLeft);
         this.moneySpentText.setText('-'+this.moneySpent);
         this.numNSelected = (this.numNewspapers > 0);

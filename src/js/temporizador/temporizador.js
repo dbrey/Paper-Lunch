@@ -7,7 +7,7 @@ export default class Temporizador extends Phaser.GameObjects.GameObject {
         this.scene.add.existing(this);
 
         this.temporizador = 0;
-        this.horas=1;
+        this.horas=8;
         this.minutos=0;
         this.minutosTranscurridos = 0;
 
@@ -19,7 +19,7 @@ export default class Temporizador extends Phaser.GameObjects.GameObject {
         this.text.setFontSize(27);
 
 
-        this.horaFinJornada = 14;
+        this.horaFinJornada = 13;
         
     }
 
