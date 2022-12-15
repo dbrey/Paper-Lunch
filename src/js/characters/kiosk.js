@@ -59,6 +59,9 @@ export default class kiosk extends Phaser.GameObjects.Sprite{
                     this.scene.finalizaDialogo();
                 else if(this.scene.dialogManager.writting)
                     this.scene.terminaDialogo();
+                else if(this.player.getConfianzaInZone(this.kioskZone) < this.confianzaMinima){
+                    this.scene.comienzaDialogo(this.dialogs.noConfianza)
+                }
                 else {
                     if(this.bought)
                         this.scene.comienzaDialogo(this.dialogs.haComprado)

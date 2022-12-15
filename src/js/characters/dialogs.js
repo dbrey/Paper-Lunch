@@ -16,10 +16,10 @@ const Dialogs=[
     },    
     {
         name: 'auronplay',
-        compra : "Gracias por el periódico! Seguro que está muy interesante y me alegra la mañana. Muchas gracias!!",
-        noCompra : "Muchas gracias pero ahora mismo tengo prisa!",
-        haComprado : "Lo siento no necesito más periódicos, gracias!",
-        noHaComprado :  "Ya te he dicho que no me interesa"
+        compra : "Muchas gracias, me lo leeré cuando termine de correr!",
+        noCompra : "No gracias, ¿no ves que estoy corriendo?",
+        haComprado : "Pásate mañana si tienes un titular nuevo, vendré a correr aquí.",
+        noHaComprado :  "No me molestes más, necesito concentrarme."
 
     },
     {
@@ -53,7 +53,7 @@ const Dialogs=[
         noHaComprado :  "Ya te he dicho que no me interesa"
     },
     {
-        name: 'NinoPeroChef1',
+        name: 'NinoPeroChef2',
         compra : "Gracias por el periódico! Seguro que está muy interesante y me alegra la mañana. Muchas gracias!!",
         noCompra : "Muchas gracias pero ahora mismo tengo prisa!",
         haComprado : "Lo siento no necesito más periódicos, gracias!",

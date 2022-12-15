@@ -119,19 +119,19 @@ export default class Boot extends Phaser.Scene {
     this.load.spritesheet('auronplay', 'assets/sprites/npcs/auronplay.png', { frameWidth: 32, frameHeight: 52 });
     this.load.spritesheet('lacoletas', 'assets/sprites/npcs/lacoletas.png', { frameWidth: 32, frameHeight: 52 });
     this.load.spritesheet('messi', 'assets/sprites/npcs/messi.png', { frameWidth: 32, frameHeight: 52 });
-    this.load.spritesheet('NinoPeroCascos', 'assets/sprites/npcs/NinoPeroCascos.png', { frameWidth: 32, frameHeight: 52 });
+    this.load.spritesheet('NinoPeroCascos', 'assets/sprites/npcs/NinoPeroCascos.png', { frameWidth: 32, frameHeight: 46 });
     this.load.spritesheet('NinoPeroChef', 'assets/sprites/npcs/NinoPeroChef.png', { frameWidth: 32, frameHeight: 52 });
     this.load.spritesheet('NinoPeroChef2', 'assets/sprites/npcs/NinoPeroChef2.png', { frameWidth: 32, frameHeight: 52 });
     this.load.spritesheet('NinoPeroChef3', 'assets/sprites/npcs/NinoPeroChef3.png', { frameWidth: 32, frameHeight: 52 });
     this.load.spritesheet('NinoPeroChef4', 'assets/sprites/npcs/NinoPeroChef4.png', { frameWidth: 32, frameHeight: 52 });
     this.load.spritesheet('niñoCabezon', 'assets/sprites/npcs/niñoCabezon.png', { frameWidth: 32, frameHeight: 52 });
     this.load.spritesheet('niñoflequillo', 'assets/sprites/npcs/niñoflequillo.png', { frameWidth: 32, frameHeight: 52 });
-    this.load.spritesheet('Oficinista', 'assets/sprites/npcs/Oficinista.png', { frameWidth: 32, frameHeight: 52 });
+    this.load.spritesheet('Oficinista', 'assets/sprites/npcs/Oficinista.png', { frameWidth: 32, frameHeight: 54 });
     this.load.spritesheet('rubiacoletas', 'assets/sprites/npcs/rubiacoletas.png', { frameWidth: 32, frameHeight: 52 });
     this.load.spritesheet('señora1', 'assets/sprites/npcs/señora1.png', { frameWidth: 32, frameHeight: 52 });
     this.load.spritesheet('señorPendiente', 'assets/sprites/npcs/señorPendiente.png', { frameWidth: 32, frameHeight: 52 });
-    this.load.spritesheet('UnOtaku_1', 'assets/sprites/npcs/UnOtaku_1.png', { frameWidth: 32, frameHeight: 52 });
-    this.load.spritesheet('UnViejo_1', 'assets/sprites/npcs/UnViejo_1.png', { frameWidth: 32, frameHeight: 52 });
+    this.load.spritesheet('UnOtaku_1', 'assets/sprites/npcs/UnOtaku_1.png', { frameWidth: 32, frameHeight: 48 });
+    this.load.spritesheet('UnViejo_1', 'assets/sprites/npcs/UnViejo_1.png', { frameWidth: 32, frameHeight: 48 });
   }
 
   create() { this.scene.start('menu', {_mainVolume: 1, _effectsVolume: 1,_continue: false, _isMainMute: false, _isEffectsMute: false}); }

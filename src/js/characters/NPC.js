@@ -32,16 +32,6 @@ export default class NPC extends Phaser.GameObjects.Sprite {
 
 
 
-    if(this.path.state == "Move"){
-      this.indexPath = 0;
-      this.destinoX = this.path.path[this.indexPath].x;
-      this.destinoY = this.path.path[this.indexPath].y;
-      this.dirX =  this.path.path[this.indexPath].dirX;
-      this.dirY =  this.path.path[this.indexPath].dirY;
-      this.offsetX=this.path.path[this.indexPath].offsetX;
-      this.offsetY=this.path.path[this.indexPath].offsetY;
-      this.indexPath=this.path.path[this.indexPath].index;
-    }
 
     this.actionCoolDown = 120; //MILISEGUNDOS
     this.actualCoolDown = 0;
@@ -49,10 +39,7 @@ export default class NPC extends Phaser.GameObjects.Sprite {
 
     this.bought = false;
 
-    this.speed=100;
-
-    this.zonaTrigger.body.setVelocityX(this.dirX * this.speed);
-    this.zonaTrigger.body.setVelocityY(this.dirY * this.speed);
+    this.speed=200;
 
     this.scene.physics.add.existing(this);
     this.scene.physics.add.collider(this,scene.player);
@@ -120,6 +107,26 @@ export default class NPC extends Phaser.GameObjects.Sprite {
       frames: scene.anims.generateFrameNumbers(npcName, { start: 12, end: 12 }),
       repeat: -1
     });
+
+
+    if(this.path.state == "Move"){
+      this.indexPath = 0;
+      this.destinoX = this.path.path[this.indexPath].x;
+      this.destinoY = this.path.path[this.indexPath].y;
+      this.dirX =  this.path.path[this.indexPath].dirX;
+      this.dirY =  this.path.path[this.indexPath].dirY;
+      this.offsetX=this.path.path[this.indexPath].offsetX;
+      this.offsetY=this.path.path[this.indexPath].offsetY;
+      this.indexPath=this.path.path[this.indexPath].index;
+
+      this.zonaTrigger.body.setVelocityX(this.dirX * this.speed);
+      this.zonaTrigger.body.setVelocityY(this.dirY * this.speed);
+    }
+    else if(this.path.state=="NoMove"){
+      this.dirX = this.path.dirX;
+      this.dirY = this.path.dirY;
+    }
+
 
 
     this.body.setSize(32,32);
@@ -212,8 +219,8 @@ export default class NPC extends Phaser.GameObjects.Sprite {
     }
 
     if(this.path.state == "Move"){
-    //Comprobamos si hemos llegado al destino de la ruta para cambiar de destino
-    if((this.x >= this.destinoX && this.x <= this.destinoX + this.offsetX) && 
+      //Comprobamos si hemos llegado al destino de la ruta para cambiar de destino
+      if((this.x >= this.destinoX && this.x <= this.destinoX + this.offsetX) && 
       (this.y >= this.destinoY && this.y <= this.destinoY + this.offsetY)){
         
         this.destinoX = this.path.path[this.indexPath].x;
@@ -232,8 +239,6 @@ export default class NPC extends Phaser.GameObjects.Sprite {
         this.zonaTrigger.body.setVelocityY(this.dirY * this.speed);
       }
     }
-
-
     this.checkAnims();
   }
 
@@ -247,7 +252,7 @@ export default class NPC extends Phaser.GameObjects.Sprite {
 
   checkAnims() {
 
-    if(this.talking){
+    if(this.talking || this.path.state == "NoMove"){
       if(this.dirX===0){
         if(this.dirY===1)
           this.play('idleDown_'+  this.npcName);
