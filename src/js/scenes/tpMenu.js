@@ -9,6 +9,7 @@ export default class tpMenu extends Phaser.Scene
 
     init(data)
     {
+      //Referencias al tp que ha llamado a la escena y a la escena anterior
       this.tp = data.TP;
       this.lastScene = data.sceneName;
     }
@@ -23,6 +24,7 @@ export default class tpMenu extends Phaser.Scene
       this.backMain = this.add.sprite(650,400, 'metroMap');
       this.backMain.setScale(0.5);
 
+      //Creacion de botones
       this.resumeButton = this.add.sprite(650,75, 'resumeButton').setInteractive();
      this.resumeButton.setScale(5);
               
@@ -30,6 +32,7 @@ export default class tpMenu extends Phaser.Scene
      this.resumeButton.on('pointerover', event => { this.resumeButton.setTexture('resumeButtonMouseOn'); this.resumeButton.setScale(5);});
      this.resumeButton.on('pointerout', event => { this.resumeButton.setTexture('resumeButton'); this.resumeButton.setScale(5);});
 
+     //Ifs para ver si el boton es en el tp en el que estas, si es aquel, no lo crees
      if(this.tp.tpID != 1){
       this.tp1Button = this.add.sprite(426, 200, 'selectionTp').setInteractive();
       this.tp1Button.setScale(0.5);
@@ -70,15 +73,10 @@ export default class tpMenu extends Phaser.Scene
 
     resume()
     {
+      //se destruye y se vuelve a la escena anterior
       this.scene.resume(this.lastScene);
       this.scene.stop();
-        /*this.backgroundPaper.destroy();
-        this.backMain.destroy();
-        this.resumeButton.destroy();
-        if(this.tp.tpID != 1){this.tp1Button.destroy();}
-        if(this.tp.tpID != 2){this.tp2Button.destroy();}
-        if(this.tp.tpID != 3){this.tp3Button.destroy();}
-        if(this.tp.tpID != 4){this.tp4Button.destroy();}*/
+    
     
     }
   }
