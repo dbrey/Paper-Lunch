@@ -32,6 +32,9 @@ export default class DIA_DEFAULT extends Phaser.Scene {
 
         if(this.isEffectsMute) { this.clickSound = this.sound.add('numKey', {volume: 0}, {loop: false}); }
         else { this.clickSound = this.sound.add('numKey', {volume: this.effectsVolume}, {loop: false});}
+
+        if(this.isEffectsMute) { this.clickSoundP = this.sound.add('selPeriod', {volume: 0}, {loop: false}); }
+        else { this.clickSoundP = this.sound.add('selPeriod', {volume: this.effectsVolume}, {loop: false});}
         //----------------------------------------------------------------------------------------------------
 
         //Fondo de la escena
@@ -198,6 +201,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
 
     //Controla si hay un titulo seleccionado (cambia para indicar si si o si no)
     changeTitleSelected(value){
+        this.clickSoundP.play();
         this.titleSelected = value;
         this.checkContinueButton();
     }
