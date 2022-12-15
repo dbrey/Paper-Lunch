@@ -75,9 +75,9 @@ const Dialogs=[
     },
     {
         name: 'niñoCabezon',
-        compra : "Pero bueno Folagooooorrr!! Buen periódico, me lo llevo",
-        noCompra : "Si hombre, con ese dinero me compro una esquina de Fortnite.",
-        haComprado : "Lo siento no necesito más periódicos, gracias!",
+        compra : "Pero bueno Folagooooorrr!! Buen periódico, me lo llevo. Siuuuu",
+        noCompra : "Si hombre, con ese dinero me compro una skin de Fortnite.",
+        haComprado : "Madre mía hija mía, más un poco y estás aquí *se señala la cara*",
         noHaComprado :  "Te he dicho que no, prefiero gastarlo en diamante 'pal free'."
     },
     {
