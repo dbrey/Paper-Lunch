@@ -32,6 +32,9 @@ export default class DIA_DEFAULT extends Phaser.Scene {
 
         if(this.isEffectsMute) { this.clickSound = this.sound.add('numKey', {volume: 0}, {loop: false}); }
         else { this.clickSound = this.sound.add('numKey', {volume: this.effectsVolume}, {loop: false});}
+
+        if(this.isEffectsMute) { this.clickSoundP = this.sound.add('selPeriod', {volume: 0}, {loop: false}); }
+        else { this.clickSoundP = this.sound.add('selPeriod', {volume: this.effectsVolume}, {loop: false});}
         //----------------------------------------------------------------------------------------------------
 
         //Fondo de la escena
@@ -65,11 +68,11 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.moneyLeft = 0;                         //Dinero resultate tras crear los periodicos
         this.moneySpent=this.money-this.moneyLeft;  //Dinero gastado en la creación de periódicos
         this.pricePerPaper=1;                       //Dinero que cuesta cada periódico
-        this.trustFinal = [0, 0, 0, 0];
-        this.trustP1 = [0, 0, 0, 0];                  //Array de confianza (una por periodico)
-        this.trustP2 = [0, 0, 0, 0];                  //Array de confianza (una por periodico)
-        this.trustP3 = [0, 0, 0, 0];                  //Array de confianza (una por periodico)
-        this.trustP4 = [0, 0, 0, 0];                  //Array de confianza (una por periodico)
+        this.trustFinal = [0, 0, 0, 0];             //Arrays de confianza (una por periodico y una final)
+        this.trustP1 = [0, 0, 0, 0];                  
+        this.trustP2 = [0, 0, 0, 0];                  
+        this.trustP3 = [0, 0, 0, 0];                  
+        this.trustP4 = [0, 0, 0, 0];                  
         this.NTrust=[this.trustP1,this.trustP2,this.trustP3,this.trustP4]; //Array de arrays con las confianzas
         
         this.NHeadLine=['','','',''];               //Titulares
@@ -77,8 +80,8 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.titleSelected = false;                 //Booleanos de control para saber si se puede pasar a la siguiente escena
         this.numNSelected = false;
 
-        this.information();                         //Funciones de asignación de datos
-        this.searchInfo();
+        this.information();                         //Renderiza los textos necesarios para que el jugador sepa que hacer
+        this.searchInfo();                          //Busca la informacion de los periodicos de ESTE día
 
 
         //Asignamos las flechas
@@ -91,8 +94,6 @@ export default class DIA_DEFAULT extends Phaser.Scene {
             this.arrows[i].on('pointerover', () => {this.arrows[i].setScale(0.1);});
             this.arrows[i].on('pointerout', () => {this.arrows[i].setScale(0.08);});
         }
-
-        
 
         //Array de periodicos
         this.newspapers = [];
@@ -115,9 +116,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         }
 
         
-        //Boton de pasar a la siguiente escena, con su evento
-        // this.continueButton = this.add.sprite(1000, 600, 'continueButtonBlocked').setInteractive();
-        // this.continueButton.setScale(0.3);
+        //Boton de pasar a la siguiente escena, sin eventos (esta desactivado);
         this.continueButton = this.add.image(1000, 600, 'continueButtonBlocked');
         this.continueButton.setScale(0.3);
         
@@ -198,6 +197,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
 
     //Controla si hay un titulo seleccionado (cambia para indicar si si o si no)
     changeTitleSelected(value){
+        this.clickSoundP.play();
         this.titleSelected = value;
         this.checkContinueButton();
     }
@@ -239,7 +239,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.numNSelected = (this.numNewspapers > 0);
         this.checkContinueButton();
     }
-
+    //Recorremos los anuncios y dependiendo de si esta activado afecta o no a la confianza
     adsEffect(){
         for (let i = 0; i < 4; i++){
             if (this.ads[i].getSelected()){
@@ -250,7 +250,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         }
 
     }
-
+    //Suma la confianza seleccionada este dia con la que arrastras de dias anteriores
     keepTrust(){
         this.trustFinal[0] += this.confianza[0];
         this.trustFinal[1] += this.confianza[1];
@@ -261,6 +261,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
     //Actualizamos el boton de continuar en cuestion de si hay un titulo seleccionado y el num de periodicos no es 0
     checkContinueButton()
     {
+        //Si cumple las condiciones, el boton se activa
        if (this.titleSelected && this.numNSelected&&this.moneyLeft>=0)
        {
         this.continueButton = this.add.image(1000, 600, 'continueButton').setInteractive();
