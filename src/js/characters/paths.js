@@ -650,7 +650,12 @@ const Paths=[
         dirX : 1,
         dirY : 0
     },
-
+    {
+        name: 'Pita',
+        state : "NoMove",
+        dirX : 0,
+        dirY : 1
+    },
     {
         name: 'señorPendiente',
         state : "Move",

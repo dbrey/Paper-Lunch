@@ -131,7 +131,7 @@ export default class Boot extends Phaser.Scene {
     this.load.spritesheet('rubiacoletas', 'assets/sprites/npcs/rubiacoletas.png', { frameWidth: 32, frameHeight: 52 });
     this.load.spritesheet('señora1', 'assets/sprites/npcs/señora1.png', { frameWidth: 32, frameHeight: 52 });
     this.load.spritesheet('señorPendiente', 'assets/sprites/npcs/señorPendiente.png', { frameWidth: 32, frameHeight: 52 });
-    this.load.spritesheet('mariaPita', 'assets/sprites/npcs/Pita.png', { frameWidth: 32, frameHeight: 52 });
+    this.load.spritesheet('Pita', 'assets/sprites/npcs/Pita.png', { frameWidth: 32, frameHeight: 52 });
     this.load.spritesheet('UnOtaku_1', 'assets/sprites/npcs/UnOtaku_1.png', { frameWidth: 32, frameHeight: 48 });
     this.load.spritesheet('UnViejo_1', 'assets/sprites/npcs/UnViejo_1.png', { frameWidth: 32, frameHeight: 48 });
   }

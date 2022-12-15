@@ -67,6 +67,13 @@ const Dialogs=[
         noHaComprado :  "Dejáme en paz. Yo he estudiado, ¿tú que has hecho en la vida?"
     },
     {
+        name: 'Pita',
+        compra : "Madre mía que LOCURA!",
+        noCompra : "Bastante inglés este periódico",
+        haComprado : "Gibraltar español",
+        noHaComprado :  "Me suda el coño"
+    },
+    {
         name: 'NinoPeroChef4',
         compra : "Espero que me deje buen sabor de boca",
         noCompra : "Lo siento, a tu periódico le falta sabor",
