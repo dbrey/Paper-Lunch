@@ -2,6 +2,7 @@ const Paths=[
     {
         name: 'aliade',
         state : "Move",
+        speed : 30,
         path : [
             {
                 x: 3816.00,
@@ -127,6 +128,7 @@ const Paths=[
     {
         name: 'auronplay',
         state : "Move",
+        speed : 60,
         path : [
             {
                 x: 2070.00,
@@ -151,6 +153,7 @@ const Paths=[
     {
         name: 'lacoletas',
         state : "Move",
+        speed : 40,
         path : [
             {
                 x: 1155.00,
@@ -362,6 +365,7 @@ const Paths=[
     {
         name: 'NinoPeroCascos',
         state : "Move",
+        speed : 35,
         path :[
             {
                 x: 905.00,
@@ -386,6 +390,7 @@ const Paths=[
     {
         name: 'NinoPeroChef',
         state : "Move",
+        speed : 35,
         path :[
             {
                 x: 3590.00,
@@ -635,6 +640,7 @@ const Paths=[
     {
         name: 'NinoPeroChef2',
         state : "NoMove",
+        speed : 35,
         dirX : 0,
         dirY : 1
     },
@@ -654,6 +660,7 @@ const Paths=[
     {
         name: 'señorPendiente',
         state : "Move",
+        speed : 50,
         path :[
             {
                 x: 6550.00,
@@ -696,6 +703,7 @@ const Paths=[
     {
         name: 'UnOtaku_1',
         state : "Move",
+        speed : 10,
         path :[
             {
                 x: 7240.00,
@@ -720,6 +728,7 @@ const Paths=[
     {
         name: 'rubiacoletas',
         state : "Move",
+        speed : 20,
         path :[
             {
                 x: 5750.00,
@@ -744,6 +753,7 @@ const Paths=[
     {
         name: 'niñoflequillo',
         state : "Move",
+        speed : 30,
         path :[
             {
                 x: 1900.00,
@@ -768,6 +778,7 @@ const Paths=[
     {
         name: 'NinoPeroChef4',
         state : "Move",
+        speed : 35,
         path :[
             {
                 x: 4330.00,
@@ -810,6 +821,7 @@ const Paths=[
     {
         name: 'NinoPeroChef3',
         state : "Move",
+        speed : 35,
         path :[
             {
                 x: 2226.00,
@@ -861,6 +873,7 @@ const Paths=[
     {
         name: 'Oficinista',
         state : "Move",
+        speed : 60,
         path :[
             {
                 x: 6760.00,
@@ -885,6 +898,7 @@ const Paths=[
     {
         name: 'UnViejo_1',
         state : "Move",
+        speed : 10,
         path :[
             { //Derecha
                 x: 6428.00,
