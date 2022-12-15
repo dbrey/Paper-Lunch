@@ -8,7 +8,6 @@ export default class Boot extends Phaser.Scene {
   preload() {
     //Jugador
     this.load.spritesheet('Player', 'assets/sprites/ameliaV2.png', { frameWidth: 36, frameHeight: 56 });
-    this.load.spritesheet('Rodolfo', 'assets/sprites/NPC.png', { frameWidth: 64, frameHeight: 66 });
 
     // UI
     this.load.image('playButton', 'assets/sprites/UI/play_button.png');
@@ -109,6 +108,26 @@ export default class Boot extends Phaser.Scene {
     this.load.audio('numKey', 'assets/sounds/NumKeyPressed.wav');
     this.load.audio('sold', 'assets/sounds/Sold.wav');
     
+    this.load.audio('click', 'assets/sounds/click_sound_effect.mp3');
+
+    // Npcs
+    this.load.spritesheet('aliade', 'assets/sprites/npcs/aliade.png', { frameWidth: 32, frameHeight: 52 });
+    this.load.spritesheet('auronplay', 'assets/sprites/npcs/auronplay.png', { frameWidth: 32, frameHeight: 52 });
+    this.load.spritesheet('lacoletas', 'assets/sprites/npcs/lacoletas.png', { frameWidth: 32, frameHeight: 52 });
+    this.load.spritesheet('messi', 'assets/sprites/npcs/messi.png', { frameWidth: 32, frameHeight: 52 });
+    this.load.spritesheet('NinoPeroCascos', 'assets/sprites/npcs/NinoPeroCascos.png', { frameWidth: 32, frameHeight: 52 });
+    this.load.spritesheet('NinoPeroChef', 'assets/sprites/npcs/NinoPeroChef.png', { frameWidth: 32, frameHeight: 52 });
+    this.load.spritesheet('NinoPeroChef2', 'assets/sprites/npcs/NinoPeroChef2.png', { frameWidth: 32, frameHeight: 52 });
+    this.load.spritesheet('NinoPeroChef3', 'assets/sprites/npcs/NinoPeroChef3.png', { frameWidth: 32, frameHeight: 52 });
+    this.load.spritesheet('NinoPeroChef4', 'assets/sprites/npcs/NinoPeroChef4.png', { frameWidth: 32, frameHeight: 52 });v
+    this.load.spritesheet('niñoCabezon', 'assets/sprites/npcs/niñoCabezon.png', { frameWidth: 32, frameHeight: 52 });
+    this.load.spritesheet('niñoflequillo', 'assets/sprites/npcs/niñoflequillo.png', { frameWidth: 32, frameHeight: 52 });
+    this.load.spritesheet('Oficinista', 'assets/sprites/npcs/Oficinista.png', { frameWidth: 32, frameHeight: 52 });
+    this.load.spritesheet('rubiacoletas', 'assets/sprites/npcs/rubiacoletas.png', { frameWidth: 32, frameHeight: 52 });
+    this.load.spritesheet('señora1', 'assets/sprites/npcs/señora1.png', { frameWidth: 32, frameHeight: 52 });
+    this.load.spritesheet('señorPendiente', 'assets/sprites/npcs/señorPendiente.png', { frameWidth: 32, frameHeight: 52 });
+    this.load.spritesheet('UnOtaku_1', 'assets/sprites/npcs/UnOtaku_1.png', { frameWidth: 32, frameHeight: 52 });
+    this.load.spritesheet('UnViejo_1', 'assets/sprites/npcs/UnViejo_1.png', { frameWidth: 32, frameHeight: 52 });
   }
 
   create() { this.scene.start('menu', {_mainVolume: 1, _effectsVolume: 1,_continue: false, _isMainMute: false, _isEffectsMute: false}); }

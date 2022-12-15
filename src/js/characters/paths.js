@@ -1,6 +1,7 @@
 const Paths=[
     {
-        name: 'Rodolfo',
+        name: 'aliade',
+        state : "Move",
         path : [
             {
                 x: 3816.00,
@@ -122,8 +123,10 @@ const Paths=[
             }
 
         ]
-
+    },
+    {
+        name: 'Rodolfo',
+        state : "NoMove"
     }
-    
 ]
 export default Paths

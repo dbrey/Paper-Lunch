@@ -12,6 +12,7 @@ export default class NPC extends Phaser.GameObjects.Sprite {
     this.overlaping = false;
     this.path;
 
+
     this.zonaTrigger = this.scene.add.zone(x, y);
     this.zonaTrigger.setSize(zoneWidth, zoneHeight);
     this.scene.physics.world.enable(this.zonaTrigger);
@@ -29,14 +30,18 @@ export default class NPC extends Phaser.GameObjects.Sprite {
       if (Dialogs[i].name === npcName) this.dialogs = Dialogs[i];
     }
 
-    this.indexPath = 0;
-    this.destinoX = this.path.path[this.indexPath].x;
-    this.destinoY = this.path.path[this.indexPath].y;
-    this.dirX =  this.path.path[this.indexPath].dirX;
-    this.dirY =  this.path.path[this.indexPath].dirY;
-    this.offsetX=this.path.path[this.indexPath].offsetX;
-    this.offsetY=this.path.path[this.indexPath].offsetY;
-    this.indexPath=this.path.path[this.indexPath].index;
+
+
+    if(this.path.state == "Move"){
+      this.indexPath = 0;
+      this.destinoX = this.path.path[this.indexPath].x;
+      this.destinoY = this.path.path[this.indexPath].y;
+      this.dirX =  this.path.path[this.indexPath].dirX;
+      this.dirY =  this.path.path[this.indexPath].dirY;
+      this.offsetX=this.path.path[this.indexPath].offsetX;
+      this.offsetY=this.path.path[this.indexPath].offsetY;
+      this.indexPath=this.path.path[this.indexPath].index;
+    }
 
     this.actionCoolDown = 120; //MILISEGUNDOS
     this.actualCoolDown = 0;
@@ -44,13 +49,15 @@ export default class NPC extends Phaser.GameObjects.Sprite {
 
     this.bought = false;
 
-    this.speed=30;
+    this.speed=100;
 
     this.zonaTrigger.body.setVelocityX(this.dirX * this.speed);
     this.zonaTrigger.body.setVelocityY(this.dirY * this.speed);
 
     this.scene.physics.add.existing(this);
     this.scene.physics.add.collider(this,scene.player);
+
+
     this.body.setImmovable();
 
 
@@ -67,58 +74,63 @@ export default class NPC extends Phaser.GameObjects.Sprite {
     //ANIMACIONES    
     scene.anims.create({
       key: 'leftNPC_' + npcName,
-      frames: scene.anims.generateFrameNumbers(npcName, { start: 4, end: 7 }),
+      frames: scene.anims.generateFrameNumbers(npcName, { start: 16, end: 19 }),
       frameRate: 7,
       repeat: -1
     });
     scene.anims.create({
       key: 'idleLeft_' + npcName,
-      frames: scene.anims.generateFrameNumbers(npcName, { start: 4, end: 4 }),
+      frames: scene.anims.generateFrameNumbers(npcName, { start: 16, end: 16 }),
       repeat: -1
     });
 
     scene.anims.create({
       key: 'upNPC_' + npcName,
-      frames: scene.anims.generateFrameNumbers(npcName, { start: 12, end: 15 }),
+      frames: scene.anims.generateFrameNumbers(npcName, { start: 8, end: 11 }),
       frameRate: 7,
       repeat: -1
     });
     scene.anims.create({
       key: 'idleUp_'+npcName,
-      frames: scene.anims.generateFrameNumbers(npcName, { start: 12, end: 12 }),
+      frames: scene.anims.generateFrameNumbers(npcName, { start: 8, end: 8 }),
       repeat: -1
     });
 
     scene.anims.create({
       key: 'idleDown_' + npcName,
-      frames: scene.anims.generateFrameNumbers(npcName, { start: 0, end: 0 }),
+      frames: scene.anims.generateFrameNumbers(npcName, { start: 0, end: 3 }),
       frameRate: 7,
       repeat: -1
     });
 
     scene.anims.create({
       key: 'downNPC_' + npcName,
-      frames: scene.anims.generateFrameNumbers(npcName, { start: 0, end: 3 }),
+      frames: scene.anims.generateFrameNumbers(npcName, { start: 4, end: 7 }),
       frameRate: 7,
       repeat: -1
     });
     scene.anims.create({
       key: 'rightNPC_' + npcName,
-      frames: scene.anims.generateFrameNumbers(npcName, { start: 8, end: 11 }),
+      frames: scene.anims.generateFrameNumbers(npcName, { start: 12, end: 15 }),
       frameRate: 7,
       repeat: -1
     });
     scene.anims.create({
       key: 'idleRight_'+npcName,
-      frames: scene.anims.generateFrameNumbers(npcName, { start: 8, end: 8 }),
+      frames: scene.anims.generateFrameNumbers(npcName, { start: 12, end: 12 }),
       repeat: -1
     });
+
+
+    this.body.setSize(32,32);
+    this.setDisplaySize(32,52);
   }
 
 
   preUpdate(t, d) {
     //Llamamos al super para las animaciones
     super.preUpdate(t, d);
+
 
     //SI LA PROBABILIDAD DE QUE COMPRE ES MAYOR QUE LA CONFIANZA QUE TIENES, LE COMPRAS EL PERIÓDICO
     if(Phaser.Geom.Intersects.RectangleToRectangle(this.zonaTrigger.getBounds(),this.player.getBounds())){
@@ -199,7 +211,7 @@ export default class NPC extends Phaser.GameObjects.Sprite {
       else this.actualCoolDown+=d;
     }
 
-
+    if(this.path.state == "Move"){
     //Comprobamos si hemos llegado al destino de la ruta para cambiar de destino
     if((this.x >= this.destinoX && this.x <= this.destinoX + this.offsetX) && 
       (this.y >= this.destinoY && this.y <= this.destinoY + this.offsetY)){
@@ -219,6 +231,8 @@ export default class NPC extends Phaser.GameObjects.Sprite {
         this.zonaTrigger.body.setVelocityX(this.dirX * this.speed);
         this.zonaTrigger.body.setVelocityY(this.dirY * this.speed);
       }
+    }
+
 
     this.checkAnims();
   }
