@@ -177,7 +177,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
 
     comienzaDialogo(text){
         this.ui.activeDialogBar();
-        this.player.changePlayerState();
+        this.player.changePlayerState(false);
         this.dialogManager.updatePosition(this.player.x - CT.offsetDialogX, this.player.y + CT.offsetDialogY);
         this.dialogManager.startWritting(text);
     }
@@ -189,7 +189,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
     finalizaDialogo(){
         this.dialogManager.clearText();
         this.ui.desactiveDialogBar();
-        this.player.changePlayerState();
+        this.player.changePlayerState(true);
     }
 
     playSound(string)

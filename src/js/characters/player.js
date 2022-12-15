@@ -22,9 +22,8 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.action = scene.input.keyboard.addKey('E');
     this.alreadyShown=false;
 
-    // Variables
+    // Variables para el juego
     this.speed = 175;
-    
     this.dinero = _money;
     this.confianza = _myTrust;
     this.periodicos = _numN;
@@ -142,6 +141,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.body.setVelocityY(0);
   }
 
+  //Resetea el input
   resetInput(){
     this.cursors.left.reset();
     this.cursors.up.reset();
@@ -165,27 +165,35 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.scene.playSound("sold")
   }
 
+
+  //Devuelve el número de periódicos
   numeroPeriodicos(){
     return this.periodicos;
   }
 
+
+  //Devuelve la confianza del barrio en el que nos encontramos
   getConfianza() {
     return this.confianza[this.currentDistrict];
   }
 
+  //Devuelve la confianza del barrio que se indique por parámetro
   getConfianzaInZone(id){
     return this.confianza[id];
   }
 
+  //Actualiza el barrio en el que nos encontramos
   setDistrict(id){
     this.currentDistrict=id;
   }
 
+  //Aumenta el dinero con la cantidad que se pasa como parámetro y se actualiza la UI
   changeDinero(amount) {
     this.dinero += amount;
     this.scene.ui.updateDinero();
   }
 
+  //Muestra la tecla interactuable si nos encontramos cerca de un Npc.
   showInteractable(){
     if(!this.alreadyShown){
       this.scene.ui.showInteractive();
@@ -193,6 +201,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
     }
   }
 
+  //Desactiva el interactuable
   removeInteractable(){
     if(this.alreadyShown){
       this.scene.ui.removeInteractive();
@@ -240,8 +249,6 @@ export default class Player extends Phaser.GameObjects.Sprite {
     if(this.periodicos <= 0)
       this.scene.finDia();
 
-
-
     //Al principio de cada preUpdate, el Player se para
     this.stopX()
     this.stopY()
@@ -256,8 +263,9 @@ export default class Player extends Phaser.GameObjects.Sprite {
   }
 
 
-  changePlayerState(){
-    this.canMove = !this.canMove;
+  //Cambia el estado del player
+  changePlayerState(move){
+    this.canMove = move;
   }
 
 
