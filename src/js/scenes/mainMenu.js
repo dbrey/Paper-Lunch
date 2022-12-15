@@ -43,13 +43,13 @@ export default class mainMenu extends Phaser.Scene
 
         // BOTON PLAY
         this.playbutton = this.add.sprite(650,450, 'playButton').setInteractive();
-        this.playbutton.setScale(6);
+        this.playbutton.setScale(4);
         
         // Si el raton esta encima del boton
-        this.playbutton.on('pointerover', event => { this.playbutton.setTexture('playButtonMouseOn'); this.playbutton.setScale(6); });
+        this.playbutton.on('pointerover', event => { this.playbutton.setTexture('playButtonMouseOn'); this.playbutton.setScale(5); });
 
         // Si el raton sale fuera del boton
-        this.playbutton.on('pointerout', event => { this.playbutton.setTexture('playButton'); this.playbutton.setScale(6); });
+        this.playbutton.on('pointerout', event => { this.playbutton.setTexture('playButton'); this.playbutton.setScale(4); });
     
         // Al hacer click en el boton
         this.playbutton.on("pointerdown", () => { this.clickSound.play(); this.music.stop(); this.scene.start('createNewspaper', 
@@ -58,13 +58,13 @@ export default class mainMenu extends Phaser.Scene
 
         // BOTON OPCIONES
         this.optionsbutton = this.add.sprite(650,600, 'optionsButton').setInteractive();
-        this.optionsbutton.setScale(6);
+        this.optionsbutton.setScale(4);
 
         // Si el raton esta encima del boton
-        this.optionsbutton.on('pointerover', event => { this.optionsbutton.setTexture('optionsButtonMouseOn'); this.optionsbutton.setScale(6);});
+        this.optionsbutton.on('pointerover', event => { this.optionsbutton.setTexture('optionsButtonMouseOn'); this.optionsbutton.setScale(5);});
 
         // Si el raton sale fuera del boton
-        this.optionsbutton.on('pointerout', event => { this.optionsbutton.setTexture('optionsButton'); this.optionsbutton.setScale(6); });
+        this.optionsbutton.on('pointerout', event => { this.optionsbutton.setTexture('optionsButton'); this.optionsbutton.setScale(4); });
 
         // Al hacer click en el boton
         this.optionsbutton.on("pointerdown",() => {this.scene.launch("options",{_scene: this, sceneName: "menu"});

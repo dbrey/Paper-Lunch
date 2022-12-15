@@ -72,7 +72,7 @@ export default class Boot extends Phaser.Scene {
     this.load.image('optionsBackground', 'assets/sprites/optionsBackground.jpg');
 
     // Logo
-    this.load.image('logo', 'assets/sprites/MangoGamesLogo.png');
+    this.load.image('logo', 'assets/sprites/paperlunchLogo.png');
 
     //Periodicos
     this.load.image('newspaper', 'assets/sprites/creatingNews/periodico.jpg');
