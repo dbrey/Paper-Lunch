@@ -7,7 +7,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
 
-    this.body.setSize(36, 45,false);
+    this.body.setSize(32, 40,false);
 
     //Input para el movimiento
     const { LEFT, RIGHT, UP, DOWN, W, A, S, D ,SHIFT} = Phaser.Input.Keyboard.KeyCodes;
@@ -60,7 +60,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
     scene.anims.create({
       key: 'idleDown',
       frames: scene.anims.generateFrameNumbers('Player', { start: 0, end: 3 }),
-      frameRate: 7,
+      frameRate: 2,
       repeat: -1
     });
 
