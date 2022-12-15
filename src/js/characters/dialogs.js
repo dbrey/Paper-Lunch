@@ -70,8 +70,8 @@ const Dialogs=[
         name: 'Pita',
         compra : "Madre mía que LOCURA!",
         noCompra : "Bastante inglés este periódico",
-        haComprado : "Gibraltar español",
-        noHaComprado :  "Me suda el coño"
+        haComprado : "Non teño máis cartos para máis xornais",
+        noHaComprado :  "Pareces ingles..."
     },
     {
         name: 'NinoPeroChef4',
