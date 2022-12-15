@@ -34,7 +34,7 @@ let config = {
 
     scene: [Boot, menu,news, d_default, dia1, dia2, dia3, dia4, dia5, dia6, dia7, options,pause,tpMenu, win_lose],
 
-    physics: { default: 'arcade', arcade: { debug: false } }
+    physics: { default: 'arcade', arcade: { debug: true } }
     };
 
 new Phaser.Game(config);
