@@ -34,14 +34,14 @@ export default class kiosk extends Phaser.GameObjects.Sprite{
             
             this.player.compraPeriodicos(Math.floor(Math.random() * (this.player.getConfianzaInZone(this.kioskZone) + this.periodicosMinimos)) + this.periodicosMinimos);
             
-            this.scene.comienzaDialogo(this.dialogs.dialog[0].text)
+            this.scene.comienzaDialogo(this.dialogs.compra)
 
             this.bought=true;
         }
         else if(this.player.getConfianzaInZone(this.kioskZone) < this.confianzaMinima) {
-            this.scene.comienzaDialogo(this.dialogs.dialog[4].text)
+            this.scene.comienzaDialogo(this.dialogs.noConfianza)
         }
-        else this.scene.comienzaDialogo(this.dialogs.dialog[1].text)
+        else this.scene.comienzaDialogo(this.dialogs.noCompra)
     }
 
     preUpdate(t, d){
@@ -61,9 +61,9 @@ export default class kiosk extends Phaser.GameObjects.Sprite{
                     this.scene.terminaDialogo();
                 else {
                     if(this.bought)
-                        this.scene.comienzaDialogo(this.dialogs.dialog[2].text)
+                        this.scene.comienzaDialogo(this.dialogs.haComprado)
                     else 
-                        this.scene.comienzaDialogo(this.dialogs.dialog[3].text)
+                        this.scene.comienzaDialogo(this.dialogs.noHaComprado)
                 }
 
                 this.actualCoolDown = 0;

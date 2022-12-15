@@ -155,7 +155,7 @@ export default class NPC extends Phaser.GameObjects.Sprite {
               //TO DO : SE COMPRA EL PERIÓDICO
               if(this.player.numeroPeriodicos()>0){
                 
-                this.scene.comienzaDialogo(this.dialogs.dialog[0].text)
+                this.scene.comienzaDialogo(this.dialogs.compra)
                 this.player.compraPeriodicos(1); 
 
                 //SE PODRÍA HACER UN RANDOM DEL NUMERO DE PERIODICOS A COMPRAR, AUNQUE LO NORMAL ES UNO
@@ -164,7 +164,7 @@ export default class NPC extends Phaser.GameObjects.Sprite {
               }
             }
             else {
-              this.scene.comienzaDialogo(this.dialogs.dialog[1].text)
+              this.scene.comienzaDialogo(this.dialogs.noCompra)
             }
             this.scene.playSound("NumKey");
             this.canBuy=false;
@@ -181,10 +181,10 @@ export default class NPC extends Phaser.GameObjects.Sprite {
           }
           else {
             if(this.bought){
-              this.scene.comienzaDialogo(this.dialogs.dialog[2].text)
+              this.scene.comienzaDialogo(this.dialogs.haComprado)
             }
             else {
-              this.scene.comienzaDialogo(this.dialogs.dialog[3].text)
+              this.scene.comienzaDialogo(this.dialogs.noHaComprado)
             }
           }
           this.actualCoolDown = 0;

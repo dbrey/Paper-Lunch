@@ -7,7 +7,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
 
-    this.body.setSize(20, 20, true);
+    this.body.setSize(36, 45,false);
 
     //Input para el movimiento
     const { LEFT, RIGHT, UP, DOWN, W, A, S, D ,SHIFT} = Phaser.Input.Keyboard.KeyCodes;
@@ -87,6 +87,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
   getInteract() {
     return this.action.DOWN;
   }
+
 
   /*
     Dependiendo del input que reciba, se movera a la direccion especificada. Si no recibe ningun input, no pasa nada
