@@ -7,7 +7,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
 
-    this.body.setSize(32, 40,false);
+    this.body.setSize(32, 50,false);
 
     //Input para el movimiento
     const { LEFT, RIGHT, UP, DOWN, W, A, S, D ,SHIFT} = Phaser.Input.Keyboard.KeyCodes;
