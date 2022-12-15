@@ -82,24 +82,24 @@ const Dialogs=[
     },
     {
         name: 'niñoflequillo',
-        compra : "Gracias por el periódico! Seguro que está muy interesante y me alegra la mañana. Muchas gracias!!",
-        noCompra : "Muchas gracias pero ahora mismo tengo prisa!",
-        haComprado : "Lo siento no necesito más periódicos, gracias!",
-        noHaComprado :  "Ya te he dicho que no me interesa"
+        compra : "Que ganas de hacer todos los pasatiempos, gracias!",
+        noCompra : "Los pasatiempos de hoy parecen muy aburridos...",
+        haComprado : "Ya tengo el de hoy, no voy a jugar dos veces a los mismos juegos",
+        noHaComprado :  "Menudo rollo, déjame en paz"
     },
     {
         name: 'Oficinista',
-        compra : "Gracias por el periódico! Seguro que está muy interesante y me alegra la mañana. Muchas gracias!!",
-        noCompra : "Muchas gracias pero ahora mismo tengo prisa!",
-        haComprado : "Lo siento no necesito más periódicos, gracias!",
-        noHaComprado :  "Ya te he dicho que no me interesa"
+        compra : "Gracias, espero que las acciones que tengo en sal hayan subido",
+        noCompra : "No necesito un periódico, ya estoy informado",
+        haComprado : "Ya me he informado de las acciones en sal, no necesito otro periódico",
+        noHaComprado :  "Por más que lo intentes no accederás a mi cartera"
     },
     {
         name: 'rubiacoletas',
-        compra : "Gracias por el periódico! Seguro que está muy interesante y me alegra la mañana. Muchas gracias!!",
-        noCompra : "Muchas gracias pero ahora mismo tengo prisa!",
-        haComprado : "Lo siento no necesito más periódicos, gracias!",
-        noHaComprado :  "Ya te he dicho que no me interesa"
+        compra : "Hoy están muy interasantes las noticias, muchas gracias",
+        noCompra : "No me interesa, gracias",
+        haComprado : "Ya tengo el periódico de hoy",
+        noHaComprado :  "No me interesa, no lo quiero, no insistas"
     },
     {
         name: 'señora1',
