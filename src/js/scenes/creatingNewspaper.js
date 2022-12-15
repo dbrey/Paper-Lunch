@@ -30,8 +30,8 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         if(!this.continueSong) { this.music.play(); }
         
 
-        if(this.isEffectsMute) { this.clickSound = this.sound.add('selPeriod', {volume: 0}, {loop: false}); }
-        else { this.clickSound = this.sound.add('selPeriod', {volume: this.effectsVolume}, {loop: false});}
+        if(this.isEffectsMute) { this.clickSound = this.sound.add('numKey', {volume: 0}, {loop: false}); }
+        else { this.clickSound = this.sound.add('numKey', {volume: this.effectsVolume}, {loop: false});}
         //----------------------------------------------------------------------------------------------------
 
         //Fondo de la escena
@@ -261,6 +261,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
     {
        if (this.titleSelected && this.numNSelected&&this.moneyLeft>=0)
        {
+        this.continueButton.inputEnabled = true;
         this.continueButton = this.add.image(1000, 600, 'continueButton').setInteractive();
                 this.continueButton.setScale(0.3);
                 this.continueButton.on('pointerover', () => {this.continueButton.setScale(0.4);})
@@ -277,10 +278,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         else
         {
             this.continueButton.setTexture('continueButtonBlocked');
-            //this.continueButton.setScale(0.3);
-            this.continueButton.on('pointerover', () => {})
-            this.continueButton.on('pointerout', () => {})
-            this.continueButton.on('pointerdown', () => {})
+            this.continueButton.inputEnabled = false;
         }
     }
 }
