@@ -1,15 +1,15 @@
-import NPC from '../characters/NPC.js';
-import Player from '../characters/player.js';
-import CT from '../libraries/constants.js';
-import UI from '../UI/hud.js';
-import Temporizador from '../temporizador/temporizador.js';
-import TP from '../TP/teleport.js'
-import kiosk from '../characters/kiosk.js';
-import ZONE from '../TP/zone.js';
+import NPC from '../../characters/NPC.js';
+import Player from '../../characters/player.js';
+import CT from '../../libraries/constants.js';
+import UI from '../../UI/hud.js';
+import Temporizador from '../../UI/temporizador.js';
+import TP from '../../objects/teleport.js'
+import kiosk from '../../objects/kiosk.js';
+import ZONE from '../../objects/zone.js';
 
 
 
-import dialogManager from '../libraries/dialogManager.js'
+import dialogManager from '../../UI/dialogManager.js'
 
 
 export default class DIA_DEFAULT extends Phaser.Scene {

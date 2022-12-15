@@ -1,4 +1,4 @@
-import CT from "./constants.js";
+import CT from "../libraries/constants.js";
 
 export default class dialogManager extends Phaser.GameObjects.Text {
 

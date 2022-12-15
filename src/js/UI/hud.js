@@ -1,4 +1,4 @@
-import TrustMeasurer from '../characters/items.js';
+import TrustMeasurer from '../objects/items.js';
 import CT from '../libraries/constants.js'
 export default class HUD extends Phaser.GameObjects.Text{
     constructor(scene, player){

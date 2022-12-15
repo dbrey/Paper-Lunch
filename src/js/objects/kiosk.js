@@ -1,5 +1,4 @@
-import CT from "../libraries/constants.js";
-import Dialogs from "./dialogs.js";
+import Dialogs from "../libraries/dialogs.js";
 
 export default class kiosk extends Phaser.GameObjects.Sprite{
     constructor(scene, x, y, player, id, zoneWidth, zoneHeight){

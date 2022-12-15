@@ -1,4 +1,4 @@
-import CT from "../libraries/constants.js";
+import CT from "../../libraries/constants.js";
 
 export default class tpMenu extends Phaser.Scene 
 {

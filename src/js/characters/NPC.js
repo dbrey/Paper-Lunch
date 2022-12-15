@@ -1,7 +1,6 @@
 
-import Paths from "./paths.js"
-import Dialogs from "./dialogs.js";
-import CT from "../libraries/constants.js";
+import Paths from "../libraries/paths.js"
+import Dialogs from "../libraries/dialogs.js";
 
 export default class NPC extends Phaser.GameObjects.Sprite {
   constructor(scene, x, y, npcName,player,zoneWidth,zoneHeight,barrioId) {

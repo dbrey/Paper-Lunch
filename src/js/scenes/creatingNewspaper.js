@@ -1,4 +1,4 @@
-import { Newspaper, Ad } from '../characters/items.js';
+import { Newspaper, Ad } from '../objects/items.js';
 import CT from '../libraries/constants.js'
 
 export default class DIA_DEFAULT extends Phaser.Scene {
