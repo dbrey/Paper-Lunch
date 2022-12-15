@@ -218,7 +218,8 @@ export default class PauseMenu extends Phaser.Scene
         this.backMain.destroy();
         this.resumeButton.destroy();
         this.optionsbutton.destroy();
-        this.menuButton.destroy()
+        this.menuButton.destroy();
+        this.leyenda.destroy();
         this.scene.resume(this.lastScene); 
     }
 
