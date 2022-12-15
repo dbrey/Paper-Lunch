@@ -32,27 +32,22 @@ export default class NPC extends Phaser.GameObjects.Sprite {
 
 
 
-
+    //Variables para el juego
     this.actionCoolDown = 120; //MILISEGUNDOS
     this.actualCoolDown = 0;
     this.canAct=true;
-
     this.bought = false;
-
     this.speed=200;
+
+    // Le restamos el umbral por que la confianza va entre umbral y -umbral
+    this.probability = (Math.random() * this.umbral*2) - this.umbral;
+    //Booleano para controlar las veces que el player puede vender periodicos a un NPC
+    this.canBuy = true;
+    this.enterZone = false;
 
     this.scene.physics.add.existing(this);
     this.scene.physics.add.collider(this,scene.player);
-
-
     this.body.setImmovable();
-
-
-    this.probability = (Math.random() * this.umbral*2) - this.umbral; // Le restamos el umbral por que la confianza va entre umbral y -umbral
-    //Booleano para controlar las veces que el player puede vender periodicos a un NPC
-    this.canBuy = true;
-
-    this.enterZone = false;
 
     this.player = player;
     this.npcName = npcName;
@@ -109,6 +104,7 @@ export default class NPC extends Phaser.GameObjects.Sprite {
     });
 
 
+    //Si se mueve inicializas las variables
     if(this.path.state == "Move"){
       this.indexPath = 0;
       this.destinoX = this.path.path[this.indexPath].x;
@@ -121,7 +117,7 @@ export default class NPC extends Phaser.GameObjects.Sprite {
 
       this.zonaTrigger.body.setVelocityX(this.dirX * this.speed);
       this.zonaTrigger.body.setVelocityY(this.dirY * this.speed);
-    }
+    } //Si no, lo colocas hacia donde está mirando
     else if(this.path.state=="NoMove"){
       this.dirX = this.path.dirX;
       this.dirY = this.path.dirY;
@@ -138,8 +134,7 @@ export default class NPC extends Phaser.GameObjects.Sprite {
     //Llamamos al super para las animaciones
     super.preUpdate(t, d);
 
-
-    //SI LA PROBABILIDAD DE QUE COMPRE ES MAYOR QUE LA CONFIANZA QUE TIENES, LE COMPRAS EL PERIÓDICO
+    //Si la probabilidad de que compre es mayor que la confianza que tienes, le compras el periódico
     if(Phaser.Geom.Intersects.RectangleToRectangle(this.zonaTrigger.getBounds(),this.player.getBounds())){
       if(!this.enterZone){
         this.enterZone = true; // Utilizamos un booleano para diferenciar entre cuando acaba de entrar a la zona
@@ -159,13 +154,12 @@ export default class NPC extends Phaser.GameObjects.Sprite {
         //Si el personaje está en la zona y pulsa la tecla de accion, podemos hacer lo que queramos
         if(this.player.action.isDown && this.canBuy){
             if(this.probability < this.player.getConfianza(this.barrio)){
-              //TO DO : SE COMPRA EL PERIÓDICO
+              //Si tiene periódicos suficientes, se compra
               if(this.player.numeroPeriodicos()>0){
                 
+                //Comienza a escribir
                 this.scene.comienzaDialogo(this.dialogs.compra)
                 this.player.compraPeriodicos(1); 
-
-                //SE PODRÍA HACER UN RANDOM DEL NUMERO DE PERIODICOS A COMPRAR, AUNQUE LO NORMAL ES UNO
                 this.scene.ui.updateNumPeriodicos(); 
                 this.bought=true;
               }
@@ -174,18 +168,22 @@ export default class NPC extends Phaser.GameObjects.Sprite {
               this.scene.comienzaDialogo(this.dialogs.noCompra)
             }
             this.scene.playSound("NumKey");
+            //Se reinicia el cooldown para evitar la continua pulsación de tecla
             this.canBuy=false;
             this.actualCoolDown = 0;
             this.canAct=false;
 
-        }
+        } //Si ya has interactuado con él anteriormente y vuelvesa interactuar
         else if(this.player.action.isDown && !this.canBuy && this.canAct){
+          //Si el diálogo ya ha finalizado, se vuelve a la normalida
           if(!this.scene.dialogManager.writting && this.scene.dialogManager.waitingPlayer){
             this.scene.finalizaDialogo();
           }
+          //Si todavía no ha terminado el diálogo, lo termina
           else if(this.scene.dialogManager.writting){
             this.scene.terminaDialogo();
           }
+          //Si acabas de interactar, comienza a escribir el diálogo en función de si te ha comprado
           else {
             if(this.bought){
               this.scene.comienzaDialogo(this.dialogs.haComprado)
@@ -199,9 +197,9 @@ export default class NPC extends Phaser.GameObjects.Sprite {
         }
       }
     }
-    else if(this.enterZone){ // SI EL PLAYER NO SE ENCUENTRA EN LA ZONA, PERO ESTABA DENTRO EN EL FRAME ANTERIOR, SIGNIFICA QUE ACABA DE SALIR
-        //AQUÍ PODEMOS HACER LO QUE QUERAMOS QUE OCRURRA CUANDO EL PERSONAJE SALE DE LA ZONA
-        console.log("Acaba de salir de la zona");
+    //Si el player no se encuentra en la zona, pero estaba dentro en el frame anterior, significa que acaba de salir
+    else if(this.enterZone){
+        //Se desactiva la ui de la tecla de interactuar
         this.player.removeInteractable();
         this.enterZone=false;
         this.talking =false;
@@ -209,7 +207,7 @@ export default class NPC extends Phaser.GameObjects.Sprite {
 
 
 
-    //COMPROBAMOS SI PODEMOS INTERACTUAR
+    //Comprobamos si puede interactuar, y si no, se suma al coolDown
     if(!this.canAct){
       if(this.actualCoolDown >= this.actionCoolDown){
         this.canAct=true;
@@ -218,8 +216,10 @@ export default class NPC extends Phaser.GameObjects.Sprite {
       else this.actualCoolDown+=d;
     }
 
+
+    //Si el Npc se mueve
     if(this.path.state == "Move"){
-      //Comprobamos si hemos llegado al destino de la ruta para cambiar de destino
+      //Comprobamos si hemos llegado al destino de la ruta para cambiar de destino,dirección,etc
       if((this.x >= this.destinoX && this.x <= this.destinoX + this.offsetX) && 
       (this.y >= this.destinoY && this.y <= this.destinoY + this.offsetY)){
         
@@ -232,6 +232,7 @@ export default class NPC extends Phaser.GameObjects.Sprite {
         this.indexPath=this.path.path[this.indexPath].index;
       }
 
+      //Si no está hablando, mueves al Npc hacia su siguiente punto
       if(!this.talking){
         this.body.setVelocityX(this.dirX * this.speed);
         this.body.setVelocityY(this.dirY * this.speed);
@@ -250,6 +251,8 @@ export default class NPC extends Phaser.GameObjects.Sprite {
 
 
 
+
+  //Actualiza las animaciones en función de la direccion y movimiento
   checkAnims() {
 
     if(this.talking || this.path.state == "NoMove"){
