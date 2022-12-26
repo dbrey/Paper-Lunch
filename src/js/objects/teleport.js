@@ -38,7 +38,7 @@ export default class TP extends Phaser.GameObjects.Sprite{
             if(this.player.action.isDown && this.canTP){ //Si se puede hacer tp el jugador
                 this.canTP = false;     
                 this.player.stopX(); this.player.stopY(); //Se para al jugador
-                this.scene.scene.launch("tpMenu", { TP: this, sceneName: 'PrimerDia'}); //Se lanza la escena del tp
+                this.scene.scene.launch("tpMenu", { TP: this, sceneName: this.scene}); //Se lanza la escena del tp
                 this.scene.scene.pause(); //Se pausa la escena actual
             }
         }
