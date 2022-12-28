@@ -1,5 +1,6 @@
 import TrustMeasurer from '../objects/items.js';
 import CT from '../libraries/constants.js'
+import Tweener from '../libraries/tween.js';
 export default class HUD extends Phaser.GameObjects.Text{
     constructor(scene, player){
         super(scene);
@@ -7,6 +8,8 @@ export default class HUD extends Phaser.GameObjects.Text{
 
         //Referencia a mi jugador
         this.myPlayer = player;
+
+        
 
         //Imagenes
         this.activeBarra =scene.add.sprite(CT.gameWidth - 350 , CT.gameHeight - 370, 'BarraRoja').setScrollFactor(0);
@@ -43,6 +46,10 @@ export default class HUD extends Phaser.GameObjects.Text{
 
     }
 
+    create(){
+        this.energyBar= new Tweener(scene,CT.gameWidth - 350 , CT.gameHeight - 370,300).setScrollFactor(0);
+    }
+
     //Metodos para mostrar actualizar los valores correspondientes
     updateNumPeriodicos()
     {
@@ -70,6 +77,7 @@ export default class HUD extends Phaser.GameObjects.Text{
 
     showInteractive(){
         this.eKey=this.scene.add.image((CT.gameWidth/2)+20,(CT.gameHeight/2)+20, "eButton").setScrollFactor(0);
+        
         this.eKey.setScale(0.02);
     }
 

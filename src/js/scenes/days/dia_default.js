@@ -6,6 +6,7 @@ import Temporizador from '../../UI/temporizador.js';
 import TP from '../../objects/teleport.js'
 import kiosk from '../../objects/kiosk.js';
 import ZONE from '../../objects/zone.js';
+import Tweener from '../../libraries/tween.js';
 
 
 
@@ -68,6 +69,7 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.mapCollisions.visible = false;
         //HUD
         this.ui = new UI(this, this.player);  
+        this.energyBar= new Tweener(this,CT.gameWidth - 350 , CT.gameHeight - 370,300).setScrollFactor(0);
                
         let mapObjects = this.map.getObjectLayer(this.objectLayerName).objects;
 
