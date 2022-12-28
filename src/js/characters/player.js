@@ -1,4 +1,3 @@
-
 export default class Player extends Phaser.GameObjects.Sprite {
   constructor(scene, x, y, _numN, _money, _myTrust, _moneyPP) {
     super(scene, x, y);
@@ -260,6 +259,11 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
     //Y realizas la animacion
       this.checkAnims();
+
+      if(this.body.newVelocity.x > 1.5 || this.body.newVelocity.y > 1.5)
+      {
+        console.log(1);
+      }
   }
 
 

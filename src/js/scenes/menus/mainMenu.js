@@ -1,3 +1,4 @@
+import Tweener from "../../libraries/tween.js"
 export default class mainMenu extends Phaser.Scene 
 {
     constructor() {
@@ -69,7 +70,7 @@ export default class mainMenu extends Phaser.Scene
         // Al hacer click en el boton
         this.optionsbutton.on("pointerdown",() => {this.scene.launch("options",{_scene: this, sceneName: "menu"});
     });
-
+        this.energyBar = new Tweener(this, 500, 300,300);
     }
 
     

@@ -51,9 +51,14 @@ export default class Boot extends Phaser.Scene {
 
 
 
-
     this.load.image('dialogBar', 'assets/sprites/UI/dialogBar.png');
-
+    this.load.image('left-cap', 'assets/sprites/UI/barHorizontal_green_left.png')
+    this.load.image('middle', 'assets/sprites/UI/barHorizontal_green_mid.png')
+    this.load.image('right-cap', 'assets/sprites/UI/barHorizontal_green_right.png')
+  
+    this.load.image('left-cap-shadow', 'assets/sprites/UI/barHorizontal_shadow_left.png')
+    this.load.image('middle-shadow', 'assets/sprites/UI/barHorizontal_shadow_mid.png')
+    this.load.image('right-cap-shadow', 'assets/sprites/UI/barHorizontal_shadow_right.png')
 
     //TP
     this.load.image('metroMap','assets/sprites/minimap.png');
