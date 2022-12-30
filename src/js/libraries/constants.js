@@ -6,6 +6,9 @@ const CT =
   numNewspapers: 4,
   numAds: 4,
   cameraZoom: 2 ,
+
+  mapWidth: 6700,
+  mapHeight:5006,
   
 
   tp1x:710 ,

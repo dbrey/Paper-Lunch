@@ -1,6 +1,8 @@
+import CT from '../../libraries/constants.js'
+
 export default class PauseMenu extends Phaser.Scene 
 {
-    constructor(sceneName) {
+    constructor(sceneName, player) {
         super({key: 'pauseMenu'});
     
     }
@@ -9,6 +11,7 @@ export default class PauseMenu extends Phaser.Scene
     {
       this.dayGame = data._scene;
       this.lastScene = data.sceneName;
+      this.playerInfo= data.player;
     }
 
     create()
@@ -21,8 +24,11 @@ export default class PauseMenu extends Phaser.Scene
       this.backMain = this.add.sprite(400,400, 'backgroundOptionsPause');
       this.backMain.setScale(3.5,7);
 
-      this.miniMapa = this.add.image(950, 300, 'miniMap');
-      this.miniMapa.setScale(0.5);
+      this.miniMapa = this.add.image(945, 312, 'miniMap');
+      this.miniMapa.setScale(0.52);
+
+      this.locator =this.add.image(950,300,'point').setScale(0.1);
+      this.setPointInMap();
 
       this.leyenda = this.add.image(950, 650, 'leyenda');
       this.leyenda.setScale(0.5);
@@ -211,10 +217,17 @@ export default class PauseMenu extends Phaser.Scene
     
 }
 
+
+    setPointInMap(){
+        this.locator.x=((this.playerInfo.body.x/CT.mapWidth)*(this.miniMapa.width*0.5)+650);
+        this.locator.y=((this.playerInfo.body.y/CT.mapHeight)*(this.miniMapa.height*0.5))
+    }
+
     resume()
     {
         this.backgroundPaper.destroy();
         this.miniMapa.destroy();
+        this.locator.destroy();
         this.backMain.destroy();
         this.resumeButton.destroy();
         this.optionsbutton.destroy();

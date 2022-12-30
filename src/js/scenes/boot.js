@@ -45,6 +45,7 @@ export default class Boot extends Phaser.Scene {
     
     this.load.image('miniMap', 'assets/sprites/UI/Mapa.png');
     this.load.image('leyenda', 'assets/sprites/UI/Leyend.png');
+    this.load.image('point', 'assets/sprites/UI/Point.png');
 
     this.load.image('bus', 'assets/sprites/UI/bus.png');
     this.load.image('kiosko', 'assets/sprites/UI/kiosko.png');
