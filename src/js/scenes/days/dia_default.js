@@ -67,13 +67,10 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.mapCollisions.setCollisionBetween(0, 10000, true, false);
         this.physics.add.collider(this.player, this.mapCollisions);
         this.mapCollisions.visible = false;
-        //HUD
-        this.ui = new UI(this, this.player);  
-        this.energyBar= new Tweener(this,CT.gameWidth - 350 , CT.gameHeight - 370,300).setScrollFactor(0);
                
         let mapObjects = this.map.getObjectLayer(this.objectLayerName).objects;
 
-
+        let t = 0, k = 0;
         for (const objeto of mapObjects) {
             const props = {};
             if (objeto.properties) { for (const { name, value } of objeto.properties) { props[name] = value; } }
@@ -83,22 +80,33 @@ export default class DIA_DEFAULT extends Phaser.Scene {
 
             switch (objeto.name) {
                 case 'KIO':
-                    this[props.nombre] = new kiosk(this, objeto.x, objeto.y, this.player, props.id, objeto.width, objeto.height)
+                    this['kiosko ' + k] = new kiosk(this, objeto.x, objeto.y, this.player, props.id, objeto.width, objeto.height);
+                    k++;
                 break;
                 case 'NPC': //NPC
                 this[props.nombre] = new NPC(this,objeto.x,objeto.y,props.nombre,this.player,35,35,props.barrioId)
                     break;
                 case 'TP':
-                    this[props.nombre] = new TP(this, objeto.x, objeto.y, props.id, this.player, objeto.width, objeto.height)
-                    
+                    this['tp ' + t] = new TP(this, objeto.x, objeto.y, props.id, this.player, objeto.width, objeto.height);
+                    t++;
                 break;
-                case 'ZONE':
-                    this[props.nombre] = new ZONE(this, objeto.x, objeto.y, props.id, this.player, this.ui , objeto.width, objeto.height);
-                    break; 
             }
         }
 
-        
+        //HUD
+        this.ui = new UI(this, this.player);
+        this.energyBar= new Tweener(this,CT.gameWidth - 350 , CT.gameHeight - 370,300).setScrollFactor(0);
+
+        let z = 0;
+        for (const objeto of mapObjects){
+            const props = {};
+            if (objeto.properties) { for (const { name, value } of objeto.properties) { props[name] = value; } }
+
+            if (objeto.name === 'ZONE'){
+                this['zone ' + z] = new ZONE(this, objeto.x, objeto.y, props.id, this.player, this.ui , objeto.width, objeto.height);
+                z++;
+            }
+        }        
 
         //Cámara que sigue al jugador
         this.cameras.main.startFollow(this.player);

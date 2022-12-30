@@ -17,6 +17,11 @@ export default class DIA_DEFAULT extends Phaser.Scene {
         this.isMainMute = data._isMainMute;     // Booleano si esta la musica muteada
         this.isEffectsMute = data._isEffectsMute; // Booleano si estan los efectos muteados 
         this.continueSong = data._continueSong; // Booleano para ver si es la primera vez que se debe tocar la cancion
+
+        if (data._money <= 0){
+            this.scene.start('win_lose', {_win: false, _mainVolume: this.mainVolume, _effectsVolume: this.effectsVolume, 
+                _isMainMute: this.isMainMute, _isEffectsMute: this.isEffectsMute});            
+        }
     }
 
     //Creamos lo necesario para la escena
